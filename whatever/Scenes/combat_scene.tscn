@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7ondrblaspck"]
+
+[ext_resource type="Script" path="res://Scipts/combat_manager.gd" id="1_1ge3h"]
+[ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="1_hiokq"]
+[ext_resource type="Resource" uid="uid://uilbc760sao7" path="res://Minion Resource/large_rat.tres" id="2_j63k1"]
+[ext_resource type="Resource" uid="uid://bbb5ipiug4cit" path="res://Minion Resource/little_rat.tres" id="3_c75wu"]
+[ext_resource type="Resource" uid="uid://dtpyy4wn8t78t" path="res://Minion Resource/skeleton_shield.tres" id="3_tnvgj"]
+[ext_resource type="Resource" uid="uid://du5degasdr5q1" path="res://Minion Resource/goblin_thief.tres" id="4_h40dm"]
+[ext_resource type="Resource" uid="uid://dwpu2h2bdmhji" path="res://Minion Resource/goblin_warrior.tres" id="5_u3gv4"]
+
+[node name="Combat_Scene" type="Node2D"]
+script = ExtResource("1_1ge3h")
+
+[node name="Control" parent="." instance=ExtResource("1_hiokq")]
+offset_left = 72.0
+offset_top = 67.0
+offset_right = 72.0
+offset_bottom = 67.0
+card_data = ExtResource("3_c75wu")
+
+[node name="Control2" parent="." instance=ExtResource("1_hiokq")]
+offset_left = 263.0
+offset_top = 66.0
+offset_right = 263.0
+offset_bottom = 66.0
+
+[node name="Control3" parent="." instance=ExtResource("1_hiokq")]
+offset_left = 433.0
+offset_top = 64.0
+offset_right = 433.0
+offset_bottom = 64.0
+card_data = ExtResource("4_h40dm")
+
+[node name="Control4" parent="." instance=ExtResource("1_hiokq")]
+offset_left = 596.0
+offset_top = 62.0
+offset_right = 596.0
+offset_bottom = 62.0
+card_data = ExtResource("5_u3gv4")
+
+[node name="Control5" parent="." instance=ExtResource("1_hiokq")]
+offset_left = 53.0
+offset_top = 306.0
+offset_right = 53.0
+offset_bottom = 306.0
+card_data = ExtResource("3_tnvgj")
+
+[node name="Control6" parent="." instance=ExtResource("1_hiokq")]
+offset_left = 256.0
+offset_top = 313.0
+offset_right = 256.0
+offset_bottom = 313.0
+
+[node name="Control7" parent="." instance=ExtResource("1_hiokq")]
+offset_left = 429.0
+offset_top = 318.0
+offset_right = 429.0
+offset_bottom = 318.0
+card_data = ExtResource("2_j63k1")
+
+[node name="Control8" parent="." instance=ExtResource("1_hiokq")]
+offset_left = 602.0
+offset_top = 312.0
+offset_right = 602.0
+offset_bottom = 312.0
+card_data = ExtResource("3_c75wu")

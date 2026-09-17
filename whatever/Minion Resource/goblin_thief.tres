@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://du5degasdr5q1"]
+
+[ext_resource type="Texture2D" uid="uid://5gno616i51d0" path="res://icon.svg" id="1_3dqmy"]
+[ext_resource type="Script" path="res://Scipts/Card_Data.gd" id="2_bv28k"]
+
+[resource]
+script = ExtResource("2_bv28k")
+name = "Coward Goblin "
+cost = 2
+attack = 2
+health = 3
+image = ExtResource("1_3dqmy")
+description = ""
