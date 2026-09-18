@@ -10,7 +10,7 @@ extends Control
 
 var current_health: int
 var current_attack: int
-var team: String = ""
+var team: String = "" #Enemy or Player
 
 func _ready() -> void:
 	set_card_data(card_data)
@@ -41,7 +41,8 @@ func set_card_data(new_data: Resource) -> void:
 		
 func take_damage(amount: int) -> void:
 	current_health -= amount
-	health_label.text = str(current_health)
+	if health_label:
+		health_label.text = str(current_health)
 	if current_health <= 0:
 		die()
 
