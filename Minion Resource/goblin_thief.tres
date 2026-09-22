@@ -10,4 +10,4 @@ cost = 2
 attack = 2
 health = 3
 image = ExtResource("1_3dqmy")
-description = ""
+description = "Gain +1 attack before attacking. Gain +1 currency after combat."

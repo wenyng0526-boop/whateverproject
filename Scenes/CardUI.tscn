@@ -5,14 +5,14 @@
 [ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="3_qojfg"]
 [ext_resource type="Texture2D" uid="uid://5gno616i51d0" path="res://icon.svg" id="4_nqnna"]
 
-[node name="CardUI" type="Control" node_paths=PackedStringArray("name_label", "attack_label", "health_label", "cost_label", "picture")]
+[node name="CardUI" type="Control" node_paths=PackedStringArray("name_label", "attack_label", "health_label", "cost_label", "picture", "desc_name_label", "description_label")]
 custom_minimum_size = Vector2(180, 250)
 layout_mode = 3
 anchors_preset = 0
-offset_left = 5.0
-offset_top = -3.0
-offset_right = 185.0
-offset_bottom = 247.0
+offset_left = 378.0
+offset_top = 198.0
+offset_right = 558.0
+offset_bottom = 448.0
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_ywfkn")
 card_data = ExtResource("2_puuy4")
@@ -21,6 +21,8 @@ attack_label = NodePath("Attack_Label")
 health_label = NodePath("Health_Label")
 cost_label = NodePath("Cost_Label")
 picture = NodePath("Picture")
+desc_name_label = NodePath("CardDescription/Name_Label2")
+description_label = NodePath("CardDescription/Description_Label")
 
 [node name="Name_Label" type="Label" parent="."]
 layout_mode = 1
@@ -90,3 +92,67 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_nqnna")
+
+[node name="CardDescription" type="Control" parent="."]
+visible = false
+z_index = 10
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 205.0
+offset_top = -128.333
+offset_right = 325.0
+offset_bottom = 271.667
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Picture2" type="TextureRect" parent="CardDescription"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 5.0
+offset_right = 64.0
+offset_bottom = 133.0
+grow_horizontal = 2
+texture = ExtResource("4_nqnna")
+
+[node name="Name_Label2" type="Label" parent="CardDescription"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -31.6667
+offset_right = 74.0
+offset_bottom = -15.6667
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_qojfg")
+text = "Minion Name"
+
+[node name="Description_Label" type="Label" parent="CardDescription"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = 16.6667
+offset_right = 143.0
+offset_bottom = 39.6667
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_qojfg")
+text = "This is a description"
+autowrap_mode = 3
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

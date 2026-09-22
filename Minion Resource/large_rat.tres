@@ -10,4 +10,4 @@ cost = 2
 attack = 4
 health = 4
 image = ExtResource("1_0r4po")
-description = ""
+description = "Summon a 1/1 rat when killed."
