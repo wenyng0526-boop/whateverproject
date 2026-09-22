@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://v8ivyevagaw0"]
+
+[ext_resource type="Script" path="res://Scipts/card.gd" id="1_ywfkn"]
+[ext_resource type="Resource" uid="uid://du5degasdr5q1" path="res://Minion Resource/goblin_thief.tres" id="2_puuy4"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="3_qojfg"]
+[ext_resource type="Texture2D" uid="uid://5gno616i51d0" path="res://icon.svg" id="4_nqnna"]
+
+[node name="CardUI" type="Control" node_paths=PackedStringArray("name_label", "attack_label", "health_label", "cost_label", "picture")]
+custom_minimum_size = Vector2(180, 250)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 5.0
+offset_top = -3.0
+offset_right = 185.0
+offset_bottom = 247.0
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_ywfkn")
+card_data = ExtResource("2_puuy4")
+name_label = NodePath("Name_Label")
+attack_label = NodePath("Attack_Label")
+health_label = NodePath("Health_Label")
+cost_label = NodePath("Cost_Label")
+picture = NodePath("Picture")
+
+[node name="Name_Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -50.0
+offset_right = 74.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_qojfg")
+text = "Minion Name"
+
+[node name="Attack_Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_right = 28.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_qojfg")
+text = "10
+"
+
+[node name="Health_Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_top = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_qojfg")
+text = "10
+"
+
+[node name="Cost_Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -14.0
+offset_bottom = 16.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("3_qojfg")
+text = "3"
+
+[node name="Picture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_nqnna")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="shop_card" load_steps=8 format=3 uid="uid://b05y0n3q37vtn"]
+
+[ext_resource type="Script" path="res://Scipts/shop_card_database.gd" id="1_ptnot"]
+[ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_6wc11"]
+[ext_resource type="Resource" uid="uid://du5degasdr5q1" path="res://Minion Resource/goblin_thief.tres" id="3_u2hhj"]
+[ext_resource type="Resource" uid="uid://dwpu2h2bdmhji" path="res://Minion Resource/goblin_warrior.tres" id="4_ff536"]
+[ext_resource type="Resource" uid="uid://uilbc760sao7" path="res://Minion Resource/large_rat.tres" id="5_4nkyn"]
+[ext_resource type="Resource" uid="uid://ck25kwqigneuy" path="res://Minion Resource/skeleton_archer.tres" id="6_mjmtm"]
+[ext_resource type="Resource" uid="uid://dtpyy4wn8t78t" path="res://Minion Resource/skeleton_shield.tres" id="7_nr54i"]
+
+[resource]
+script = ExtResource("1_ptnot")
+shop_cards_one = Array[ExtResource("2_6wc11")]([ExtResource("3_u2hhj"), ExtResource("4_ff536"), ExtResource("5_4nkyn"), ExtResource("6_mjmtm"), ExtResource("7_nr54i")])

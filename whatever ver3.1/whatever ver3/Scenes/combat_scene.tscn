@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7ondrblaspck"]
+
+[ext_resource type="Script" path="res://Scipts/combat_manager.gd" id="1_1ge3h"]
+[ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="1_hiokq"]
+[ext_resource type="Resource" uid="uid://uilbc760sao7" path="res://Minion Resource/large_rat.tres" id="2_j63k1"]
+[ext_resource type="Resource" uid="uid://bbb5ipiug4cit" path="res://Minion Resource/little_rat.tres" id="3_c75wu"]
+[ext_resource type="Resource" uid="uid://dtpyy4wn8t78t" path="res://Minion Resource/skeleton_shield.tres" id="3_tnvgj"]
+[ext_resource type="Resource" uid="uid://dwpu2h2bdmhji" path="res://Minion Resource/goblin_warrior.tres" id="5_u3gv4"]
+
+[node name="Combat_Scene" type="Node2D" node_paths=PackedStringArray("player_container", "enemy_container")]
+script = ExtResource("1_1ge3h")
+player_container = NodePath("PlayerCenter/PlayerContainer")
+enemy_container = NodePath("EnemyCenter/EnemyContainer")
+card_ui = ExtResource("1_hiokq")
+
+[node name="EnemyCenter" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(1152, 300)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 73.0
+offset_top = 36.0
+offset_right = 1225.0
+offset_bottom = 336.0
+grow_horizontal = 2
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="EnemyContainer" type="HBoxContainer" parent="EnemyCenter"]
+layout_mode = 2
+
+[node name="Enemy1" parent="EnemyCenter/EnemyContainer" instance=ExtResource("1_hiokq")]
+layout_mode = 2
+card_data = ExtResource("2_j63k1")
+
+[node name="Enemy2" parent="EnemyCenter/EnemyContainer" instance=ExtResource("1_hiokq")]
+layout_mode = 2
+
+[node name="Enemy3" parent="EnemyCenter/EnemyContainer" instance=ExtResource("1_hiokq")]
+layout_mode = 2
+
+[node name="Enemy4" parent="EnemyCenter/EnemyContainer" instance=ExtResource("1_hiokq")]
+layout_mode = 2
+card_data = ExtResource("5_u3gv4")
+
+[node name="PlayerCenter" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(1152, 300)
+offset_left = 73.0
+offset_top = 364.0
+offset_right = 1225.0
+offset_bottom = 664.0
+scale = Vector2(0.8, 0.8)
+
+[node name="PlayerContainer" type="HBoxContainer" parent="PlayerCenter"]
+layout_mode = 2
+
+[node name="Player1" parent="PlayerCenter/PlayerContainer" instance=ExtResource("1_hiokq")]
+layout_mode = 2
+card_data = ExtResource("3_tnvgj")
+
+[node name="Player2" parent="PlayerCenter/PlayerContainer" instance=ExtResource("1_hiokq")]
+layout_mode = 2
+
+[node name="Player3" parent="PlayerCenter/PlayerContainer" instance=ExtResource("1_hiokq")]
+layout_mode = 2
+card_data = ExtResource("2_j63k1")
+
+[node name="Player4" parent="PlayerCenter/PlayerContainer" instance=ExtResource("1_hiokq")]
+layout_mode = 2
+card_data = ExtResource("3_c75wu")
