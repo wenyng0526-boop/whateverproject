@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://cq0kmmrv0v2ct"]
+
+[ext_resource type="Texture2D" uid="uid://d3esp7w8pcu6" path="res://Assets/card placeholders/Cost 2 card.png" id="1_7c5ny"]
+[ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_5c1my"]
+
+[resource]
+script = ExtResource("2_5c1my")
+name = "Greed Gobbler"
+cost = 3
+attack = 1
+health = 4
+image = ExtResource("1_7c5ny")
+description = "Gain +1 attack for every currency you have."
+minon_type = 0

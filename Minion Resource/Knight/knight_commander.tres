@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://bp81elouu50na"]
+
+[ext_resource type="Texture2D" uid="uid://bfvpklkhjegqn" path="res://Assets/card placeholders/Cost 3 card.png" id="1_7rsqy"]
+[ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_gn0g1"]
+
+[resource]
+script = ExtResource("2_gn0g1")
+name = "Knight Commander"
+cost = 4
+attack = 4
+health = 4
+image = ExtResource("1_7rsqy")
+description = "Permanently gain +2 attack after taking damage."
+minon_type = 3

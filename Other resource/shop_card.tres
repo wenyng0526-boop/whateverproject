@@ -1,13 +1,16 @@
-[gd_resource type="Resource" script_class="shop_card" load_steps=8 format=3 uid="uid://b05y0n3q37vtn"]
+[gd_resource type="Resource" script_class="shop_card" load_steps=11 format=3 uid="uid://b05y0n3q37vtn"]
 
 [ext_resource type="Script" path="res://Scipts/shop_card_database.gd" id="1_ptnot"]
 [ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_6wc11"]
-[ext_resource type="Resource" uid="uid://du5degasdr5q1" path="res://Minion Resource/goblin_thief.tres" id="3_u2hhj"]
-[ext_resource type="Resource" uid="uid://dwpu2h2bdmhji" path="res://Minion Resource/goblin_warrior.tres" id="4_ff536"]
-[ext_resource type="Resource" uid="uid://uilbc760sao7" path="res://Minion Resource/large_rat.tres" id="5_4nkyn"]
-[ext_resource type="Resource" uid="uid://ck25kwqigneuy" path="res://Minion Resource/skeleton_archer.tres" id="6_mjmtm"]
-[ext_resource type="Resource" uid="uid://dtpyy4wn8t78t" path="res://Minion Resource/skeleton_shield.tres" id="7_nr54i"]
+[ext_resource type="Resource" uid="uid://du5degasdr5q1" path="res://Minion Resource/Goblin/goblin_thief.tres" id="3_u2hhj"]
+[ext_resource type="Resource" uid="uid://dwpu2h2bdmhji" path="res://Minion Resource/Goblin/shady_banker.tres" id="4_ff536"]
+[ext_resource type="Resource" uid="uid://23w3x68p88ih" path="res://Minion Resource/Knight/aspiring_squire.tres" id="5_lqm4x"]
+[ext_resource type="Resource" uid="uid://bn8rixgot0bjo" path="res://Minion Resource/Knight/horn_blower.tres" id="6_w0moq"]
+[ext_resource type="Resource" uid="uid://ejg1x04q42m5" path="res://Minion Resource/Rat/disease_spreader.tres" id="7_ktg88"]
+[ext_resource type="Resource" uid="uid://dfmn33hu2kreo" path="res://Minion Resource/Rat/stink_rat.tres" id="8_0yyum"]
+[ext_resource type="Resource" uid="uid://dl782p14xhls0" path="res://Minion Resource/Skeleton/lump_of_bones.tres" id="9_i8qa5"]
+[ext_resource type="Resource" uid="uid://ck25kwqigneuy" path="res://Minion Resource/Skeleton/skeleton_archer.tres" id="10_vih8c"]
 
 [resource]
 script = ExtResource("1_ptnot")
-shop_cards_one = Array[ExtResource("2_6wc11")]([ExtResource("3_u2hhj"), ExtResource("4_ff536"), ExtResource("5_4nkyn"), ExtResource("6_mjmtm"), ExtResource("7_nr54i")])
+shop_cards_one = Array[ExtResource("2_6wc11")]([ExtResource("3_u2hhj"), ExtResource("4_ff536"), ExtResource("5_lqm4x"), ExtResource("6_w0moq"), ExtResource("7_ktg88"), ExtResource("8_0yyum"), ExtResource("9_i8qa5"), ExtResource("10_vih8c")])

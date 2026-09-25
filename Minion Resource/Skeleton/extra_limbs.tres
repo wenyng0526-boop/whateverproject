@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://bvf130wywxg2u"]
+
+[ext_resource type="Texture2D" uid="uid://d3esp7w8pcu6" path="res://Assets/card placeholders/Cost 2 card.png" id="1_4m023"]
+[ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_1mhah"]
+
+[resource]
+script = ExtResource("2_1mhah")
+name = "Extra Limbs"
+cost = 3
+attack = 3
+health = 3
+image = ExtResource("1_4m023")
+description = "Summon a 1/1 arm upon death. Once per battle, revive with 1 health."
+minon_type = 2

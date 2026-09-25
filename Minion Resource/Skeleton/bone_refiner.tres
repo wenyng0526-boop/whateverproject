@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://dtpyy4wn8t78t"]
+
+[ext_resource type="Texture2D" uid="uid://d3esp7w8pcu6" path="res://Assets/card placeholders/Cost 2 card.png" id="1_5ux4j"]
+[ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_fsctn"]
+
+[resource]
+script = ExtResource("2_fsctn")
+name = "Bone Refiner"
+cost = 3
+attack = 2
+health = 3
+image = ExtResource("1_5ux4j")
+description = "When an ally skeleton is revived. give the skeleton +1/+3."
+minon_type = 2

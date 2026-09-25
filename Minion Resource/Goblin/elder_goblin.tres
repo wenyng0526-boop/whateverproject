@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://c5v3wf8oo4mcd"]
+
+[ext_resource type="Texture2D" uid="uid://bfvpklkhjegqn" path="res://Assets/card placeholders/Cost 3 card.png" id="1_v38gy"]
+[ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_yusqw"]
+
+[resource]
+script = ExtResource("2_yusqw")
+name = "Elder Goblin"
+cost = 4
+attack = 3
+health = 6
+image = ExtResource("1_v38gy")
+description = "When another goblin gains attack, give every goblin in your board +1/+1."
+minon_type = 0

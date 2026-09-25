@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://ck25kwqigneuy"]
+
+[ext_resource type="Texture2D" uid="uid://yyckgl138lyv" path="res://Assets/card placeholders/Cost 1 card.png" id="1_o23la"]
+[ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_2350r"]
+
+[resource]
+script = ExtResource("2_2350r")
+name = "Skeleton Archer"
+cost = 2
+attack = 3
+health = 1
+image = ExtResource("1_o23la")
+description = "50% chance of gaining +2 attack before attacking."
+minon_type = 2

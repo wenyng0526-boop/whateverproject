@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://bn8rixgot0bjo"]
+
+[ext_resource type="Texture2D" uid="uid://yyckgl138lyv" path="res://Assets/card placeholders/Cost 1 card.png" id="1_plv0v"]
+[ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_qf360"]
+
+[resource]
+script = ExtResource("2_qf360")
+name = "Horn Blower"
+cost = 2
+attack = 3
+health = 1
+image = ExtResource("1_plv0v")
+description = "Give +1/+1 to every knight in your board before attacking."
+minon_type = 3

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://dr8livklpk6kw"]
+
+[ext_resource type="Texture2D" uid="uid://yyckgl138lyv" path="res://Assets/card placeholders/Cost 1 card.png" id="1_8oj1p"]
+[ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_12q8j"]
+
+[resource]
+script = ExtResource("2_12q8j")
+name = "Arm"
+cost = 1
+attack = 1
+health = 1
+image = ExtResource("1_8oj1p")
+description = "An arm, not a leg."
+minon_type = 2

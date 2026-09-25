@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://6neusp3kng7n"]
+
+[ext_resource type="Texture2D" uid="uid://d3esp7w8pcu6" path="res://Assets/card placeholders/Cost 2 card.png" id="1_enm3t"]
+[ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_gqyvj"]
+
+[resource]
+script = ExtResource("2_gqyvj")
+name = "Armoursmith"
+cost = 3
+attack = 1
+health = 3
+image = ExtResource("1_enm3t")
+description = "Give +3 health to every knight when played."
+minon_type = 3

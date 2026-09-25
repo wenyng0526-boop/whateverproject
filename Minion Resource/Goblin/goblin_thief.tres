@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://du5degasdr5q1"]
+
+[ext_resource type="Texture2D" uid="uid://yyckgl138lyv" path="res://Assets/card placeholders/Cost 1 card.png" id="1_a8hsm"]
+[ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_l7cm2"]
+
+[resource]
+script = ExtResource("2_l7cm2")
+name = "Goblin Thief"
+cost = 2
+attack = 3
+health = 2
+image = ExtResource("1_a8hsm")
+description = "When this minion kills an enemy, you get +1 currency."
+minon_type = 0

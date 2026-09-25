@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://dyj8ymm5747c5"]
+
+[ext_resource type="Texture2D" uid="uid://d3esp7w8pcu6" path="res://Assets/card placeholders/Cost 2 card.png" id="1_dld7s"]
+[ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_v83pg"]
+
+[resource]
+script = ExtResource("2_v83pg")
+name = "Inspired Goblin"
+cost = 3
+attack = 2
+health = 2
+image = ExtResource("1_dld7s")
+description = "When an ally goblin gains attack, this minion gains +2 attack."
+minon_type = 0

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://ejg1x04q42m5"]
+
+[ext_resource type="Texture2D" uid="uid://yyckgl138lyv" path="res://Assets/card placeholders/Cost 1 card.png" id="1_jelkx"]
+[ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_a8p1t"]
+
+[resource]
+script = ExtResource("2_a8p1t")
+name = "Disease Spreader"
+cost = 2
+attack = 3
+health = 1
+image = ExtResource("1_jelkx")
+description = "Deal 2 damage to the enemy upon death."
+minon_type = 1

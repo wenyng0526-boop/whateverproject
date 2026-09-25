@@ -67,7 +67,7 @@ func _gui_input(event: InputEvent) -> void:
 		clicked.emit(self)
 		
 func _on_mouse_entered() -> void:
-	var timer = get_tree().create_timer(1.5)
+	var timer = get_tree().create_timer(1.0)
 	is_hovered = true
 	await timer.timeout
 	if is_hovered == true:

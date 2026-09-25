@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://dojwwo3070368"]
+
+[ext_resource type="Texture2D" uid="uid://d3esp7w8pcu6" path="res://Assets/card placeholders/Cost 2 card.png" id="1_1f1im"]
+[ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_j885b"]
+
+[resource]
+script = ExtResource("2_j885b")
+name = "Knight Protector"
+cost = 3
+attack = 1
+health = 6
+image = ExtResource("1_1f1im")
+description = "Permanently gain +2 attack after taking damage."
+minon_type = 3

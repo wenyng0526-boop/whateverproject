@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://v8ivyevagaw0"]
 
 [ext_resource type="Script" path="res://Scipts/card.gd" id="1_ywfkn"]
-[ext_resource type="Resource" uid="uid://du5degasdr5q1" path="res://Minion Resource/goblin_thief.tres" id="2_puuy4"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="3_qojfg"]
-[ext_resource type="Texture2D" uid="uid://5gno616i51d0" path="res://icon.svg" id="4_nqnna"]
+[ext_resource type="Resource" uid="uid://du5degasdr5q1" path="res://Minion Resource/Goblin/goblin_thief.tres" id="2_puuy4"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="3_qojfg"]
+[ext_resource type="Texture2D" uid="uid://yyckgl138lyv" path="res://Assets/card placeholders/Cost 1 card.png" id="4_5yg2h"]
 
 [node name="CardUI" type="Control" node_paths=PackedStringArray("name_label", "attack_label", "health_label", "cost_label", "picture", "desc_name_label", "description_label")]
 custom_minimum_size = Vector2(180, 250)
@@ -13,7 +13,6 @@ offset_left = 378.0
 offset_top = 198.0
 offset_right = 558.0
 offset_bottom = 448.0
-scale = Vector2(0.6, 0.6)
 script = ExtResource("1_ywfkn")
 card_data = ExtResource("2_puuy4")
 name_label = NodePath("Name_Label")
@@ -31,12 +30,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -74.0
-offset_top = -50.0
-offset_right = 74.0
-offset_bottom = -34.0
+offset_left = -71.6667
+offset_top = -55.0
+offset_right = 76.3333
+offset_bottom = -39.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_qojfg")
 text = "Minion Name"
 
@@ -45,9 +45,11 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -16.0
+offset_top = 20.0
 offset_right = 28.0
+offset_bottom = 36.0
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_qojfg")
 text = "10
 "
@@ -60,14 +62,17 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -28.0
-offset_top = -16.0
+offset_top = 23.3333
+offset_bottom = 39.3333
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_qojfg")
 text = "10
 "
 
 [node name="Cost_Label" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -79,6 +84,7 @@ theme_override_fonts/font = ExtResource("3_qojfg")
 text = "3"
 
 [node name="Picture" type="TextureRect" parent="."]
+z_index = -10
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -91,7 +97,7 @@ offset_right = 64.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_nqnna")
+texture = ExtResource("4_5yg2h")
 
 [node name="CardDescription" type="Control" parent="."]
 visible = false
@@ -113,12 +119,12 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -64.0
-offset_top = 5.0
-offset_right = 64.0
-offset_bottom = 133.0
+offset_left = -105.0
+offset_top = -60.0003
+offset_right = 151.0
+offset_bottom = 324.0
 grow_horizontal = 2
-texture = ExtResource("4_nqnna")
+texture = ExtResource("4_5yg2h")
 
 [node name="Name_Label2" type="Label" parent="CardDescription"]
 layout_mode = 1
@@ -127,12 +133,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -74.0
-offset_top = -31.6667
-offset_right = 74.0
-offset_bottom = -15.6667
+offset_left = -50.0
+offset_top = -1.66701
+offset_right = 98.0
+offset_bottom = 14.333
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_qojfg")
 text = "Minion Name"
 
@@ -144,12 +151,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -115.0
-offset_top = 16.6667
-offset_right = 143.0
-offset_bottom = 39.6667
+offset_left = -80.0
+offset_top = 36.6663
+offset_right = 178.0
+offset_bottom = 59.6663
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_qojfg")
 text = "This is a description"
 autowrap_mode = 3

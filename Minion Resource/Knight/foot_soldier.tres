@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://c4lnlj38wuvu6"]
+
+[ext_resource type="Texture2D" uid="uid://d3esp7w8pcu6" path="res://Assets/card placeholders/Cost 2 card.png" id="1_eapai"]
+[ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_fewbj"]
+
+[resource]
+script = ExtResource("2_fewbj")
+name = "Foot Soldier"
+cost = 3
+attack = 3
+health = 4
+image = ExtResource("1_eapai")
+description = "Permanently gain +1/+1 before attacking."
+minon_type = 3

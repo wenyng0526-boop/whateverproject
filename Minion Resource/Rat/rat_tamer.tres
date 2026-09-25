@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://d206o5rpul7ka"]
+
+[ext_resource type="Texture2D" uid="uid://d3esp7w8pcu6" path="res://Assets/card placeholders/Cost 2 card.png" id="1_jjqdf"]
+[ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_2h6do"]
+
+[resource]
+script = ExtResource("2_2h6do")
+name = "Rat Tamer"
+cost = 3
+attack = 1
+health = 3
+image = ExtResource("1_jjqdf")
+description = "When you summon a rat, give the rat +1/+1."
+minon_type = 1

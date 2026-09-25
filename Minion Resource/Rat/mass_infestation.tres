@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://q8va41yxvpp2"]
+
+[ext_resource type="Texture2D" uid="uid://bfvpklkhjegqn" path="res://Assets/card placeholders/Cost 3 card.png" id="1_8ebno"]
+[ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_rhns6"]
+
+[resource]
+script = ExtResource("2_rhns6")
+name = "Mass Infestation"
+cost = 4
+attack = 5
+health = 4
+image = ExtResource("1_8ebno")
+description = "Deal 2 damage to all enemies upon death. Summon 2 2/2 Stink Rat upon death."
+minon_type = 1

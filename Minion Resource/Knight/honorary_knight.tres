@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://u8tsstd5v52u"]
+
+[ext_resource type="Texture2D" uid="uid://bfvpklkhjegqn" path="res://Assets/card placeholders/Cost 3 card.png" id="1_2b2qe"]
+[ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_nxcrf"]
+
+[resource]
+script = ExtResource("2_nxcrf")
+name = "Honorary Knight"
+cost = 4
+attack = 6
+health = 6
+image = ExtResource("1_2b2qe")
+description = "Permanently gain +2/+2 before attacking."
+minon_type = 3
