@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://8imafbd3lgtf"]
+
+[ext_resource type="Script" path="res://Scipts/claw_effect.gd" id="1_tgvfj"]
+[ext_resource type="Texture2D" uid="uid://5gno616i51d0" path="res://icon.svg" id="2_vkb5l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxvtk"]
+atlas = ExtResource("2_vkb5l")
+region = Rect2(42, 32, 42, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e3pd"]
+atlas = ExtResource("2_vkb5l")
+region = Rect2(84, 32, 42, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8deua"]
+atlas = ExtResource("2_vkb5l")
+region = Rect2(84, 64, 42, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqfb1"]
+atlas = ExtResource("2_vkb5l")
+region = Rect2(42, 64, 42, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2d4l7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxvtk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e3pd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8deua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqfb1")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 10.0
+}]
+
+[node name="ClawEffect" type="Node2D" node_paths=PackedStringArray("animated_sprite")]
+script = ExtResource("1_tgvfj")
+animated_sprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2d4l7")
+animation = &"hit"

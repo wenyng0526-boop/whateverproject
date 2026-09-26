@@ -1,11 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://v8ivyevagaw0"]
+[gd_scene load_steps=8 format=3 uid="uid://v8ivyevagaw0"]
 
 [ext_resource type="Script" path="res://Scipts/card.gd" id="1_ywfkn"]
 [ext_resource type="Resource" uid="uid://du5degasdr5q1" path="res://Minion Resource/Goblin/goblin_thief.tres" id="2_puuy4"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="3_qojfg"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="3_qojfg"]
 [ext_resource type="Texture2D" uid="uid://yyckgl138lyv" path="res://Assets/card placeholders/Cost 1 card.png" id="4_5yg2h"]
 
-[node name="CardUI" type="Control" node_paths=PackedStringArray("name_label", "attack_label", "health_label", "cost_label", "picture", "desc_name_label", "description_label")]
+[sub_resource type="Animation" id="Animation_y2k82"]
+resource_name = "hit"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.174533, 0.0, 0.174533, 0.0, -0.0872665, 0.0, 0.0872665, 0.0, -0.0523599, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_rej3g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.0872665]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4eghi"]
+_data = {
+"RESET": SubResource("Animation_rej3g"),
+"hit": SubResource("Animation_y2k82")
+}
+
+[node name="CardUI" type="Control" node_paths=PackedStringArray("name_label", "attack_label", "health_label", "cost_label", "picture", "desc_name_label", "description_label", "animation_player")]
 custom_minimum_size = Vector2(180, 250)
 layout_mode = 3
 anchors_preset = 0
@@ -13,6 +51,8 @@ offset_left = 378.0
 offset_top = 198.0
 offset_right = 558.0
 offset_bottom = 448.0
+rotation = -0.0872665
+pivot_offset = Vector2(90, 125)
 script = ExtResource("1_ywfkn")
 card_data = ExtResource("2_puuy4")
 name_label = NodePath("Name_Label")
@@ -22,6 +62,7 @@ cost_label = NodePath("Cost_Label")
 picture = NodePath("Picture")
 desc_name_label = NodePath("CardDescription/Name_Label2")
 description_label = NodePath("CardDescription/Description_Label")
+animation_player = NodePath("AnimationPlayer")
 
 [node name="Name_Label" type="Label" parent="."]
 layout_mode = 1
@@ -91,10 +132,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_5yg2h")
@@ -161,6 +202,11 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_qojfg")
 text = "This is a description"
 autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4eghi")
+}
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -11,6 +11,8 @@ signal clicked(card: CardUI)
 @export var desc_name_label: Label
 @export var description_label: Label
 @onready var card_description: Control = $CardDescription
+@export var animation_player: AnimationPlayer
+
 
 var current_health: int
 var current_attack: int
@@ -80,3 +82,9 @@ func _on_mouse_exited() -> void:
 
 func _on_card_description_mouse_entered() -> void:
 	card_description.hide()
+	
+
+#card been attaked or dead, it play aniamation
+func play_hit_animation() -> void:
+	animation_player.play("hit")
+	await animation_player.animation_finished

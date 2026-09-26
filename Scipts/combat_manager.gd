@@ -7,6 +7,9 @@ class_name CombatManager
 @export var enemy_container: HBoxContainer
 # The card scene used to spawn the player's bought cards
 @export var card_ui: PackedScene
+#add claw effect, can change it at at combat_scene (inspector)
+@export var claw_effect: PackedScene
+@export var effects: Node2D
 
 var player_cards: Array[CardUI] = []
 var enemy_cards: Array[CardUI] = []
@@ -93,10 +96,33 @@ func start_combat() -> void:
 	elif player_cards.is_empty():
 		print("ENEMY WINS!")
 
+
 func attack(attacker: CardUI, target: CardUI) -> void:
 	print(attacker.card_data.name, " attacks ", target.card_data.name, " for ", attacker.current_attack, " damage!")
+
+	await get_tree().create_timer(1.0).timeout
+
+	# Create a new claw effect
+	var claw_instance = claw_effect.instantiate()
+
+	# Add the claw effect to the scene
+	effects.add_child(claw_instance)
+
+	# Move the claw effect to the target card
+	claw_instance.global_position = target.get_global_rect().get_center()
+
+	# Deal damage
 	target.take_damage(attacker.current_attack)
-	await get_tree().create_timer(0.3).timeout
+
+	# Play the hit animation immediately
+	await target.play_hit_animation()
+	
+#put the death anim here if have
+	if target.is_dead():
+		await get_tree().create_timer(2.0).timeout
+
+	await get_tree().create_timer(1.0).timeout
+
 
 func cleanup_dead_cards() -> void:
 	for card in player_cards.duplicate():
