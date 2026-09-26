@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://42kpifxexb8j" path="res://Assets/button/Quit Button.png" id="5_7abrb"]
 
 [sub_resource type="Gradient" id="Gradient_2xgg7"]
-offsets = PackedFloat32Array(0, 0.149351, 0.318182, 0.493506, 0.88961)
+offsets = PackedFloat32Array(0, 0.149351, 0.318182, 0.493506, 1)
 colors = PackedColorArray(0.0823529, 0.0823529, 0.0823529, 1, 0.0823529, 0.0823529, 0.0823529, 0.784314, 0.0823529, 0.0823529, 0.0823529, 0.784314, 0.0823529, 0.0823529, 0.0823529, 0.784314, 0.0807833, 0.0807833, 0.0807833, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_swdvf"]

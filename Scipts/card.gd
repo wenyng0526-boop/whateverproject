@@ -1,6 +1,7 @@
 class_name CardUI
 extends Control
 signal clicked(card: CardUI)
+signal attack_hit
 
 @export var card_data: Resource
 @export var name_label: Label
@@ -10,7 +11,7 @@ signal clicked(card: CardUI)
 @export var picture : TextureRect
 @export var desc_name_label: Label
 @export var description_label: Label
-@onready var card_description: Control = $CardDescription
+@onready var card_description: Control = $CardVisual/CardDescription
 @export var animation_player: AnimationPlayer
 
 
@@ -88,3 +89,14 @@ func _on_card_description_mouse_entered() -> void:
 func play_hit_animation() -> void:
 	animation_player.play("hit")
 	await animation_player.animation_finished
+
+#card attack animation
+func play_attack_animation() -> void:
+	if team == "Player":
+		animation_player.play("attack_player")
+	else:
+		animation_player.play("attack_enemy")
+
+
+func trigger_attack_hit() -> void:
+	attack_hit.emit()

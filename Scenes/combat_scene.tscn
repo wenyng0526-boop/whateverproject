@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7ondrblaspck"]
+[gd_scene load_steps=10 format=3 uid="uid://c7ondrblaspck"]
 
 [ext_resource type="Script" path="res://Scipts/combat_manager.gd" id="1_1ge3h"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="1_hiokq"]
-[ext_resource type="PackedScene" uid="uid://8imafbd3lgtf" path="res://Scenes/claw_effect.tscn" id="3_760mf"]
 [ext_resource type="Resource" uid="uid://c4lnlj38wuvu6" path="res://Minion Resource/Knight/foot_soldier.tres" id="3_ngc22"]
 [ext_resource type="Resource" uid="uid://bvf130wywxg2u" path="res://Minion Resource/Skeleton/extra_limbs.tres" id="4_8ts7m"]
 [ext_resource type="Resource" uid="uid://bcio2vbvxjej0" path="res://Minion Resource/Skeleton/spearbone.tres" id="5_61ds5"]
@@ -11,13 +10,11 @@
 [ext_resource type="Resource" uid="uid://dfmn33hu2kreo" path="res://Minion Resource/Rat/stink_rat.tres" id="6_g8pjw"]
 [ext_resource type="Resource" uid="uid://cux54pf0jelew" path="res://Minion Resource/Rat/mother_of_rats.tres" id="8_4fngt"]
 
-[node name="Combat_Scene" type="Node2D" node_paths=PackedStringArray("player_container", "enemy_container", "effects")]
+[node name="Combat_Scene" type="Node2D" node_paths=PackedStringArray("player_container", "enemy_container")]
 script = ExtResource("1_1ge3h")
 player_container = NodePath("PlayerCenter/PlayerContainer")
 enemy_container = NodePath("EnemyCenter/EnemyContainer")
 card_ui = ExtResource("1_hiokq")
-claw_effect = ExtResource("3_760mf")
-effects = NodePath("Effects")
 
 [node name="EnemyCenter" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(1152, 300)
@@ -25,9 +22,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 360.0
-offset_top = 179.0
+offset_top = 171.0
 offset_right = 1512.0
-offset_bottom = 479.0
+offset_bottom = 471.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -55,9 +52,9 @@ card_data = ExtResource("6_d0t0k")
 [node name="PlayerCenter" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(1152, 300)
 offset_left = 360.0
-offset_top = 645.0
+offset_top = 605.0
 offset_right = 1512.0
-offset_bottom = 945.0
+offset_bottom = 905.0
 
 [node name="PlayerContainer" type="HBoxContainer" parent="PlayerCenter"]
 layout_mode = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://v8ivyevagaw0"]
+[gd_scene load_steps=10 format=3 uid="uid://v8ivyevagaw0"]
 
 [ext_resource type="Script" path="res://Scipts/card.gd" id="1_ywfkn"]
 [ext_resource type="Resource" uid="uid://du5degasdr5q1" path="res://Minion Resource/Goblin/goblin_thief.tres" id="2_puuy4"]
@@ -8,7 +8,7 @@
 [sub_resource type="Animation" id="Animation_y2k82"]
 resource_name = "hit"
 length = 0.5
-step = 0.05
+step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -36,10 +36,84 @@ tracks/0/keys = {
 "update": 0,
 "values": [-0.0872665]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CardVisual:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 100)]
+}
+
+[sub_resource type="Animation" id="Animation_2jae0"]
+resource_name = "attack_player"
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardVisual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.175, 0.225, 0.275, 0.3, 0.325, 0.35, 0.375, 0.4, 0.425, 0.45, 0.525, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 100), Vector2(0, 110), Vector2(0, 100), Vector2(0, 110), Vector2(0, 100), Vector2(0, 110), Vector2(0, 100), Vector2(0, 110), Vector2(0, 100), Vector2(0, 110), Vector2(0, 140), Vector2(0, -150), Vector2(0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.525),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trigger_attack_hit"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_2qsxy"]
+resource_name = "attack_enemy"
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardVisual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.175, 0.225, 0.275, 0.3, 0.325, 0.35, 0.375, 0.4, 0.425, 0.45, 0.525, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -100), Vector2(0, -110), Vector2(0, -100), Vector2(0, -110), Vector2(0, -100), Vector2(0, -110), Vector2(0, -100), Vector2(0, -110), Vector2(0, -100), Vector2(0, -110), Vector2(0, -140), Vector2(0, 150), Vector2(0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.525),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trigger_attack_hit"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4eghi"]
 _data = {
 "RESET": SubResource("Animation_rej3g"),
+"attack_enemy": SubResource("Animation_2qsxy"),
+"attack_player": SubResource("Animation_2jae0"),
 "hit": SubResource("Animation_y2k82")
 }
 
@@ -55,16 +129,26 @@ rotation = -0.0872665
 pivot_offset = Vector2(90, 125)
 script = ExtResource("1_ywfkn")
 card_data = ExtResource("2_puuy4")
-name_label = NodePath("Name_Label")
-attack_label = NodePath("Attack_Label")
-health_label = NodePath("Health_Label")
-cost_label = NodePath("Cost_Label")
-picture = NodePath("Picture")
-desc_name_label = NodePath("CardDescription/Name_Label2")
-description_label = NodePath("CardDescription/Description_Label")
+name_label = NodePath("CardVisual/Name_Label")
+attack_label = NodePath("CardVisual/Attack_Label")
+health_label = NodePath("CardVisual/Health_Label")
+cost_label = NodePath("CardVisual/Cost_Label")
+picture = NodePath("CardVisual/Picture")
+desc_name_label = NodePath("CardVisual/CardDescription/Name_Label2")
+description_label = NodePath("CardVisual/CardDescription/Description_Label")
 animation_player = NodePath("AnimationPlayer")
 
-[node name="Name_Label" type="Label" parent="."]
+[node name="CardVisual" type="Control" parent="."]
+custom_minimum_size = Vector2(180, 250)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Name_Label" type="Label" parent="CardVisual"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -81,7 +165,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_qojfg")
 text = "Minion Name"
 
-[node name="Attack_Label" type="Label" parent="."]
+[node name="Attack_Label" type="Label" parent="CardVisual"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -95,7 +179,7 @@ theme_override_fonts/font = ExtResource("3_qojfg")
 text = "10
 "
 
-[node name="Health_Label" type="Label" parent="."]
+[node name="Health_Label" type="Label" parent="CardVisual"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -112,7 +196,7 @@ theme_override_fonts/font = ExtResource("3_qojfg")
 text = "10
 "
 
-[node name="Cost_Label" type="Label" parent="."]
+[node name="Cost_Label" type="Label" parent="CardVisual"]
 visible = false
 layout_mode = 1
 anchors_preset = 1
@@ -124,7 +208,7 @@ grow_horizontal = 0
 theme_override_fonts/font = ExtResource("3_qojfg")
 text = "3"
 
-[node name="Picture" type="TextureRect" parent="."]
+[node name="Picture" type="TextureRect" parent="CardVisual"]
 z_index = -10
 layout_mode = 1
 anchors_preset = 8
@@ -140,7 +224,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_5yg2h")
 
-[node name="CardDescription" type="Control" parent="."]
+[node name="CardDescription" type="Control" parent="CardVisual"]
 visible = false
 z_index = 10
 layout_mode = 1
@@ -155,7 +239,7 @@ offset_bottom = 271.667
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Picture2" type="TextureRect" parent="CardDescription"]
+[node name="Picture2" type="TextureRect" parent="CardVisual/CardDescription"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -167,7 +251,7 @@ offset_bottom = 324.0
 grow_horizontal = 2
 texture = ExtResource("4_5yg2h")
 
-[node name="Name_Label2" type="Label" parent="CardDescription"]
+[node name="Name_Label2" type="Label" parent="CardVisual/CardDescription"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -184,7 +268,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_qojfg")
 text = "Minion Name"
 
-[node name="Description_Label" type="Label" parent="CardDescription"]
+[node name="Description_Label" type="Label" parent="CardVisual/CardDescription"]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 1
 anchors_preset = 8

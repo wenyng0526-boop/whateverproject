@@ -7,9 +7,11 @@ class_name CombatManager
 @export var enemy_container: HBoxContainer
 # The card scene used to spawn the player's bought cards
 @export var card_ui: PackedScene
-#add claw effect, can change it at at combat_scene (inspector)
-@export var claw_effect: PackedScene
-@export var effects: Node2D
+#add claw effect
+@onready var effects: Node2D = $Effects
+const claw_effect = preload("res://Scenes/claw_effect.tscn")
+#add scene of printdamgae
+const print_damage = preload("res://Scenes/print_damage.tscn")
 
 var player_cards: Array[CardUI] = []
 var enemy_cards: Array[CardUI] = []
@@ -100,7 +102,11 @@ func start_combat() -> void:
 func attack(attacker: CardUI, target: CardUI) -> void:
 	print(attacker.card_data.name, " attacks ", target.card_data.name, " for ", attacker.current_attack, " damage!")
 
-	await get_tree().create_timer(1.0).timeout
+	# Start the attack animation
+	attacker.play_attack_animation()
+
+	# Wait until the animation reaches the hit point
+	await attacker.attack_hit
 
 	# Create a new claw effect
 	var claw_instance = claw_effect.instantiate()
@@ -109,6 +115,14 @@ func attack(attacker: CardUI, target: CardUI) -> void:
 
 	# Move the claw effect to the target card
 	claw_instance.global_position = target.get_global_rect().get_center()
+	
+	var damage_instance = print_damage.instantiate()
+	# Add the damage number into the Scene Tree
+	effects.add_child(damage_instance)
+	
+	# Move the damage number slightly above the target card
+	damage_instance.global_position = target.get_global_rect().get_center() + Vector2(0, -50)
+	damage_instance.show_damage(attacker.current_attack)
 	
 	target.take_damage(attacker.current_attack)
 	await target.play_hit_animation()
@@ -123,10 +137,22 @@ func attack(attacker: CardUI, target: CardUI) -> void:
 func cleanup_dead_cards() -> void:
 	for card in player_cards.duplicate():
 		if card.is_dead():
+			var dead_index = player_cards.find(card)
+
+			# Move the turn index back if a card before it was removed
+			if dead_index < player_index:
+				player_index -= 1
+
 			player_cards.erase(card)
 			card.die()
 
 	for card in enemy_cards.duplicate():
 		if card.is_dead():
+			var dead_index = enemy_cards.find(card)
+
+			# Move the turn index back if a card before it was removed
+			if dead_index < enemy_index:
+				enemy_index -= 1
+
 			enemy_cards.erase(card)
 			card.die()
