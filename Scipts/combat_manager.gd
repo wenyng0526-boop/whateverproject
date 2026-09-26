@@ -104,20 +104,16 @@ func attack(attacker: CardUI, target: CardUI) -> void:
 
 	# Create a new claw effect
 	var claw_instance = claw_effect.instantiate()
-
 	# Add the claw effect to the scene
 	effects.add_child(claw_instance)
 
 	# Move the claw effect to the target card
 	claw_instance.global_position = target.get_global_rect().get_center()
-
-	# Deal damage
+	
 	target.take_damage(attacker.current_attack)
-
-	# Play the hit animation immediately
 	await target.play_hit_animation()
 	
-#put the death anim here if have
+	#put the death anim here if have
 	if target.is_dead():
 		await get_tree().create_timer(2.0).timeout
 

@@ -8,7 +8,7 @@
 
 [sub_resource type="Gradient" id="Gradient_2xgg7"]
 offsets = PackedFloat32Array(0, 0.149351, 0.318182, 0.493506, 0.88961)
-colors = PackedColorArray(0.137255, 0.137255, 0.137255, 1, 0, 0, 0, 0.839216, 0, 0, 0, 0.831373, 0, 0, 0, 0.654902, 0, 0, 0, 0.345098)
+colors = PackedColorArray(0.0823529, 0.0823529, 0.0823529, 1, 0.0823529, 0.0823529, 0.0823529, 0.784314, 0.0823529, 0.0823529, 0.0823529, 0.784314, 0.0823529, 0.0823529, 0.0823529, 0.784314, 0.0807833, 0.0807833, 0.0807833, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_swdvf"]
 gradient = SubResource("Gradient_2xgg7")
@@ -119,14 +119,14 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_ur8yn")
 
-[node name="Background2" type="TextureRect" parent="."]
+[node name="Dark" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -590.0
-offset_bottom = 610.0
+offset_top = -140.0
+offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_swdvf")
@@ -186,15 +186,15 @@ animation_name = &"load"
 [node name="Load_Button" type="Button" parent="CenterContainer/VBoxContainer/LoadButtonArea"]
 layout_mode = 2
 offset_left = -140.0
-offset_top = 210.0
+offset_top = 206.0
 offset_right = 157.0
-offset_bottom = 275.0
+offset_bottom = 271.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_e4d1l")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_5gewg")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_07i2w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/LoadButtonArea"]
-position = Vector2(0, 243)
+position = Vector2(0, 241)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_uukg4")
 animation = &"load"
