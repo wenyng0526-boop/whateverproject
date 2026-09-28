@@ -1,6 +1,7 @@
 class_name CardUI
 extends Control
 signal clicked(card: CardUI)
+signal right_clicked(card: CardUI)
 signal attack_hit
 
 @export var card_data: Resource
@@ -66,9 +67,12 @@ func die() -> void:
 	queue_free()
 
 func _gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		clicked.emit(self)
-		
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			clicked.emit(self)
+		elif event.button_index == MOUSE_BUTTON_RIGHT:
+			right_clicked.emit(self)
+
 func _on_mouse_entered() -> void:
 	var timer = get_tree().create_timer(1.0)
 	is_hovered = true
