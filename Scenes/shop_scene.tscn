@@ -1,16 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1q3xx44wgn6p"]
+[gd_scene load_steps=7 format=3 uid="uid://b1q3xx44wgn6p"]
 
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="1_oql1m"]
 [ext_resource type="Script" path="res://Scipts/shop_manager.gd" id="1_s0dvk"]
 [ext_resource type="Resource" uid="uid://b05y0n3q37vtn" path="res://Other resource/shop_card.tres" id="3_inuco"]
 [ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="4_a2dmr"]
+[ext_resource type="Script" path="res://Scenes/currency_ui.gd" id="5_nrsk7"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="6_vi0a5"]
 
-[node name="Shop Scene" type="Node2D" node_paths=PackedStringArray("card_container", "player_container")]
+[node name="Shop Scene" type="Node2D" node_paths=PackedStringArray("card_container", "player_container", "confirm_panel", "confirm_label")]
 script = ExtResource("1_s0dvk")
 card_ui = ExtResource("1_oql1m")
 shop_cards = ExtResource("3_inuco")
 card_container = NodePath("ShopCenter/Card Container")
 player_container = NodePath("PlayerCenter/Player Card Container")
+confirm_panel = NodePath("ConfirmUI")
+confirm_label = NodePath("ConfirmUI/Panel/Control/MessageLabel")
 
 [node name="PlayerCenter" type="CenterContainer" parent="."]
 offset_left = 394.0
@@ -64,5 +68,106 @@ layout_mode = 2
 [node name="CardUI4" parent="ShopCenter/Card Container" instance=ExtResource("1_oql1m")]
 layout_mode = 2
 
+[node name="CurrencyUI" type="PanelContainer" parent="." node_paths=PackedStringArray("amount_label")]
+offset_right = 237.0
+offset_bottom = 89.0
+script = ExtResource("5_nrsk7")
+amount_label = NodePath("Control/Label")
+
+[node name="Control" type="Control" parent="CurrencyUI"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CurrencyUI/Control"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+offset_left = 14.0
+offset_top = 19.0
+offset_right = 68.0
+offset_bottom = 70.0
+
+[node name="Label" type="Label" parent="CurrencyUI/Control"]
+texture_filter = 1
+layout_mode = 2
+offset_left = 97.0
+offset_top = 23.0
+offset_right = 220.0
+offset_bottom = 66.0
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("6_vi0a5")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ConfirmUI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 65.1885
+offset_top = 231.964
+offset_right = 65.1885
+offset_bottom = 231.964
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="ConfirmUI"]
+layout_mode = 0
+offset_left = -53.1885
+offset_top = -198.964
+offset_right = 1865.81
+offset_bottom = 883.036
+color = Color(0, 0, 0, 0.6)
+
+[node name="Panel" type="PanelContainer" parent="ConfirmUI"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 294.0
+offset_top = 24.0
+offset_right = 1542.0
+offset_bottom = 560.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="ConfirmUI/Panel"]
+layout_mode = 2
+
+[node name="MessageLabel" type="Label" parent="ConfirmUI/Panel/Control"]
+layout_mode = 0
+offset_left = -0.188507
+offset_top = 48.036
+offset_right = 1247.81
+offset_bottom = 269.036
+theme_override_fonts/font = ExtResource("4_a2dmr")
+theme_override_font_sizes/font_size = 32
+text = "Are you sure for this action?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ConfirmUI/Panel/Control"]
+texture_filter = 1
+layout_mode = 2
+offset_left = 183.811
+offset_top = 368.036
+offset_right = 1059.81
+offset_bottom = 459.036
+theme_override_constants/separation = 500
+alignment = 1
+
+[node name="YesButton" type="Button" parent="ConfirmUI/Panel/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_vi0a5")
+action_mode = 0
+text = "YES"
+
+[node name="NoButton" type="Button" parent="ConfirmUI/Panel/Control/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_vi0a5")
+action_mode = 0
+text = "NO"
+
 [connection signal="pressed" from="Refresh Button" to="." method="_on_refresh_button_pressed"]
 [connection signal="pressed" from="Done Button" to="." method="_on_done_button_pressed"]
+[connection signal="pressed" from="ConfirmUI/Panel/Control/HBoxContainer/YesButton" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="ConfirmUI/Panel/Control/HBoxContainer/NoButton" to="." method="_on_no_button_pressed"]
