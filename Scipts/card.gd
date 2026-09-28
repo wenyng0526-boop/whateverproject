@@ -8,10 +8,7 @@ signal attack_hit
 @export var name_label: Label
 @export var attack_label: Label
 @export var health_label: Label
-@export var cost_label: Label
 @export var picture : TextureRect
-@export var desc_name_label: Label
-@export var description_label: Label
 @onready var card_description: Control = $CardVisual/CardDescription
 @export var animation_player: AnimationPlayer
 
@@ -24,7 +21,6 @@ var is_hovered = false
 
 func _ready() -> void:
 	set_card_data(card_data)
-	card_description.hide()
 
 func set_card_data(new_data: Resource) -> void:
 	card_data = new_data
@@ -42,12 +38,6 @@ func set_card_data(new_data: Resource) -> void:
 		health_label.text = str(card_data.health)
 	if picture:
 		picture.texture = card_data.image
-	if cost_label:
-		cost_label.text = str(card_data.cost)
-	if desc_name_label:
-		desc_name_label.text = str(card_data.name)
-	if description_label:
-		description_label.text = str(card_data.description)
 
 func take_damage(amount: int) -> void:
 	# Reduce this card's current health
@@ -73,21 +63,6 @@ func _gui_input(event: InputEvent) -> void:
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
 			right_clicked.emit(self)
 
-func _on_mouse_entered() -> void:
-	var timer = get_tree().create_timer(1.0)
-	is_hovered = true
-	await timer.timeout
-	if is_hovered == true:
-		card_description.show()
-
-func _on_mouse_exited() -> void:
-	is_hovered = false
-	card_description.hide()
-
-
-func _on_card_description_mouse_entered() -> void:
-	card_description.hide()
-	
 
 #card been attaked or dead, it play aniamation
 func play_hit_animation() -> void:
