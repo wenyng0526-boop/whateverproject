@@ -7,8 +7,7 @@
 script = ExtResource("2_fsctn")
 name = "Bone Refiner"
 cost = 3
-attack = 2
-health = 3
+attack = 4
+health = 8
 image = ExtResource("1_5ux4j")
-description = "When an ally skeleton is revived. give the skeleton +1/+3."
 minon_type = 2

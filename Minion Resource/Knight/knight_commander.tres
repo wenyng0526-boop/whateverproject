@@ -7,8 +7,7 @@
 script = ExtResource("2_gn0g1")
 name = "Knight Commander"
 cost = 4
-attack = 4
-health = 4
+attack = 10
+health = 13
 image = ExtResource("1_7rsqy")
-description = "Permanently gain +2 attack after taking damage."
 minon_type = 3

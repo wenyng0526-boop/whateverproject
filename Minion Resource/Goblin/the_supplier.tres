@@ -7,8 +7,7 @@
 script = ExtResource("2_o1foi")
 name = "The Supplier"
 cost = 3
-attack = 2
-health = 2
+attack = 5
+health = 7
 image = ExtResource("1_wie25")
-description = "Give +2/+2 to every goblin when played."
 minon_type = 0

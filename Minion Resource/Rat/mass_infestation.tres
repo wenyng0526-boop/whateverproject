@@ -7,8 +7,7 @@
 script = ExtResource("2_rhns6")
 name = "Mass Infestation"
 cost = 4
-attack = 5
-health = 4
+attack = 11
+health = 11
 image = ExtResource("1_8ebno")
-description = "Deal 2 damage to all enemies upon death. Summon 2 2/2 Stink Rat upon death."
 minon_type = 1

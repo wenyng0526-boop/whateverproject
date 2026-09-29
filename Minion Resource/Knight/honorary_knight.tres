@@ -7,8 +7,7 @@
 script = ExtResource("2_nxcrf")
 name = "Honorary Knight"
 cost = 4
-attack = 6
-health = 6
+attack = 12
+health = 11
 image = ExtResource("1_2b2qe")
-description = "Permanently gain +2/+2 before attacking."
 minon_type = 3

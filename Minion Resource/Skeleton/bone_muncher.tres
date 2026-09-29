@@ -7,8 +7,7 @@
 script = ExtResource("2_xau1p")
 name = "Bone Muncher"
 cost = 3
-attack = 2
-health = 4
+attack = 7
+health = 5
 image = ExtResource("1_d3ki2")
-description = "When an ally skeleton is revived, gain +2/+1."
 minon_type = 2

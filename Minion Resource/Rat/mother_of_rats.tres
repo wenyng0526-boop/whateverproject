@@ -7,8 +7,7 @@
 script = ExtResource("2_78e07")
 name = "Mother of Rats"
 cost = 4
-attack = 5
-health = 6
+attack = 9
+health = 13
 image = ExtResource("1_qse1x")
-description = "Summon one 4/4 large rat upon death."
 minon_type = 1

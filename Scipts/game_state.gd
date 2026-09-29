@@ -1,6 +1,6 @@
 extends Node
 
-var currency: int = 10:
+var currency: int = 5:
 	set(value):
 		currency = value
 		currency_changed.emit(currency)

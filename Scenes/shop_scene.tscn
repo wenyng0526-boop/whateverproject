@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="1_oql1m"]
 [ext_resource type="Script" path="res://Scipts/shop_manager.gd" id="1_s0dvk"]
 [ext_resource type="Resource" uid="uid://b05y0n3q37vtn" path="res://Other resource/shop_card.tres" id="3_inuco"]
-[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="4_a2dmr"]
+[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="4_a2dmr"]
 [ext_resource type="Script" path="res://Scenes/currency_ui.gd" id="5_nrsk7"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="6_vi0a5"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="6_vi0a5"]
 
 [node name="Shop Scene" type="Node2D" node_paths=PackedStringArray("card_container", "player_container", "confirm_panel", "confirm_label")]
 script = ExtResource("1_s0dvk")
@@ -17,10 +17,10 @@ confirm_panel = NodePath("ConfirmUI")
 confirm_label = NodePath("ConfirmUI/Panel/Control/MessageLabel")
 
 [node name="PlayerCenter" type="CenterContainer" parent="."]
-offset_left = 394.0
-offset_top = 767.0
-offset_right = 1546.0
-offset_bottom = 1067.0
+offset_left = 380.0
+offset_top = 665.0
+offset_right = 1532.0
+offset_bottom = 965.0
 
 [node name="Player Card Container" type="HBoxContainer" parent="PlayerCenter"]
 layout_mode = 2
@@ -113,10 +113,10 @@ grow_vertical = 2
 
 [node name="Dim" type="ColorRect" parent="ConfirmUI"]
 layout_mode = 0
-offset_left = -53.1885
-offset_top = -198.964
-offset_right = 1865.81
-offset_bottom = 883.036
+offset_left = -75.0
+offset_top = -233.0
+offset_right = 1866.0
+offset_bottom = 883.0
 color = Color(0, 0, 0, 0.6)
 
 [node name="Panel" type="PanelContainer" parent="ConfirmUI"]

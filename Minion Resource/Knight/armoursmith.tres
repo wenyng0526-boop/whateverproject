@@ -7,8 +7,7 @@
 script = ExtResource("2_gqyvj")
 name = "Armoursmith"
 cost = 3
-attack = 1
-health = 3
+attack = 4
+health = 8
 image = ExtResource("1_enm3t")
-description = "Give +3 health to every knight when played."
 minon_type = 3

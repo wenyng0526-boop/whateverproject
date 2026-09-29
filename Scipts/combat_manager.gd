@@ -129,7 +129,7 @@ func attack(attacker: CardUI, target: CardUI) -> void:
 	
 	#put the death anim here if have
 	if target.is_dead():
-		await get_tree().create_timer(2.0).timeout
+		await get_tree().create_timer(1.0).timeout
 
 	await get_tree().create_timer(1.0).timeout
 

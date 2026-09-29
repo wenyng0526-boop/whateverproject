@@ -7,8 +7,7 @@
 script = ExtResource("2_2h6do")
 name = "Rat Tamer"
 cost = 3
-attack = 1
-health = 3
+attack = 5
+health = 6
 image = ExtResource("1_jjqdf")
-description = "When you summon a rat, give the rat +1/+1."
 minon_type = 1

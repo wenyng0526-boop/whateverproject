@@ -7,8 +7,7 @@
 script = ExtResource("2_dudwk")
 name = "Sacrificial Rat"
 cost = 3
-attack = 2
-health = 1
+attack = 8
+health = 4
 image = ExtResource("1_y43s5")
-description = "Give every minion on your board +1/+1 upon death."
 minon_type = 1

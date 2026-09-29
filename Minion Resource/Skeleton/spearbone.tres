@@ -7,8 +7,7 @@
 script = ExtResource("2_cljia")
 name = "Spearbone"
 cost = 4
-attack = 5
-health = 3
+attack = 13
+health = 9
 image = ExtResource("1_pa5e7")
-description = "50% chance of dealing double damage."
 minon_type = 2

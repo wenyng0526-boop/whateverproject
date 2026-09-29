@@ -167,12 +167,14 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = 20.0
-offset_right = 28.0
-offset_bottom = 36.0
+offset_left = -36.0
+offset_top = 24.0
+offset_right = 20.0
+offset_bottom = 56.0
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_qojfg")
+theme_override_font_sizes/font_size = 32
 text = "10
 "
 
@@ -184,12 +186,14 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -28.0
-offset_top = 23.3333
-offset_bottom = 39.3333
+offset_top = 24.0
+offset_right = 28.0
+offset_bottom = 56.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_qojfg")
+theme_override_font_sizes/font_size = 32
 text = "10
 "
 

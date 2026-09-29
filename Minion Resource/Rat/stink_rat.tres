@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://dfmn33hu2kreo"]
 
-[ext_resource type="Texture2D" uid="uid://yyckgl138lyv" path="res://Assets/card placeholders/Cost 1 card.png" id="1_405p8"]
+[ext_resource type="Texture2D" uid="uid://xcregx8kfhf" path="res://Assets/cards/Stink Rat.png" id="1_qv8an"]
 [ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_o6v5e"]
 
 [resource]
@@ -9,6 +9,5 @@ name = "Stink Rat"
 cost = 2
 attack = 2
 health = 2
-image = ExtResource("1_405p8")
-description = "Deal 1 damage to all enemies upon death."
+image = ExtResource("1_qv8an")
 minon_type = 1

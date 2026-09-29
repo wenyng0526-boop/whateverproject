@@ -7,8 +7,7 @@
 script = ExtResource("2_v83pg")
 name = "Inspired Goblin"
 cost = 3
-attack = 2
-health = 2
+attack = 6
+health = 7
 image = ExtResource("1_dld7s")
-description = "When an ally goblin gains attack, this minion gains +2 attack."
 minon_type = 0

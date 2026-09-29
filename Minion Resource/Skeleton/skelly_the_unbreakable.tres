@@ -7,8 +7,7 @@
 script = ExtResource("2_a6t4g")
 name = "Skelly, the Unbreakable"
 cost = 4
-attack = 4
-health = 5
+attack = 10
+health = 13
 image = ExtResource("1_opde1")
-description = " Twice per battle, revive with full health."
 minon_type = 2

@@ -7,8 +7,7 @@
 script = ExtResource("2_kaufp")
 name = "Lavished Goblin"
 cost = 4
-attack = 4
-health = 4
+attack = 11
+health = 10
 image = ExtResource("1_pnyd2")
-description = "Gain +1/+1 for every currency you have. When this minion kills an enemy, you get +2 currency."
 minon_type = 0
