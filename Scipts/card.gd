@@ -8,19 +8,26 @@ signal attack_hit
 @export var name_label: Label
 @export var attack_label: Label
 @export var health_label: Label
-@export var picture : TextureRect
+@export var picture: TextureRect
 @onready var card_description: Control = $CardVisual/CardDescription
 @export var animation_player: AnimationPlayer
 
+enum CardLocation { SHOP, BOARD, HAND }
+var current_location: CardLocation = CardLocation.BOARD
 
 var current_health: int
 var current_attack: int
 var team: String = "" #Enemy or Player
 
 var is_hovered = false
+var hover_tween: Tween
+@export var hover_offset: float = -30.0 # How high the card lifts when hovered
+@export var hover_duration: float = 0.15 # Speed of the animation
 
 func _ready() -> void:
 	set_card_data(card_data)
+	mouse_entered.connect(_on_mouse_entered)
+	mouse_exited.connect(_on_mouse_exited)
 
 func set_card_data(new_data: Resource) -> void:
 	card_data = new_data
@@ -62,8 +69,6 @@ func _gui_input(event: InputEvent) -> void:
 			clicked.emit(self)
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
 			right_clicked.emit(self)
-
-
 #card been attaked or dead, it play aniamation
 func play_hit_animation() -> void:
 	animation_player.play("hit")
@@ -79,3 +84,35 @@ func play_attack_animation() -> void:
 
 func trigger_attack_hit() -> void:
 	attack_hit.emit()
+
+func _get_hover_offset() -> float:
+	match current_location:
+		CardLocation.HAND:
+			return -305.0 # Lifts much higher in hand
+		CardLocation.BOARD:
+			return 0.0 # Subtle lift on the board
+		_:
+			return -30.0 # Default shop lift
+
+func _on_mouse_entered() -> void:
+	is_hovered = true
+	# Optional: Bring the card to the front visually so it overlaps neighbors neatly
+	z_index = 1 
+	
+	if hover_tween:
+		hover_tween.kill()
+	
+	hover_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	# Animate position.y upward relative to its starting layout spot
+	hover_tween.tween_property(self, "position:y", _get_hover_offset(), hover_duration)
+
+func _on_mouse_exited() -> void:
+	is_hovered = false
+	z_index = 0
+	
+	if hover_tween:
+		hover_tween.kill()
+		
+	hover_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	# Animate position.y back down to 0 (its default container layout position)
+	hover_tween.tween_property(self, "position:y", 0.0, hover_duration)

@@ -25,6 +25,7 @@ func _ready() -> void:
 	setup_combat()
 	await start_combat()
 
+
 func setup_combat() -> void:
 	player_cards.clear()
 	enemy_cards.clear()
@@ -44,14 +45,14 @@ func setup_combat() -> void:
 
 func spawn_player_cards() -> void:
 	# If nothing was bought, keep the hand-placed test cards in the scene
-	if GameState.owned_cards.is_empty():
+	if GameState.deployed_cards.is_empty():
 		return
 
 	for child in player_container.get_children():
 		player_container.remove_child(child)
 		child.queue_free()
 
-	for data in GameState.owned_cards:
+	for data in GameState.deployed_cards:
 		var card_instance: CardUI = card_ui.instantiate()
 		player_container.add_child(card_instance)
 		card_instance.set_card_data(data)

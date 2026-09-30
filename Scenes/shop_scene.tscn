@@ -7,12 +7,13 @@
 [ext_resource type="Script" path="res://Scenes/currency_ui.gd" id="5_nrsk7"]
 [ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="6_vi0a5"]
 
-[node name="Shop Scene" type="Node2D" node_paths=PackedStringArray("card_container", "player_container", "confirm_panel", "confirm_label")]
+[node name="Shop Scene" type="Node2D" node_paths=PackedStringArray("card_container", "player_container", "hand_container", "confirm_panel", "confirm_label")]
 script = ExtResource("1_s0dvk")
 card_ui = ExtResource("1_oql1m")
 shop_cards = ExtResource("3_inuco")
 card_container = NodePath("ShopCenter/Card Container")
 player_container = NodePath("PlayerCenter/Player Card Container")
+hand_container = NodePath("HandCenter/HandContainer")
 confirm_panel = NodePath("ConfirmUI")
 confirm_label = NodePath("ConfirmUI/Panel/Control/MessageLabel")
 
@@ -67,6 +68,16 @@ layout_mode = 2
 
 [node name="CardUI4" parent="ShopCenter/Card Container" instance=ExtResource("1_oql1m")]
 layout_mode = 2
+
+[node name="HandCenter" type="CenterContainer" parent="."]
+offset_left = 43.0
+offset_top = 957.0
+offset_right = 1843.0
+offset_bottom = 1357.0
+
+[node name="HandContainer" type="HBoxContainer" parent="HandCenter"]
+layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="CurrencyUI" type="PanelContainer" parent="." node_paths=PackedStringArray("amount_label")]
 offset_right = 237.0
