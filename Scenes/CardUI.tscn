@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://v8ivyevagaw0"]
+[gd_scene load_steps=11 format=3 uid="uid://v8ivyevagaw0"]
 
 [ext_resource type="Script" path="res://Scipts/card.gd" id="1_ywfkn"]
 [ext_resource type="Resource" uid="uid://du5degasdr5q1" path="res://Minion Resource/Goblin/goblin_thief.tres" id="2_puuy4"]
@@ -17,7 +17,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.0872665]
+"values": [0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -30,6 +30,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 100)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_2qsxy"]
@@ -92,6 +104,23 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_2mx7q"]
+resource_name = "fusion"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(0.9, 0.9), Vector2(1.15, 1.15), Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_y2k82"]
 resource_name = "hit"
 length = 0.5
@@ -114,6 +143,7 @@ _data = {
 "RESET": SubResource("Animation_rej3g"),
 "attack_enemy": SubResource("Animation_2qsxy"),
 "attack_player": SubResource("Animation_2jae0"),
+"fusion": SubResource("Animation_2mx7q"),
 "hit": SubResource("Animation_y2k82")
 }
 
@@ -125,7 +155,6 @@ offset_left = 378.0
 offset_top = 198.0
 offset_right = 558.0
 offset_bottom = 448.0
-rotation = -0.0872665
 pivot_offset = Vector2(90, 125)
 script = ExtResource("1_ywfkn")
 card_data = ExtResource("2_puuy4")
@@ -141,6 +170,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 100.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2

@@ -71,9 +71,9 @@ layout_mode = 2
 
 [node name="HandCenter" type="CenterContainer" parent="."]
 offset_left = 43.0
-offset_top = 957.0
+offset_top = 920.0
 offset_right = 1843.0
-offset_bottom = 1357.0
+offset_bottom = 1320.0
 
 [node name="HandContainer" type="HBoxContainer" parent="HandCenter"]
 layout_mode = 2

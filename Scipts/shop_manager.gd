@@ -63,10 +63,15 @@ func _on_card_clicked(card: CardUI) -> void:
 
 func _buy_card(card: CardUI) -> void:
 	GameState.currency -= card.card_data.cost
-	GameState.hand_cards.append(card.card_data)
+	var new_card: card_resource = card.card_data.duplicate(true) #duplicate card resource so card in shop or enemy won't be affected by increased stats during player fusion
+	GameState.hand_cards.append(new_card)
 	card.queue_free()
 	print("Bought ", card.card_data.name, " | coins left: ", GameState.currency)
-	#summon hand cards
+	GameState.check_for_duplicate()
+	refresh_hand()
+	
+
+func refresh_hand() -> void:
 	for child in hand_container.get_children():
 		child.queue_free()
 	for data in GameState.hand_cards:
@@ -74,7 +79,6 @@ func _buy_card(card: CardUI) -> void:
 		hand_container.add_child(card_instance)
 		card_instance.set_card_data(data)
 		card_instance.current_location = CardUI.CardLocation.HAND
-
 #done button
 func _on_done_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/combat_scene.tscn")

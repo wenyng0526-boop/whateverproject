@@ -81,6 +81,9 @@ func play_attack_animation() -> void:
 	else:
 		animation_player.play("attack_enemy")
 
+func play_fusion_animation() -> void:
+	animation_player.play("fusion")
+	await animation_player.animation_finished
 
 func trigger_attack_hit() -> void:
 	attack_hit.emit()
