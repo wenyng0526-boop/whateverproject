@@ -11,3 +11,5 @@ attack = 11
 health = 10
 image = ExtResource("1_pnyd2")
 minon_type = 0
+fusion_tier = 1
+star = 3

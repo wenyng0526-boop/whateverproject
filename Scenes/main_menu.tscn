@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cgy51m7gwm07c"]
+[gd_scene load_steps=29 format=3 uid="uid://cgy51m7gwm07c"]
 
 [ext_resource type="Script" path="res://Scipts/main_menu.gd" id="1_i13gk"]
 [ext_resource type="Texture2D" uid="uid://bealmngfsvxiy" path="res://Assets/background/Background_reference.png" id="1_ur8yn"]
@@ -17,6 +17,8 @@ fill_from = Vector2(1, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a2ma2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e32r0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lwab8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uheja"]
 
@@ -46,6 +48,8 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5gewg"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_scbc2"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_07i2w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qf2rq"]
@@ -73,6 +77,8 @@ animations = [{
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3e0px"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_32716"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m30rn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bsvgo"]
 
@@ -168,6 +174,7 @@ offset_right = 156.0
 offset_bottom = 179.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_a2ma2")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_e32r0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lwab8")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_uheja")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/StartButtonArea"]
@@ -182,6 +189,7 @@ size_flags_horizontal = 4
 script = ExtResource("1_i13gk")
 button = NodePath("Load_Button")
 vine = NodePath("AnimatedSprite2D")
+requires_save_file = true
 animation_name = &"load"
 
 [node name="Load_Button" type="Button" parent="CenterContainer/VBoxContainer/LoadButtonArea"]
@@ -192,6 +200,7 @@ offset_right = 157.0
 offset_bottom = 271.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_e4d1l")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_5gewg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_scbc2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_07i2w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/LoadButtonArea"]
@@ -217,6 +226,7 @@ offset_right = 155.0
 offset_bottom = 366.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_3e0px")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_32716")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_m30rn")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_bsvgo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/ExitButtonArea"]
@@ -227,13 +237,13 @@ animation = &"exit"
 
 [connection signal="mouse_entered" from="CenterContainer/VBoxContainer/StartButtonArea/Start_Button" to="CenterContainer/VBoxContainer/StartButtonArea" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CenterContainer/VBoxContainer/StartButtonArea/Start_Button" to="CenterContainer/VBoxContainer/StartButtonArea" method="_on_mouse_exited"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/StartButtonArea/Start_Button" to="CenterContainer/VBoxContainer/StartButtonArea" method="_on_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/StartButtonArea/Start_Button" to="CenterContainer/VBoxContainer/StartButtonArea" method="_on_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/StartButtonArea/Start_Button" to="CenterContainer/VBoxContainer/StartButtonArea" method="_on_pressed"]
 [connection signal="mouse_entered" from="CenterContainer/VBoxContainer/LoadButtonArea/Load_Button" to="CenterContainer/VBoxContainer/LoadButtonArea" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CenterContainer/VBoxContainer/LoadButtonArea/Load_Button" to="CenterContainer/VBoxContainer/LoadButtonArea" method="_on_mouse_exited"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/LoadButtonArea/Load_Button" to="CenterContainer/VBoxContainer/StartButtonArea" method="_on_load_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/LoadButtonArea/Load_Button" to="CenterContainer/VBoxContainer/LoadButtonArea" method="_on_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/LoadButtonArea/Load_Button" to="CenterContainer/VBoxContainer/LoadButtonArea" method="_on_load_button_pressed"]
 [connection signal="mouse_entered" from="CenterContainer/VBoxContainer/ExitButtonArea/Exit_Button" to="CenterContainer/VBoxContainer/ExitButtonArea" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CenterContainer/VBoxContainer/ExitButtonArea/Exit_Button" to="CenterContainer/VBoxContainer/ExitButtonArea" method="_on_mouse_exited"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/ExitButtonArea/Exit_Button" to="CenterContainer/VBoxContainer/StartButtonArea" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ExitButtonArea/Exit_Button" to="CenterContainer/VBoxContainer/ExitButtonArea" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ExitButtonArea/Exit_Button" to="CenterContainer/VBoxContainer/ExitButtonArea" method="_on_pressed"]

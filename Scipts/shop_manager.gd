@@ -16,6 +16,7 @@ var pending_action: Callable
 func _ready() -> void:
 	refresh_shop()
 	spawn_player_cards()
+	refresh_hand()
 
 func refresh_shop():
 	for child in card_container.get_children():

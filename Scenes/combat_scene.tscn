@@ -1,29 +1,42 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7ondrblaspck"]
+[gd_scene load_steps=21 format=3 uid="uid://c7ondrblaspck"]
 
 [ext_resource type="Script" path="res://Scipts/combat_manager.gd" id="1_1ge3h"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="1_hiokq"]
+[ext_resource type="Script" path="res://Scipts/card_data.gd" id="3_a1xpf"]
 [ext_resource type="Resource" uid="uid://c4lnlj38wuvu6" path="res://Minion Resource/Knight/foot_soldier.tres" id="3_ngc22"]
 [ext_resource type="Resource" uid="uid://bvf130wywxg2u" path="res://Minion Resource/Skeleton/extra_limbs.tres" id="4_8ts7m"]
+[ext_resource type="Resource" uid="uid://du5degasdr5q1" path="res://Minion Resource/Goblin/goblin_thief.tres" id="4_weuwe"]
+[ext_resource type="Resource" uid="uid://dwpu2h2bdmhji" path="res://Minion Resource/Goblin/shady_banker.tres" id="5_8jr4h"]
 [ext_resource type="Resource" uid="uid://bcio2vbvxjej0" path="res://Minion Resource/Skeleton/spearbone.tres" id="5_61ds5"]
 [ext_resource type="Resource" uid="uid://d206o5rpul7ka" path="res://Minion Resource/Rat/rat_tamer.tres" id="5_vwtws"]
+[ext_resource type="Resource" uid="uid://23w3x68p88ih" path="res://Minion Resource/Knight/aspiring_squire.tres" id="6_6f5eg"]
 [ext_resource type="Resource" uid="uid://cq0kmmrv0v2ct" path="res://Minion Resource/Goblin/greed_gobbler.tres" id="6_d0t0k"]
 [ext_resource type="Resource" uid="uid://dfmn33hu2kreo" path="res://Minion Resource/Rat/stink_rat.tres" id="6_g8pjw"]
+[ext_resource type="Resource" uid="uid://c5v3wf8oo4mcd" path="res://Minion Resource/Goblin/elder_goblin.tres" id="6_s2gyj"]
 [ext_resource type="Resource" uid="uid://cux54pf0jelew" path="res://Minion Resource/Rat/mother_of_rats.tres" id="8_4fngt"]
+[ext_resource type="Resource" uid="uid://dyj8ymm5747c5" path="res://Minion Resource/Goblin/inspired_goblin.tres" id="8_ie5uw"]
+[ext_resource type="Resource" uid="uid://50bbopvgrqmc" path="res://Minion Resource/Goblin/the_supplier.tres" id="9_lglh0"]
+[ext_resource type="Resource" uid="uid://6neusp3kng7n" path="res://Minion Resource/Knight/armoursmith.tres" id="10_3ps3t"]
+[ext_resource type="PackedScene" uid="uid://b3awfj516bl5" path="res://Scenes/Reward.tscn" id="10_qogxl"]
+[ext_resource type="Resource" uid="uid://1oboyjgx03vl" path="res://Minion Resource/Goblin/lavished_goblin.tres" id="13_4mlkq"]
+[ext_resource type="Resource" uid="uid://u8tsstd5v52u" path="res://Minion Resource/Knight/honorary_knight.tres" id="14_jxep6"]
 
 [node name="Combat_Scene" type="Node2D" node_paths=PackedStringArray("player_container", "enemy_container")]
 script = ExtResource("1_1ge3h")
 player_container = NodePath("PlayerCenter/PlayerContainer")
 enemy_container = NodePath("EnemyCenter/EnemyContainer")
 card_ui = ExtResource("1_hiokq")
+one_star_enemies = Array[ExtResource("3_a1xpf")]([ExtResource("4_weuwe"), ExtResource("5_8jr4h"), ExtResource("6_6f5eg")])
+two_star_enemies = Array[ExtResource("3_a1xpf")]([ExtResource("6_d0t0k"), ExtResource("8_ie5uw"), ExtResource("9_lglh0"), ExtResource("10_3ps3t"), ExtResource("3_ngc22")])
+three_star_enemies = Array[ExtResource("3_a1xpf")]([ExtResource("6_s2gyj"), ExtResource("13_4mlkq"), ExtResource("14_jxep6")])
 
 [node name="EnemyCenter" type="CenterContainer" parent="."]
-custom_minimum_size = Vector2(1152, 300)
+custom_minimum_size = Vector2(1920, 300)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 360.0
 offset_top = 171.0
-offset_right = 1512.0
+offset_right = 1920.0
 offset_bottom = 471.0
 grow_horizontal = 2
 size_flags_horizontal = 4
@@ -50,11 +63,17 @@ layout_mode = 2
 card_data = ExtResource("6_d0t0k")
 
 [node name="PlayerCenter" type="CenterContainer" parent="."]
-custom_minimum_size = Vector2(1152, 300)
-offset_left = 360.0
-offset_top = 605.0
-offset_right = 1512.0
-offset_bottom = 905.0
+custom_minimum_size = Vector2(1920, 300)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 600.0
+offset_right = 1920.0
+offset_bottom = 900.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="PlayerContainer" type="HBoxContainer" parent="PlayerCenter"]
 layout_mode = 2
@@ -76,3 +95,35 @@ layout_mode = 2
 card_data = ExtResource("6_g8pjw")
 
 [node name="Effects" type="Node2D" parent="."]
+
+[node name="ResultLayer" type="CanvasLayer" parent="."]
+
+[node name="Reward_scene" parent="ResultLayer" instance=ExtResource("10_qogxl")]
+
+[node name="HandCenter" type="CenterContainer" parent="."]
+offset_top = 920.0
+offset_right = 1920.0
+offset_bottom = 1320.0
+size_flags_vertical = 4
+
+[node name="HandContainer" type="HBoxContainer" parent="HandCenter"]
+layout_mode = 2
+
+[node name="StartBattleButton" type="Button" parent="."]
+offset_left = 1570.0
+offset_top = 515.0
+offset_right = 1687.0
+offset_bottom = 546.0
+scale = Vector2(3, 3)
+text = "START BATTLE"
+
+[node name="DragLayer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="pressed" from="StartBattleButton" to="." method="_on_start_battle_button_pressed"]

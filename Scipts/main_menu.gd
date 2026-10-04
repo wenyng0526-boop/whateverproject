@@ -2,6 +2,7 @@ extends Control
 
 @export var button: Button
 @export var vine: AnimatedSprite2D
+@export var requires_save_file: bool = false
 
 # The scene to open when this button is clicked
 # Leave this empty for buttons that do not change scenes
@@ -9,20 +10,33 @@ extends Control
 
 var is_clicked: bool = false
 
+
+func can_interact() -> bool:
+	print("requires_save_file = ", requires_save_file)
+	print("has_save_game = ", GameState.has_save_game())
+
+	if requires_save_file and not GameState.has_save_game():
+		return false
+
+	return true
+
+
 func _on_mouse_entered() -> void:
-	# Stop hover effects after the button has been clicked
 	if is_clicked:
 		return
 
-	# Play the vine animation
+	if not can_interact():
+		return
+
 	vine.play(animation_name)
 
 func _on_mouse_exited() -> void:
-	# Stop hover effects after the button has been clicked
 	if is_clicked:
 		return
 
-	# Play the same animation backwards
+	if not can_interact():
+		return
+
 	vine.play_backwards(animation_name)
 
 func _on_pressed() -> void:
@@ -38,7 +52,14 @@ func _on_start_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/shop_scene.tscn")
 
 func _on_load_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/shop_scene.tscn") #not sure about this
+	if not can_interact():
+		print("NO SAVE FILE")
+		return
+
+	var resume_scene: String = GameState.load_game()
+
+	if resume_scene != "":
+		get_tree().change_scene_to_file(resume_scene)
 
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()
