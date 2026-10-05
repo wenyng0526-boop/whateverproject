@@ -29,7 +29,7 @@ var enemy_cards: Array[CardUI] = []
 
 var player_index: int = 0
 var enemy_index: int = 0
-var defeated_enemy_stars: int = 0
+var defeated_enemy_cost: int = 0
 var defeated_enemy_count: int = 0
 
 var battle_started: bool = false
@@ -128,7 +128,7 @@ func setup_combat() -> void:
 	player_cards.clear()
 	enemy_cards.clear()
 
-	defeated_enemy_stars = 0
+	defeated_enemy_cost = 0
 	defeated_enemy_count = 0
 
 	for child in player_container.get_children():
@@ -328,7 +328,7 @@ func start_combat() -> void:
 
 	if enemy_cards.is_empty():
 		var remaining_cards = player_cards.size()
-		var reward = defeated_enemy_stars + remaining_cards
+		var reward = defeated_enemy_cost + remaining_cards
 
 		GameState.win_count += 1
 		GameState.currency += reward
@@ -402,7 +402,7 @@ func cleanup_dead_cards() -> void:
 			var dead_index = enemy_cards.find(card)
 
 			# Add the defeated enemy's star value to the reward
-			defeated_enemy_stars += card.card_data.star
+			defeated_enemy_cost += card.card_data.cost
 			defeated_enemy_count += 1
 
 			# Move the turn index back if a card before it was removed
@@ -430,12 +430,12 @@ func spawn_random_enemies(wave: int) -> void:
 	var enemy_count = 4
 
 	for i in range(enemy_count):
-		var star = roll_enemy_star(wave)
+		var enemy_cost = roll_enemy_cost(wave)
 		var enemy_data: card_resource
 
-		if star == 1:
+		if enemy_cost == 1:
 			enemy_data = one_star_enemies.pick_random()
-		elif star == 2:
+		elif enemy_cost == 2:
 			enemy_data = two_star_enemies.pick_random()
 		else:
 			enemy_data = three_star_enemies.pick_random()
@@ -444,7 +444,7 @@ func spawn_random_enemies(wave: int) -> void:
 		enemy_container.add_child(card_instance)
 		card_instance.set_card_data(enemy_data)
 
-func roll_enemy_star(wave: int) -> int:
+func roll_enemy_cost(wave: int) -> int:
 	var roll = randf()
 
 	if wave <= 4:

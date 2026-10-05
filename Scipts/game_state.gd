@@ -12,7 +12,7 @@ const MAX_HAND = 10
 var shop_level: int = 1
 const MAX_SHOP_LEVEL = 3
 const SHOP_SLOTS = [4, 5, 6]        # index 0 = level 1, index 1 = level 2, index 2 = level 3
-const SHOP_MAX_STAR = [2, 3, 4]     # highest star card allowed at each level
+const SHOP_MAX_COST = [2, 3, 4]     # highest star card allowed at each level
 const SHOP_UPGRADE_COST = [10, 30]    # [0] = cost to go 1→2, [1] = cost to go 2→3
 signal currency_changed(new_amount: int)
 
@@ -86,36 +86,6 @@ func save_game(resume_scene: String) -> void:
 	file.store_string(JSON.stringify(save_data))
 
 	print("GAME SAVED")
-
-
-func card_to_dict(card: card_resource) -> Dictionary:
-	return {
-		"name": card.name,
-		"cost": card.cost,
-		"attack": card.attack,
-		"health": card.health,
-		"fusion_tier": card.fusion_tier,
-		"star": card.star,
-		"minon_type": card.minon_type,
-		"image_path": card.image.resource_path if card.image else ""
-	}
-
-
-func dict_to_card(data: Dictionary) -> card_resource:
-	var card = card_resource.new()
-
-	card.name = data["name"]
-	card.cost = data["cost"]
-	card.attack = data["attack"]
-	card.health = data["health"]
-	card.fusion_tier = data["fusion_tier"]
-	card.star = data["star"]
-	card.minon_type = data["minon_type"]
-
-	if data["image_path"] != "":
-		card.image = load(data["image_path"])
-
-	return card
 
 
 func load_game() -> String:

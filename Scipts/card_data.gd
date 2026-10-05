@@ -9,6 +9,5 @@ class_name card_resource
 @export var image: Texture
 @export var minon_type: type
 @export var fusion_tier: int = 1 #e.g. current_attack * 2^(fusion tier)
-@export var star: int = 1
 
 enum type {Goblin, Rat, Skeleton, Knight}

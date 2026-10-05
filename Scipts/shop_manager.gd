@@ -19,20 +19,22 @@ func _ready() -> void:
 
 func refresh_shop():
 	print("shop_level: ", GameState.shop_level)
-	for child in card_container.get_children():
-		child.queue_free() #clear existing cards in the shop
 
-	var max_star: int = GameState.SHOP_MAX_STAR[GameState.shop_level - 1]
+	for child in card_container.get_children():
+		child.queue_free()
+
+	var max_cost: int = GameState.SHOP_MAX_COST[GameState.shop_level - 1]
 	var pool: Array[card_resource] = shop_cards.shop_cards_one.filter(
-		func(c): return c.star <= max_star
+		func(c): return c.cost <= max_cost
 	)
 
 	var shop_size: int = GameState.SHOP_SLOTS[GameState.shop_level - 1]
+
 	for i in range(shop_size):
 		var random_card_data: card_resource = pool.pick_random()
 		var card_instance : CardUI = card_ui.instantiate()
 		card_container.add_child(card_instance)
-		card_instance.set_card_data(random_card_data) #refill shop with new cards
+		card_instance.set_card_data(random_card_data)
 		card_instance.current_location = CardUI.CardLocation.SHOP
 		card_instance.clicked.connect(_on_card_clicked)
 
