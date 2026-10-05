@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="shop_card" load_steps=13 format=3 uid="uid://b05y0n3q37vtn"]
+[gd_resource type="Resource" script_class="shop_card" load_steps=14 format=3 uid="uid://b05y0n3q37vtn"]
 
 [ext_resource type="Script" path="res://Scipts/shop_card_database.gd" id="1_ptnot"]
 [ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_6wc11"]
@@ -12,7 +12,8 @@
 [ext_resource type="Resource" uid="uid://ck25kwqigneuy" path="res://Minion Resource/Skeleton/skeleton_archer.tres" id="10_vih8c"]
 [ext_resource type="Resource" uid="uid://bbb5ipiug4cit" path="res://Minion Resource/Rat/little_rat.tres" id="11_m6gq4"]
 [ext_resource type="Resource" uid="uid://dr8livklpk6kw" path="res://Minion Resource/Skeleton/arm.tres" id="12_343xh"]
+[ext_resource type="Resource" uid="uid://uilbc760sao7" path="res://Minion Resource/Rat/large_rat.tres" id="13_0r3i1"]
 
 [resource]
 script = ExtResource("1_ptnot")
-shop_cards_one = Array[ExtResource("2_6wc11")]([ExtResource("3_u2hhj"), ExtResource("4_ff536"), ExtResource("5_lqm4x"), ExtResource("6_w0moq"), ExtResource("7_ktg88"), ExtResource("8_0yyum"), ExtResource("9_i8qa5"), ExtResource("10_vih8c"), ExtResource("11_m6gq4"), ExtResource("12_343xh")])
+shop_cards_one = Array[ExtResource("2_6wc11")]([ExtResource("3_u2hhj"), ExtResource("4_ff536"), ExtResource("5_lqm4x"), ExtResource("6_w0moq"), ExtResource("7_ktg88"), ExtResource("8_0yyum"), ExtResource("9_i8qa5"), ExtResource("10_vih8c"), ExtResource("11_m6gq4"), ExtResource("12_343xh"), ExtResource("13_0r3i1")])

@@ -11,3 +11,5 @@ attack = 11
 health = 11
 image = ExtResource("1_8ebno")
 minon_type = 1
+fusion_tier = 1
+star = 3

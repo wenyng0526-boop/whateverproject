@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scipts/shop_manager.gd" id="1_s0dvk"]
 [ext_resource type="Resource" uid="uid://b05y0n3q37vtn" path="res://Other resource/shop_card.tres" id="3_inuco"]
 [ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="4_a2dmr"]
-[ext_resource type="Script" path="res://Scenes/currency_ui.gd" id="5_nrsk7"]
+[ext_resource type="Script" path="res://Scipts/currency_ui.gd" id="5_nrsk7"]
 [ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="6_vi0a5"]
 
 [node name="Shop Scene" type="Node2D" node_paths=PackedStringArray("card_container", "player_container", "hand_container", "confirm_panel", "confirm_label")]
@@ -45,6 +45,16 @@ offset_bottom = 39.0
 scale = Vector2(1.09582, 1.72816)
 theme_override_fonts/font = ExtResource("4_a2dmr")
 text = "DONE
+"
+
+[node name="Upgrade Button" type="Button" parent="."]
+offset_left = 1408.0
+offset_top = 8.0
+offset_right = 1528.0
+offset_bottom = 39.0
+scale = Vector2(1.09582, 1.72816)
+theme_override_fonts/font = ExtResource("4_a2dmr")
+text = "UPGARDE
 "
 
 [node name="ShopCenter" type="CenterContainer" parent="."]
@@ -180,5 +190,6 @@ text = "NO"
 
 [connection signal="pressed" from="Refresh Button" to="." method="_on_refresh_button_pressed"]
 [connection signal="pressed" from="Done Button" to="." method="_on_done_button_pressed"]
+[connection signal="pressed" from="Upgrade Button" to="." method="_on_upgrade_button_pressed"]
 [connection signal="pressed" from="ConfirmUI/Panel/Control/HBoxContainer/YesButton" to="." method="_on_yes_button_pressed"]
 [connection signal="pressed" from="ConfirmUI/Panel/Control/HBoxContainer/NoButton" to="." method="_on_no_button_pressed"]
