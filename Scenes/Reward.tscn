@@ -10,7 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jg3hf")
-next_scene = "res://Scenes/shop_scene.tscn"
+next_scene = "res://Scenes/map.tscn"
 menu_scene = "res://Scenes/main_menu.tscn"
 failure_menu_scene = "res://Scenes/main_menu.tscn"
 success_continue_button = NodePath("Next_level_button")
@@ -66,7 +66,7 @@ offset_bottom = -122.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
-text = "         Not bad
+text = "         Obliterated!
 You have obtained："
 
 [node name="Success_screen3" type="Label" parent="."]
@@ -84,7 +84,7 @@ offset_bottom = -121.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
-text = "Welcome back, loser.
+text = "          Back again?
 You have obtained："
 
 [node name="Failure_screen" type="Label" parent="."]
@@ -102,9 +102,7 @@ offset_bottom = -52.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
-text = "               What a Loser
-     loser can't get any coins, 
-go back and cry to ur mom lah"
+text = "          Your run ends here!"
 
 [node name="Failure_screen2" type="Label" parent="."]
 visible = false
@@ -121,10 +119,9 @@ offset_bottom = -127.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
-text = "Disappointed"
+text = "   Pathetic!"
 
 [node name="Failure_screen3" type="Label" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -138,7 +135,7 @@ offset_bottom = -121.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
-text = "Dumbass"
+text = "  Absolutely Wiped!"
 
 [node name="Success_screen(reward)" type="Label" parent="."]
 layout_mode = 1
@@ -163,7 +160,7 @@ offset_top = 615.0
 offset_right = 816.0
 offset_bottom = 702.0
 theme_override_font_sizes/font_size = 30
-text = "     defeat enemy :
+text = "Enemies Defeated :
 Remaining cards :
 "
 

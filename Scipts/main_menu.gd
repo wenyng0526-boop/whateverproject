@@ -49,7 +49,8 @@ func _on_pressed() -> void:
 
 #button way
 func _on_start_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/shop_scene.tscn")
+	GameState.reset_run()
+	get_tree().change_scene_to_file("res://Scenes/map.tscn")
 
 func _on_load_button_pressed() -> void:
 	if not can_interact():

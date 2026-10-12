@@ -100,7 +100,9 @@ func refresh_hand() -> void:
 
 #done button
 func _on_done_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/combat_scene.tscn")
+	GameState.complete_node()
+	GameState.save_game("res://Scenes/map.tscn")
+	get_tree().change_scene_to_file("res://Scenes/map.tscn")
 
 #sell shet
 func _on_hand_card_clicked(card: CardUI) -> void:

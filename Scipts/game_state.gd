@@ -13,7 +13,7 @@ var shop_level: int = 1
 const MAX_SHOP_LEVEL = 3
 const SHOP_SLOTS = [4, 5, 6]        # index 0 = level 1, index 1 = level 2, index 2 = level 3
 const SHOP_MAX_COST = [2, 3, 4]     # highest star card allowed at each level
-const SHOP_UPGRADE_COST = [10, 30]    # [0] = cost to go 1→2, [1] = cost to go 2→3
+const SHOP_UPGRADE_COST = [10, 20]    # [0] = cost to go 1→2, [1] = cost to go 2→3
 signal currency_changed(new_amount: int)
 
 var win_count: int = 0
@@ -28,6 +28,19 @@ enum CombatMode {
 var combat_mode: CombatMode = CombatMode.NORMAL
 var current_wave: int = 1
 
+#map progression nodes
+var current_node: int = 0
+var available_nodes: Array[int] = [0]
+var completed_nodes: Array[int] = []
+var current_next_nodes: Array[int] = []
+
+func complete_node():
+	if current_node not in completed_nodes:
+		completed_nodes.append(current_node)
+	available_nodes.clear()
+	for next_index in current_next_nodes:
+		if next_index not in completed_nodes and next_index not in available_nodes:
+			available_nodes.append(next_index)
 
 func check_for_duplicate():
 	var fusion_happened := true
@@ -67,7 +80,10 @@ func save_game(resume_scene: String) -> void:
 		"current_wave": current_wave,
 		"resume_scene": resume_scene,
 		"hand_cards": [],
-		"deployed_cards": []
+		"deployed_cards": [],
+		"current_node": current_node,
+		"available_nodes": available_nodes,
+		"completed_nodes": completed_nodes,
 	}
 
 	# Save every hand card as its own Resource
@@ -103,7 +119,15 @@ func load_game() -> String:
 	currency = int(save_data["currency"])
 	win_count = int(save_data["win_count"])
 	current_wave = int(save_data["current_wave"])
-
+	#Load map progression
+	current_node = int(save_data.get("current_node", 0))
+	available_nodes.clear()
+	for node_index in save_data.get("available_nodes", [0]):
+		available_nodes.append(int(node_index))
+	completed_nodes.clear()
+	for node_index in save_data.get("completed_nodes", []):
+		completed_nodes.append(int(node_index))
+	
 	hand_cards.clear()
 	deployed_cards.clear()
 
@@ -152,3 +176,21 @@ func delete_save_game() -> void:
 	dir.list_dir_end()
 
 	print("ALL SAVE FILES DELETED")
+
+func reset_run():
+	hand_cards.clear()
+	deployed_cards.clear()
+	
+	current_node = 0
+	available_nodes = [0]
+	completed_nodes.clear()
+	current_next_nodes.clear()
+	
+	currency = 100 #rmb to change this tooooo
+	win_count = 0
+	current_wave = 1
+	shop_level = 1
+	
+	delete_save_game()
+	
+	print("NEW RUN STARTED")

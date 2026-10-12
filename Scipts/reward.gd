@@ -98,11 +98,13 @@ func hide_all_screens() -> void:
 
 func _on_continue_button_pressed() -> void:
 	if next_scene != "":
+		GameState.complete_node()
+		GameState.save_game("res://Scenes/map.tscn")
 		get_tree().change_scene_to_file(next_scene)
 
 func _menu_button_pressed() -> void:
+	GameState.complete_node()
 	GameState.save_game(next_scene)
-
 	if menu_scene != "":
 		get_tree().change_scene_to_file(menu_scene)
 
