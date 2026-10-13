@@ -76,9 +76,58 @@ func _buy_card(card: CardUI) -> void:
 	GameState.hand_cards.append(new_card)
 	card.queue_free()
 	print("Bought ", card.card_data.name, " | coins left: ", GameState.currency)
-	GameState.check_for_duplicate()
 	refresh_hand()
+	await get_tree().process_frame
+	await check_for_duplicate_animated()
 
+func check_for_duplicate_animated() -> void:
+	while true:
+		var index_a := -1
+		var index_b := -1
+		# Find two matching cards in GameState.
+		for i in range(GameState.hand_cards.size()):
+			for j in range(i + 1, GameState.hand_cards.size()):
+				var card_a = GameState.hand_cards[i]
+				var card_b = GameState.hand_cards[j]
+				
+				if card_a.name == card_b.name \
+				and card_a.fusion_tier == card_b.fusion_tier:
+					index_a = i
+					index_b = j
+					break
+					
+			if index_a != -1:
+				break
+		# No more matching pairs.
+		if index_a == -1:
+			break
+		 # Find the UI cards belonging to those exact resources.
+		var visual_a: CardUI = null
+		var visual_b: CardUI = null
+		
+		for child in hand_container.get_children():
+			if child is CardUI:
+				if child.card_data == GameState.hand_cards[index_a]:
+					visual_a = child
+				elif child.card_data == GameState.hand_cards[index_b]:
+					visual_b = child
+		# Avoid trying to animate cards that aren't on screen.
+		if visual_a == null or visual_b == null:
+			push_warning("Could not find both card visuals for fusion.")
+			break
+			
+		await visual_a.fusion_tween(visual_b)
+		
+		GameState.fuse_cards(index_a, index_b)
+		visual_a.set_card_data(visual_a.card_data)
+		
+		await visual_a.play_fusion_animation()
+		
+		await get_tree().create_timer(0.3).timeout
+		
+		refresh_hand()
+		await get_tree().process_frame
+		
 #---------------------hand deck pro max--------------------------#
 func refresh_hand() -> void:
 	for child in hand_container.get_children():

@@ -13,7 +13,6 @@ signal board_drag_moved(card: CardUI, drag_position: Vector2)
 @export var attack_label: Label
 @export var health_label: Label
 @export var picture: TextureRect
-@onready var card_description: Control = $CardVisual/CardDescription
 @onready var card_visual: Control = $CardVisual
 @export var animation_player: AnimationPlayer
 
@@ -36,6 +35,8 @@ var board_drag_start_position: Vector2
 
 @export var hover_offset: float = -30.0 # How high the card lifts when hovered
 @export var hover_duration: float = 0.15 # Speed of the animation
+
+const FUSION_Z := 3000
 
 func _ready() -> void:
 	set_card_data(card_data)
@@ -169,6 +170,63 @@ func play_fusion_animation() -> void:
 	animation_player.play("fusion")
 	await animation_player.animation_finished
 
+func fusion_tween(other_card:CardUI):
+	card_visual.z_as_relative = false
+	other_card.card_visual.z_as_relative = false
+	card_visual.z_index = FUSION_Z + 1
+	other_card.card_visual.z_index = FUSION_Z
+	
+	var visual_a: Control = card_visual
+	var visual_b: Control = other_card.card_visual
+	# Find the midpoint between the two card visuals.
+	var midpoint: Vector2 = get_viewport_rect().size / 2.0
+	var target_a: Vector2 = midpoint - visual_a.size / 2.0
+	var target_b: Vector2 = midpoint - visual_b.size / 2.0
+	
+	target_a.x -= 35.0
+	target_b.x += 35.0
+	# Make scaling happen around each card's center.
+	visual_a.pivot_offset = visual_a.size / 2.0
+	visual_b.pivot_offset = visual_b.size / 2.0
+	
+	# Move and shrink both visuals at the same time.
+	var tween_a := create_tween()
+	tween_a.set_parallel(true)
+	tween_a.set_trans(Tween.TRANS_CUBIC)
+	tween_a.set_ease(Tween.EASE_IN)
+	
+	tween_a.tween_property(
+		visual_a, "global_position", target_a, 0.4
+	)
+	tween_a.tween_property(visual_a, "scale", Vector2(0.7, 0.7), 0.4)
+	
+	var tween_b := other_card.create_tween()
+	tween_b.set_parallel(true)
+	tween_b.set_trans(Tween.TRANS_CUBIC)
+	tween_b.set_ease(Tween.EASE_IN)
+	
+	tween_b.tween_property(
+		visual_b, "global_position", target_b, 0.4
+	)
+	tween_b.tween_property(visual_b, "scale", Vector2(0.7, 0.7), 0.4)
+	
+	await tween_a.finished
+	await tween_b.finished
+	
+	var absorb_tween := other_card.create_tween()
+	absorb_tween.set_parallel(true)
+	absorb_tween.set_trans(Tween.TRANS_CUBIC)
+	absorb_tween.set_ease(Tween.EASE_IN)
+	
+	absorb_tween.tween_property(
+		visual_b, "scale", Vector2.ZERO, 0.25
+	)
+	absorb_tween.tween_property(
+		visual_b, "modulate:a", 0.0, 0.25
+	)
+	await absorb_tween.finished
+	
+	
 func trigger_attack_hit() -> void:
 	attack_hit.emit()
 
