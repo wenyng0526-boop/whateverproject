@@ -54,7 +54,7 @@ offset_right = 1528.0
 offset_bottom = 39.0
 scale = Vector2(1.09582, 1.72816)
 theme_override_fonts/font = ExtResource("4_a2dmr")
-text = "UPGARDE
+text = "UPGRADE
 "
 
 [node name="ShopCenter" type="CenterContainer" parent="."]
