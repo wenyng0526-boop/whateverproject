@@ -1,9 +1,36 @@
-[gd_scene load_steps=11 format=3 uid="uid://v8ivyevagaw0"]
+[gd_scene load_steps=13 format=3 uid="uid://v8ivyevagaw0"]
 
 [ext_resource type="Script" path="res://Scipts/card.gd" id="1_ywfkn"]
 [ext_resource type="Resource" uid="uid://du5degasdr5q1" path="res://Minion Resource/Goblin/goblin_thief.tres" id="2_puuy4"]
 [ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="3_qojfg"]
 [ext_resource type="Texture2D" uid="uid://yyckgl138lyv" path="res://Assets/card placeholders/Cost 1 card.png" id="4_5yg2h"]
+[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="5_cnq3a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_enw12"]
+bg_color = Color(0.0952803, 0.00534092, 0.202849, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+
+[sub_resource type="Animation" id="Animation_22ihi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardVisual:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_2qsxy"]
 resource_name = "attack_enemy"
@@ -99,21 +126,6 @@ tracks/0/keys = {
 "values": [0.0, -0.174533, 0.0, 0.174533, 0.0, -0.0872665, 0.0, 0.0872665, 0.0, -0.0523599, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_22ihi"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CardVisual:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4eghi"]
 _data = {
 "RESET": SubResource("Animation_22ihi"),
@@ -123,7 +135,7 @@ _data = {
 "hit": SubResource("Animation_y2k82")
 }
 
-[node name="CardUI" type="Control" node_paths=PackedStringArray("name_label", "attack_label", "health_label", "picture", "animation_player")]
+[node name="CardUI" type="Control" node_paths=PackedStringArray("name_label", "attack_label", "health_label", "picture", "desc_name_label", "description_label", "animation_player")]
 custom_minimum_size = Vector2(180, 250)
 layout_mode = 3
 anchors_preset = 0
@@ -138,6 +150,8 @@ name_label = NodePath("CardVisual/Name_Label")
 attack_label = NodePath("CardVisual/Attack_Label")
 health_label = NodePath("CardVisual/Health_Label")
 picture = NodePath("CardVisual/Picture")
+desc_name_label = NodePath("CardVisual/CardDescription/PanelContainer/VBoxContainer/DescName_Label")
+description_label = NodePath("CardVisual/CardDescription/PanelContainer/VBoxContainer/Desc_Label")
 animation_player = NodePath("AnimationPlayer")
 
 [node name="CardVisual" type="Control" parent="."]
@@ -149,6 +163,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="CardDescription" type="Control" parent="CardVisual"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CardVisual/CardDescription"]
+layout_mode = 0
+offset_left = 254.0
+offset_top = -54.0
+offset_right = 398.0
+offset_bottom = -13.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_enw12")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CardVisual/CardDescription/PanelContainer"]
+layout_mode = 2
+
+[node name="DescName_Label" type="Label" parent="CardVisual/CardDescription/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_cnq3a")
+theme_override_font_sizes/font_size = 20
+text = "Na
+"
+
+[node name="Desc_Label" type="Label" parent="CardVisual/CardDescription/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qojfg")
+theme_override_font_sizes/font_size = 16
+text = "Th"
+autowrap_mode = 2
 
 [node name="Name_Label" type="Label" parent="CardVisual"]
 layout_mode = 1

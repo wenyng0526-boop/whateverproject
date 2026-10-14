@@ -10,5 +10,6 @@ cost = 2
 attack = 3
 health = 2
 image = ExtResource("1_a8hsm")
-description = "When this minion kills an enemy, you get +1 currency."
 minon_type = 0
+fusion_tier = 1
+description = "If this minion survives the combat,  +1 currency."

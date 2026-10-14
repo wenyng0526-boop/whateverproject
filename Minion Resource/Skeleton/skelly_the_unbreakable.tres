@@ -7,7 +7,9 @@
 script = ExtResource("2_a6t4g")
 name = "Skelly, the Unbreakable"
 cost = 4
-attack = 10
+attack = 5
 health = 13
 image = ExtResource("1_opde1")
 minon_type = 2
+fusion_tier = 1
+description = "50% chance of dealing double damage."

@@ -12,4 +12,4 @@ health = 10
 image = ExtResource("1_pnyd2")
 minon_type = 0
 fusion_tier = 1
-star = 3
+description = "If this minion survives the combat, +5 currency."

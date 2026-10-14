@@ -90,9 +90,10 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="CurrencyUI" type="PanelContainer" parent="." node_paths=PackedStringArray("amount_label")]
-offset_top = 986.0
+offset_top = 990.0
 offset_right = 237.0
-offset_bottom = 1075.0
+offset_bottom = 1079.0
+mouse_filter = 2
 script = ExtResource("5_nrsk7")
 amount_label = NodePath("Control/Label")
 

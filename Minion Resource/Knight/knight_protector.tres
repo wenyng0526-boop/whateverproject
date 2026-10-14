@@ -11,3 +11,5 @@ attack = 3
 health = 10
 image = ExtResource("1_1f1im")
 minon_type = 3
+fusion_tier = 1
+description = "Gain +2 Attack before attacking."

@@ -10,5 +10,6 @@ cost = 1
 attack = 1
 health = 1
 image = ExtResource("1_8oj1p")
-description = "An arm, not a leg."
 minon_type = 2
+fusion_tier = 1
+description = "An arm, not a leg."

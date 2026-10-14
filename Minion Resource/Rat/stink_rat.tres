@@ -12,4 +12,4 @@ health = 2
 image = ExtResource("1_qv8an")
 minon_type = 1
 fusion_tier = 1
-star = 2
+description = "Deal 1 damage to a random enemy after attacking."

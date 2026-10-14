@@ -13,8 +13,12 @@ signal board_drag_moved(card: CardUI, drag_position: Vector2)
 @export var attack_label: Label
 @export var health_label: Label
 @export var picture: TextureRect
+@export var desc_name_label: Label
+@export var description_label: Label
+@onready var card_description: Control = $CardVisual/CardDescription
 @onready var card_visual: Control = $CardVisual
 @export var animation_player: AnimationPlayer
+
 
 enum CardLocation { SHOP, BOARD, HAND }
 var current_location: CardLocation = CardLocation.BOARD
@@ -39,6 +43,7 @@ var board_drag_start_position: Vector2
 const FUSION_Z := 3000
 
 func _ready() -> void:
+	card_description.hide()
 	set_card_data(card_data)
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
@@ -59,6 +64,10 @@ func set_card_data(new_data: Resource) -> void:
 		health_label.text = str(card_data.health)
 	if picture:
 		picture.texture = card_data.image
+	if desc_name_label:
+		desc_name_label.text = str(card_data.name)
+	if description_label:
+		description_label.text = str(card_data.description)
 
 func take_damage(amount: int) -> void:
 	# Reduce this card's current health
@@ -255,6 +264,20 @@ func _on_mouse_entered() -> void:
 	hover_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	# Animate position.y upward relative to its starting layout spot
 	hover_tween.tween_property(card_visual, "position:y", _get_hover_offset(), hover_duration)
+	#show card description
+	var timer = get_tree().create_timer(1.5)
+	var viewport_width: float = get_viewport_rect().size.x
+	var card_rect: Rect2 = card_visual.get_global_rect()
+	var gap: float = 300.0
+	await timer.timeout
+	await get_tree().process_frame
+	if is_hovered == true:
+		if card_rect.end.x + gap + card_description.size.x > viewport_width:
+			# Move it to the left.
+			card_description.position.x = -card_description.size.x - gap - 280.0
+			card_description.show()
+		else:
+			card_description.show()
 
 func _on_mouse_exited() -> void:
 	if current_location == CardLocation.BOARD and not board_drag_enabled:
@@ -264,7 +287,7 @@ func _on_mouse_exited() -> void:
 		return
 	is_hovered = false
 	z_index = 0
-	
+	card_description.hide()
 	if hover_tween:
 		hover_tween.kill()
 		

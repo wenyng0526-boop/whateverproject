@@ -7,8 +7,9 @@
 script = ExtResource("2_yusqw")
 name = "Elder Goblin"
 cost = 4
-attack = 9
+attack = 10
 health = 12
 image = ExtResource("1_v38gy")
 minon_type = 0
 fusion_tier = 1
+description = "If this minion survives the combat, +4 currency."

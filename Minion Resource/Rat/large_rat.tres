@@ -7,9 +7,9 @@
 script = ExtResource("2_48iy4")
 name = "Large Rat"
 cost = 3
-attack = 7
-health = 7
+attack = 6
+health = 6
 image = ExtResource("1_hxum8")
 minon_type = 1
 fusion_tier = 1
-star = 3
+description = "Deal 2 damage to a random enemy after attacking."

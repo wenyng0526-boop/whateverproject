@@ -11,3 +11,5 @@ attack = 1
 health = 1
 image = ExtResource("1_481ce")
 minon_type = 1
+fusion_tier = 1
+description = "Just a little rat."

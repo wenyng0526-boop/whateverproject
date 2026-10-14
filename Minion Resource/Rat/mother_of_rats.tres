@@ -12,4 +12,4 @@ health = 13
 image = ExtResource("1_qse1x")
 minon_type = 1
 fusion_tier = 1
-star = 3
+description = "Deal 4 damage to a random enemy after attacking, twice."

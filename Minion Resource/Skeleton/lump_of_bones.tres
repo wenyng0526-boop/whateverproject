@@ -11,3 +11,5 @@ attack = 2
 health = 2
 image = ExtResource("1_83451")
 minon_type = 2
+fusion_tier = 1
+description = "50% chance of dealing double damage."
