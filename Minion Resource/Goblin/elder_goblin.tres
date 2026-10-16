@@ -13,3 +13,6 @@ image = ExtResource("1_v38gy")
 minon_type = 0
 fusion_tier = 1
 description = "If this minion survives the combat, +4 currency."
+rat_damage = 0
+rat_hits = 0
+rat_aoe_damage = 0

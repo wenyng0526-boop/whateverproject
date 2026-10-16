@@ -13,3 +13,6 @@ image = ExtResource("1_8ebno")
 minon_type = 1
 fusion_tier = 1
 description = "Deal 3 damage to all enemies after attacking."
+rat_damage = 0
+rat_hits = 1
+rat_aoe_damage = 3

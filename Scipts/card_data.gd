@@ -10,5 +10,7 @@ class_name card_resource
 @export var minon_type: type
 @export var fusion_tier: int = 1 #e.g. current_attack * 2^(fusion tier)
 @export var description: String
-
+@export var rat_damage: int
+@export var rat_hits: int
+@export var rat_aoe_damage: int
 enum type {Goblin, Rat, Skeleton, Knight}

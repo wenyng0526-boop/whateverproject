@@ -381,7 +381,10 @@ func attack(attacker: CardUI, target: CardUI) -> void:
 	#put the death anim here if have
 	if target.is_dead():
 		await get_tree().create_timer(1.0).timeout
-
+	
+	if attacker.card_data.minon_type == card_resource.type.Rat:
+		await trigger_rat_effect(attacker)
+		
 	await get_tree().create_timer(1.0).timeout
 
 
@@ -465,3 +468,66 @@ func roll_enemy_cost(wave: int) -> int:
 		elif roll < 0.60:
 			return 2
 		return 1
+#rat effect
+func get_living_enemies(attacker: CardUI) -> Array[CardUI]:
+	var enemies: Array[CardUI] = []
+	
+	if attacker.team == "Player":
+		enemies = enemy_cards
+	else:
+		enemies = player_cards
+		
+	var living_enemies: Array[CardUI] = []
+	for enemy in enemies:
+		if is_instance_valid(enemy) and not enemy.is_dead():
+			living_enemies.append(enemy)
+	return living_enemies
+
+func trigger_rat_effect(attacker: CardUI) -> void:
+	if not is_instance_valid(attacker):
+		return
+	
+	if attacker.card_data == null:
+		return
+	var targets = get_living_enemies(attacker)
+	var data: card_resource = attacker.card_data
+	
+	if data.rat_damage != 0:
+		for i in range(data.rat_hits):
+			var target: CardUI = targets.pick_random()
+			if targets.is_empty():
+				break
+			await deal_effect_damage(
+				attacker,
+				target,
+				data.rat_damage
+			)
+	
+	if data.rat_aoe_damage != 0:
+		for target in targets:
+			if is_instance_valid(target) and not target.is_dead():
+				await deal_effect_damage(
+					attacker,
+					target,
+					data.rat_aoe_damage
+				)
+
+func deal_effect_damage(
+	attacker: CardUI,
+	target: CardUI,
+	amount: int
+) -> void:
+	if not is_instance_valid(target) or target.is_dead():
+		return
+	
+	var damage_instance = print_damage.instantiate()
+	effects.add_child(damage_instance)
+	
+	damage_instance.global_position = (
+		target.get_global_rect().get_center()
+		+ Vector2(0, -50)
+	)
+	
+	damage_instance.show_damage(amount)
+	target.take_damage(amount)
+	await target.play_hit_animation()

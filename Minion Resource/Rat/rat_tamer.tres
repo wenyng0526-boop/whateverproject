@@ -13,3 +13,6 @@ image = ExtResource("1_jjqdf")
 minon_type = 1
 fusion_tier = 1
 description = "Deal 1 damage to all enemies after attacking."
+rat_damage = 0
+rat_hits = 1
+rat_aoe_damage = 1
