@@ -49,8 +49,8 @@ func check_for_duplicate():
 		for i in range(hand_cards.size()):
 			for j in range(i+1,hand_cards.size()):
 				var card = hand_cards[i]
-				var duplicate = hand_cards[j]
-				if card.name == duplicate.name and card.fusion_tier == duplicate.fusion_tier:
+				var duplicate_card = hand_cards[j]
+				if card.name == duplicate_card.name and card.fusion_tier == duplicate_card.fusion_tier:
 					fuse_cards(i,j)
 					fusion_happened = true
 					break
@@ -101,7 +101,6 @@ func save_game(resume_scene: String) -> void:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	file.store_string(JSON.stringify(save_data))
 
-	print("GAME SAVED")
 
 
 func load_game() -> String:
@@ -147,7 +146,6 @@ func load_game() -> String:
 
 	returned_from_failure_or_load = true
 
-	print("GAME LOADED")
 
 	return save_data["resume_scene"]
 	
@@ -175,7 +173,6 @@ func delete_save_game() -> void:
 
 	dir.list_dir_end()
 
-	print("ALL SAVE FILES DELETED")
 
 func reset_run():
 	hand_cards.clear()
@@ -193,4 +190,3 @@ func reset_run():
 	
 	delete_save_game()
 	
-	print("NEW RUN STARTED")

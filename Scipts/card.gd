@@ -165,7 +165,11 @@ func reset_board_drag() -> void:
 
 #card been attaked or dead, it play aniamation
 func play_hit_animation() -> void:
-	animation_player.play("hit")
+	if team == "Player":
+		animation_player.play("hit_player")
+	else:
+		animation_player.play("hit_enemy")
+
 	await animation_player.animation_finished
 
 #card attack animation

@@ -7,6 +7,8 @@ extends Node2D
 @export var hand_container : HBoxContainer
 @export var confirm_panel : Control
 @export var confirm_label : Label
+@export var warning_label: Label
+
 
 var refresh_cost = 1
 var sell_value: int = 1
@@ -149,9 +151,21 @@ func refresh_hand() -> void:
 
 #done button
 func _on_done_button_pressed() -> void:
+	if GameState.hand_cards.is_empty():
+		await show_warning()
+		return
+
 	GameState.complete_node()
 	GameState.save_game("res://Scenes/map.tscn")
 	get_tree().change_scene_to_file("res://Scenes/map.tscn")
+
+func show_warning() -> void:
+	warning_label.show()
+
+	await get_tree().create_timer(3.0).timeout
+
+	warning_label.hide()
+
 
 #sell shet
 func _on_hand_card_clicked(card: CardUI) -> void:

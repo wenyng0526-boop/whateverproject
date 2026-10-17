@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bts1pm5edlc0y"]
+[gd_scene load_steps=3 format=3 uid="uid://bts1pm5edlc0y"]
 
 [ext_resource type="PackedScene" uid="uid://c5r3h7s0140do" path="res://Scenes/map_node.tscn" id="1_j0sno"]
+[ext_resource type="Script" path="res://Scipts/camera_2d.gd" id="2_wdtea"]
 
 [node name="Map" type="Node2D"]
 
@@ -147,3 +148,7 @@ next_nodes = Array[int]([29])
 position = Vector2(1231, 86)
 text = "Shop"
 node_index = 36
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+script = ExtResource("2_wdtea")

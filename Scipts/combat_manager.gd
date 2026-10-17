@@ -40,7 +40,8 @@ func _ready() -> void:
 	spawn_hand_cards()
 
 	if GameState.combat_mode == GameState.CombatMode.NORMAL:
-		spawn_random_enemies(GameState.current_wave)
+		var combat_number: int = GameState.win_count + 1
+		spawn_random_enemies(combat_number)
 	else:
 		battle_started = true
 		await get_tree().process_frame
@@ -425,15 +426,15 @@ func return_surviving_cards_to_hand() -> void:
 	GameState.deployed_cards.clear()
 
 
-func spawn_random_enemies(wave: int) -> void:
+func spawn_random_enemies(combat_number: int) -> void:
 	for child in enemy_container.get_children():
 		enemy_container.remove_child(child)
 		child.queue_free()
 
-	var enemy_count = 4
+	var enemy_count: int = roll_enemy_count(combat_number)
 
 	for i in range(enemy_count):
-		var enemy_cost = roll_enemy_cost(wave)
+		var enemy_cost: int = roll_enemy_cost(combat_number)
 		var enemy_data: card_resource
 
 		if enemy_cost == 1:
@@ -447,27 +448,66 @@ func spawn_random_enemies(wave: int) -> void:
 		enemy_container.add_child(card_instance)
 		card_instance.set_card_data(enemy_data)
 
-func roll_enemy_cost(wave: int) -> int:
-	var roll = randf()
 
-	if wave <= 4:
-		if roll < 0.10:
-			return 2
+func roll_enemy_cost(combat_number: int) -> int:
+	var roll := randf()
+
+	# Combat 1-2: only Cost 1 enemies
+	if combat_number <= 2:
 		return 1
 
-	elif wave <= 8:
-		if roll < 0.03:
-			return 3
-		elif roll < 0.35:
-			return 2
-		return 1
-
-	else:
+	# Combat 3-4
+	elif combat_number <= 4:
 		if roll < 0.20:
+			return 2
+
+		return 1
+
+	# Combat 5-6
+	elif combat_number <= 6:
+		if roll < 0.05:
+			return 3
+		elif roll < 0.40:
+			return 2
+
+		return 1
+
+	# Combat 7-8
+	elif combat_number <= 8:
+		if roll < 0.15:
 			return 3
 		elif roll < 0.60:
 			return 2
+
 		return 1
+
+	# Combat 9+
+	else:
+		if roll < 0.30:
+			return 3
+		elif roll < 0.75:
+			return 2
+
+		return 1
+
+
+func roll_enemy_count(combat_number: int) -> int:
+	if combat_number <= 2:
+		return 2
+
+	elif combat_number <= 4:
+		return randi_range(2, 3)
+
+	elif combat_number <= 6:
+		return randi_range(3, 4)
+
+	elif combat_number <= 8:
+		return randi_range(4, 5)
+
+	else:
+		return randi_range(5, 6)
+
+
 #rat effect
 func get_living_enemies(attacker: CardUI) -> Array[CardUI]:
 	var enemies: Array[CardUI] = []

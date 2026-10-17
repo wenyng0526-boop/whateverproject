@@ -15,7 +15,7 @@ func _ready() -> void:
 		node_index not in GameState.available_nodes
 		or node_index in GameState.completed_nodes
 	)
-	button.pressed.connect(_on_button_pressed)
+
 	$Button.text = text
 	
 func _on_button_pressed() -> void:
