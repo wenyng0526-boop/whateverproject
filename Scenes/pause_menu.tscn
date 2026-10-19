@@ -1,0 +1,98 @@
+[gd_scene load_steps=3 format=3 uid="uid://h4i6vvtpoili"]
+
+[ext_resource type="Script" path="res://Scipts/pause_menu.gd" id="1_jdu52"]
+[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="2_gt21u"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_jdu52")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -44.0
+offset_right = 106.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.368627, 0.368627, 0.368627, 0.988235)
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -214.5
+offset_right = 234.0
+offset_bottom = 214.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button_control" type="Control" parent="Control/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ResumeButton" type="Button" parent="Control/PanelContainer/Button_control"]
+layout_mode = 2
+offset_left = -141.0
+offset_top = -69.0
+offset_right = 147.0
+offset_bottom = -24.0
+theme_override_fonts/font = ExtResource("2_gt21u")
+text = "RESUME"
+
+[node name="SettingsButton" type="Button" parent="Control/PanelContainer/Button_control"]
+layout_mode = 0
+offset_left = -141.0
+offset_top = -6.0
+offset_right = 147.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("2_gt21u")
+text = "SETTINGS"
+
+[node name="EndRunButton" type="Button" parent="Control/PanelContainer/Button_control"]
+layout_mode = 0
+offset_left = -143.0
+offset_top = 54.0
+offset_right = 145.0
+offset_bottom = 99.0
+theme_override_fonts/font = ExtResource("2_gt21u")
+text = "END RUN"
+
+[node name="MainMenuButton" type="Button" parent="Control/PanelContainer/Button_control"]
+layout_mode = 0
+offset_left = -143.0
+offset_top = 112.5
+offset_right = 145.0
+offset_bottom = 157.5
+theme_override_fonts/font = ExtResource("2_gt21u")
+text = "RETURN TO MAIN MENU"
+
+[node name="Pause" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = 882.0
+offset_top = 388.0
+offset_right = 1042.0
+offset_bottom = 421.0
+theme_override_fonts/font = ExtResource("2_gt21u")
+theme_override_font_sizes/font_size = 32
+text = "PAUSE"
+
+[connection signal="pressed" from="Control/PanelContainer/Button_control/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/Button_control/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/Button_control/EndRunButton" to="." method="_on_end_run_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/Button_control/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
