@@ -298,3 +298,22 @@ func _on_mouse_exited() -> void:
 	hover_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	# Animate position.y back down to 0 (its default container layout position)
 	hover_tween.tween_property(card_visual, "position:y", 0.0, hover_duration)
+
+#knight effect
+func knight_effect():
+	if card_data == null:
+		return
+	current_attack += card_data.knight_attack_inc
+	current_health += card_data.knight_health_inc
+	if attack_label:
+		attack_label.text = str(current_attack)
+	if health_label:
+		health_label.text = str(current_health)
+		
+	if card_data.knight_attack_inc > 0 or card_data.knight_health_inc > 0:
+		print(
+			name,
+			" gains +", card_data.knight_attack_inc,
+			" Attack and +", card_data.knight_health_inc,
+			" Health before attacking!"
+		)
