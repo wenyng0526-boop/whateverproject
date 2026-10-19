@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c7ondrblaspck"]
+[gd_scene load_steps=36 format=3 uid="uid://c7ondrblaspck"]
 
 [ext_resource type="Script" path="res://Scipts/combat_manager.gd" id="1_1ge3h"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="1_hiokq"]
@@ -34,6 +34,7 @@
 [ext_resource type="Resource" uid="uid://uilbc760sao7" path="res://Minion Resource/Rat/large_rat.tres" id="29_bi28p"]
 [ext_resource type="Resource" uid="uid://q8va41yxvpp2" path="res://Minion Resource/Rat/mass_infestation.tres" id="30_tlxuk"]
 [ext_resource type="Resource" uid="uid://d24xbnkck6jhy" path="res://Minion Resource/Skeleton/skelly_the_unbreakable.tres" id="32_l8xxo"]
+[ext_resource type="PackedScene" uid="uid://b4ojdviu2r56a" path="res://Scenes/pause_menu.tscn" id="35_fwkip"]
 
 [node name="Combat_Scene" type="Node2D" node_paths=PackedStringArray("player_container", "enemy_container")]
 position = Vector2(2, 0)
@@ -141,5 +142,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="PauseMenu" parent="." instance=ExtResource("35_fwkip")]
+visible = false
 
 [connection signal="pressed" from="StartBattleButton" to="." method="_on_start_battle_button_pressed"]

@@ -330,10 +330,14 @@ func start_combat() -> void:
 	if enemy_cards.is_empty():
 		var remaining_cards = player_cards.size()
 		var reward = defeated_enemy_cost + remaining_cards
-
+		
+		var goblin_bonus = goblin_bonus()
+		reward += goblin_bonus
+		
 		GameState.win_count += 1
 		GameState.currency += reward
 		
+		print("Goblin survival bonus: +", goblin_bonus, " currency")
 		# Return surviving cards to the hand after winning
 		return_surviving_cards_to_hand()
 	
@@ -352,6 +356,17 @@ func start_combat() -> void:
 
 
 func attack(attacker: CardUI, target: CardUI) -> void:
+	if not is_instance_valid(attacker) or not is_instance_valid(target):
+		return
+	var damage: int = attacker.current_attack
+	#skeleton effect
+	if attacker.card_data != null:
+		if attacker.card_data.minon_type == card_resource.type.Skeleton:
+			if randf() < 0.5:
+				if attacker.card_data.name != "Arm":
+					damage *= 2
+					print("Skeleton double damage!")
+				
 	print(attacker.card_data.name, " attacks ", target.card_data.name, " for ", attacker.current_attack, " damage!")
 
 	# Start the attack animation
@@ -374,9 +389,9 @@ func attack(attacker: CardUI, target: CardUI) -> void:
 	
 	# Move the damage number slightly above the target card
 	damage_instance.global_position = target.get_global_rect().get_center() + Vector2(0, -50)
-	damage_instance.show_damage(attacker.current_attack)
+	damage_instance.show_damage(damage)
 	
-	target.take_damage(attacker.current_attack)
+	target.take_damage(damage)
 	await target.play_hit_animation()
 	
 	#put the death anim here if have
@@ -571,3 +586,19 @@ func deal_effect_damage(
 	damage_instance.show_damage(amount)
 	target.take_damage(amount)
 	await target.play_hit_animation()
+#goblin bonus money
+func goblin_bonus():
+	var bonus_currency: int = 0
+	
+	for card in player_cards:
+		if not is_instance_valid(card) or card.is_dead():
+			continue
+		if card.card_data == null:
+			continue
+		
+		var data: card_resource = card.card_data as card_resource
+		
+		if data.minon_type == card_resource.type.Goblin:
+			bonus_currency += data.goblin_money
+			
+	return bonus_currency

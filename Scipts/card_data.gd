@@ -13,6 +13,7 @@ class_name card_resource
 @export var rat_damage: int
 @export var rat_hits: int
 @export var rat_aoe_damage: int
-@export var knight_attack_inc: int = 0
-@export var knight_health_inc: int = 0
+@export var knight_attack_inc: int
+@export var knight_health_inc: int
+@export var goblin_money: int
 enum type {Goblin, Rat, Skeleton, Knight}
