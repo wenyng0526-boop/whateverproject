@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c7ondrblaspck"]
+[gd_scene load_steps=35 format=3 uid="uid://c7ondrblaspck"]
 
 [ext_resource type="Script" path="res://Scipts/combat_manager.gd" id="1_1ge3h"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="1_hiokq"]
@@ -13,13 +13,27 @@
 [ext_resource type="Resource" uid="uid://cq0kmmrv0v2ct" path="res://Minion Resource/Goblin/greed_gobbler.tres" id="6_d0t0k"]
 [ext_resource type="Resource" uid="uid://dfmn33hu2kreo" path="res://Minion Resource/Rat/stink_rat.tres" id="6_g8pjw"]
 [ext_resource type="Resource" uid="uid://c5v3wf8oo4mcd" path="res://Minion Resource/Goblin/elder_goblin.tres" id="6_s2gyj"]
+[ext_resource type="Resource" uid="uid://bn8rixgot0bjo" path="res://Minion Resource/Knight/horn_blower.tres" id="7_iren4"]
 [ext_resource type="Resource" uid="uid://cux54pf0jelew" path="res://Minion Resource/Rat/mother_of_rats.tres" id="8_4fngt"]
 [ext_resource type="Resource" uid="uid://dyj8ymm5747c5" path="res://Minion Resource/Goblin/inspired_goblin.tres" id="8_ie5uw"]
+[ext_resource type="Resource" uid="uid://bbb5ipiug4cit" path="res://Minion Resource/Rat/little_rat.tres" id="8_oflgc"]
 [ext_resource type="Resource" uid="uid://50bbopvgrqmc" path="res://Minion Resource/Goblin/the_supplier.tres" id="9_lglh0"]
+[ext_resource type="Resource" uid="uid://dr8livklpk6kw" path="res://Minion Resource/Skeleton/arm.tres" id="9_urhmx"]
 [ext_resource type="Resource" uid="uid://6neusp3kng7n" path="res://Minion Resource/Knight/armoursmith.tres" id="10_3ps3t"]
+[ext_resource type="Resource" uid="uid://dl782p14xhls0" path="res://Minion Resource/Skeleton/lump_of_bones.tres" id="10_gfq7w"]
 [ext_resource type="PackedScene" uid="uid://b3awfj516bl5" path="res://Scenes/Reward.tscn" id="10_qogxl"]
+[ext_resource type="Resource" uid="uid://ck25kwqigneuy" path="res://Minion Resource/Skeleton/skeleton_archer.tres" id="11_xl322"]
 [ext_resource type="Resource" uid="uid://1oboyjgx03vl" path="res://Minion Resource/Goblin/lavished_goblin.tres" id="13_4mlkq"]
 [ext_resource type="Resource" uid="uid://u8tsstd5v52u" path="res://Minion Resource/Knight/honorary_knight.tres" id="14_jxep6"]
+[ext_resource type="Resource" uid="uid://dojwwo3070368" path="res://Minion Resource/Knight/knight_protector.tres" id="17_6pdpg"]
+[ext_resource type="Resource" uid="uid://ejg1x04q42m5" path="res://Minion Resource/Rat/disease_spreader.tres" id="18_mat62"]
+[ext_resource type="Resource" uid="uid://dy641a3c1etjx" path="res://Minion Resource/Rat/scarificial_rat.tres" id="20_u4e87"]
+[ext_resource type="Resource" uid="uid://bn7lyinamlkhp" path="res://Minion Resource/Skeleton/bone_muncher.tres" id="22_rcr5v"]
+[ext_resource type="Resource" uid="uid://dtpyy4wn8t78t" path="res://Minion Resource/Skeleton/bone_refiner.tres" id="23_3fhwb"]
+[ext_resource type="Resource" uid="uid://bp81elouu50na" path="res://Minion Resource/Knight/knight_commander.tres" id="28_rktqr"]
+[ext_resource type="Resource" uid="uid://uilbc760sao7" path="res://Minion Resource/Rat/large_rat.tres" id="29_bi28p"]
+[ext_resource type="Resource" uid="uid://q8va41yxvpp2" path="res://Minion Resource/Rat/mass_infestation.tres" id="30_tlxuk"]
+[ext_resource type="Resource" uid="uid://d24xbnkck6jhy" path="res://Minion Resource/Skeleton/skelly_the_unbreakable.tres" id="32_l8xxo"]
 
 [node name="Combat_Scene" type="Node2D" node_paths=PackedStringArray("player_container", "enemy_container")]
 position = Vector2(2, 0)
@@ -27,9 +41,9 @@ script = ExtResource("1_1ge3h")
 player_container = NodePath("PlayerCenter/PlayerContainer")
 enemy_container = NodePath("EnemyCenter/EnemyContainer")
 card_ui = ExtResource("1_hiokq")
-one_star_enemies = Array[ExtResource("3_a1xpf")]([ExtResource("4_weuwe"), ExtResource("5_8jr4h"), ExtResource("6_6f5eg")])
-two_star_enemies = Array[ExtResource("3_a1xpf")]([ExtResource("6_d0t0k"), ExtResource("8_ie5uw"), ExtResource("9_lglh0"), ExtResource("10_3ps3t"), ExtResource("3_ngc22")])
-three_star_enemies = Array[ExtResource("3_a1xpf")]([ExtResource("6_s2gyj"), ExtResource("13_4mlkq"), ExtResource("14_jxep6")])
+one_star_enemies = Array[ExtResource("3_a1xpf")]([ExtResource("4_weuwe"), ExtResource("5_8jr4h"), ExtResource("6_6f5eg"), ExtResource("7_iren4"), ExtResource("8_oflgc"), ExtResource("9_urhmx"), ExtResource("10_gfq7w"), ExtResource("11_xl322")])
+two_star_enemies = Array[ExtResource("3_a1xpf")]([ExtResource("6_d0t0k"), ExtResource("8_ie5uw"), ExtResource("9_lglh0"), ExtResource("10_3ps3t"), ExtResource("3_ngc22"), ExtResource("17_6pdpg"), ExtResource("18_mat62"), ExtResource("5_vwtws"), ExtResource("20_u4e87"), ExtResource("6_g8pjw"), ExtResource("22_rcr5v"), ExtResource("23_3fhwb"), ExtResource("4_8ts7m")])
+three_star_enemies = Array[ExtResource("3_a1xpf")]([ExtResource("6_s2gyj"), ExtResource("13_4mlkq"), ExtResource("14_jxep6"), ExtResource("28_rktqr"), ExtResource("29_bi28p"), ExtResource("30_tlxuk"), ExtResource("8_4fngt"), ExtResource("32_l8xxo"), ExtResource("5_61ds5")])
 
 [node name="EnemyCenter" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(1920, 300)
