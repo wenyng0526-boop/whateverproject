@@ -20,6 +20,8 @@ const print_damage = preload("res://Scenes/print_damage.tscn")
 @export var one_star_enemies: Array[card_resource]
 @export var two_star_enemies: Array[card_resource]
 @export var three_star_enemies: Array[card_resource]
+#pause menu
+@onready var pause_menu: CanvasLayer = $PauseMenu
 #Leave a space when dragging
 var board_placeholder: Control
 
@@ -44,6 +46,7 @@ func _ready() -> void:
 		spawn_random_enemies(combat_number)
 	else:
 		battle_started = true
+		pause_menu.set_can_pause(false)
 		await get_tree().process_frame
 		setup_combat()
 		for card in player_cards:
@@ -111,6 +114,7 @@ func _on_start_battle_button_pressed() -> void:
 		return
 
 	battle_started = true
+	pause_menu.set_can_pause(false)
 
 	# Disable board card dragging during combat
 	for child in player_container.get_children():

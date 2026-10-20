@@ -1,15 +1,24 @@
 extends CanvasLayer
 
 @export var settings_panel: Control
+var can_pause: bool = true
 
+#-----pause lock-----#
+func set_can_pause(value: bool) -> void:
+	can_pause = value
+	if not can_pause and get_tree().paused:
+		resume()
+
+#-----func-----#
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	hide()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("pause"):
+	if event.is_action_pressed("pause") and can_pause:
 		toggle_pause()
 
+#-----button-----#
 func toggle_pause() -> void:
 	if get_tree().paused:
 		resume()
