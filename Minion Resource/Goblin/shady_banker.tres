@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://dwpu2h2bdmhji"]
 
-[ext_resource type="Texture2D" uid="uid://yyckgl138lyv" path="res://Assets/card placeholders/Cost 1 card.png" id="1_fprsr"]
+[ext_resource type="Texture2D" uid="uid://b0pjj5cdnka8m" path="res://Assets/cards/Shady Banker Card.png" id="1_txyyj"]
 [ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_64uwl"]
 
 [resource]
@@ -9,7 +9,7 @@ name = "Shady Banker"
 cost = 2
 attack = 2
 health = 2
-image = ExtResource("1_fprsr")
+image = ExtResource("1_txyyj")
 minon_type = 0
 fusion_tier = 1
 description = "If this minion survives the combat, +2 currency."

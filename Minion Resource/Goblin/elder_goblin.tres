@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://c5v3wf8oo4mcd"]
 
-[ext_resource type="Texture2D" uid="uid://bfvpklkhjegqn" path="res://Assets/card placeholders/Cost 3 card.png" id="1_v38gy"]
+[ext_resource type="Texture2D" uid="uid://b6ls17ce2l2gj" path="res://Assets/cards/Elder Goblin.png" id="1_01i63"]
 [ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_yusqw"]
 
 [resource]
@@ -9,7 +9,7 @@ name = "Elder Goblin"
 cost = 4
 attack = 10
 health = 12
-image = ExtResource("1_v38gy")
+image = ExtResource("1_01i63")
 minon_type = 0
 fusion_tier = 1
 description = "If this minion survives the combat, +4 currency."

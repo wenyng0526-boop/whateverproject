@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xcregx8kfhf"
-path="res://.godot/imported/Stink Rat.png-109423e6926c6b71017bc2bccb03ff8d.ctex"
+uid="uid://df0n8gg7tjtys"
+path="res://.godot/imported/Greed Gobler.png-cfe54ed392a3384f0087d7b1765c393f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/cards/Stink Rat.png"
-dest_files=["res://.godot/imported/Stink Rat.png-109423e6926c6b71017bc2bccb03ff8d.ctex"]
+source_file="res://Assets/cards/Greed Gobler.png"
+dest_files=["res://.godot/imported/Greed Gobler.png-cfe54ed392a3384f0087d7b1765c393f.ctex"]
 
 [params]
 

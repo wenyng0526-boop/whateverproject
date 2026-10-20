@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://bp81elouu50na"]
 
-[ext_resource type="Texture2D" uid="uid://bfvpklkhjegqn" path="res://Assets/card placeholders/Cost 3 card.png" id="1_7rsqy"]
+[ext_resource type="Texture2D" uid="uid://twtuf162g7du" path="res://Assets/cards/Knight Commander.png" id="1_613po"]
 [ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_gn0g1"]
 
 [resource]
@@ -9,7 +9,7 @@ name = "Knight Commander"
 cost = 4
 attack = 11
 health = 13
-image = ExtResource("1_7rsqy")
+image = ExtResource("1_613po")
 minon_type = 3
 fusion_tier = 1
 description = "Gain +6/+4 before attacking."
@@ -18,3 +18,4 @@ rat_hits = 0
 rat_aoe_damage = 0
 knight_attack_inc = 6
 knight_health_inc = 4
+goblin_money = 0

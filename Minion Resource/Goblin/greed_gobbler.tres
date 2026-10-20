@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://cq0kmmrv0v2ct"]
 
-[ext_resource type="Texture2D" uid="uid://d3esp7w8pcu6" path="res://Assets/card placeholders/Cost 2 card.png" id="1_7c5ny"]
+[ext_resource type="Texture2D" uid="uid://df0n8gg7tjtys" path="res://Assets/cards/Greed Gobler.png" id="1_tm5w0"]
 [ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_5c1my"]
 
 [resource]
@@ -9,7 +9,7 @@ name = "Greed Gobbler"
 cost = 3
 attack = 8
 health = 5
-image = ExtResource("1_7c5ny")
+image = ExtResource("1_tm5w0")
 minon_type = 0
 fusion_tier = 1
 description = "If this minion survives the combat, +1 currency."

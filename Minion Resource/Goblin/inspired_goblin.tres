@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://dyj8ymm5747c5"]
 
-[ext_resource type="Texture2D" uid="uid://d3esp7w8pcu6" path="res://Assets/card placeholders/Cost 2 card.png" id="1_dld7s"]
+[ext_resource type="Texture2D" uid="uid://we3nmsil2hcf" path="res://Assets/cards/Inspired Goblin.png" id="1_hq23c"]
 [ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_v83pg"]
 
 [resource]
@@ -9,7 +9,7 @@ name = "Inspired Goblin"
 cost = 3
 attack = 6
 health = 7
-image = ExtResource("1_dld7s")
+image = ExtResource("1_hq23c")
 minon_type = 0
 fusion_tier = 1
 description = "If this minion survives the combat, +2 currency."

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://dtpyy4wn8t78t"]
 
-[ext_resource type="Texture2D" uid="uid://d3esp7w8pcu6" path="res://Assets/card placeholders/Cost 2 card.png" id="1_5ux4j"]
+[ext_resource type="Texture2D" uid="uid://bfvpklkhjegqn" path="res://Assets/card placeholders/Cost 3 card.png" id="1_iublw"]
 [ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_fsctn"]
 
 [resource]
@@ -9,7 +9,13 @@ name = "Bone Refiner"
 cost = 3
 attack = 3
 health = 7
-image = ExtResource("1_5ux4j")
+image = ExtResource("1_iublw")
 minon_type = 2
 fusion_tier = 1
 description = "50% chance of dealing double damage."
+rat_damage = 0
+rat_hits = 0
+rat_aoe_damage = 0
+knight_attack_inc = 0
+knight_health_inc = 0
+goblin_money = 0

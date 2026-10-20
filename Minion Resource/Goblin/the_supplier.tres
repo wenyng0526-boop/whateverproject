@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://50bbopvgrqmc"]
 
-[ext_resource type="Texture2D" uid="uid://d3esp7w8pcu6" path="res://Assets/card placeholders/Cost 2 card.png" id="1_wie25"]
+[ext_resource type="Texture2D" uid="uid://yrrou4dhkgo0" path="res://Assets/cards/The Supplier.png" id="1_fnou8"]
 [ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_o1foi"]
 
 [resource]
@@ -9,7 +9,7 @@ name = "The Supplier"
 cost = 3
 attack = 5
 health = 5
-image = ExtResource("1_wie25")
+image = ExtResource("1_fnou8")
 minon_type = 0
 fusion_tier = 1
 description = "If this minion survives the combat, +3 currency."

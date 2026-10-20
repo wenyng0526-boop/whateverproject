@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://dfmn33hu2kreo"]
 
-[ext_resource type="Texture2D" uid="uid://xcregx8kfhf" path="res://Assets/cards/Stink Rat.png" id="1_qv8an"]
+[ext_resource type="Texture2D" uid="uid://8t2bqcgnktmd" path="res://Assets/cards/Stink Rat Card.png" id="1_emy7a"]
 [ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_o6v5e"]
 
 [resource]
@@ -9,7 +9,7 @@ name = "Stink Rat"
 cost = 2
 attack = 2
 health = 2
-image = ExtResource("1_qv8an")
+image = ExtResource("1_emy7a")
 minon_type = 1
 fusion_tier = 1
 description = "Deal 1 damage to all enemies after attacking."
@@ -18,3 +18,4 @@ rat_hits = 1
 rat_aoe_damage = 1
 knight_attack_inc = 0
 knight_health_inc = 0
+goblin_money = 0

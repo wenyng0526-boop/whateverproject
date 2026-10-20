@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://du5degasdr5q1"]
 
-[ext_resource type="Texture2D" uid="uid://yyckgl138lyv" path="res://Assets/card placeholders/Cost 1 card.png" id="1_a8hsm"]
+[ext_resource type="Texture2D" uid="uid://c2ou1xuxmfo3g" path="res://Assets/cards/Goblin Thief.png" id="1_hysx2"]
 [ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_l7cm2"]
 
 [resource]
@@ -9,7 +9,7 @@ name = "Goblin Thief"
 cost = 2
 attack = 3
 health = 2
-image = ExtResource("1_a8hsm")
+image = ExtResource("1_hysx2")
 minon_type = 0
 fusion_tier = 1
 description = "If this minion survives the combat,  +1 currency."

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://c4lnlj38wuvu6"]
 
-[ext_resource type="Texture2D" uid="uid://d3esp7w8pcu6" path="res://Assets/card placeholders/Cost 2 card.png" id="1_eapai"]
+[ext_resource type="Texture2D" uid="uid://bqslljqwxrdqn" path="res://Assets/cards/Foot Soldier.png" id="1_lusra"]
 [ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_fewbj"]
 
 [resource]
@@ -9,7 +9,7 @@ name = "Foot Soldier"
 cost = 3
 attack = 5
 health = 7
-image = ExtResource("1_eapai")
+image = ExtResource("1_lusra")
 minon_type = 3
 fusion_tier = 1
 description = "Gain +2/+2 before attacking."
@@ -18,3 +18,4 @@ rat_hits = 0
 rat_aoe_damage = 0
 knight_attack_inc = 2
 knight_health_inc = 2
+goblin_money = 0
