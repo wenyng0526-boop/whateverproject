@@ -153,6 +153,8 @@ func refresh_hand() -> void:
 		var card_instance: CardUI = card_ui.instantiate()
 		hand_container.add_child(card_instance)
 		card_instance.set_card_data(data)
+		card_instance.z_index = sorted_hand.find(data) * 10
+		card_instance.normal_z_index = card_instance.z_index
 		card_instance.current_location = CardUI.CardLocation.HAND
 		card_instance.clicked.connect(_on_hand_card_clicked)
 

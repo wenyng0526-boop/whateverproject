@@ -65,7 +65,8 @@ func spawn_hand_cards() -> void:
 		hand_container.add_child(card_instance)
 		card_instance.set_card_data(data)
 		card_instance.current_location = CardUI.CardLocation.HAND
-
+		card_instance.z_index = GameState.hand_cards.find(data) * 10
+		card_instance.normal_z_index = card_instance.z_index
 		# Connect this hand card's click signal
 		card_instance.clicked.connect(_on_hand_card_clicked)
 

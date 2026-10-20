@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scipts/card.gd" id="1_ywfkn"]
 [ext_resource type="Resource" uid="uid://du5degasdr5q1" path="res://Minion Resource/Goblin/goblin_thief.tres" id="2_puuy4"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="3_qojfg"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="3_qojfg"]
 [ext_resource type="Texture2D" uid="uid://yyckgl138lyv" path="res://Assets/card placeholders/Cost 1 card.png" id="4_5yg2h"]
-[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="5_cnq3a"]
+[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="5_cnq3a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_enw12"]
 bg_color = Color(0.0952803, 0.00534092, 0.202849, 1)
@@ -276,10 +276,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 18.0
-offset_top = -241.0
-offset_right = 74.0
-offset_bottom = -209.0
+offset_left = 26.0
+offset_top = -243.0
+offset_right = 82.0
+offset_bottom = -211.0
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_qojfg")
@@ -294,9 +294,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -25.0
+offset_left = -22.0
 offset_top = -243.0
-offset_right = 31.0
+offset_right = 34.0
 offset_bottom = -211.0
 grow_horizontal = 0
 grow_vertical = 0
@@ -335,7 +335,6 @@ grow_vertical = 2
 texture = ExtResource("4_5yg2h")
 
 [node name="HitFlash" type="ColorRect" parent="CardVisual"]
-visible = false
 custom_minimum_size = Vector2(180, 250)
 layout_mode = 1
 anchors_preset = 15

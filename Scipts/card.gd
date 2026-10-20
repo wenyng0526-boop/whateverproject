@@ -29,6 +29,7 @@ var team: String = "" #Enemy or Player
 
 var is_hovered = false
 var hover_tween: Tween
+var normal_z_index: int = 0
 var board_mouse_pressed: bool = false
 var board_dragging: bool = false
 var board_drag_enabled: bool = false
@@ -299,7 +300,6 @@ func _on_mouse_exited() -> void:
 	is_hovered = false
 
 	# Return the card to its normal layer
-	z_index = 0
 
 	card_description.hide()
 
@@ -308,6 +308,7 @@ func _on_mouse_exited() -> void:
 		
 	hover_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	hover_tween.tween_property(card_visual, "position:y", 0.0, hover_duration)
+	z_index = normal_z_index
 
 #knight effect
 func knight_effect():
