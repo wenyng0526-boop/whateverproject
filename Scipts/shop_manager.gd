@@ -119,14 +119,21 @@ func check_for_duplicate_animated() -> void:
 			break
 			
 		await visual_a.fusion_tween(visual_b)
-		
+
 		GameState.fuse_cards(index_a, index_b)
 		visual_a.set_card_data(visual_a.card_data)
-		
+
 		await visual_a.play_fusion_animation()
-		
+
+		# Restore the normal Z order after fusion
+		visual_a.card_visual.z_as_relative = true
+		visual_b.card_visual.z_as_relative = true
+
+		visual_a.card_visual.z_index = 0
+		visual_b.card_visual.z_index = 0
+
 		await get_tree().create_timer(0.3).timeout
-		
+
 		refresh_hand()
 		await get_tree().process_frame
 		

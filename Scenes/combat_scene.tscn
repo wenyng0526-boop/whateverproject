@@ -124,6 +124,7 @@ offset_bottom = 1320.0
 size_flags_vertical = 4
 
 [node name="HandContainer" type="HBoxContainer" parent="HandCenter"]
+z_index = 100
 layout_mode = 2
 
 [node name="StartBattleButton" type="Button" parent="."]
