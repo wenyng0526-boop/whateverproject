@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://dr8livklpk6kw"]
 
-[ext_resource type="Texture2D" uid="uid://yyckgl138lyv" path="res://Assets/card placeholders/Cost 1 card.png" id="1_8oj1p"]
+[ext_resource type="Texture2D" uid="uid://dmkw0jfmgovvt" path="res://Assets/cards/Arm.png" id="1_sl8v2"]
 [ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_12q8j"]
 
 [resource]
@@ -9,7 +9,7 @@ name = "Arm"
 cost = 1
 attack = 1
 health = 1
-image = ExtResource("1_8oj1p")
+image = ExtResource("1_sl8v2")
 minon_type = 2
 fusion_tier = 1
 description = "An arm, not a leg."

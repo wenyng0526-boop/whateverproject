@@ -1,15 +1,15 @@
 [gd_resource type="Resource" script_class="card_resource" load_steps=3 format=3 uid="uid://d24xbnkck6jhy"]
 
-[ext_resource type="Texture2D" uid="uid://bpe4ycwhofbyl" path="res://Assets/card placeholders/Cost 4 card.png" id="1_d75hm"]
-[ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_a6t4g"]
+[ext_resource type="Texture2D" uid="uid://xxqfo5go6aqe" path="res://Assets/cards/Bone Titan.png" id="1_oxwkp"]
+[ext_resource type="Script" path="res://Scipts/card_data.gd" id="2_jy0te"]
 
 [resource]
-script = ExtResource("2_a6t4g")
-name = "Skelly, the Unbreakable"
+script = ExtResource("2_jy0te")
+name = "Bone Titan"
 cost = 4
 attack = 5
 health = 13
-image = ExtResource("1_d75hm")
+image = ExtResource("1_oxwkp")
 minon_type = 2
 fusion_tier = 1
 description = "50% chance of dealing double damage."

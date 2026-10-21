@@ -21,7 +21,7 @@
 [ext_resource type="Resource" uid="uid://uilbc760sao7" path="res://Minion Resource/Rat/large_rat.tres" id="13_0r3i1"]
 [ext_resource type="Resource" uid="uid://bvf130wywxg2u" path="res://Minion Resource/Skeleton/extra_limbs.tres" id="13_avayh"]
 [ext_resource type="Resource" uid="uid://bn7lyinamlkhp" path="res://Minion Resource/Skeleton/bone_muncher.tres" id="14_n3s3n"]
-[ext_resource type="Resource" uid="uid://d24xbnkck6jhy" path="res://Minion Resource/Skeleton/skelly_the_unbreakable.tres" id="15_o0am7"]
+[ext_resource type="Resource" uid="uid://d24xbnkck6jhy" path="res://Minion Resource/Skeleton/bone_titan.tres" id="15_o0am7"]
 [ext_resource type="Resource" uid="uid://bcio2vbvxjej0" path="res://Minion Resource/Skeleton/spearbone.tres" id="16_kwnqc"]
 [ext_resource type="Resource" uid="uid://d206o5rpul7ka" path="res://Minion Resource/Rat/rat_tamer.tres" id="21_1cnbk"]
 [ext_resource type="Resource" uid="uid://dy641a3c1etjx" path="res://Minion Resource/Rat/scarificial_rat.tres" id="22_adhlo"]

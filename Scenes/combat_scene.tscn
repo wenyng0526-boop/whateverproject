@@ -33,7 +33,7 @@
 [ext_resource type="Resource" uid="uid://bp81elouu50na" path="res://Minion Resource/Knight/knight_commander.tres" id="28_rktqr"]
 [ext_resource type="Resource" uid="uid://uilbc760sao7" path="res://Minion Resource/Rat/large_rat.tres" id="29_bi28p"]
 [ext_resource type="Resource" uid="uid://q8va41yxvpp2" path="res://Minion Resource/Rat/mass_infestation.tres" id="30_tlxuk"]
-[ext_resource type="Resource" uid="uid://d24xbnkck6jhy" path="res://Minion Resource/Skeleton/skelly_the_unbreakable.tres" id="32_l8xxo"]
+[ext_resource type="Resource" uid="uid://d24xbnkck6jhy" path="res://Minion Resource/Skeleton/bone_titan.tres" id="32_l8xxo"]
 [ext_resource type="PackedScene" uid="uid://b4ojdviu2r56a" path="res://Scenes/pause_menu.tscn" id="35_fwkip"]
 
 [node name="Combat_Scene" type="Node2D" node_paths=PackedStringArray("player_container", "enemy_container")]

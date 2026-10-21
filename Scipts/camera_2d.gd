@@ -4,7 +4,11 @@ extends Camera2D
 @export var min_y: float = 300.0
 @export var max_y: float = 1000.0
 
+@export var start_y: float = 1000.0
 
+func _ready() -> void:
+	position.y = start_y
+	
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 

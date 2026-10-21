@@ -7,146 +7,146 @@
 [node name="Map" type="Node2D"]
 
 [node name="10 Shop" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(462, 900)
+position = Vector2(462, 1477)
 text = "Shop"
 next_nodes = Array[int]([11])
 
 [node name="20 Shop" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(818, 900)
+position = Vector2(818, 1477)
 text = "Shop"
 next_nodes = Array[int]([21])
 
 [node name="30 Shop" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(1324, 900)
+position = Vector2(1324, 1477)
 text = "Shop"
 next_nodes = Array[int]([31])
 
 [node name="11 Combat" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(358, 712)
+position = Vector2(358, 1289)
 node_type = 1
 text = "Combat"
 node_index = 11
 next_nodes = Array[int]([12])
 
 [node name="12 Shop" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(486, 556)
+position = Vector2(486, 1133)
 text = "Shop"
 node_index = 12
 next_nodes = Array[int]([13])
 
 [node name="13 Combat" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(493, 427)
+position = Vector2(493, 1004)
 node_type = 1
 text = "Combat"
 node_index = 13
 next_nodes = Array[int]([27])
 
 [node name="14 Shop" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(605, 206)
+position = Vector2(605, 783)
 text = "Shop"
 node_index = 14
 next_nodes = Array[int]([15])
 
 [node name="15 Combat" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(486, 103)
+position = Vector2(486, 680)
 node_type = 1
 text = "Combat"
 node_index = 15
 
 [node name="21 Combat" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(815, 712)
+position = Vector2(815, 1289)
 node_type = 1
 text = "Combat"
 node_index = 21
 next_nodes = Array[int]([22, 23])
 
 [node name="22 Shop" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(952, 556)
+position = Vector2(952, 1133)
 text = "Shop"
 node_index = 22
 next_nodes = Array[int]([24])
 
 [node name="23 Combat" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(696, 556)
+position = Vector2(696, 1133)
 node_type = 1
 text = "Combat"
 node_index = 23
 next_nodes = Array[int]([25])
 
 [node name="24 Combat" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(953, 427)
+position = Vector2(953, 1004)
 node_type = 1
 text = "Combat"
 node_index = 24
 next_nodes = Array[int]([26])
 
 [node name="25 Shop" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(697, 427)
+position = Vector2(697, 1004)
 text = "Shop"
 node_index = 25
 next_nodes = Array[int]([27])
 
 [node name="26 Shop" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(954, 313)
+position = Vector2(954, 890)
 text = "Shop"
 node_index = 26
 next_nodes = Array[int]([28, 35])
 
 [node name="27 Combat" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(701, 313)
+position = Vector2(701, 890)
 node_type = 1
 text = "Combat"
 node_index = 27
 next_nodes = Array[int]([28])
 
 [node name="28 Combat" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(826, 205)
+position = Vector2(826, 782)
 node_type = 1
 text = "Combat"
 node_index = 28
 next_nodes = Array[int]([29])
 
 [node name="29 Shop" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(965, 101)
+position = Vector2(965, 678)
 text = "Shop"
 node_index = 29
 
 [node name="31 Combat" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(1423, 712)
+position = Vector2(1423, 1289)
 node_type = 1
 text = "Combat"
 node_index = 31
 next_nodes = Array[int]([32])
 
 [node name="32 Combat" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(1326, 556)
+position = Vector2(1326, 1133)
 node_type = 1
 text = "Combat"
 node_index = 32
 next_nodes = Array[int]([33])
 
 [node name="33 Shop" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(1233, 427)
+position = Vector2(1233, 1004)
 text = "Shop"
 node_index = 33
 next_nodes = Array[int]([34])
 
 [node name="34 Combat" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(1225, 313)
+position = Vector2(1225, 890)
 node_type = 1
 text = "Combat"
 node_index = 34
 next_nodes = Array[int]([35])
 
 [node name="35 Combat" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(1080, 205)
+position = Vector2(1080, 782)
 node_type = 1
 text = "Combat"
 node_index = 35
 next_nodes = Array[int]([29])
 
 [node name="36 Shop" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(1231, 86)
+position = Vector2(1231, 663)
 text = "Shop"
 node_index = 36
 

@@ -250,7 +250,7 @@ func trigger_attack_hit() -> void:
 func _get_hover_offset() -> float:
 	match current_location:
 		CardLocation.HAND:
-			return -200.0 # Lifts much higher in hand
+			return -305.0 # Lifts much higher in hand
 		CardLocation.BOARD:
 			return 0.0 # Subtle lift on the board
 		_:
