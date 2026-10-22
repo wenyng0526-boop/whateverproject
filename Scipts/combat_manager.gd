@@ -15,7 +15,7 @@ class_name CombatManager
 @onready var reward_screen: RewardScreen = $ResultLayer/Reward_scene
 #add claw effect
 @onready var effects: Node2D = $Effects
-const claw_effect = preload("res://Scenes/claw_effect.tscn")
+const attack_effect = preload("res://Scenes/attack_effect.tscn")
 const print_damage = preload("res://Scenes/print_damage.tscn")
 @export var one_star_enemies: Array[card_resource]
 @export var two_star_enemies: Array[card_resource]
@@ -376,13 +376,17 @@ func attack(attacker: CardUI, target: CardUI) -> void:
 	# Wait until the animation reaches the hit point
 	await attacker.attack_hit
 
-	# Create a new claw effect
-	var claw_instance = claw_effect.instantiate()
-	# Add the claw effect to the scene
-	effects.add_child(claw_instance)
+	# Create a new attack effect
+	var attack_instance = attack_effect.instantiate()
 
-	# Move the claw effect to the target card
-	claw_instance.global_position = target.get_global_rect().get_center()
+	# Add the attack effect to the scene
+	effects.add_child(attack_instance)
+	
+	# Move the attack effect to the target card
+	attack_instance.global_position = target.get_global_rect().get_center()
+
+	# Play the effect based on the attacker's type
+	attack_instance.play_effect(attacker.card_data.minon_type)
 	
 	var damage_instance = print_damage.instantiate()
 	# Add the damage number into the Scene Tree
@@ -391,6 +395,7 @@ func attack(attacker: CardUI, target: CardUI) -> void:
 	# Move the damage number slightly above the target card
 	damage_instance.global_position = target.get_global_rect().get_center() + Vector2(0, -50)
 	damage_instance.show_damage(damage)
+	
 	
 	target.take_damage(damage)
 	await target.play_hit_animation()

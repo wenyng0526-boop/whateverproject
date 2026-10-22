@@ -1,9 +1,21 @@
 extends Node2D
 
-@export var animated_sprite: AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
-func _ready() -> void:
-	animated_sprite.play("hit")
-	await animated_sprite.animation_finished
+func play_effect(minion_type: card_resource.type) -> void:
+	match minion_type:
+		card_resource.type.Goblin:
+			animation_player.play("goblin_attack")
+
+		card_resource.type.Rat:
+			animation_player.play("rat_attack")
+
+		card_resource.type.Skeleton:
+			animation_player.play("skeleton_attack")
+
+		card_resource.type.Knight:
+			animation_player.play("knight_attack")
+
+	await animation_player.animation_finished
 	queue_free()
