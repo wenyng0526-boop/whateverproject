@@ -346,11 +346,7 @@ func start_combat() -> void:
 		# Return surviving cards to the hand after winning
 		return_surviving_cards_to_hand()
 	
-		reward_screen.show_success(
-			reward,
-			defeated_enemy_count,
-			remaining_cards
-	)
+		reward_screen.show_success(reward)
 
 	elif player_cards.is_empty():
 		# Clear deployed cards because all player cards are dead
