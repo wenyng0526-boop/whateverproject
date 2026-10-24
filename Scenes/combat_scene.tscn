@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c7ondrblaspck"]
+[gd_scene load_steps=37 format=3 uid="uid://c7ondrblaspck"]
 
 [ext_resource type="Script" path="res://Scipts/combat_manager.gd" id="1_1ge3h"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="1_hiokq"]
@@ -34,6 +34,7 @@
 [ext_resource type="Resource" uid="uid://uilbc760sao7" path="res://Minion Resource/Rat/large_rat.tres" id="29_bi28p"]
 [ext_resource type="Resource" uid="uid://q8va41yxvpp2" path="res://Minion Resource/Rat/mass_infestation.tres" id="30_tlxuk"]
 [ext_resource type="Resource" uid="uid://d24xbnkck6jhy" path="res://Minion Resource/Skeleton/bone_titan.tres" id="32_l8xxo"]
+[ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="35_60emv"]
 [ext_resource type="PackedScene" uid="uid://b4ojdviu2r56a" path="res://Scenes/pause_menu.tscn" id="35_fwkip"]
 
 [node name="Combat_Scene" type="Node2D" node_paths=PackedStringArray("player_container", "enemy_container")]
@@ -51,9 +52,9 @@ custom_minimum_size = Vector2(1920, 300)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_top = 171.0
+offset_top = 124.0
 offset_right = 1920.0
-offset_bottom = 471.0
+offset_bottom = 424.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -85,9 +86,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = 600.0
+offset_top = 553.0
 offset_right = 1920.0
-offset_bottom = 900.0
+offset_bottom = 853.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -119,20 +120,24 @@ visible = false
 failure_menu_scene = ""
 
 [node name="HandCenter" type="CenterContainer" parent="."]
-offset_top = 968.0
+offset_top = 903.0
 offset_right = 1920.0
-offset_bottom = 1368.0
+offset_bottom = 1303.0
 size_flags_vertical = 4
 
 [node name="HandContainer" type="HBoxContainer" parent="HandCenter"]
 z_index = 100
 layout_mode = 2
+script = ExtResource("35_60emv")
+push_distance = 60.0
+max_fan_angle = 23.0
 
 [node name="StartBattleButton" type="Button" parent="."]
+z_index = 101
 offset_left = 1570.0
-offset_top = 515.0
+offset_top = 412.0
 offset_right = 1687.0
-offset_bottom = 546.0
+offset_bottom = 443.0
 scale = Vector2(3, 3)
 text = "START BATTLE"
 

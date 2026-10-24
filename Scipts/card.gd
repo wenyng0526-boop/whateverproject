@@ -29,6 +29,7 @@ var team: String = "" #Enemy or Player
 
 var is_hovered = false
 var hover_tween: Tween
+var rest_y: float = 0.0
 var normal_z_index: int = 0
 var board_mouse_pressed: bool = false
 var board_dragging: bool = false
@@ -203,6 +204,8 @@ func fusion_tween(other_card:CardUI):
 	target_a.x -= 35.0
 	target_b.x += 35.0
 	# Make scaling happen around each card's center.
+	visual_a.rotation = 0
+	visual_b.rotation = 0
 	visual_a.pivot_offset = visual_a.size / 2.0
 	visual_b.pivot_offset = visual_b.size / 2.0
 	
@@ -307,7 +310,7 @@ func _on_mouse_exited() -> void:
 		hover_tween.kill()
 		
 	hover_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
-	hover_tween.tween_property(card_visual, "position:y", 0.0, hover_duration)
+	hover_tween.tween_property(card_visual, "position:y", rest_y, hover_duration)
 	z_index = normal_z_index
 
 #knight effect

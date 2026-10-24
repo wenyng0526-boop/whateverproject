@@ -184,7 +184,7 @@ func _on_hand_card_clicked(card: CardUI) -> void:
 	_ask_confirm("Sell %s for %d coins?" % [card.card_data.name, sell_value], _sell_hand_card.bind(card))
 
 func _sell_hand_card(card: CardUI) -> void:
-	var index: int = card.get_index()
+	var index: int = GameState.hand_cards.find(card.card_data)
 	print("Sold ", card.card_data.name, " | coins left: ", GameState.currency + sell_value)
 	GameState.hand_cards.remove_at(index)
 	GameState.currency += sell_value
