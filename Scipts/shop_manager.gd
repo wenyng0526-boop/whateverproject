@@ -8,7 +8,8 @@ extends Node2D
 @export var confirm_panel : Control
 @export var confirm_label : Label
 @export var warning_label: Label
-
+@export var upgrade_cost_label: Label
+@export var upgrade_button: Button
 
 var refresh_cost = 1
 var sell_value: int = 1
@@ -18,6 +19,7 @@ func _ready() -> void:
 	refresh_shop()
 	spawn_player_cards()
 	refresh_hand()
+	update_upgrade_label()
 
 func refresh_shop():
 	print("shop_level: ", GameState.shop_level)
@@ -67,10 +69,17 @@ func _on_card_clicked(card: CardUI) -> void:
 		print("YOU'RE BROKE")
 		return
 
-	if size == GameState.MAX_HAND:
+	if size == GameState.MAX_HAND and not _can_fuse_with_hand(card.card_data):
 		print("YOUR HAND IS FULL")
 		return
 	_ask_confirm("Buy %s for %d coins?" % [card.card_data.name, cost], _buy_card.bind(card))
+
+#fuse when hand deck full
+func _can_fuse_with_hand(data: card_resource) -> bool:
+	for existing in GameState.hand_cards:
+		if existing.name == data.name and existing.fusion_tier == data.fusion_tier:
+			return true
+	return false
 
 func _buy_card(card: CardUI) -> void:
 	GameState.currency -= card.card_data.cost
@@ -106,13 +115,14 @@ func check_for_duplicate_animated() -> void:
 		 # Find the UI cards belonging to those exact resources.
 		var visual_a: CardUI = null
 		var visual_b: CardUI = null
-		
+
 		for child in hand_container.get_children():
 			if child is CardUI:
 				if child.card_data == GameState.hand_cards[index_a]:
 					visual_a = child
 				elif child.card_data == GameState.hand_cards[index_b]:
 					visual_b = child
+
 		# Avoid trying to animate cards that aren't on screen.
 		if visual_a == null or visual_b == null:
 			push_warning("Could not find both card visuals for fusion.")
@@ -136,7 +146,7 @@ func check_for_duplicate_animated() -> void:
 
 		refresh_hand()
 		await get_tree().process_frame
-		
+
 #---------------------hand deck pro max--------------------------#
 func refresh_hand() -> void:
 	for child in hand_container.get_children():
@@ -174,7 +184,6 @@ func show_warning() -> void:
 	await get_tree().create_timer(3.0).timeout
 
 	warning_label.hide()
-
 
 #sell shet
 func _on_hand_card_clicked(card: CardUI) -> void:
@@ -220,4 +229,19 @@ func _on_upgrade_button_pressed() -> void:
 	GameState.currency -= cost
 	GameState.shop_level += 1
 	refresh_shop()
+	update_upgrade_label()
 	print("Shop upgraded to level ", GameState.shop_level)
+
+func update_upgrade_label() -> void:
+	if not upgrade_cost_label:
+		return
+
+	if GameState.shop_level >= GameState.MAX_SHOP_LEVEL:
+		upgrade_cost_label.text = "MAX LEVEL"
+		if upgrade_button:
+			upgrade_button.disabled = true
+	else:
+		var cost: int = GameState.SHOP_UPGRADE_COST[GameState.shop_level - 1]
+		upgrade_cost_label.text = "Upgrade: %d" % cost
+		if upgrade_button:
+			upgrade_button.disabled = false
