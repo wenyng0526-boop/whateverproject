@@ -20,7 +20,7 @@ signal board_drag_moved(card: CardUI, drag_position: Vector2)
 @export var animation_player: AnimationPlayer
 
 
-enum CardLocation { SHOP, BOARD, HAND }
+enum CardLocation { SHOP, BOARD, HAND, EVENT }
 var current_location: CardLocation = CardLocation.BOARD
 
 var current_health: int
@@ -256,6 +256,8 @@ func _get_hover_offset() -> float:
 			return -305.0 # Lifts much higher in hand
 		CardLocation.BOARD:
 			return 0.0 # Subtle lift on the board
+		CardLocation.EVENT:
+			return 0.0
 		_:
 			return hover_offset # Default shop lift
 

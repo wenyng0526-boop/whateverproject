@@ -1,6 +1,6 @@
 extends Node2D
 
-enum NodeType { SHOP, COMBAT }
+enum NodeType { SHOP, COMBAT, EVENT }
 
 @export var node_type: NodeType
 @export var text: String
@@ -26,3 +26,5 @@ func _on_button_pressed() -> void:
 			get_tree().change_scene_to_file("res://Scenes/shop_scene.tscn")
 		NodeType.COMBAT :
 			get_tree().change_scene_to_file("res://Scenes/combat_scene.tscn")
+		NodeType.EVENT :
+			get_tree().change_scene_to_file("res://Scenes/grandma_event.tscn")

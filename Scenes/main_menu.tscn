@@ -1,8 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://cgy51m7gwm07c"]
+[gd_scene load_steps=29 format=3 uid="uid://cgy51m7gwm07c"]
 
 [ext_resource type="Script" path="res://Scipts/main_menu.gd" id="1_i13gk"]
 [ext_resource type="Texture2D" uid="uid://bealmngfsvxiy" path="res://Assets/background/Background_reference.png" id="1_ur8yn"]
-[ext_resource type="Texture2D" uid="uid://d4e6fw8ssuxp3" path="res://Assets/Logo.png" id="2_k4ek6"]
 [ext_resource type="Texture2D" uid="uid://bunqoia4qpjnc" path="res://Assets/button/Start Button.png" id="3_nlnrq"]
 [ext_resource type="Texture2D" uid="uid://ds3wmqjbx3mox" path="res://Assets/button/Load Button.png" id="4_ayicw"]
 [ext_resource type="Texture2D" uid="uid://42kpifxexb8j" path="res://Assets/button/Quit Button.png" id="5_7abrb"]
@@ -139,13 +138,6 @@ grow_vertical = 2
 scale = Vector2(1, 0.8)
 texture = SubResource("GradientTexture2D_swdvf")
 
-[node name="Logo" type="TextureRect" parent="."]
-layout_mode = 0
-offset_top = -323.0
-offset_right = 1920.0
-offset_bottom = 757.0
-texture = ExtResource("2_k4ek6")
-
 [node name="CenterContainer" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(1152, 648)
 layout_mode = 1
@@ -245,13 +237,13 @@ animation = &"exit"
 
 [connection signal="mouse_entered" from="CenterContainer/VBoxContainer/StartButtonArea/Start_Button" to="CenterContainer/VBoxContainer/StartButtonArea" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CenterContainer/VBoxContainer/StartButtonArea/Start_Button" to="CenterContainer/VBoxContainer/StartButtonArea" method="_on_mouse_exited"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/StartButtonArea/Start_Button" to="CenterContainer/VBoxContainer/StartButtonArea" method="_on_start_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/StartButtonArea/Start_Button" to="CenterContainer/VBoxContainer/StartButtonArea" method="_on_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/StartButtonArea/Start_Button" to="CenterContainer/VBoxContainer/StartButtonArea" method="_on_start_button_pressed"]
 [connection signal="mouse_entered" from="CenterContainer/VBoxContainer/LoadButtonArea/Load_Button" to="CenterContainer/VBoxContainer/LoadButtonArea" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CenterContainer/VBoxContainer/LoadButtonArea/Load_Button" to="CenterContainer/VBoxContainer/LoadButtonArea" method="_on_mouse_exited"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/LoadButtonArea/Load_Button" to="CenterContainer/VBoxContainer/LoadButtonArea" method="_on_load_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/LoadButtonArea/Load_Button" to="CenterContainer/VBoxContainer/LoadButtonArea" method="_on_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/LoadButtonArea/Load_Button" to="CenterContainer/VBoxContainer/LoadButtonArea" method="_on_load_button_pressed"]
 [connection signal="mouse_entered" from="CenterContainer/VBoxContainer/ExitButtonArea/Exit_Button" to="CenterContainer/VBoxContainer/ExitButtonArea" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CenterContainer/VBoxContainer/ExitButtonArea/Exit_Button" to="CenterContainer/VBoxContainer/ExitButtonArea" method="_on_mouse_exited"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/ExitButtonArea/Exit_Button" to="CenterContainer/VBoxContainer/ExitButtonArea" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ExitButtonArea/Exit_Button" to="CenterContainer/VBoxContainer/ExitButtonArea" method="_on_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ExitButtonArea/Exit_Button" to="CenterContainer/VBoxContainer/ExitButtonArea" method="_on_exit_button_pressed"]

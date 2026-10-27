@@ -125,9 +125,10 @@ text = "Shop"
 node_index = 6
 next_nodes = Array[int]([16])
 
-[node name="36 Shop3" parent="." instance=ExtResource("1_j0sno")]
+[node name="30 Event" parent="." instance=ExtResource("1_j0sno")]
 position = Vector2(1657, 1384)
-text = "Shop"
+node_type = 2
+text = "Event"
 node_index = 30
 next_nodes = Array[int]([31])
 

@@ -1,0 +1,118 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0kyl6sm0ylln"]
+
+[ext_resource type="Script" path="res://Scipts/grandma_event.gd" id="1_u6k1w"]
+[ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_6vhb5"]
+[ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="3_qq6bn"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="4_f3y75"]
+[ext_resource type="Script" path="res://Scipts/currency_ui.gd" id="5_55a3t"]
+
+[node name="GrandmaEvent" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_u6k1w")
+card_ui = ExtResource("2_6vhb5")
+
+[node name="HandCenter" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 888.0
+offset_right = 1963.0
+offset_bottom = 1288.0
+
+[node name="HandContainer" type="HBoxContainer" parent="HandCenter"]
+layout_mode = 2
+script = ExtResource("3_qq6bn")
+push_distance = 60.0
+fan_angle = 3.0
+max_fan_angle = 23.0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+z_index = -5
+custom_minimum_size = Vector2(800, 800)
+layout_mode = 0
+offset_left = 939.0
+offset_top = 83.0
+offset_right = 1739.0
+offset_bottom = 983.0
+scale = Vector2(1.12, 0.88)
+
+[node name="Narrator" type="Label" parent="."]
+z_index = -4
+custom_minimum_size = Vector2(730, 0)
+layout_mode = 2
+offset_left = 969.0
+offset_top = 106.0
+offset_right = 1769.0
+offset_bottom = 129.0
+theme_override_fonts/font = ExtResource("4_f3y75")
+theme_override_font_sizes/font_size = 24
+autowrap_mode = 2
+
+[node name="Dialogue" type="Label" parent="."]
+z_index = -4
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+offset_left = 969.0
+offset_top = 211.0
+offset_right = 1769.0
+offset_bottom = 235.0
+theme_override_fonts/font = ExtResource("4_f3y75")
+theme_override_font_sizes/font_size = 24
+autowrap_mode = 2
+
+[node name="CardSlot" type="CenterContainer" parent="."]
+z_index = 5
+layout_mode = 2
+offset_left = 1240.0
+offset_top = 397.0
+offset_right = 1420.0
+offset_bottom = 647.0
+
+[node name="SubmitButton" type="Button" parent="."]
+z_index = -4
+layout_mode = 2
+offset_left = 1005.0
+offset_top = 776.0
+offset_right = 1205.0
+offset_bottom = 846.0
+theme_override_fonts/font = ExtResource("4_f3y75")
+text = "GIVE"
+
+[node name="RejectButton" type="Button" parent="."]
+z_index = -4
+layout_mode = 2
+offset_left = 1445.0
+offset_top = 776.0
+offset_right = 1645.0
+offset_bottom = 846.0
+theme_override_fonts/font = ExtResource("4_f3y75")
+text = "REFUSE"
+
+[node name="ProceedButton" type="Button" parent="."]
+z_index = -4
+layout_mode = 0
+offset_left = 1510.0
+offset_top = 747.0
+offset_right = 1710.0
+offset_bottom = 817.0
+theme_override_fonts/font = ExtResource("4_f3y75")
+text = "PROCEED"
+
+[node name="CurrencyUI" type="PanelContainer" parent="." node_paths=PackedStringArray("amount_label")]
+layout_mode = 0
+offset_right = 237.0
+offset_bottom = 89.0
+script = ExtResource("5_55a3t")
+amount_label = NodePath("Control/Label")
+
+[node name="Control" type="Control" parent="CurrencyUI"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CurrencyUI/Control"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 23.0
+offset_right = 137.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("4_f3y75")
+theme_override_font_sizes/font_size = 30
