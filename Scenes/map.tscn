@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bts1pm5edlc0y"]
+[gd_scene load_steps=6 format=3 uid="uid://bts1pm5edlc0y"]
 
 [ext_resource type="PackedScene" uid="uid://c5r3h7s0140do" path="res://Scenes/map_node.tscn" id="1_j0sno"]
+[ext_resource type="PackedScene" uid="uid://b0kyl6sm0ylln" path="res://Scenes/grandma_event.tscn" id="2_tx34s"]
 [ext_resource type="Script" path="res://Scipts/camera_2d.gd" id="2_wdtea"]
+[ext_resource type="PackedScene" uid="uid://ds1pwf5wbjxwm" path="res://Scenes/knight_event.tscn" id="3_1sjsg"]
 [ext_resource type="PackedScene" uid="uid://b4ojdviu2r56a" path="res://Scenes/pause_menu.tscn" id="3_tg475"]
 
 [node name="Map" type="Node2D"]
@@ -130,6 +132,7 @@ position = Vector2(1657, 1384)
 node_type = 2
 text = "Event"
 node_index = 30
+event_scenes = Array[PackedScene]([ExtResource("2_tx34s"), ExtResource("3_1sjsg")])
 next_nodes = Array[int]([31])
 
 [node name="36 Shop4" parent="." instance=ExtResource("1_j0sno")]

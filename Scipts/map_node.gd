@@ -6,6 +6,8 @@ enum NodeType { SHOP, COMBAT, EVENT }
 @export var text: String
 @export var node_index: int = 0
 
+@export var event_scenes: Array[PackedScene] = []
+
 @export var next_nodes: Array[int] = []
 
 @onready var button: Button = $Button
@@ -27,4 +29,9 @@ func _on_button_pressed() -> void:
 		NodeType.COMBAT :
 			get_tree().change_scene_to_file("res://Scenes/combat_scene.tscn")
 		NodeType.EVENT :
-			get_tree().change_scene_to_file("res://Scenes/grandma_event.tscn")
+			random_event()
+			
+func random_event():
+	var chosen_event: PackedScene = event_scenes.pick_random()
+	
+	get_tree().change_scene_to_packed(chosen_event)

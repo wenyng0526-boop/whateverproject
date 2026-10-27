@@ -262,6 +262,9 @@ func _get_hover_offset() -> float:
 			return hover_offset # Default shop lift
 
 func _on_mouse_entered() -> void:
+	if current_location == CardLocation.EVENT:
+		return
+		
 	if current_location == CardLocation.BOARD and not board_drag_enabled:
 		return
 	

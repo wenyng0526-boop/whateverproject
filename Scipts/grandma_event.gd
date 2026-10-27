@@ -102,8 +102,10 @@ func _on_submit_pressed():
 		return
 	var sacrificed_card = selected_card
 	
-	if GameState.hand_cards.has(sacrificed_card):
-		GameState.hand_cards.erase(sacrificed_card.card_data)
+	var index: int =GameState.hand_cards.find(sacrificed_card.card_data)
+	
+	if index != -1:
+		GameState.hand_cards.remove_at(index)
 	
 	GameState.currency += 7
 	
