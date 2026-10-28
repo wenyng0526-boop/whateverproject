@@ -8,6 +8,7 @@ extends Control
 @onready var submit_button: Button = $SubmitButton
 @onready var reject_button: Button = $RejectButton
 @onready var proceed_button: Button = $ProceedButton
+@onready var currency_label: Label = $CurrencyUI/Control/Label
 
 var selected_card: CardUI = null
 var original_hand_index: int = -1
@@ -108,7 +109,23 @@ func _on_submit_pressed():
 		GameState.hand_cards.remove_at(index)
 	
 	GameState.currency += 7
-	
+	#currency label flash green
+	var original_color: Color = currency_label.modulate
+
+	var tween := create_tween()
+	tween.tween_property(
+		currency_label,
+		"modulate",
+		Color(0.2, 1.0, 0.3, 1.0),
+		0.2
+	)
+	tween.tween_interval(0.5)
+	tween.tween_property(
+		currency_label,
+		"modulate",
+		original_color,
+		0.4
+	)
 	event_completed = true
 	selected_card = null
 	

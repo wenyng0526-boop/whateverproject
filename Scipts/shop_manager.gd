@@ -20,6 +20,7 @@ func _ready() -> void:
 	spawn_player_cards()
 	refresh_hand()
 	update_upgrade_label()
+	await check_for_duplicate_animated()
 
 func refresh_shop():
 	print("shop_level: ", GameState.shop_level)

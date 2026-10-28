@@ -49,7 +49,7 @@ offset_right = 1818.0
 offset_bottom = 140.0
 scale = Vector2(1.09582, 1.72816)
 theme_override_fonts/font = ExtResource("4_a2dmr")
-text = "DONE
+text = "PROCEED
 "
 
 [node name="PauseButton" type="Button" parent="."]

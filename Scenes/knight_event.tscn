@@ -90,6 +90,7 @@ offset_left = 1442.0
 offset_top = 776.0
 offset_right = 1642.0
 offset_bottom = 846.0
+theme_override_fonts/font = ExtResource("4_a021p")
 text = "REFUSE"
 
 [node name="ProceedButton" type="Button" parent="."]
