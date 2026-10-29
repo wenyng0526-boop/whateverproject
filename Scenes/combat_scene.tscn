@@ -129,8 +129,6 @@ size_flags_vertical = 4
 z_index = 100
 layout_mode = 2
 script = ExtResource("35_60emv")
-push_distance = 60.0
-max_fan_angle = 23.0
 
 [node name="StartBattleButton" type="Button" parent="."]
 z_index = 101

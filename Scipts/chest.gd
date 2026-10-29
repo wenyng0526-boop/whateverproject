@@ -147,7 +147,7 @@ func lose_random_card() -> void:
 
 	GameState.hand_cards.remove_at(random_index)
 
-	result_label.text = "Mimic! It ate your %s!" % lost_card.name
+	result_label.text = "Oh no, it's a Mimic! It ate your %s!" % lost_card.name
 
 	finish_chest()
 
@@ -160,7 +160,7 @@ func lose_coins() -> void:
 
 	GameState.currency -= actual_loss
 
-	result_label.text = "Mimic! You lost %d coins!" % actual_loss
+	result_label.text = "Oh no, it's a Mimic! You lost %d coins!" % actual_loss
 
 	finish_chest()
 

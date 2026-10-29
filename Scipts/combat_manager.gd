@@ -359,6 +359,9 @@ func start_combat() -> void:
 func attack(attacker: CardUI, target: CardUI) -> void:
 	if not is_instance_valid(attacker) or not is_instance_valid(target):
 		return
+	if attacker.card_data != null:
+		if attacker.card_data.minon_type == card_resource.type.Knight:
+			attacker.knight_effect()
 	var damage: int = attacker.current_attack
 	#skeleton effect
 	if attacker.card_data != null:

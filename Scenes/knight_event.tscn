@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_k67yc"]
 [ext_resource type="Resource" uid="uid://23w3x68p88ih" path="res://Minion Resource/Knight/aspiring_squire.tres" id="3_goegt"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="3_kq7uj"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="4_a021p"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="4_a021p"]
 [ext_resource type="Script" path="res://Scipts/currency_ui.gd" id="5_good6"]
 
 [node name="KnightEvent" type="Control"]
@@ -28,9 +28,6 @@ offset_bottom = 1288.0
 [node name="HandContainer" type="HBoxContainer" parent="HandCenter"]
 layout_mode = 2
 script = ExtResource("3_kq7uj")
-push_distance = 60.0
-fan_angle = 3.0
-max_fan_angle = 23.0
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 z_index = -5

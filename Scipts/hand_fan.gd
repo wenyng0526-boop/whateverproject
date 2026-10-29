@@ -1,6 +1,6 @@
 extends HBoxContainer
  
-@export var push_distance: float = 80.0
+@export var push_distance: float = 60.0
 @export_range(0.0,1.0) var falloff: float = 0.5
  
 @export var tween_time : float = 0.15
@@ -8,8 +8,8 @@ extends HBoxContainer
 @export var max_hand_width:float = 1700
 @export var max_separation: float = 4.0
  
-@export var fan_angle: float = 2.5
-@export var max_fan_angle: float = 12.0
+@export var fan_angle: float = 3
+@export var max_fan_angle: float = 23.0
 @export var lean_angle: float = 3
 ## Pixels lower that the END cards sit than the middle of the hand
 ## (any hand of 3+ cards). 0 = no arc.
