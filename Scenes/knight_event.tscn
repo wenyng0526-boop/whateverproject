@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ds1pwf5wbjxwm"]
+[gd_scene load_steps=7 format=3 uid="uid://cfexesvuq7njd"]
 
 [ext_resource type="Script" path="res://Scipts/knight_event.gd" id="1_cc51r"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_k67yc"]
 [ext_resource type="Resource" uid="uid://23w3x68p88ih" path="res://Minion Resource/Knight/aspiring_squire.tres" id="3_goegt"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="3_kq7uj"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="4_a021p"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="4_a021p"]
 [ext_resource type="Script" path="res://Scipts/currency_ui.gd" id="5_good6"]
 
 [node name="KnightEvent" type="Control"]

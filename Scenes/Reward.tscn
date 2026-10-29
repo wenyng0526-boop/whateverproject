@@ -113,11 +113,10 @@ theme_override_font_sizes/font_size = 50
 text = "You have lost everything"
 
 [node name="Failure_main_menu_button" type="Button" parent="."]
-visible = false
 layout_mode = 0
-offset_left = 855.0
+offset_left = 824.0
 offset_top = 918.0
-offset_right = 951.0
+offset_right = 920.0
 offset_bottom = 949.0
 scale = Vector2(3, 3)
 text = "Main Menu"

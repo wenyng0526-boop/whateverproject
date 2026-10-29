@@ -1,0 +1,196 @@
+[gd_scene load_steps=13 format=3 uid="uid://bbnqhwm0gekgd"]
+
+[ext_resource type="Script" path="res://Scipts/chest.gd" id="1_vls1q"]
+[ext_resource type="Resource" uid="uid://b05y0n3q37vtn" path="res://Other resource/shop_card.tres" id="2_2wy2n"]
+[ext_resource type="Texture2D" uid="uid://cn8teu2ti2er2" path="res://Screenshot 2026-10-29 150309.png" id="3_2c2m0"]
+[ext_resource type="Texture2D" uid="uid://5gno616i51d0" path="res://icon.svg" id="3_7xhj2"]
+[ext_resource type="Texture2D" uid="uid://bsuq6ig6sn43l" path="res://Screenshot 2026-10-29 151506.png" id="4_fshw8"]
+[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="5_uda55"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="6_aioym"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6dcg5"]
+font = ExtResource("5_uda55")
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_kwwxp"]
+font = ExtResource("6_aioym")
+font_size = 17
+
+[sub_resource type="LabelSettings" id="LabelSettings_2n2qx"]
+font = ExtResource("6_aioym")
+font_size = 18
+
+[sub_resource type="Animation" id="Animation_s4p12"]
+resource_name = "shake"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChestPanel/ChestIcon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.261799, 0.174533, -0.261799, 0.0872665, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChestPanel/ChestIcon:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dkk5h"]
+_data = {
+"shake": SubResource("Animation_s4p12")
+}
+
+[node name="ChestPopup" type="CanvasLayer" node_paths=PackedStringArray("chest_icon", "hint_label", "result_label", "click_area", "continue_button", "animation_player", "leave_button")]
+layer = 10
+script = ExtResource("1_vls1q")
+chest_icon = NodePath("Overlay/CenterContainer/ChestPanel/ChestIcon")
+closed_chest_texture = ExtResource("3_7xhj2")
+good_open_texture = ExtResource("3_2c2m0")
+bad_open_texture = ExtResource("4_fshw8")
+hint_label = NodePath("Overlay/CenterContainer/ChestPanel/HintLabel")
+result_label = NodePath("Overlay/CenterContainer/ChestPanel/ResultLabel")
+click_area = NodePath("Overlay/CenterContainer/ChestPanel/ClickArea")
+continue_button = NodePath("Overlay/CenterContainer/ChestPanel/ContinueButton")
+animation_player = NodePath("Overlay/CenterContainer/ChestPanel/AnimationPlayer")
+leave_button = NodePath("Overlay/CenterContainer/ChestPanel/LeaveButton")
+card_pool = ExtResource("2_2wy2n")
+
+[node name="Overlay" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DimBackground" type="ColorRect" parent="Overlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="CenterContainer" type="CenterContainer" parent="Overlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChestPanel" type="Control" parent="Overlay/CenterContainer"]
+custom_minimum_size = Vector2(500, 700)
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Overlay/CenterContainer/ChestPanel"]
+layout_mode = 2
+offset_left = 150.0
+offset_top = 275.0
+offset_right = 150.0
+offset_bottom = 275.0
+
+[node name="TitleLabel" type="Label" parent="Overlay/CenterContainer/ChestPanel"]
+layout_mode = 2
+offset_left = 15.0
+offset_top = 140.0
+offset_right = 555.0
+offset_bottom = 180.0
+text = "TREASURE CHEST"
+label_settings = SubResource("LabelSettings_6dcg5")
+
+[node name="ChestIcon" type="TextureRect" parent="Overlay/CenterContainer/ChestPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -47.0
+offset_right = 124.0
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(125, 75)
+texture = ExtResource("3_7xhj2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HintLabel" type="Label" parent="Overlay/CenterContainer/ChestPanel"]
+layout_mode = 2
+offset_left = 49.0
+offset_top = 216.0
+offset_right = 454.0
+offset_bottom = 267.0
+text = "Click the chest to open it!"
+label_settings = SubResource("LabelSettings_kwwxp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResultLabel" type="Label" parent="Overlay/CenterContainer/ChestPanel"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 229.0
+offset_right = 459.0
+offset_bottom = 279.0
+label_settings = SubResource("LabelSettings_2n2qx")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ClickArea" type="Button" parent="Overlay/CenterContainer/ChestPanel"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "\" \""
+flat = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay/CenterContainer/ChestPanel"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_dkk5h")
+}
+
+[node name="ContinueButton" type="Button" parent="Overlay/CenterContainer/ChestPanel"]
+z_index = 2
+layout_mode = 2
+offset_left = 161.0
+offset_top = 534.0
+offset_right = 252.0
+offset_bottom = 565.0
+scale = Vector2(2, 2)
+text = "CONTINUE"
+
+[node name="LeaveButton" type="Button" parent="Overlay/CenterContainer/ChestPanel"]
+z_index = 3
+layout_mode = 0
+offset_left = 198.0
+offset_top = 533.0
+offset_right = 251.0
+offset_bottom = 564.0
+scale = Vector2(2, 2)
+text = "Leave"
+
+[connection signal="pressed" from="Overlay/CenterContainer/ChestPanel/ClickArea" to="." method="_on_click_area_pressed"]
+[connection signal="pressed" from="Overlay/CenterContainer/ChestPanel/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Overlay/CenterContainer/ChestPanel/LeaveButton" to="." method="_on_leave_button_pressed"]

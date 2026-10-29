@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bts1pm5edlc0y"]
+[gd_scene load_steps=7 format=3 uid="uid://bts1pm5edlc0y"]
 
 [ext_resource type="PackedScene" uid="uid://c5r3h7s0140do" path="res://Scenes/map_node.tscn" id="1_j0sno"]
-[ext_resource type="PackedScene" uid="uid://b0kyl6sm0ylln" path="res://Scenes/grandma_event.tscn" id="2_tx34s"]
+[ext_resource type="PackedScene" uid="uid://cb4hiqaej2e5l" path="res://Scenes/grandma_event.tscn" id="2_tx34s"]
 [ext_resource type="Script" path="res://Scipts/camera_2d.gd" id="2_wdtea"]
-[ext_resource type="PackedScene" uid="uid://ds1pwf5wbjxwm" path="res://Scenes/knight_event.tscn" id="3_1sjsg"]
+[ext_resource type="PackedScene" uid="uid://cfexesvuq7njd" path="res://Scenes/knight_event.tscn" id="3_1sjsg"]
 [ext_resource type="PackedScene" uid="uid://b4ojdviu2r56a" path="res://Scenes/pause_menu.tscn" id="3_tg475"]
+[ext_resource type="PackedScene" uid="uid://l80ac12ejyjo" path="res://Scenes/threaten_event.tscn" id="4_o64qr"]
 
 [node name="Map" type="Node2D"]
 
@@ -30,9 +31,10 @@ text = "Combat"
 node_index = 1
 next_nodes = Array[int]([3])
 
-[node name="12 Shop" parent="." instance=ExtResource("1_j0sno")]
+[node name="12 Chest" parent="." instance=ExtResource("1_j0sno")]
 position = Vector2(456, 1362)
-text = "Shop"
+node_type = 3
+text = "chest"
 node_index = 2
 next_nodes = Array[int]([3])
 
@@ -50,7 +52,7 @@ node_index = 21
 next_nodes = Array[int]([22])
 
 [node name="21 Combat" parent="." instance=ExtResource("1_j0sno")]
-position = Vector2(726, 1361)
+position = Vector2(726, 1360)
 node_type = 1
 text = "Combat"
 node_index = 14
@@ -132,7 +134,7 @@ position = Vector2(1657, 1384)
 node_type = 2
 text = "Event"
 node_index = 30
-event_scenes = Array[PackedScene]([ExtResource("2_tx34s"), ExtResource("3_1sjsg")])
+event_scenes = Array[PackedScene]([ExtResource("2_tx34s"), ExtResource("3_1sjsg"), ExtResource("4_o64qr")])
 next_nodes = Array[int]([31])
 
 [node name="36 Shop4" parent="." instance=ExtResource("1_j0sno")]
