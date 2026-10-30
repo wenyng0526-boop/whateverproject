@@ -1,0 +1,120 @@
+[gd_scene load_steps=7 format=3 uid="uid://bf71pykopuy04"]
+
+[ext_resource type="Script" path="res://Scipts/skeleton_event.gd" id="1_peoaf"]
+[ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_ewhaa"]
+[ext_resource type="Resource" uid="uid://bvf130wywxg2u" path="res://Minion Resource/Skeleton/extra_limbs.tres" id="3_ylfo0"]
+[ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="4_gbuvy"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="5_ufgxm"]
+[ext_resource type="Script" path="res://Scipts/currency_ui.gd" id="6_dv4pi"]
+
+[node name="Skeleton Event" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_peoaf")
+card_ui = ExtResource("2_ewhaa")
+extra_limbs_card = ExtResource("3_ylfo0")
+
+[node name="HandCenter" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 888.0
+offset_right = 1963.0
+offset_bottom = 1288.0
+
+[node name="HandContainer" type="HBoxContainer" parent="HandCenter"]
+layout_mode = 2
+script = ExtResource("4_gbuvy")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+z_index = -5
+layout_mode = 0
+offset_left = 940.0
+offset_top = 83.0
+offset_right = 1740.0
+offset_bottom = 983.0
+scale = Vector2(1.12, 0.88)
+
+[node name="Narrator" type="Label" parent="."]
+z_index = -4
+custom_minimum_size = Vector2(780, 0)
+layout_mode = 0
+offset_left = 966.0
+offset_top = 106.0
+offset_right = 1696.0
+offset_bottom = 129.0
+theme_override_fonts/font = ExtResource("5_ufgxm")
+theme_override_font_sizes/font_size = 24
+autowrap_mode = 2
+
+[node name="Dialogue" type="Label" parent="."]
+z_index = -4
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 0
+offset_left = 966.0
+offset_top = 254.0
+offset_right = 1746.0
+offset_bottom = 278.0
+theme_override_fonts/font = ExtResource("5_ufgxm")
+theme_override_font_sizes/font_size = 24
+autowrap_mode = 2
+
+[node name="CardSlot" type="CenterContainer" parent="."]
+z_index = 5
+layout_mode = 0
+offset_left = 1237.0
+offset_top = 510.0
+offset_right = 1417.0
+offset_bottom = 760.0
+
+[node name="SubmitButton" type="Button" parent="."]
+z_index = -4
+layout_mode = 0
+offset_left = 1002.0
+offset_top = 776.0
+offset_right = 1202.0
+offset_bottom = 846.0
+theme_override_fonts/font = ExtResource("5_ufgxm")
+text = "GIVE"
+
+[node name="RejectButton" type="Button" parent="."]
+z_index = -4
+layout_mode = 0
+offset_left = 1442.0
+offset_top = 776.0
+offset_right = 1642.0
+offset_bottom = 846.0
+theme_override_fonts/font = ExtResource("5_ufgxm")
+text = "REFUSE"
+
+[node name="ProceedButton" type="Button" parent="."]
+z_index = -4
+layout_mode = 0
+offset_left = 1507.0
+offset_top = 747.0
+offset_right = 1707.0
+offset_bottom = 817.0
+theme_override_fonts/font = ExtResource("5_ufgxm")
+text = "PROCEED"
+
+[node name="CurrencyUI" type="PanelContainer" parent="." node_paths=PackedStringArray("amount_label")]
+layout_mode = 0
+offset_right = 237.0
+offset_bottom = 89.0
+script = ExtResource("6_dv4pi")
+amount_label = NodePath("Control/Label")
+
+[node name="Control" type="Control" parent="CurrencyUI"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CurrencyUI/Control"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 23.0
+offset_right = 137.0
+offset_bottom = 46.0
+theme_override_fonts/font = ExtResource("5_ufgxm")
+theme_override_font_sizes/font_size = 30

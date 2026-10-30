@@ -66,9 +66,9 @@ autowrap_mode = 2
 z_index = 5
 layout_mode = 0
 offset_left = 1237.0
-offset_top = 397.0
+offset_top = 510.0
 offset_right = 1417.0
-offset_bottom = 647.0
+offset_bottom = 760.0
 
 [node name="SubmitButton" type="Button" parent="."]
 z_index = -4

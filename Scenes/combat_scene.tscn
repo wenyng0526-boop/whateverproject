@@ -117,7 +117,6 @@ card_data = ExtResource("6_g8pjw")
 
 [node name="Reward_scene" parent="ResultLayer" instance=ExtResource("10_qogxl")]
 visible = false
-failure_menu_scene = ""
 
 [node name="HandCenter" type="CenterContainer" parent="."]
 offset_top = 903.0

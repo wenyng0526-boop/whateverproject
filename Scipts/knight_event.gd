@@ -120,7 +120,7 @@ func _on_submit_pressed():
 	submit_button.hide()
 	reject_button.hide()
 	proceed_button.show()
-	narrator_label.text = "The rat you offered is killed and eaten right away." + \
+	narrator_label.text = "The rat you offered is killed and eaten right away. " + \
 	"He is willing to join you on your journey."
 	dialogue_label.text = "\"Thank you! I vow to serve you as my hero. I'm sure I can be of use\""
 

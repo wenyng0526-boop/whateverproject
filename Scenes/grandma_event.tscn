@@ -35,7 +35,7 @@ scale = Vector2(1.12, 0.88)
 
 [node name="Narrator" type="Label" parent="."]
 z_index = -4
-custom_minimum_size = Vector2(730, 0)
+custom_minimum_size = Vector2(780, 0)
 layout_mode = 2
 offset_left = 969.0
 offset_top = 106.0
@@ -47,12 +47,12 @@ autowrap_mode = 2
 
 [node name="Dialogue" type="Label" parent="."]
 z_index = -4
-custom_minimum_size = Vector2(700, 0)
+custom_minimum_size = Vector2(780, 0)
 layout_mode = 2
 offset_left = 969.0
-offset_top = 211.0
+offset_top = 254.0
 offset_right = 1769.0
-offset_bottom = 235.0
+offset_bottom = 278.0
 theme_override_fonts/font = ExtResource("4_f3y75")
 theme_override_font_sizes/font_size = 24
 autowrap_mode = 2
@@ -61,9 +61,9 @@ autowrap_mode = 2
 z_index = 5
 layout_mode = 2
 offset_left = 1240.0
-offset_top = 397.0
+offset_top = 510.0
 offset_right = 1420.0
-offset_bottom = 647.0
+offset_bottom = 760.0
 
 [node name="SubmitButton" type="Button" parent="."]
 z_index = -4

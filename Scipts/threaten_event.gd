@@ -68,7 +68,6 @@ func _on_reject_pressed():
 	
 	submit_button.hide()
 	reject_button.hide()
-	proceed_button.show()
 	
 	narrator_label.text = "He starts to summon his band of minions to attack you."
 	dialogue_label.text = "\"Prepare to die fool! " +\
