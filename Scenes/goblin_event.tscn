@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_q4sj4"]
 [ext_resource type="Resource" uid="uid://cq0kmmrv0v2ct" path="res://Minion Resource/Goblin/greed_gobbler.tres" id="3_g0f7j"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="4_rrtug"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="5_4ykkt"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="5_4ykkt"]
 [ext_resource type="Script" path="res://Scipts/currency_ui.gd" id="6_1hpi0"]
 
 [node name="GoblinEvent" type="Control"]

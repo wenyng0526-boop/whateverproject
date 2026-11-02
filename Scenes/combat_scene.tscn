@@ -47,6 +47,12 @@ one_star_enemies = Array[ExtResource("3_a1xpf")]([ExtResource("4_weuwe"), ExtRes
 two_star_enemies = Array[ExtResource("3_a1xpf")]([ExtResource("6_d0t0k"), ExtResource("8_ie5uw"), ExtResource("9_lglh0"), ExtResource("10_3ps3t"), ExtResource("3_ngc22"), ExtResource("17_6pdpg"), ExtResource("18_mat62"), ExtResource("5_vwtws"), ExtResource("20_u4e87"), ExtResource("6_g8pjw"), ExtResource("22_rcr5v"), ExtResource("23_3fhwb"), ExtResource("4_8ts7m")])
 three_star_enemies = Array[ExtResource("3_a1xpf")]([ExtResource("6_s2gyj"), ExtResource("13_4mlkq"), ExtResource("14_jxep6"), ExtResource("28_rktqr"), ExtResource("29_bi28p"), ExtResource("30_tlxuk"), ExtResource("8_4fngt"), ExtResource("32_l8xxo"), ExtResource("5_61ds5")])
 
+[node name="PauseButton" type="Button" parent="."]
+offset_left = 1805.0
+offset_top = 25.0
+offset_right = 1875.0
+offset_bottom = 91.0
+
 [node name="EnemyCenter" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(1920, 300)
 anchors_preset = 5
@@ -150,4 +156,5 @@ mouse_filter = 2
 [node name="PauseMenu" parent="." instance=ExtResource("35_fwkip")]
 visible = false
 
+[connection signal="pressed" from="PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]
 [connection signal="pressed" from="StartBattleButton" to="." method="_on_start_battle_button_pressed"]

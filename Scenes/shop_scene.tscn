@@ -9,7 +9,7 @@
 [ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="6_vi0a5"]
 [ext_resource type="PackedScene" uid="uid://b4ojdviu2r56a" path="res://Scenes/pause_menu.tscn" id="7_dlbmg"]
 
-[node name="Shop Scene" type="Node2D" node_paths=PackedStringArray("card_container", "player_container", "hand_container", "confirm_panel", "confirm_label", "warning_label")]
+[node name="Shop Scene" type="Node2D" node_paths=PackedStringArray("card_container", "player_container", "hand_container", "confirm_panel", "confirm_label", "warning_label", "upgrade_button")]
 script = ExtResource("1_s0dvk")
 card_ui = ExtResource("1_oql1m")
 shop_cards = ExtResource("3_inuco")
@@ -19,6 +19,7 @@ hand_container = NodePath("HandCenter/HandContainer")
 confirm_panel = NodePath("ConfirmUI")
 confirm_label = NodePath("ConfirmUI/Panel/Control/MessageLabel")
 warning_label = NodePath("WarningLabel")
+upgrade_button = NodePath("Upgrade Button")
 
 [node name="PlayerCenter" type="CenterContainer" parent="."]
 offset_left = 380.0
@@ -51,30 +52,22 @@ text = "PROCEED
 "
 
 [node name="PauseButton" type="Button" parent="."]
-offset_left = 26.0
-offset_top = 109.0
-offset_right = 96.0
-offset_bottom = 175.0
+offset_left = 1805.0
+offset_top = 25.0
+offset_right = 1875.0
+offset_bottom = 91.0
 
 [node name="Upgrade Button" type="Button" parent="."]
-offset_left = 1408.0
+custom_minimum_size = Vector2(150, 0)
+offset_left = 1330.0
 offset_top = 109.0
-offset_right = 1528.0
+offset_right = 1523.0
 offset_bottom = 140.0
 scale = Vector2(1.09582, 1.72816)
 theme_override_fonts/font = ExtResource("4_a2dmr")
 text = "UPGRADE
 "
-
-[node name="UpgradeCostLabel" type="Label" parent="Upgrade Button"]
-layout_mode = 0
-offset_left = 0.912554
-offset_top = -16.7809
-offset_right = 144.913
-offset_bottom = 6.21915
-theme_override_fonts/font = ExtResource("6_vi0a5")
-theme_override_font_sizes/font_size = 14
-text = "UPGRADE: 10"
+clip_text = true
 
 [node name="ShopCenter" type="CenterContainer" parent="."]
 offset_left = 154.0

@@ -8,12 +8,12 @@ extends Node2D
 @export var confirm_panel : Control
 @export var confirm_label : Label
 @export var warning_label: Label
-@export var upgrade_cost_label: Label
 @export var upgrade_button: Button
 
 var refresh_cost = 1
 var sell_value: int = 1
 var pending_action: Callable
+var is_fusing:bool = false
 
 func _ready() -> void:
 	refresh_shop()
@@ -64,6 +64,8 @@ func _on_refresh_button_pressed() -> void:
 		print("YOU'RE BROKE")
 
 func _on_card_clicked(card: CardUI) -> void:
+	if is_fusing:
+		return
 	var cost: int = card.card_data.cost
 	var size = GameState.hand_cards.size()
 	if GameState.currency < cost:
@@ -93,6 +95,7 @@ func _buy_card(card: CardUI) -> void:
 	await check_for_duplicate_animated()
 
 func check_for_duplicate_animated() -> void:
+	is_fusing = true
 	while true:
 		var index_a := -1
 		var index_b := -1
@@ -147,6 +150,7 @@ func check_for_duplicate_animated() -> void:
 
 		refresh_hand()
 		await get_tree().process_frame
+	is_fusing = false
 
 #---------------------hand deck pro max--------------------------#
 func refresh_hand() -> void:
@@ -171,6 +175,8 @@ func refresh_hand() -> void:
 
 #done button
 func _on_done_button_pressed() -> void:
+	if is_fusing:
+		return
 	if GameState.hand_cards.is_empty():
 		await show_warning()
 		return
@@ -188,6 +194,8 @@ func show_warning() -> void:
 
 #sell shet
 func _on_hand_card_clicked(card: CardUI) -> void:
+	if is_fusing:
+		return
 	if GameState.hand_cards.size() <= 1:
 		print("YOU NEED AT LEAST ONE CARD")
 		return
@@ -234,15 +242,13 @@ func _on_upgrade_button_pressed() -> void:
 	print("Shop upgraded to level ", GameState.shop_level)
 
 func update_upgrade_label() -> void:
-	if not upgrade_cost_label:
+	if not upgrade_button:
 		return
 
 	if GameState.shop_level >= GameState.MAX_SHOP_LEVEL:
-		upgrade_cost_label.text = "MAX LEVEL"
-		if upgrade_button:
-			upgrade_button.disabled = true
+		upgrade_button.text = "MAX LEVEL"
+		upgrade_button.disabled = true
 	else:
 		var cost: int = GameState.SHOP_UPGRADE_COST[GameState.shop_level - 1]
-		upgrade_cost_label.text = "Upgrade: %d" % cost
-		if upgrade_button:
-			upgrade_button.disabled = false
+		upgrade_button.text = "Upgrade $%d" % cost
+		upgrade_button.disabled = false

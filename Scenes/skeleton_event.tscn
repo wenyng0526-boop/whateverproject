@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bf71pykopuy04"]
+[gd_scene load_steps=8 format=3 uid="uid://bf71pykopuy04"]
 
 [ext_resource type="Script" path="res://Scipts/skeleton_event.gd" id="1_peoaf"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_ewhaa"]
 [ext_resource type="Resource" uid="uid://bvf130wywxg2u" path="res://Minion Resource/Skeleton/extra_limbs.tres" id="3_ylfo0"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="4_gbuvy"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="5_ufgxm"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="5_ufgxm"]
+[ext_resource type="Script" path="res://Scipts/talking.gd" id="6_b1h48"]
 [ext_resource type="Script" path="res://Scipts/currency_ui.gd" id="6_dv4pi"]
 
 [node name="Skeleton Event" type="Control"]
@@ -49,6 +50,7 @@ offset_bottom = 129.0
 theme_override_fonts/font = ExtResource("5_ufgxm")
 theme_override_font_sizes/font_size = 24
 autowrap_mode = 2
+script = ExtResource("6_b1h48")
 
 [node name="Dialogue" type="Label" parent="."]
 z_index = -4
@@ -61,6 +63,7 @@ offset_bottom = 278.0
 theme_override_fonts/font = ExtResource("5_ufgxm")
 theme_override_font_sizes/font_size = 24
 autowrap_mode = 2
+script = ExtResource("6_b1h48")
 
 [node name="CardSlot" type="CenterContainer" parent="."]
 z_index = 5

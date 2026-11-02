@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://hxb0kjyafgci"]
+[gd_scene load_steps=6 format=3 uid="uid://hxb0kjyafgci"]
 
 [ext_resource type="Script" path="res://Scipts/trap_event.gd" id="1_yl31l"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="2_dt4tc"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_eilsg"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="3_5erct"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="3_5erct"]
+[ext_resource type="Script" path="res://Scipts/talking.gd" id="5_ignd3"]
 
 [node name="TrapEvent" type="Control"]
 layout_mode = 3
@@ -46,6 +47,7 @@ offset_bottom = 129.0
 theme_override_fonts/font = ExtResource("3_5erct")
 theme_override_font_sizes/font_size = 26
 autowrap_mode = 2
+script = ExtResource("5_ignd3")
 
 [node name="BattleButton" type="Button" parent="."]
 layout_mode = 0

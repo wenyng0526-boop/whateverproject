@@ -314,5 +314,13 @@ node_index = 40
 position = Vector2(960, 540)
 script = ExtResource("2_wdtea")
 
+[node name="PauseButton" type="Button" parent="."]
+offset_left = 1805.0
+offset_top = 25.0
+offset_right = 1875.0
+offset_bottom = 91.0
+
 [node name="PauseMenu" parent="." instance=ExtResource("3_tg475")]
 visible = false
+
+[connection signal="pressed" from="PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]
