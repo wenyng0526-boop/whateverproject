@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://cn8teu2ti2er2" path="res://Screenshot 2026-10-29 150309.png" id="3_2c2m0"]
 [ext_resource type="Texture2D" uid="uid://5gno616i51d0" path="res://icon.svg" id="3_7xhj2"]
 [ext_resource type="Texture2D" uid="uid://bsuq6ig6sn43l" path="res://Screenshot 2026-10-29 151506.png" id="4_fshw8"]
-[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="5_uda55"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="6_aioym"]
+[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="5_uda55"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="6_aioym"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6dcg5"]
 font = ExtResource("5_uda55")

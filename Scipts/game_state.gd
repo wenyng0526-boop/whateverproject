@@ -34,6 +34,9 @@ var available_nodes: Array[int] = [0]
 var completed_nodes: Array[int] = []
 var current_next_nodes: Array[int] = []
 
+# Remember the map camera position
+var map_camera_y: float = 1000.0
+
 func complete_node():
 	if current_node not in completed_nodes:
 		completed_nodes.append(current_node)
@@ -177,16 +180,18 @@ func delete_save_game() -> void:
 func reset_run():
 	hand_cards.clear()
 	deployed_cards.clear()
-	
+
 	current_node = 0
 	available_nodes = [0]
 	completed_nodes.clear()
 	current_next_nodes.clear()
-	
-	currency = 100 #rmb to change this tooooo
+
+	currency = 100
 	win_count = 0
 	current_wave = 1
 	shop_level = 1
-	
+
+	map_camera_y = 1000.0
+
 	delete_save_game()
 	
