@@ -1,13 +1,47 @@
-[gd_scene load_steps=9 format=3 uid="uid://b1q3xx44wgn6p"]
+[gd_scene load_steps=26 format=3 uid="uid://b1q3xx44wgn6p"]
 
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="1_oql1m"]
 [ext_resource type="Script" path="res://Scipts/shop_manager.gd" id="1_s0dvk"]
 [ext_resource type="Resource" uid="uid://b05y0n3q37vtn" path="res://Other resource/shop_card.tres" id="3_inuco"]
 [ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="4_a2dmr"]
+[ext_resource type="Texture2D" uid="uid://lgj7ycks54w4" path="res://Assets/button/refresh button2.png" id="5_araia"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="5_bfisf"]
 [ext_resource type="Script" path="res://Scipts/currency_ui.gd" id="5_nrsk7"]
+[ext_resource type="Texture2D" uid="uid://bsp5p3c01d0j3" path="res://Assets/button/pause button.png" id="5_uhaj7"]
+[ext_resource type="Texture2D" uid="uid://c345wpc35vwpl" path="res://Assets/button/refresh button1.png" id="6_k8uyn"]
 [ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="6_vi0a5"]
+[ext_resource type="Texture2D" uid="uid://blegk31uaf0s2" path="res://Assets/button/upgrade button2.png" id="7_07xk2"]
 [ext_resource type="PackedScene" uid="uid://b4ojdviu2r56a" path="res://Scenes/pause_menu.tscn" id="7_dlbmg"]
+[ext_resource type="Texture2D" uid="uid://ccr8b1yh55ghp" path="res://Assets/button/proceed button2.png" id="7_noits"]
+[ext_resource type="Texture2D" uid="uid://boh7vw757ikbl" path="res://Assets/button/upgrade button1.png" id="8_2bq6i"]
+[ext_resource type="Texture2D" uid="uid://f2ysp086gisp" path="res://Assets/button/proceed button1.png" id="8_f0e5r"]
+[ext_resource type="Texture2D" uid="uid://bv6ab3s8neyhh" path="res://Assets/other art/Coin counter.png" id="13_7rkxk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_858b6"]
+texture = ExtResource("5_araia")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_plef4"]
+texture = ExtResource("6_k8uyn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xiwra"]
+texture = ExtResource("7_noits")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7y1ix"]
+texture = ExtResource("8_f0e5r")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f28mj"]
+texture = ExtResource("7_07xk2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fv67d"]
+texture = ExtResource("8_2bq6i")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7jamo"]
+texture = ExtResource("5_uhaj7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gvuoy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h3311"]
+texture = ExtResource("13_7rkxk")
 
 [node name="Shop Scene" type="Node2D" node_paths=PackedStringArray("card_container", "player_container", "hand_container", "confirm_panel", "confirm_label", "warning_label", "upgrade_button")]
 script = ExtResource("1_s0dvk")
@@ -32,48 +66,55 @@ layout_mode = 2
 theme_override_constants/separation = 100
 
 [node name="Refresh Button" type="Button" parent="."]
-offset_left = 1554.0
-offset_top = 109.0
-offset_right = 1674.0
-offset_bottom = 140.0
+offset_left = 308.0
+offset_top = 114.0
+offset_right = 428.0
+offset_bottom = 145.0
 scale = Vector2(1.09582, 1.72816)
 theme_override_fonts/font = ExtResource("4_a2dmr")
-text = "REFRESH
+theme_override_styles/pressed = SubResource("StyleBoxTexture_858b6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_plef4")
+text = "
 "
 
 [node name="Done Button" type="Button" parent="."]
-offset_left = 1698.0
-offset_top = 109.0
-offset_right = 1818.0
-offset_bottom = 140.0
+offset_left = 452.0
+offset_top = 114.0
+offset_right = 572.0
+offset_bottom = 145.0
 scale = Vector2(1.09582, 1.72816)
 theme_override_fonts/font = ExtResource("4_a2dmr")
-text = "PROCEED
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xiwra")
+theme_override_styles/normal = SubResource("StyleBoxTexture_7y1ix")
+text = "
 "
-
-[node name="PauseButton" type="Button" parent="."]
-offset_left = 1805.0
-offset_top = 25.0
-offset_right = 1875.0
-offset_bottom = 91.0
 
 [node name="Upgrade Button" type="Button" parent="."]
 custom_minimum_size = Vector2(150, 0)
-offset_left = 1330.0
-offset_top = 109.0
-offset_right = 1523.0
-offset_bottom = 140.0
+offset_left = 131.0
+offset_top = 111.0
+offset_right = 281.0
+offset_bottom = 144.0
 scale = Vector2(1.09582, 1.72816)
 theme_override_fonts/font = ExtResource("4_a2dmr")
-text = "UPGRADE
-"
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f28mj")
+theme_override_styles/normal = SubResource("StyleBoxTexture_fv67d")
 clip_text = true
 
+[node name="PauseButton" type="Button" parent="."]
+offset_left = 1729.0
+offset_top = 66.0
+offset_right = 1857.0
+offset_bottom = 194.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_7jamo")
+theme_override_styles/normal = SubResource("StyleBoxTexture_gvuoy")
+icon = ExtResource("5_uhaj7")
+
 [node name="ShopCenter" type="CenterContainer" parent="."]
-offset_left = 154.0
-offset_top = 402.0
-offset_right = 1760.0
-offset_bottom = 652.0
+offset_left = 309.0
+offset_top = 414.0
+offset_right = 1915.0
+offset_bottom = 664.0
 
 [node name="Card Container" type="HBoxContainer" parent="ShopCenter"]
 layout_mode = 2
@@ -104,24 +145,18 @@ script = ExtResource("5_bfisf")
 
 [node name="CurrencyUI" type="PanelContainer" parent="." node_paths=PackedStringArray("amount_label")]
 z_index = 501
-offset_top = 214.0
-offset_right = 237.0
-offset_bottom = 303.0
+offset_left = 147.0
+offset_top = 219.0
+offset_right = 384.0
+offset_bottom = 308.0
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_h3311")
 script = ExtResource("5_nrsk7")
 amount_label = NodePath("Control/Label")
 
 [node name="Control" type="Control" parent="CurrencyUI"]
 layout_mode = 2
 mouse_filter = 2
-
-[node name="TextureRect" type="TextureRect" parent="CurrencyUI/Control"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-offset_left = 14.0
-offset_top = 19.0
-offset_right = 68.0
-offset_bottom = 70.0
 
 [node name="Label" type="Label" parent="CurrencyUI/Control"]
 texture_filter = 1
@@ -220,7 +255,7 @@ visible = false
 
 [connection signal="pressed" from="Refresh Button" to="." method="_on_refresh_button_pressed"]
 [connection signal="pressed" from="Done Button" to="." method="_on_done_button_pressed"]
-[connection signal="pressed" from="PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]
 [connection signal="pressed" from="Upgrade Button" to="." method="_on_upgrade_button_pressed"]
+[connection signal="pressed" from="PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]
 [connection signal="pressed" from="ConfirmUI/Panel/Control/HBoxContainer/YesButton" to="." method="_on_yes_button_pressed"]
 [connection signal="pressed" from="ConfirmUI/Panel/Control/HBoxContainer/NoButton" to="." method="_on_no_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bts1pm5edlc0y"]
+[gd_scene load_steps=13 format=3 uid="uid://bts1pm5edlc0y"]
 
 [ext_resource type="PackedScene" uid="uid://c5r3h7s0140do" path="res://Scenes/map_node.tscn" id="1_j0sno"]
 [ext_resource type="PackedScene" uid="uid://la5r22v0ss12" path="res://Scenes/goblin_event.tscn" id="2_kyu6a"]
@@ -9,6 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://cfexesvuq7njd" path="res://Scenes/knight_event.tscn" id="3_1sjsg"]
 [ext_resource type="PackedScene" uid="uid://b4ojdviu2r56a" path="res://Scenes/pause_menu.tscn" id="3_tg475"]
 [ext_resource type="PackedScene" uid="uid://l80ac12ejyjo" path="res://Scenes/threaten_event.tscn" id="4_o64qr"]
+[ext_resource type="Texture2D" uid="uid://bsp5p3c01d0j3" path="res://Assets/button/pause button.png" id="9_hvjca"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_udydx"]
+texture = ExtResource("9_hvjca")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cf4rw"]
 
 [node name="Map" type="Node2D"]
 
@@ -314,13 +320,16 @@ node_index = 40
 position = Vector2(960, 540)
 script = ExtResource("2_wdtea")
 
-[node name="PauseButton" type="Button" parent="."]
-offset_left = 1805.0
-offset_top = 25.0
-offset_right = 1875.0
-offset_bottom = 91.0
+[node name="PauseButton" type="Button" parent="Camera2D"]
+offset_left = 804.0
+offset_top = -515.0
+offset_right = 932.0
+offset_bottom = -387.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_udydx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cf4rw")
+icon = ExtResource("9_hvjca")
 
 [node name="PauseMenu" parent="." instance=ExtResource("3_tg475")]
 visible = false
 
-[connection signal="pressed" from="PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]
+[connection signal="pressed" from="Camera2D/PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]

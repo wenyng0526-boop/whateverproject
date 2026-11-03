@@ -11,7 +11,7 @@ const MAX_CARDS = 6
 const MAX_HAND = 10
 var shop_level: int = 1
 const MAX_SHOP_LEVEL = 3
-const SHOP_SLOTS = [4, 5, 6]        # index 0 = level 1, index 1 = level 2, index 2 = level 3
+const SHOP_SLOTS = [3, 4, 5]        # index 0 = level 1, index 1 = level 2, index 2 = level 3
 const SHOP_MAX_COST = [2, 3, 4]     # highest star card allowed at each level
 const SHOP_UPGRADE_COST = [10, 20]    # [0] = cost to go 1→2, [1] = cost to go 2→3
 signal currency_changed(new_amount: int)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c7ondrblaspck"]
+[gd_scene load_steps=40 format=3 uid="uid://c7ondrblaspck"]
 
 [ext_resource type="Script" path="res://Scipts/combat_manager.gd" id="1_1ge3h"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="1_hiokq"]
@@ -34,8 +34,15 @@
 [ext_resource type="Resource" uid="uid://uilbc760sao7" path="res://Minion Resource/Rat/large_rat.tres" id="29_bi28p"]
 [ext_resource type="Resource" uid="uid://q8va41yxvpp2" path="res://Minion Resource/Rat/mass_infestation.tres" id="30_tlxuk"]
 [ext_resource type="Resource" uid="uid://d24xbnkck6jhy" path="res://Minion Resource/Skeleton/bone_titan.tres" id="32_l8xxo"]
+[ext_resource type="Texture2D" uid="uid://bsp5p3c01d0j3" path="res://Assets/button/pause button.png" id="34_bsyvg"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="35_60emv"]
 [ext_resource type="PackedScene" uid="uid://b4ojdviu2r56a" path="res://Scenes/pause_menu.tscn" id="35_fwkip"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_onlmt"]
+texture = ExtResource("34_bsyvg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ytpxs"]
+texture = ExtResource("34_bsyvg")
 
 [node name="Combat_Scene" type="Node2D" node_paths=PackedStringArray("player_container", "enemy_container")]
 position = Vector2(2, 0)
@@ -48,10 +55,12 @@ two_star_enemies = Array[ExtResource("3_a1xpf")]([ExtResource("6_d0t0k"), ExtRes
 three_star_enemies = Array[ExtResource("3_a1xpf")]([ExtResource("6_s2gyj"), ExtResource("13_4mlkq"), ExtResource("14_jxep6"), ExtResource("28_rktqr"), ExtResource("29_bi28p"), ExtResource("30_tlxuk"), ExtResource("8_4fngt"), ExtResource("32_l8xxo"), ExtResource("5_61ds5")])
 
 [node name="PauseButton" type="Button" parent="."]
-offset_left = 1805.0
-offset_top = 25.0
-offset_right = 1875.0
-offset_bottom = 91.0
+offset_left = 1743.0
+offset_top = 34.0
+offset_right = 1871.0
+offset_bottom = 162.0
+theme_override_styles/pressed = SubResource("StyleBoxTexture_onlmt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ytpxs")
 
 [node name="EnemyCenter" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(1920, 300)
