@@ -1,10 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://hxb0kjyafgci"]
+[gd_scene load_steps=11 format=3 uid="uid://hxb0kjyafgci"]
 
 [ext_resource type="Script" path="res://Scipts/trap_event.gd" id="1_yl31l"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="2_dt4tc"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_eilsg"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="3_5erct"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="3_5erct"]
 [ext_resource type="Script" path="res://Scipts/talking.gd" id="5_ignd3"]
+[ext_resource type="Texture2D" uid="uid://ccr8b1yh55ghp" path="res://Assets/button/proceed button2.png" id="6_pdgr4"]
+[ext_resource type="Texture2D" uid="uid://f2ysp086gisp" path="res://Assets/button/proceed button1.png" id="7_0t4a6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bphxc"]
+texture = ExtResource("6_pdgr4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3re62"]
+texture = ExtResource("6_pdgr4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aij0n"]
+texture = ExtResource("7_0t4a6")
 
 [node name="TrapEvent" type="Control"]
 layout_mode = 3
@@ -38,7 +49,7 @@ scale = Vector2(1.12, 0.88)
 
 [node name="Narrator" type="Label" parent="."]
 z_index = -4
-custom_minimum_size = Vector2(730, 0)
+custom_minimum_size = Vector2(780, 0)
 layout_mode = 0
 offset_left = 966.0
 offset_top = 106.0
@@ -51,9 +62,11 @@ script = ExtResource("5_ignd3")
 
 [node name="BattleButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1507.0
-offset_top = 747.0
-offset_right = 1707.0
-offset_bottom = 817.0
+offset_left = 1509.0
+offset_top = 702.0
+offset_right = 1765.0
+offset_bottom = 830.0
 theme_override_fonts/font = ExtResource("3_5erct")
-text = "BATTLE"
+theme_override_styles/hover = SubResource("StyleBoxTexture_bphxc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3re62")
+theme_override_styles/normal = SubResource("StyleBoxTexture_aij0n")

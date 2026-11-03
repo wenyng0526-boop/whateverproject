@@ -1,9 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://l80ac12ejyjo"]
+[gd_scene load_steps=10 format=3 uid="uid://l80ac12ejyjo"]
 
 [ext_resource type="Script" path="res://Scipts/threaten_event.gd" id="1_7vr6r"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="2_uewhg"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="2_uewhg"]
 [ext_resource type="Script" path="res://Scipts/talking.gd" id="3_3fs13"]
 [ext_resource type="Script" path="res://Scipts/currency_ui.gd" id="3_rvmhp"]
+[ext_resource type="Texture2D" uid="uid://ccr8b1yh55ghp" path="res://Assets/button/proceed button2.png" id="4_d4n7r"]
+[ext_resource type="Texture2D" uid="uid://f2ysp086gisp" path="res://Assets/button/proceed button1.png" id="5_g42we"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xw2tf"]
+texture = ExtResource("4_d4n7r")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4i0x1"]
+texture = ExtResource("4_d4n7r")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v6dxi"]
+texture = ExtResource("5_g42we")
 
 [node name="ThreatenEvent" type="Control"]
 layout_mode = 3
@@ -25,7 +36,7 @@ scale = Vector2(1.12, 0.88)
 
 [node name="Narrator" type="Label" parent="."]
 z_index = -4
-custom_minimum_size = Vector2(730, 0)
+custom_minimum_size = Vector2(780, 0)
 layout_mode = 0
 offset_left = 966.0
 offset_top = 106.0
@@ -34,11 +45,10 @@ offset_bottom = 129.0
 theme_override_fonts/font = ExtResource("2_uewhg")
 theme_override_font_sizes/font_size = 24
 autowrap_mode = 2
-script = ExtResource("3_3fs13")
 
 [node name="Dialogue" type="Label" parent="."]
 z_index = -4
-custom_minimum_size = Vector2(700, 0)
+custom_minimum_size = Vector2(780, 0)
 layout_mode = 0
 offset_left = 966.0
 offset_top = 211.0
@@ -72,10 +82,12 @@ text = "REFUSE"
 [node name="ProceedButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 1507.0
-offset_top = 747.0
-offset_right = 1707.0
-offset_bottom = 817.0
-text = "PROCEED"
+offset_top = 718.0
+offset_right = 1763.0
+offset_bottom = 843.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_xw2tf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4i0x1")
+theme_override_styles/normal = SubResource("StyleBoxTexture_v6dxi")
 
 [node name="CurrencyUI" type="PanelContainer" parent="." node_paths=PackedStringArray("amount_label")]
 layout_mode = 0

@@ -1,11 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://la5r22v0ss12"]
+[gd_scene load_steps=13 format=3 uid="uid://la5r22v0ss12"]
 
 [ext_resource type="Script" path="res://Scipts/goblin_event.gd" id="1_lxfvh"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_q4sj4"]
 [ext_resource type="Resource" uid="uid://cq0kmmrv0v2ct" path="res://Minion Resource/Goblin/greed_gobbler.tres" id="3_g0f7j"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="4_rrtug"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="5_4ykkt"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="5_4ykkt"]
 [ext_resource type="Script" path="res://Scipts/currency_ui.gd" id="6_1hpi0"]
+[ext_resource type="Script" path="res://Scipts/talking.gd" id="6_mhldj"]
+[ext_resource type="Texture2D" uid="uid://ccr8b1yh55ghp" path="res://Assets/button/proceed button2.png" id="7_54ht8"]
+[ext_resource type="Texture2D" uid="uid://f2ysp086gisp" path="res://Assets/button/proceed button1.png" id="8_irqsf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vyb25"]
+texture = ExtResource("7_54ht8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gkh1u"]
+texture = ExtResource("7_54ht8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g2ru8"]
+texture = ExtResource("8_irqsf")
 
 [node name="GoblinEvent" type="Control"]
 layout_mode = 3
@@ -61,6 +73,7 @@ offset_bottom = 277.0
 theme_override_fonts/font = ExtResource("5_4ykkt")
 theme_override_font_sizes/font_size = 24
 autowrap_mode = 2
+script = ExtResource("6_mhldj")
 
 [node name="SubmitButton" type="Button" parent="."]
 z_index = -4
@@ -86,12 +99,14 @@ text = "REFUSE
 [node name="ProceedButton" type="Button" parent="."]
 z_index = -4
 layout_mode = 0
-offset_left = 1507.0
-offset_top = 747.0
-offset_right = 1707.0
-offset_bottom = 817.0
+offset_left = 1510.0
+offset_top = 706.0
+offset_right = 1766.0
+offset_bottom = 834.0
 theme_override_fonts/font = ExtResource("5_4ykkt")
-text = "PROCEED"
+theme_override_styles/hover = SubResource("StyleBoxTexture_vyb25")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gkh1u")
+theme_override_styles/normal = SubResource("StyleBoxTexture_g2ru8")
 
 [node name="CurrencyUI" type="PanelContainer" parent="." node_paths=PackedStringArray("amount_label")]
 layout_mode = 0

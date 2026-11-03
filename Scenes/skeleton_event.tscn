@@ -1,12 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://bf71pykopuy04"]
+[gd_scene load_steps=13 format=3 uid="uid://bf71pykopuy04"]
 
 [ext_resource type="Script" path="res://Scipts/skeleton_event.gd" id="1_peoaf"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_ewhaa"]
 [ext_resource type="Resource" uid="uid://bvf130wywxg2u" path="res://Minion Resource/Skeleton/extra_limbs.tres" id="3_ylfo0"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="4_gbuvy"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="5_ufgxm"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="5_ufgxm"]
 [ext_resource type="Script" path="res://Scipts/talking.gd" id="6_b1h48"]
 [ext_resource type="Script" path="res://Scipts/currency_ui.gd" id="6_dv4pi"]
+[ext_resource type="Texture2D" uid="uid://ccr8b1yh55ghp" path="res://Assets/button/proceed button2.png" id="7_s42qk"]
+[ext_resource type="Texture2D" uid="uid://f2ysp086gisp" path="res://Assets/button/proceed button1.png" id="8_v1kp6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nrrw2"]
+texture = ExtResource("7_s42qk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m8alw"]
+texture = ExtResource("7_s42qk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fkmxp"]
+texture = ExtResource("8_v1kp6")
 
 [node name="Skeleton Event" type="Control"]
 layout_mode = 3
@@ -50,11 +61,10 @@ offset_bottom = 129.0
 theme_override_fonts/font = ExtResource("5_ufgxm")
 theme_override_font_sizes/font_size = 24
 autowrap_mode = 2
-script = ExtResource("6_b1h48")
 
 [node name="Dialogue" type="Label" parent="."]
 z_index = -4
-custom_minimum_size = Vector2(700, 0)
+custom_minimum_size = Vector2(780, 0)
 layout_mode = 0
 offset_left = 966.0
 offset_top = 254.0
@@ -96,12 +106,14 @@ text = "REFUSE"
 [node name="ProceedButton" type="Button" parent="."]
 z_index = -4
 layout_mode = 0
-offset_left = 1507.0
-offset_top = 747.0
-offset_right = 1707.0
-offset_bottom = 817.0
+offset_left = 1515.0
+offset_top = 678.0
+offset_right = 1771.0
+offset_bottom = 806.0
 theme_override_fonts/font = ExtResource("5_ufgxm")
-text = "PROCEED"
+theme_override_styles/hover = SubResource("StyleBoxTexture_nrrw2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_m8alw")
+theme_override_styles/normal = SubResource("StyleBoxTexture_fkmxp")
 
 [node name="CurrencyUI" type="PanelContainer" parent="." node_paths=PackedStringArray("amount_label")]
 layout_mode = 0

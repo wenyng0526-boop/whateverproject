@@ -328,6 +328,7 @@ offset_bottom = -387.0
 theme_override_styles/hover = SubResource("StyleBoxTexture_udydx")
 theme_override_styles/normal = SubResource("StyleBoxTexture_cf4rw")
 icon = ExtResource("9_hvjca")
+metadata/_edit_use_anchors_ = true
 
 [node name="PauseMenu" parent="." instance=ExtResource("3_tg475")]
 visible = false

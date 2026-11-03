@@ -1,11 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://cb4hiqaej2e5l"]
+[gd_scene load_steps=12 format=3 uid="uid://cb4hiqaej2e5l"]
 
 [ext_resource type="Script" path="res://Scipts/grandma_event.gd" id="1_u6k1w"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_6vhb5"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="3_qq6bn"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="4_f3y75"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="4_f3y75"]
 [ext_resource type="Script" path="res://Scipts/currency_ui.gd" id="5_55a3t"]
 [ext_resource type="Script" path="res://Scipts/talking.gd" id="5_cofpm"]
+[ext_resource type="Texture2D" uid="uid://ccr8b1yh55ghp" path="res://Assets/button/proceed button2.png" id="6_rxyko"]
+[ext_resource type="Texture2D" uid="uid://f2ysp086gisp" path="res://Assets/button/proceed button1.png" id="7_0xf80"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sw2xs"]
+texture = ExtResource("6_rxyko")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5hwan"]
+texture = ExtResource("6_rxyko")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_us6fu"]
+texture = ExtResource("7_0xf80")
 
 [node name="GrandmaEvent" type="Control"]
 layout_mode = 3
@@ -45,7 +56,6 @@ offset_bottom = 129.0
 theme_override_fonts/font = ExtResource("4_f3y75")
 theme_override_font_sizes/font_size = 24
 autowrap_mode = 2
-script = ExtResource("5_cofpm")
 
 [node name="Dialogue" type="Label" parent="."]
 z_index = -4
@@ -92,11 +102,13 @@ text = "REFUSE"
 z_index = -4
 layout_mode = 0
 offset_left = 1510.0
-offset_top = 747.0
-offset_right = 1710.0
-offset_bottom = 817.0
+offset_top = 710.0
+offset_right = 1766.0
+offset_bottom = 838.0
 theme_override_fonts/font = ExtResource("4_f3y75")
-text = "PROCEED"
+theme_override_styles/hover = SubResource("StyleBoxTexture_sw2xs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5hwan")
+theme_override_styles/normal = SubResource("StyleBoxTexture_us6fu")
 
 [node name="CurrencyUI" type="PanelContainer" parent="." node_paths=PackedStringArray("amount_label")]
 layout_mode = 0
