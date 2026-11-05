@@ -1,14 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://cfexesvuq7njd"]
+[gd_scene load_steps=16 format=3 uid="uid://cfexesvuq7njd"]
 
 [ext_resource type="Script" path="res://Scipts/knight_event.gd" id="1_cc51r"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_k67yc"]
 [ext_resource type="Resource" uid="uid://23w3x68p88ih" path="res://Minion Resource/Knight/aspiring_squire.tres" id="3_goegt"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="3_kq7uj"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="4_a021p"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="4_a021p"]
 [ext_resource type="Script" path="res://Scipts/currency_ui.gd" id="5_good6"]
 [ext_resource type="Script" path="res://Scipts/talking.gd" id="6_pi6g4"]
 [ext_resource type="Texture2D" uid="uid://ccr8b1yh55ghp" path="res://Assets/button/proceed button2.png" id="7_qe5ip"]
 [ext_resource type="Texture2D" uid="uid://f2ysp086gisp" path="res://Assets/button/proceed button1.png" id="8_7qufn"]
+[ext_resource type="Texture2D" uid="uid://bv6ab3s8neyhh" path="res://Assets/other art/Coin counter.png" id="9_sm40s"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a1hl0"]
 texture = ExtResource("7_qe5ip")
@@ -18,6 +19,11 @@ texture = ExtResource("7_qe5ip")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rorka"]
 texture = ExtResource("8_7qufn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_82x6q"]
+texture = ExtResource("9_sm40s")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y6f7r"]
 
 [node name="KnightEvent" type="Control"]
 layout_mode = 3
@@ -119,6 +125,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_rorka")
 layout_mode = 0
 offset_right = 237.0
 offset_bottom = 89.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_82x6q")
 script = ExtResource("5_good6")
 amount_label = NodePath("Control/Label")
 
@@ -132,11 +139,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -21.5
-offset_top = -21.5
-offset_right = 18.5
-offset_bottom = 9.5
+offset_left = -24.5
+offset_top = -12.5
+offset_right = 98.5
+offset_bottom = 30.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_a021p")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y6f7r")

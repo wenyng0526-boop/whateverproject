@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://hxb0kjyafgci"]
+[gd_scene load_steps=12 format=3 uid="uid://hxb0kjyafgci"]
 
 [ext_resource type="Script" path="res://Scipts/trap_event.gd" id="1_yl31l"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="2_dt4tc"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://Scipts/talking.gd" id="5_ignd3"]
 [ext_resource type="Texture2D" uid="uid://ccr8b1yh55ghp" path="res://Assets/button/proceed button2.png" id="6_pdgr4"]
 [ext_resource type="Texture2D" uid="uid://f2ysp086gisp" path="res://Assets/button/proceed button1.png" id="7_0t4a6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4f6pa"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bphxc"]
 texture = ExtResource("6_pdgr4")
@@ -67,6 +69,7 @@ offset_top = 702.0
 offset_right = 1765.0
 offset_bottom = 830.0
 theme_override_fonts/font = ExtResource("3_5erct")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4f6pa")
 theme_override_styles/hover = SubResource("StyleBoxTexture_bphxc")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3re62")
 theme_override_styles/normal = SubResource("StyleBoxTexture_aij0n")

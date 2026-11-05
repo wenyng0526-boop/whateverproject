@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://la5r22v0ss12"]
+[gd_scene load_steps=18 format=3 uid="uid://la5r22v0ss12"]
 
 [ext_resource type="Script" path="res://Scipts/goblin_event.gd" id="1_lxfvh"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_q4sj4"]
@@ -9,6 +9,13 @@
 [ext_resource type="Script" path="res://Scipts/talking.gd" id="6_mhldj"]
 [ext_resource type="Texture2D" uid="uid://ccr8b1yh55ghp" path="res://Assets/button/proceed button2.png" id="7_54ht8"]
 [ext_resource type="Texture2D" uid="uid://f2ysp086gisp" path="res://Assets/button/proceed button1.png" id="8_irqsf"]
+[ext_resource type="Texture2D" uid="uid://bv6ab3s8neyhh" path="res://Assets/other art/Coin counter.png" id="9_r4tce"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4e2g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2668s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cvb2x"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vyb25"]
 texture = ExtResource("7_54ht8")
@@ -18,6 +25,9 @@ texture = ExtResource("7_54ht8")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g2ru8"]
 texture = ExtResource("8_irqsf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rcfpx"]
+texture = ExtResource("9_r4tce")
 
 [node name="GoblinEvent" type="Control"]
 layout_mode = 3
@@ -83,6 +93,7 @@ offset_top = 776.0
 offset_right = 1202.0
 offset_bottom = 846.0
 theme_override_fonts/font = ExtResource("5_4ykkt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c4e2g")
 text = "GIVE"
 
 [node name="RejectButton" type="Button" parent="."]
@@ -93,6 +104,7 @@ offset_top = 776.0
 offset_right = 1642.0
 offset_bottom = 846.0
 theme_override_fonts/font = ExtResource("5_4ykkt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2668s")
 text = "REFUSE
 "
 
@@ -104,6 +116,7 @@ offset_top = 706.0
 offset_right = 1766.0
 offset_bottom = 834.0
 theme_override_fonts/font = ExtResource("5_4ykkt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cvb2x")
 theme_override_styles/hover = SubResource("StyleBoxTexture_vyb25")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_gkh1u")
 theme_override_styles/normal = SubResource("StyleBoxTexture_g2ru8")
@@ -112,6 +125,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_g2ru8")
 layout_mode = 0
 offset_right = 237.0
 offset_bottom = 89.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_rcfpx")
 script = ExtResource("6_1hpi0")
 amount_label = NodePath("Control/Label")
 
@@ -120,9 +134,9 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CurrencyUI/Control"]
 layout_mode = 0
-offset_left = 97.0
-offset_top = 23.0
-offset_right = 137.0
-offset_bottom = 46.0
+offset_left = 94.0
+offset_top = 32.0
+offset_right = 217.0
+offset_bottom = 78.0
 theme_override_fonts/font = ExtResource("5_4ykkt")
 theme_override_font_sizes/font_size = 30

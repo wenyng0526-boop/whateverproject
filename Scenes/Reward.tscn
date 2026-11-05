@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3awfj516bl5"]
+[gd_scene load_steps=4 format=3 uid="uid://b3awfj516bl5"]
 
 [ext_resource type="Script" path="res://Scipts/reward.gd" id="1_jg3hf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_syqgp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3fk7j"]
 
 [node name="Reward_scene" type="Control" node_paths=PackedStringArray("success_continue_button", "failure_main_menu_button")]
 layout_mode = 3
@@ -23,6 +27,7 @@ offset_top = 253.0
 offset_right = 817.0
 offset_bottom = 278.0
 scale = Vector2(5, 5)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_syqgp")
 
 [node name="Success_screen" type="Label" parent="."]
 visible = false
@@ -119,6 +124,7 @@ offset_top = 918.0
 offset_right = 920.0
 offset_bottom = 949.0
 scale = Vector2(3, 3)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3fk7j")
 text = "Main Menu"
 
 [connection signal="pressed" from="Next_level_button" to="." method="_on_continue_button_pressed"]

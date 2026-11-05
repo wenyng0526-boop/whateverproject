@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c7ondrblaspck"]
+[gd_scene load_steps=41 format=3 uid="uid://c7ondrblaspck"]
 
 [ext_resource type="Script" path="res://Scipts/combat_manager.gd" id="1_1ge3h"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="1_hiokq"]
@@ -43,6 +43,8 @@ texture = ExtResource("34_bsyvg")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ytpxs"]
 texture = ExtResource("34_bsyvg")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7bm6h"]
 
 [node name="Combat_Scene" type="Node2D" node_paths=PackedStringArray("player_container", "enemy_container")]
 position = Vector2(2, 0)
@@ -151,6 +153,7 @@ offset_top = 412.0
 offset_right = 1687.0
 offset_bottom = 443.0
 scale = Vector2(3, 3)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7bm6h")
 text = "START BATTLE"
 
 [node name="DragLayer" type="Control" parent="."]

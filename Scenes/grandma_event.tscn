@@ -1,13 +1,20 @@
-[gd_scene load_steps=12 format=3 uid="uid://cb4hiqaej2e5l"]
+[gd_scene load_steps=17 format=3 uid="uid://cb4hiqaej2e5l"]
 
 [ext_resource type="Script" path="res://Scipts/grandma_event.gd" id="1_u6k1w"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_6vhb5"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="3_qq6bn"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="4_f3y75"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="4_f3y75"]
 [ext_resource type="Script" path="res://Scipts/currency_ui.gd" id="5_55a3t"]
 [ext_resource type="Script" path="res://Scipts/talking.gd" id="5_cofpm"]
 [ext_resource type="Texture2D" uid="uid://ccr8b1yh55ghp" path="res://Assets/button/proceed button2.png" id="6_rxyko"]
 [ext_resource type="Texture2D" uid="uid://f2ysp086gisp" path="res://Assets/button/proceed button1.png" id="7_0xf80"]
+[ext_resource type="Texture2D" uid="uid://bv6ab3s8neyhh" path="res://Assets/other art/Coin counter.png" id="8_rj3k0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_03wij"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wkutw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u6tse"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sw2xs"]
 texture = ExtResource("6_rxyko")
@@ -17,6 +24,9 @@ texture = ExtResource("6_rxyko")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_us6fu"]
 texture = ExtResource("7_0xf80")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_46mp4"]
+texture = ExtResource("8_rj3k0")
 
 [node name="GrandmaEvent" type="Control"]
 layout_mode = 3
@@ -86,6 +96,7 @@ offset_top = 776.0
 offset_right = 1205.0
 offset_bottom = 846.0
 theme_override_fonts/font = ExtResource("4_f3y75")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_03wij")
 text = "GIVE"
 
 [node name="RejectButton" type="Button" parent="."]
@@ -96,6 +107,7 @@ offset_top = 776.0
 offset_right = 1645.0
 offset_bottom = 846.0
 theme_override_fonts/font = ExtResource("4_f3y75")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wkutw")
 text = "REFUSE"
 
 [node name="ProceedButton" type="Button" parent="."]
@@ -106,6 +118,7 @@ offset_top = 710.0
 offset_right = 1766.0
 offset_bottom = 838.0
 theme_override_fonts/font = ExtResource("4_f3y75")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u6tse")
 theme_override_styles/hover = SubResource("StyleBoxTexture_sw2xs")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_5hwan")
 theme_override_styles/normal = SubResource("StyleBoxTexture_us6fu")
@@ -114,6 +127,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_us6fu")
 layout_mode = 0
 offset_right = 237.0
 offset_bottom = 89.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_46mp4")
 script = ExtResource("5_55a3t")
 amount_label = NodePath("Control/Label")
 
@@ -122,10 +136,10 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CurrencyUI/Control"]
 layout_mode = 0
-offset_left = 97.0
-offset_top = 23.0
-offset_right = 137.0
-offset_bottom = 54.0
+offset_left = 94.0
+offset_top = 32.0
+offset_right = 217.0
+offset_bottom = 75.0
 theme_override_fonts/font = ExtResource("4_f3y75")
 theme_override_font_sizes/font_size = 30
 
