@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scipts/grandma_event.gd" id="1_u6k1w"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_6vhb5"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="3_qq6bn"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="4_f3y75"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="4_f3y75"]
 [ext_resource type="Script" path="res://Scipts/currency_ui.gd" id="5_55a3t"]
 [ext_resource type="Script" path="res://Scipts/talking.gd" id="5_cofpm"]
 [ext_resource type="Texture2D" uid="uid://ccr8b1yh55ghp" path="res://Assets/button/proceed button2.png" id="6_rxyko"]

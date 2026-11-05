@@ -373,23 +373,43 @@ func attack(attacker: CardUI, target: CardUI) -> void:
 				
 	print(attacker.card_data.name, " attacks ", target.card_data.name, " for ", attacker.current_attack, " damage!")
 
-	# Start the attack animation
+	# Create the attack animation
+	var attack_instance = attack_effect.instantiate()
+	effects.add_child(attack_instance)
+
+# Attack effect starts from the attacker
+	attack_instance.global_position = (
+		attacker.get_global_rect().get_center()
+)
+	# Skeleton attack should line up with the target card's center X
+	if attacker.card_data.minon_type == card_resource.type.Skeleton:
+		attack_instance.global_position.x = (
+			target.get_global_rect().get_center().x
+		)
+
+# Put only Rat's claw on the target
+	attack_instance.set_target_position(
+	target.get_global_rect().get_center()
+)
+
+# When the effect reaches the hit frame,
+# play the target's hit animation immediately
+	attack_instance.attack_hit.connect(
+		func():
+			target.play_hit_animation()
+)
+
+# 1. Play the card collision animation
 	attacker.play_attack_animation()
 
-	# Wait until the animation reaches the hit point
-	await attacker.attack_hit
+# 2. Play the attack sprite animation at the same time
+	attack_instance.play_effect(
+		attacker.card_data.minon_type,
+		attacker.team
+)
 
-	# Create a new attack effect
-	var attack_instance = attack_effect.instantiate()
-
-	# Add the attack effect to the scene
-	effects.add_child(attack_instance)
-	
-	# Move the attack effect to the target card
-	attack_instance.global_position = target.get_global_rect().get_center()
-
-	# Play the effect based on the attacker's type
-	attack_instance.play_effect(attacker.card_data.minon_type)
+# Wait for the attack effect's hit frame
+	await attack_instance.attack_hit
 	
 	var damage_instance = print_damage.instantiate()
 	# Add the damage number into the Scene Tree
@@ -401,7 +421,6 @@ func attack(attacker: CardUI, target: CardUI) -> void:
 	
 	
 	target.take_damage(damage)
-	await target.play_hit_animation()
 	
 	#put the death anim here if have
 	if target.is_dead():
@@ -594,7 +613,7 @@ func deal_effect_damage(
 	
 	damage_instance.show_damage(amount)
 	target.take_damage(amount)
-	await target.play_hit_animation()
+	
 #goblin bonus money
 func goblin_bonus():
 	var bonus_currency: int = 0

@@ -168,6 +168,14 @@ func reset_board_drag() -> void:
 	hover_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	hover_tween.tween_property(card_visual, "position", board_drag_start_position, hover_duration)
 
+
+func play_attack_animation() -> void:
+	if team == "Player":
+		animation_player.play("attack_player")
+	else:
+		animation_player.play("attack_enemy")
+
+
 #card been attaked or dead, it play aniamation
 func play_hit_animation() -> void:
 	if team == "Player":
@@ -176,13 +184,6 @@ func play_hit_animation() -> void:
 		animation_player.play("hit_enemy")
 
 	await animation_player.animation_finished
-
-#card attack animation
-func play_attack_animation() -> void:
-	if team == "Player":
-		animation_player.play("attack_player")
-	else:
-		animation_player.play("attack_enemy")
 
 func play_fusion_animation() -> void:
 	animation_player.play("fusion")
@@ -246,9 +247,6 @@ func fusion_tween(other_card:CardUI):
 	)
 	await absorb_tween.finished
 	
-	
-func trigger_attack_hit() -> void:
-	attack_hit.emit()
 
 func _get_hover_offset() -> float:
 	match current_location:
