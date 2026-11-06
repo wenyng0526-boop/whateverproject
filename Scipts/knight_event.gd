@@ -9,6 +9,7 @@ extends Control
 @onready var submit_button: Button = $SubmitButton
 @onready var reject_button: Button = $RejectButton
 @onready var proceed_button: Button = $ProceedButton
+@onready var currency_label: Label = $CurrencyUI/Control/Label
 
 var selected_card: CardUI = null
 var original_hand_index: int = -1
@@ -110,6 +111,25 @@ func _on_submit_pressed():
 	if aspiring_squire_card != null:
 		GameState.hand_cards.append(aspiring_squire_card.duplicate(true))
 	
+	GameState.currency += 4
+	#currency label flash green
+	var original_color: Color = currency_label.modulate
+
+	var tween := create_tween()
+	tween.tween_property(
+		currency_label,
+		"modulate",
+		Color(0.2, 1.0, 0.3, 1.0),
+		0.2
+	)
+	tween.tween_interval(0.5)
+	tween.tween_property(
+		currency_label,
+		"modulate",
+		original_color,
+		0.4
+	)
+	
 	event_completed = true
 	selected_card = null
 	
@@ -121,8 +141,8 @@ func _on_submit_pressed():
 	reject_button.hide()
 	proceed_button.show()
 	narrator_label.text = "The rat you offered is killed and eaten right away. " + \
-	"He is willing to join you on your journey."
-	dialogue_label.text = "\"Thank you! I vow to serve you as my hero. I'm sure I can be of use\""
+	"He is willing to join you on your journey. He also gives you 4 coins. "
+	dialogue_label.text = "\"Thank you! I vow to serve you as my hero. I'm sure I can be of use, here are some spare change that I've got as well.\""
 
 func _on_reject_pressed():
 	if event_completed:

@@ -1,6 +1,6 @@
 extends Node
 
-var currency: int = 100: #remember to change this to 5, 100 is for testing only
+var currency: int = 5: #remember to change this to 5, 100 is for testing only
 	set(value):
 		currency = value
 		currency_changed.emit(currency)
@@ -13,7 +13,7 @@ var shop_level: int = 1
 const MAX_SHOP_LEVEL = 3
 const SHOP_SLOTS = [3, 4, 5]        # index 0 = level 1, index 1 = level 2, index 2 = level 3
 const SHOP_MAX_COST = [2, 3, 4]     # highest star card allowed at each level
-const SHOP_UPGRADE_COST = [10, 20]    # [0] = cost to go 1→2, [1] = cost to go 2→3
+const SHOP_UPGRADE_COST = [8, 12]    # [0] = cost to go 1→2, [1] = cost to go 2→3
 signal currency_changed(new_amount: int)
 
 var win_count: int = 0
@@ -35,7 +35,7 @@ var completed_nodes: Array[int] = []
 var current_next_nodes: Array[int] = []
 
 # Remember the map camera position
-var map_camera_y: float = 1000.0
+var map_camera_y: float = 1300.0
 
 func complete_node():
 	if current_node not in completed_nodes:
@@ -186,12 +186,12 @@ func reset_run():
 	completed_nodes.clear()
 	current_next_nodes.clear()
 
-	currency = 100
+	currency = 5
 	win_count = 0
 	current_wave = 1
 	shop_level = 1
 
-	map_camera_y = 1000.0
+	map_camera_y = 1300.0
 
 	delete_save_game()
 	

@@ -35,7 +35,12 @@ var defeated_enemy_cost: int = 0
 var defeated_enemy_count: int = 0
 
 var battle_started: bool = false
+#attack sound
+@onready var attack_sound: AudioStreamPlayer = $AttackSound
 
+const MAX_PITCH_STEPS: int = 7 #0-7
+const PITCH_AMOUNT: float = 2.5
+var attack_count: int = 0
 
 func _ready() -> void:
 	spawn_player_cards()
@@ -296,6 +301,7 @@ func _on_board_card_drag_ended(card: CardUI, drop_position: Vector2) -> void:
 	
 
 func start_combat() -> void:
+	attack_count = 0
 	player_index = 0
 	enemy_index = 0
 
@@ -410,7 +416,7 @@ func attack(attacker: CardUI, target: CardUI) -> void:
 
 # Wait for the attack effect's hit frame
 	await attack_instance.attack_hit
-	
+	play_attack_sound()
 	var damage_instance = print_damage.instantiate()
 	# Add the damage number into the Scene Tree
 	effects.add_child(damage_instance)
@@ -431,7 +437,12 @@ func attack(attacker: CardUI, target: CardUI) -> void:
 		
 	await get_tree().create_timer(1.0).timeout
 
-
+func play_attack_sound():
+	var steps: int = min(attack_count, MAX_PITCH_STEPS)
+	attack_sound.pitch_scale = pow(2.0, steps*PITCH_AMOUNT/12.0)
+	attack_sound.play()
+	attack_count += 1
+	
 func cleanup_dead_cards() -> void:
 	for card in player_cards.duplicate():
 		if card.is_dead():

@@ -2,7 +2,7 @@ extends Camera2D
 
 @export var scroll_speed: float = 120.0
 @export var min_y: float = 300.0
-@export var max_y: float = 1000.0
+@export var max_y: float = 1300.0
 
 
 func _ready() -> void:

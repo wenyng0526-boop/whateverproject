@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c7ondrblaspck"]
+[gd_scene load_steps=42 format=3 uid="uid://c7ondrblaspck"]
 
 [ext_resource type="Script" path="res://Scipts/combat_manager.gd" id="1_1ge3h"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="1_hiokq"]
@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://bsp5p3c01d0j3" path="res://Assets/button/pause button.png" id="34_bsyvg"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="35_60emv"]
 [ext_resource type="PackedScene" uid="uid://b4ojdviu2r56a" path="res://Scenes/pause_menu.tscn" id="35_fwkip"]
+[ext_resource type="AudioStream" uid="uid://dp0ycn8023h26" path="res://Assets/SFX/punch.wav" id="38_clcdo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_onlmt"]
 texture = ExtResource("34_bsyvg")
@@ -167,6 +168,10 @@ mouse_filter = 2
 
 [node name="PauseMenu" parent="." instance=ExtResource("35_fwkip")]
 visible = false
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("38_clcdo")
+volume_db = -12.265
 
 [connection signal="pressed" from="PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]
 [connection signal="pressed" from="StartBattleButton" to="." method="_on_start_battle_button_pressed"]

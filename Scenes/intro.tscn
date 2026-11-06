@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dru6uv30qhno8"]
 
 [ext_resource type="Script" path="res://Scipts/intro.gd" id="1_kqg6a"]
-[ext_resource type="Texture2D" uid="uid://d4e6fw8ssuxp3" path="res://Assets/Logo.png" id="2_itg3u"]
+[ext_resource type="Texture2D" uid="uid://d4e6fw8ssuxp3" path="res://Assets/other art/Logo.png" id="2_itg3u"]
 
 [node name="Intro" type="Control" node_paths=PackedStringArray("black_overlay", "logo")]
 layout_mode = 3
