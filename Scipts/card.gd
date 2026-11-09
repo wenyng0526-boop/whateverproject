@@ -263,58 +263,67 @@ func _get_hover_offset() -> float:
 func _on_mouse_entered() -> void:
 	if current_location == CardLocation.EVENT:
 		return
-		
-	if current_location == CardLocation.BOARD and not board_drag_enabled:
-		return
-	
+
 	if board_dragging:
 		return
 
 	is_hovered = true
 	card_draw.play()
+
 	# Put the whole hovered card above the other cards
 	z_index = 100
 
-	if hover_tween:
-		hover_tween.kill()
+	# Only do the lifting animation if this card is allowed to hover/lift
+	if current_location != CardLocation.BOARD or board_drag_enabled:
+		if hover_tween:
+			hover_tween.kill()
 
-	hover_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
-	hover_tween.tween_property(card_visual, "position:y", _get_hover_offset(), hover_duration)
+		hover_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+		hover_tween.tween_property(
+			card_visual,
+			"position:y",
+			_get_hover_offset(),
+			hover_duration
+		)
 
-	#show card description
+	# Description can still appear even if the card cannot be dragged
 	var timer = get_tree().create_timer(0.5)
+	await timer.timeout
+
+	if not is_hovered:
+		return
+
+	await get_tree().process_frame
+
 	var viewport_width: float = get_viewport_rect().size.x
 	var card_rect: Rect2 = card_visual.get_global_rect()
 	var gap: float = 300.0
 
-	await timer.timeout
-	await get_tree().process_frame
+	if card_rect.end.x + gap + card_description.size.x > viewport_width:
+		card_description.position.x = -card_description.size.x - gap - 280.0
 
-	if is_hovered == true:
-		if card_rect.end.x + gap + card_description.size.x > viewport_width:
-			card_description.position.x = -card_description.size.x - gap - 280.0
-			card_description.show()
-		else:
-			card_description.show()
+	card_description.show()
 
 func _on_mouse_exited() -> void:
-	if current_location == CardLocation.BOARD and not board_drag_enabled:
-		return
-		
 	if board_dragging:
 		return
 
 	is_hovered = false
-
-	# Return the card to its normal layer
-
 	card_description.hide()
 
-	if hover_tween:
-		hover_tween.kill()
-		
-	hover_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
-	hover_tween.tween_property(card_visual, "position:y", rest_y, hover_duration)
+	# Only reset hover movement if this card actually uses hover movement
+	if current_location != CardLocation.BOARD or board_drag_enabled:
+		if hover_tween:
+			hover_tween.kill()
+
+		hover_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+		hover_tween.tween_property(
+			card_visual,
+			"position:y",
+			rest_y,
+			hover_duration
+		)
+
 	z_index = normal_z_index
 
 #knight effect

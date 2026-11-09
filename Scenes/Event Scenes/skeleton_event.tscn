@@ -157,6 +157,7 @@ stream = ExtResource("11_jdt2o")
 
 [node name="CardDraw" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_1bxul")
+volume_db = -4.685
 
 [node name="RefuseSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_83v8k")

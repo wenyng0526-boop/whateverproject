@@ -153,6 +153,7 @@ stream = ExtResource("10_mft3d")
 
 [node name="CardDraw" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_pkpbr")
+volume_db = -4.685
 
 [node name="CoinSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_6u3f7")

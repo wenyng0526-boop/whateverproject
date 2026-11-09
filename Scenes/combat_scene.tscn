@@ -178,6 +178,7 @@ volume_db = -12.265
 
 [node name="CardDraw" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("39_43xny")
+volume_db = -8.432
 
 [node name="CardFan" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("40_rskvv")
