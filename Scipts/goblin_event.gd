@@ -112,3 +112,7 @@ func _on_proceed_pressed():
 	GameState.complete_node()
 	GameState.save_game("res://Scenes/map.tscn")
 	get_tree().change_scene_to_file("res://Scenes/map.tscn")
+
+
+func _on_submit_button_pressed() -> void:
+	pass # Replace with function body.
