@@ -148,6 +148,7 @@ theme_override_font_sizes/font_size = 30
 
 [node name="CardDraw" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_b6tsk")
+volume_db = -4.685
 
 [node name="RefuseSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_nr6a2")
