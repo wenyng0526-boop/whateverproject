@@ -1,21 +1,21 @@
-[gd_scene load_steps=41 format=3 uid="uid://b1q3xx44wgn6p"]
+[gd_scene load_steps=43 format=3 uid="uid://b1q3xx44wgn6p"]
 
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="1_oql1m"]
 [ext_resource type="Script" path="res://Scipts/shop_manager.gd" id="1_s0dvk"]
 [ext_resource type="Resource" uid="uid://b05y0n3q37vtn" path="res://Other resource/shop_card.tres" id="3_inuco"]
-[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="4_a2dmr"]
+[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="4_a2dmr"]
 [ext_resource type="Texture2D" uid="uid://dvgujegtyyxff" path="res://Assets/background/shop background.jpg" id="4_lelfe"]
 [ext_resource type="Texture2D" uid="uid://lgj7ycks54w4" path="res://Assets/button/refresh button2.png" id="5_araia"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="5_bfisf"]
 [ext_resource type="Script" path="res://Scipts/currency_ui.gd" id="5_nrsk7"]
 [ext_resource type="Texture2D" uid="uid://bsp5p3c01d0j3" path="res://Assets/button/pause button.png" id="5_uhaj7"]
 [ext_resource type="Texture2D" uid="uid://c345wpc35vwpl" path="res://Assets/button/refresh button1.png" id="6_k8uyn"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="6_vi0a5"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="6_vi0a5"]
 [ext_resource type="Texture2D" uid="uid://blegk31uaf0s2" path="res://Assets/button/upgrade button2.png" id="7_07xk2"]
 [ext_resource type="PackedScene" uid="uid://b4ojdviu2r56a" path="res://Scenes/pause_menu.tscn" id="7_dlbmg"]
-[ext_resource type="Texture2D" uid="uid://ccr8b1yh55ghp" path="res://Assets/button/proceed button2.png" id="7_noits"]
 [ext_resource type="Texture2D" uid="uid://boh7vw757ikbl" path="res://Assets/button/upgrade button1.png" id="8_2bq6i"]
-[ext_resource type="Texture2D" uid="uid://f2ysp086gisp" path="res://Assets/button/proceed button1.png" id="8_f0e5r"]
+[ext_resource type="Texture2D" uid="uid://g3ofsawew2w8" path="res://Assets/button/proceed button 2.png" id="8_baiiy"]
+[ext_resource type="Texture2D" uid="uid://r0gpwrc7a564" path="res://Assets/button/proceed button 1.png" id="9_77dwr"]
 [ext_resource type="Texture2D" uid="uid://bv6ab3s8neyhh" path="res://Assets/other art/Coin counter.png" id="13_7rkxk"]
 [ext_resource type="AudioStream" uid="uid://chvnkp6ou5fe7" path="res://Assets/SFX/card_fan.wav" id="18_g2kwx"]
 [ext_resource type="AudioStream" uid="uid://s6phk4uwbvv0" path="res://Assets/SFX/card_draw_1.wav" id="19_sw7vf"]
@@ -38,15 +38,21 @@ texture = ExtResource("6_k8uyn")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y3myh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gx3tw"]
-texture = ExtResource("7_noits")
+texture = ExtResource("8_baiiy")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xiwra"]
-texture = ExtResource("7_noits")
+texture = ExtResource("8_baiiy")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7y1ix"]
-texture = ExtResource("8_f0e5r")
+texture = ExtResource("9_77dwr")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vsp6f"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wowwc"]
+texture = ExtResource("7_07xk2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8a5oh"]
+texture = ExtResource("7_07xk2")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f28mj"]
 texture = ExtResource("7_07xk2")
@@ -100,12 +106,16 @@ offset_left = 400.0
 offset_top = 65.0
 offset_right = 656.0
 offset_bottom = 193.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("4_a2dmr")
+theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qvl1x")
 theme_override_styles/hover = SubResource("StyleBoxTexture_0r3s6")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_858b6")
 theme_override_styles/normal = SubResource("StyleBoxTexture_plef4")
-text = "
+text = "REFRESH
 "
 
 [node name="Done Button" type="Button" parent="."]
@@ -113,12 +123,16 @@ offset_left = 669.0
 offset_top = 65.0
 offset_right = 925.0
 offset_bottom = 193.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("4_a2dmr")
+theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxEmpty_y3myh")
 theme_override_styles/hover = SubResource("StyleBoxTexture_gx3tw")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_xiwra")
 theme_override_styles/normal = SubResource("StyleBoxTexture_7y1ix")
-text = "
+text = "DONE
 "
 
 [node name="Upgrade Button" type="Button" parent="."]
@@ -127,8 +141,14 @@ offset_left = 131.0
 offset_top = 65.0
 offset_right = 387.0
 offset_bottom = 193.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("4_a2dmr")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vsp6f")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_wowwc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8a5oh")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_f28mj")
 theme_override_styles/normal = SubResource("StyleBoxTexture_fv67d")
 clip_text = true

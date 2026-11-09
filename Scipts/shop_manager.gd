@@ -204,9 +204,6 @@ func show_warning() -> void:
 func _on_hand_card_clicked(card: CardUI) -> void:
 	if is_fusing:
 		return
-	if GameState.hand_cards.size() <= 1:
-		print("YOU NEED AT LEAST ONE CARD")
-		return
 	_ask_confirm("Sell %s for %d coins?" % [card.card_data.name, sell_value], _sell_hand_card.bind(card))
 
 func _sell_hand_card(card: CardUI) -> void:
