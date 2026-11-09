@@ -4,11 +4,14 @@ extends Control
 @export var card_ui: PackedScene
 @onready var narrator_label: Label = $Narrator
 @onready var battle_button: Button = $BattleButton
+@onready var undesired_effect: AudioStreamPlayer= $UndesiredEffect
+@onready var blip_sound: AudioStreamPlayer = $BlipSound
 
 var event_completed: bool = false
 
 func _ready() -> void:
 
+	undesired_effect.play()
 	battle_button.pressed.connect(_on_battle_pressed)
 	narrator_label.text = "You walk carelessly through the labyrinth and you got ensnared by a mouse trap. All your minions attacks have been reduced by 2. Being caught, some enemies attempt to assassinate you."
 	mouse_trap()
@@ -33,6 +36,8 @@ func mouse_trap():
 		data.attack = max(0, data.attack - 2)
 
 func _on_battle_pressed():
+	blip_sound.play()
+	await blip_sound.finished
 	GameState.complete_node()
 	GameState.save_game("res://Scenes/map.tscn")
 	get_tree().change_scene_to_file("res://Scenes/combat_scene.tscn")

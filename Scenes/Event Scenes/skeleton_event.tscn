@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bf71pykopuy04"]
+[gd_scene load_steps=22 format=3 uid="uid://bf71pykopuy04"]
 
 [ext_resource type="Script" path="res://Scipts/skeleton_event.gd" id="1_peoaf"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_ewhaa"]
@@ -10,6 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://ccr8b1yh55ghp" path="res://Assets/button/proceed button2.png" id="7_s42qk"]
 [ext_resource type="Texture2D" uid="uid://f2ysp086gisp" path="res://Assets/button/proceed button1.png" id="8_v1kp6"]
 [ext_resource type="Texture2D" uid="uid://bv6ab3s8neyhh" path="res://Assets/other art/Coin counter.png" id="9_3051v"]
+[ext_resource type="AudioStream" uid="uid://chvnkp6ou5fe7" path="res://Assets/SFX/card_fan.wav" id="11_jdt2o"]
+[ext_resource type="AudioStream" uid="uid://s6phk4uwbvv0" path="res://Assets/SFX/card_draw_1.wav" id="12_1bxul"]
+[ext_resource type="AudioStream" uid="uid://ctxixt4p48vbo" path="res://Assets/SFX/8_bit_negative_quick.wav" id="13_83v8k"]
+[ext_resource type="AudioStream" uid="uid://bs6ltd7igbk48" path="res://Assets/SFX/menu_blip.wav" id="14_5shwi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lsysb"]
 
@@ -147,3 +151,17 @@ offset_right = 217.0
 offset_bottom = 78.0
 theme_override_fonts/font = ExtResource("5_ufgxm")
 theme_override_font_sizes/font_size = 30
+
+[node name="CardFan" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_jdt2o")
+
+[node name="CardDraw" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_1bxul")
+
+[node name="RefuseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_83v8k")
+volume_db = -4.685
+
+[node name="BlipSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_5shwi")
+volume_db = -9.185

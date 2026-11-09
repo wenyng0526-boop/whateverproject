@@ -17,6 +17,9 @@ extends CanvasLayer
 # Number of clicks required to open the chest
 @export var clicks_to_open: int = 5
 
+@onready var open_sound: AudioStreamPlayer = $OpenSound
+@onready var reward_sound: AudioStreamPlayer = $RewardSound
+@onready var undesired_effect: AudioStreamPlayer = $UndesiredEffect
 var current_clicks: int = 0
 var chest_opened: bool = false
 
@@ -34,7 +37,8 @@ func _on_click_area_pressed() -> void:
 		return
 
 	current_clicks += 1
-
+	open_sound.play()
+	
 	# After the first click, the player can no longer leave
 	if current_clicks == 1:
 		leave_button.hide()
@@ -70,6 +74,7 @@ func open_chest() -> void:
 
 
 func trigger_good_event() -> void:
+	reward_sound.play()
 	# 50% Coins, 50% Card
 	if randf() < 0.5:
 		give_coins()
@@ -125,6 +130,7 @@ func give_card() -> void:
 
 
 func trigger_bad_event() -> void:
+	undesired_effect.play()
 	# 50% Lose a card, 50% Lose coins
 	if randf() < 0.5:
 		lose_random_card()

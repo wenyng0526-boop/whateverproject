@@ -10,6 +10,7 @@ enum NodeType { SHOP, COMBAT, EVENT, CHEST }
 
 @onready var button: Button = $Button
 
+@onready var blip_sound: AudioStreamPlayer = $BlipSound
 const chest_popup = preload("res://Scenes/chest.tscn")
 
 
@@ -23,6 +24,7 @@ func _ready() -> void:
 
 
 func _on_button_pressed() -> void:
+	blip_sound.play()
 	GameState.current_node = node_index
 	GameState.current_next_nodes = next_nodes
 

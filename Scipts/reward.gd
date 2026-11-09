@@ -10,6 +10,8 @@ extends Control
 @onready var success_reward: Label = $"Success_screen(reward)"
 @onready var failure_reward: Label = $"Failure_screen(reward)"
 
+@onready var coin_sound: AudioStreamPlayer = $CoinSound
+@onready var blip_sound: AudioStreamPlayer = $BlipSound
 
 @export_file("*.tscn") var next_scene: String
 @export_file("*.tscn") var failure_menu_scene: String
@@ -72,6 +74,8 @@ func hide_all_screens() -> void:
 
 
 func _on_continue_button_pressed() -> void:
+	coin_sound.play()
+	await coin_sound.finished
 	if next_scene != "":
 		GameState.complete_node()
 		GameState.save_game("res://Scenes/map.tscn")
@@ -79,5 +83,7 @@ func _on_continue_button_pressed() -> void:
 
 
 func _on_failure_main_menu_button_pressed() -> void:
+	blip_sound.play()
+	await blip_sound.finished
 	if failure_menu_scene != "":
 		get_tree().change_scene_to_file(failure_menu_scene)

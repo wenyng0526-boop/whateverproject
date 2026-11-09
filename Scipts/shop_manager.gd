@@ -15,6 +15,13 @@ var sell_value: int = 1
 var pending_action: Callable
 var is_fusing:bool = false
 
+@onready var fan_sound: AudioStreamPlayer = $CardFan
+@onready var card_draw: AudioStreamPlayer = $CardDraw
+@onready var coin_sound: AudioStreamPlayer = $CoinSound
+@onready var blip_sound: AudioStreamPlayer = $BlipSound
+@onready var fuse_sound: AudioStreamPlayer = $FuseSound
+@onready var upgrade_sound: AudioStreamPlayer = $UpgradeSound
+
 func _ready() -> void:
 	refresh_shop()
 	spawn_player_cards()
@@ -24,10 +31,9 @@ func _ready() -> void:
 
 func refresh_shop():
 	print("shop_level: ", GameState.shop_level)
-
 	for child in card_container.get_children():
 		child.queue_free()
-
+	fan_sound.play()
 	var max_cost: int = GameState.SHOP_MAX_COST[GameState.shop_level - 1]
 	var pool: Array[card_resource] = shop_cards.shop_cards_one.filter(
 		func(c): return c.cost <= max_cost
@@ -90,6 +96,7 @@ func _buy_card(card: CardUI) -> void:
 	GameState.hand_cards.append(new_card)
 	card.queue_free()
 	print("Bought ", card.card_data.name, " | coins left: ", GameState.currency)
+	card_draw.play()
 	refresh_hand()
 	await get_tree().process_frame
 	await check_for_duplicate_animated()
@@ -131,7 +138,7 @@ func check_for_duplicate_animated() -> void:
 		if visual_a == null or visual_b == null:
 			push_warning("Could not find both card visuals for fusion.")
 			break
-			
+		fuse_sound.play()
 		await visual_a.fusion_tween(visual_b)
 
 		GameState.fuse_cards(index_a, index_b)
@@ -180,7 +187,8 @@ func _on_done_button_pressed() -> void:
 	if GameState.hand_cards.is_empty():
 		await show_warning()
 		return
-
+	blip_sound.play()
+	await blip_sound.finished
 	GameState.complete_node()
 	GameState.save_game("res://Scenes/map.tscn")
 	get_tree().change_scene_to_file("res://Scenes/map.tscn")
@@ -204,6 +212,7 @@ func _on_hand_card_clicked(card: CardUI) -> void:
 func _sell_hand_card(card: CardUI) -> void:
 	var index: int = GameState.hand_cards.find(card.card_data)
 	print("Sold ", card.card_data.name, " | coins left: ", GameState.currency + sell_value)
+	coin_sound.play()
 	GameState.hand_cards.remove_at(index)
 	GameState.currency += sell_value
 	refresh_hand()
@@ -235,6 +244,7 @@ func _on_upgrade_button_pressed() -> void:
 		print("YOU'RE BROKE")
 		return
 
+	upgrade_sound.play()
 	GameState.currency -= cost
 	GameState.shop_level += 1
 	refresh_shop()

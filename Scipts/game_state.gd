@@ -1,6 +1,6 @@
 extends Node
 
-var currency: int = 5: #remember to change this to 5, 100 is for testing only
+var currency: int = 100: #remember to change this to 5, 100 is for testing only
 	set(value):
 		currency = value
 		currency_changed.emit(currency)

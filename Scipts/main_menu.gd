@@ -8,6 +8,8 @@ extends Control
 # Leave this empty for buttons that do not change scenes
 @export var animation_name: StringName
 
+@onready var menu_blip: AudioStreamPlayer = $"../../../MenuBlip"
+
 var is_clicked: bool = false
 
 
@@ -49,6 +51,7 @@ func _on_pressed() -> void:
 
 #button way
 func _on_start_button_pressed() -> void:
+	menu_blip.play()
 	GameState.reset_run()
 	get_tree().change_scene_to_file("res://Scenes/map.tscn")
 
@@ -56,7 +59,7 @@ func _on_load_button_pressed() -> void:
 	if not can_interact():
 		print("NO SAVE FILE")
 		return
-
+	menu_blip.play()
 	var resume_scene: String = GameState.load_game()
 
 	if resume_scene != "":

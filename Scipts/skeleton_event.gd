@@ -9,6 +9,10 @@ extends Control
 @onready var submit_button: Button = $SubmitButton
 @onready var reject_button: Button = $RejectButton
 @onready var proceed_button: Button = $ProceedButton
+@onready var card_fan: AudioStreamPlayer = $CardFan
+@onready var card_draw: AudioStreamPlayer = $CardDraw
+@onready var refuse_sound: AudioStreamPlayer = $RefuseSound
+@onready var blip_sound: AudioStreamPlayer = $BlipSound
 
 var selected_card: CardUI = null
 var original_hand_index: int = -1
@@ -18,6 +22,7 @@ func _ready() -> void:
 	submit_button.pressed.connect(_on_submit_pressed)
 	reject_button.pressed.connect(_on_reject_pressed)
 	proceed_button.pressed.connect(_on_proceed_pressed)
+	card_fan.play()
 	spawn_hand_cards()
 	submit_button.disabled = true
 	proceed_button.hide()
@@ -59,6 +64,7 @@ func _on_hand_card_clicked(card: CardUI) -> void:
 		card.hover_tween.kill()
 	card.reparent(card_slot)
 	update_submit_button()
+	card_draw.play()
 	
 
 func update_submit_button():
@@ -90,6 +96,7 @@ func return_card_to_hand():
 	original_hand_index = -1
 	
 	update_submit_button()
+	card_draw.play()
 	
 func _on_submit_pressed():
 	if event_completed or selected_card == null:
@@ -116,7 +123,7 @@ func _on_submit_pressed():
 	sacrificed_card.queue_free()
 	
 	spawn_hand_cards()
-	
+	card_draw.play()
 	submit_button.hide()
 	reject_button.hide()
 	proceed_button.show()
@@ -131,6 +138,7 @@ func _on_reject_pressed():
 	if card_slot != null:
 		return_card_to_hand()
 	
+	refuse_sound.play()
 	event_completed = true
 	
 	submit_button.hide()
@@ -142,6 +150,8 @@ func _on_reject_pressed():
 	"Alright, I'll go pick someone else's bones now. So, goodbye I guess... (What a waste of time!)\""
 	
 func _on_proceed_pressed():
+	blip_sound.play()
+	await blip_sound.finished
 	GameState.complete_node()
 	GameState.save_game("res://Scenes/map.tscn")
 	get_tree().change_scene_to_file("res://Scenes/map.tscn")

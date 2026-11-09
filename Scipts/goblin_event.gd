@@ -9,6 +9,10 @@ extends Control
 @onready var reject_button: Button = $RejectButton
 @onready var proceed_button: Button = $ProceedButton
 @onready var currency_label: Label = $CurrencyUI/Control/Label
+@onready var card_fan: AudioStreamPlayer = $CardFan
+@onready var card_draw: AudioStreamPlayer = $CardDraw
+@onready var refuse_sound: AudioStreamPlayer = $RefuseSound
+@onready var blip_sound: AudioStreamPlayer = $BlipSound
 
 var event_completed: bool = false
 
@@ -17,6 +21,7 @@ func _ready() -> void:
 	reject_button.pressed.connect(_on_reject_pressed)
 	proceed_button.pressed.connect(_on_proceed_pressed)
 	proceed_button.hide()
+	card_fan.play()
 	spawn_hand_cards()
 	narrator_label.text = "You encounter a big goblin eating some coins. It seems to be friendly."
 	dialogue_label.text = "\"Look, I'm not looking for a fight but man do I love the taste of money! " + \
@@ -41,10 +46,11 @@ func _on_submit_pressed():
 		return
 	
 	if GameState.currency < 4:
+		refuse_sound.play()
 		narrator_label.text = "The goblin doesn't look amused."
 		dialogue_label.text = "Don't make fun of me, you clearly dont have any money. Now scram! Don't disturb my dinner."
 	else:
-	
+		card_draw.play()
 		var lost_currency: int = min(4, GameState.currency)
 		GameState.currency -= lost_currency
 		#currency label flash red
@@ -89,6 +95,7 @@ func _on_reject_pressed():
 	if event_completed:
 		return
 	
+	refuse_sound.play()
 	event_completed = true
 	
 	submit_button.hide()
@@ -100,6 +107,8 @@ func _on_reject_pressed():
 	"This one's quite delicious. I wonder where can I find more. \""
 	
 func _on_proceed_pressed():
+	blip_sound.play()
+	await blip_sound.finished
 	GameState.complete_node()
 	GameState.save_game("res://Scenes/map.tscn")
 	get_tree().change_scene_to_file("res://Scenes/map.tscn")

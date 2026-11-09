@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://l80ac12ejyjo"]
+[gd_scene load_steps=18 format=3 uid="uid://l80ac12ejyjo"]
 
 [ext_resource type="Script" path="res://Scipts/threaten_event.gd" id="1_7vr6r"]
 [ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="2_uewhg"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://ccr8b1yh55ghp" path="res://Assets/button/proceed button2.png" id="4_d4n7r"]
 [ext_resource type="Texture2D" uid="uid://f2ysp086gisp" path="res://Assets/button/proceed button1.png" id="5_g42we"]
 [ext_resource type="Texture2D" uid="uid://bv6ab3s8neyhh" path="res://Assets/other art/Coin counter.png" id="6_1vvlq"]
+[ext_resource type="AudioStream" uid="uid://cmsbjx7l5wpc2" path="res://Assets/SFX/undesired_effect.wav" id="8_g2n5g"]
+[ext_resource type="AudioStream" uid="uid://ctxixt4p48vbo" path="res://Assets/SFX/8_bit_negative_quick.wav" id="9_mav0c"]
+[ext_resource type="AudioStream" uid="uid://bs6ltd7igbk48" path="res://Assets/SFX/menu_blip.wav" id="10_1y6jf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ek17p"]
 
@@ -128,3 +131,15 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_uewhg")
 theme_override_font_sizes/font_size = 30
+
+[node name="UndesiredEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_g2n5g")
+volume_db = -10.306
+
+[node name="RefuseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_mav0c")
+volume_db = -4.685
+
+[node name="BlipSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_1y6jf")
+volume_db = -8.432

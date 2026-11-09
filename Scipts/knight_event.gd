@@ -10,6 +10,11 @@ extends Control
 @onready var reject_button: Button = $RejectButton
 @onready var proceed_button: Button = $ProceedButton
 @onready var currency_label: Label = $CurrencyUI/Control/Label
+@onready var card_fan: AudioStreamPlayer = $CardFan
+@onready var card_draw: AudioStreamPlayer = $CardDraw
+@onready var coin_sound: AudioStreamPlayer = $CoinSound
+@onready var refuse_sound: AudioStreamPlayer = $RefuseSound
+@onready var blip_sound: AudioStreamPlayer = $BlipSound
 
 var selected_card: CardUI = null
 var original_hand_index: int = -1
@@ -27,6 +32,7 @@ func _ready() -> void:
 	"I really don't mind the quality, please give me a chance to live!\""
 func spawn_hand_cards() -> void:
 	# Clear the current hand UI
+	card_fan.play()
 	for child in hand_container.get_children():
 		child.queue_free()
 
@@ -60,6 +66,7 @@ func _on_hand_card_clicked(card: CardUI) -> void:
 		card.hover_tween.kill()
 	card.reparent(card_slot)
 	update_submit_button()
+	card_draw.play()
 	
 
 func update_submit_button():
@@ -91,6 +98,7 @@ func return_card_to_hand():
 	original_hand_index = -1
 	
 	update_submit_button()
+	card_draw.play()
 	
 func _on_submit_pressed():
 	if event_completed or selected_card == null:
@@ -111,6 +119,7 @@ func _on_submit_pressed():
 	if aspiring_squire_card != null:
 		GameState.hand_cards.append(aspiring_squire_card.duplicate(true))
 	
+	coin_sound.play()
 	GameState.currency += 4
 	#currency label flash green
 	var original_color: Color = currency_label.modulate
@@ -151,6 +160,7 @@ func _on_reject_pressed():
 	if card_slot != null:
 		return_card_to_hand()
 	
+	refuse_sound.play()
 	event_completed = true
 	
 	submit_button.hide()
@@ -162,6 +172,8 @@ func _on_reject_pressed():
 	"I can feel my life slowly...fading...\""
 	
 func _on_proceed_pressed():
+	blip_sound.play()
+	await blip_sound.finished
 	GameState.complete_node()
 	GameState.save_game("res://Scenes/map.tscn")
 	get_tree().change_scene_to_file("res://Scenes/map.tscn")

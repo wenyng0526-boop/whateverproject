@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b1q3xx44wgn6p"]
+[gd_scene load_steps=41 format=3 uid="uid://b1q3xx44wgn6p"]
 
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="1_oql1m"]
 [ext_resource type="Script" path="res://Scipts/shop_manager.gd" id="1_s0dvk"]
@@ -17,6 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://boh7vw757ikbl" path="res://Assets/button/upgrade button1.png" id="8_2bq6i"]
 [ext_resource type="Texture2D" uid="uid://f2ysp086gisp" path="res://Assets/button/proceed button1.png" id="8_f0e5r"]
 [ext_resource type="Texture2D" uid="uid://bv6ab3s8neyhh" path="res://Assets/other art/Coin counter.png" id="13_7rkxk"]
+[ext_resource type="AudioStream" uid="uid://chvnkp6ou5fe7" path="res://Assets/SFX/card_fan.wav" id="18_g2kwx"]
+[ext_resource type="AudioStream" uid="uid://s6phk4uwbvv0" path="res://Assets/SFX/card_draw_1.wav" id="19_sw7vf"]
+[ext_resource type="AudioStream" uid="uid://bed5sd3x3rfs7" path="res://Assets/SFX/coin_2.wav" id="20_dqpe6"]
+[ext_resource type="AudioStream" uid="uid://bs6ltd7igbk48" path="res://Assets/SFX/menu_blip.wav" id="21_rsbqn"]
+[ext_resource type="AudioStream" uid="uid://he75ys3idgg0" path="res://Assets/SFX/grow_big.wav" id="22_cdar6"]
+[ext_resource type="AudioStream" uid="uid://b1ou8gfhow7p3" path="res://Assets/SFX/8_bit_chime_positive.wav" id="23_hjqr8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qvl1x"]
 
@@ -281,6 +287,28 @@ text = "Oi, buy card lah"
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_dlbmg")]
 visible = false
+
+[node name="CardFan" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_g2kwx")
+
+[node name="CardDraw" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_sw7vf")
+
+[node name="CoinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_dqpe6")
+volume_db = -9.405
+
+[node name="BlipSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_rsbqn")
+volume_db = -6.559
+
+[node name="FuseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_cdar6")
+volume_db = -5.622
+
+[node name="UpgradeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_hjqr8")
+volume_db = -4.685
 
 [connection signal="pressed" from="Refresh Button" to="." method="_on_refresh_button_pressed"]
 [connection signal="pressed" from="Done Button" to="." method="_on_done_button_pressed"]

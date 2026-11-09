@@ -7,6 +7,9 @@ extends Control
 @onready var reject_button: Button = $RejectButton
 @onready var proceed_button: Button = $ProceedButton
 @onready var currency_label: Label = $CurrencyUI/Control/Label
+@onready var undesired_effect: AudioStreamPlayer = $UndesiredEffect
+@onready var refuse_sound: AudioStreamPlayer = $RefuseSound
+@onready var blip_sound: AudioStreamPlayer = $BlipSound
 
 var event_completed: bool = false
 
@@ -23,6 +26,7 @@ func _on_submit_pressed():
 	if event_completed:
 		return
 		
+	undesired_effect.play()
 	var lost_currency: int = min(5, GameState.currency)
 	GameState.currency -= lost_currency
 	#currency label flash red
@@ -64,6 +68,7 @@ func _on_reject_pressed():
 	if event_completed:
 		return
 	
+	refuse_sound.play()
 	event_completed = true
 	
 	submit_button.hide()
@@ -78,6 +83,8 @@ func _on_reject_pressed():
 	get_tree().change_scene_to_file("res://Scenes/combat_scene.tscn")
 	
 func _on_proceed_pressed():
+	blip_sound.play()
+	await blip_sound.finished
 	GameState.complete_node()
 	GameState.save_game("res://Scenes/map.tscn")
 	get_tree().change_scene_to_file("res://Scenes/map.tscn")

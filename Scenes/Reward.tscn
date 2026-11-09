@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3awfj516bl5"]
+[gd_scene load_steps=6 format=3 uid="uid://b3awfj516bl5"]
 
 [ext_resource type="Script" path="res://Scipts/reward.gd" id="1_jg3hf"]
+[ext_resource type="AudioStream" uid="uid://bed5sd3x3rfs7" path="res://Assets/SFX/coin_2.wav" id="2_o5aug"]
+[ext_resource type="AudioStream" uid="uid://bs6ltd7igbk48" path="res://Assets/SFX/menu_blip.wav" id="3_4vaut"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_syqgp"]
 
@@ -20,7 +22,6 @@ success_continue_button = NodePath("Next_level_button")
 failure_main_menu_button = NodePath("Failure_main_menu_button")
 
 [node name="Next_level_button" type="Button" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 717.0
 offset_top = 253.0
@@ -126,6 +127,14 @@ offset_bottom = 949.0
 scale = Vector2(3, 3)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_3fk7j")
 text = "Main Menu"
+
+[node name="CoinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_o5aug")
+volume_db = -9.04
+
+[node name="BlipSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4vaut")
+volume_db = -8.432
 
 [connection signal="pressed" from="Next_level_button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Failure_main_menu_button" to="." method="_on_failure_main_menu_button_pressed"]

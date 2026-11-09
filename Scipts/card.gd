@@ -17,6 +17,7 @@ signal board_drag_moved(card: CardUI, drag_position: Vector2)
 @export var description_label: Label
 @onready var card_description: Control = $CardVisual/CardDescription
 @onready var card_visual: Control = $CardVisual
+@onready var card_draw: AudioStreamPlayer = $CardDraw
 @export var animation_player: AnimationPlayer
 
 
@@ -270,7 +271,7 @@ func _on_mouse_entered() -> void:
 		return
 
 	is_hovered = true
-
+	card_draw.play()
 	# Put the whole hovered card above the other cards
 	z_index = 100
 
@@ -281,7 +282,7 @@ func _on_mouse_entered() -> void:
 	hover_tween.tween_property(card_visual, "position:y", _get_hover_offset(), hover_duration)
 
 	#show card description
-	var timer = get_tree().create_timer(1.5)
+	var timer = get_tree().create_timer(0.5)
 	var viewport_width: float = get_viewport_rect().size.x
 	var card_rect: Rect2 = card_visual.get_global_rect()
 	var gap: float = 300.0

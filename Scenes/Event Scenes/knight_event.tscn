@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cfexesvuq7njd"]
+[gd_scene load_steps=21 format=3 uid="uid://cfexesvuq7njd"]
 
 [ext_resource type="Script" path="res://Scipts/knight_event.gd" id="1_cc51r"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_k67yc"]
@@ -10,6 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://ccr8b1yh55ghp" path="res://Assets/button/proceed button2.png" id="7_qe5ip"]
 [ext_resource type="Texture2D" uid="uid://f2ysp086gisp" path="res://Assets/button/proceed button1.png" id="8_7qufn"]
 [ext_resource type="Texture2D" uid="uid://bv6ab3s8neyhh" path="res://Assets/other art/Coin counter.png" id="9_sm40s"]
+[ext_resource type="AudioStream" uid="uid://chvnkp6ou5fe7" path="res://Assets/SFX/card_fan.wav" id="11_7h2b2"]
+[ext_resource type="AudioStream" uid="uid://s6phk4uwbvv0" path="res://Assets/SFX/card_draw_1.wav" id="12_at1o5"]
+[ext_resource type="AudioStream" uid="uid://bed5sd3x3rfs7" path="res://Assets/SFX/coin_2.wav" id="13_wahiv"]
+[ext_resource type="AudioStream" uid="uid://ctxixt4p48vbo" path="res://Assets/SFX/8_bit_negative_quick.wav" id="14_vejuw"]
+[ext_resource type="AudioStream" uid="uid://bs6ltd7igbk48" path="res://Assets/SFX/menu_blip.wav" id="15_oacc5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a1hl0"]
 texture = ExtResource("7_qe5ip")
@@ -148,3 +153,21 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_a021p")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_y6f7r")
+
+[node name="CardFan" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_7h2b2")
+
+[node name="CardDraw" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_at1o5")
+
+[node name="CoinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_wahiv")
+volume_db = -9.369
+
+[node name="RefuseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_vejuw")
+volume_db = -4.685
+
+[node name="BlipSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_oacc5")
+volume_db = -8.3

@@ -37,15 +37,18 @@ var defeated_enemy_count: int = 0
 var battle_started: bool = false
 #attack sound
 @onready var attack_sound: AudioStreamPlayer = $AttackSound
+@onready var fan_sound: AudioStreamPlayer = $CardFan
+@onready var card_draw: AudioStreamPlayer = $CardDraw
+@onready var start_sound: AudioStreamPlayer = $StartSound
 
 const MAX_PITCH_STEPS: int = 7 #0-7
-const PITCH_AMOUNT: float = 2.5
+const PITCH_AMOUNT: float = 1.5
 var attack_count: int = 0
 
 func _ready() -> void:
 	spawn_player_cards()
 	spawn_hand_cards()
-
+	fan_sound.play()
 	if GameState.combat_mode == GameState.CombatMode.NORMAL:
 		var combat_number: int = GameState.win_count + 1
 		spawn_random_enemies(combat_number)
@@ -81,7 +84,7 @@ func _on_board_card_drag_started(card: CardUI) -> void:
 
 	# Move the dragged card out of the HBoxContainer
 	card.reparent(drag_layer)
-
+	
 	# Keep the dragged card at the same screen position
 	card.global_position = old_global_position
 
@@ -100,7 +103,7 @@ func _on_hand_card_clicked(card: CardUI) -> void:
 
 	# Find card inside the hand data
 	var hand_index = GameState.hand_cards.find(card.card_data)
-
+	card_draw.play()
 	if hand_index == -1:
 		return
 
@@ -118,7 +121,7 @@ func _on_start_battle_button_pressed() -> void:
 	if GameState.deployed_cards.is_empty():
 		print("YOU NEED AT LEAST ONE CARD")
 		return
-
+	start_sound.play()
 	battle_started = true
 	pause_menu.set_can_pause(false)
 
@@ -197,7 +200,7 @@ func _on_board_card_clicked(card: CardUI) -> void:
 
 	# Find this card inside the board data
 	var board_index = GameState.deployed_cards.find(card.card_data)
-
+	card_draw.play()
 	if board_index == -1:
 		return
 
@@ -228,7 +231,6 @@ func _on_board_card_drag_moved(card: CardUI, drag_position: Vector2) -> void:
 		player_container.add_child(board_placeholder)
 
 	var new_index = 0
-
 	# Find which gap the mouse is currently over
 	for child in player_container.get_children():
 		if child == board_placeholder:
@@ -278,7 +280,7 @@ func _on_board_card_drag_ended(card: CardUI, drop_position: Vector2) -> void:
 		return
 
 	var card_data = GameState.deployed_cards[old_index]
-
+	card_draw.play()
 	# Find the new position based on the mouse X position
 	var new_index = 0
 

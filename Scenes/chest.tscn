@@ -1,12 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbnqhwm0gekgd"]
+[gd_scene load_steps=16 format=3 uid="uid://bbnqhwm0gekgd"]
 
 [ext_resource type="Script" path="res://Scipts/chest.gd" id="1_vls1q"]
 [ext_resource type="Resource" uid="uid://b05y0n3q37vtn" path="res://Other resource/shop_card.tres" id="2_2wy2n"]
 [ext_resource type="Texture2D" uid="uid://cn8teu2ti2er2" path="res://Screenshot 2026-10-29 150309.png" id="3_2c2m0"]
 [ext_resource type="Texture2D" uid="uid://5gno616i51d0" path="res://icon.svg" id="3_7xhj2"]
 [ext_resource type="Texture2D" uid="uid://bsuq6ig6sn43l" path="res://Screenshot 2026-10-29 151506.png" id="4_fshw8"]
-[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="5_uda55"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="6_aioym"]
+[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="5_uda55"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="6_aioym"]
+[ext_resource type="AudioStream" uid="uid://b23jty63o5bda" path="res://Assets/SFX/lock_quick.wav" id="8_s1mt7"]
+[ext_resource type="AudioStream" uid="uid://cap6duhgko21j" path="res://Assets/SFX/8_bit_positive_long.wav" id="9_r46n0"]
+[ext_resource type="AudioStream" uid="uid://cmsbjx7l5wpc2" path="res://Assets/SFX/undesired_effect.wav" id="10_2nvav"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6dcg5"]
 font = ExtResource("5_uda55")
@@ -190,6 +193,17 @@ offset_right = 251.0
 offset_bottom = 564.0
 scale = Vector2(2, 2)
 text = "Leave"
+
+[node name="OpenSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_s1mt7")
+volume_db = -6.559
+
+[node name="RewardSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_r46n0")
+
+[node name="UndesiredEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_2nvav")
+volume_db = -9.369
 
 [connection signal="pressed" from="Overlay/CenterContainer/ChestPanel/ClickArea" to="." method="_on_click_area_pressed"]
 [connection signal="pressed" from="Overlay/CenterContainer/ChestPanel/ContinueButton" to="." method="_on_continue_button_pressed"]
