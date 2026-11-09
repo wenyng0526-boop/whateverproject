@@ -313,7 +313,6 @@ stream = ExtResource("18_g2kwx")
 
 [node name="CardDraw" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_sw7vf")
-volume_db = -11.243
 
 [node name="CoinSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_dqpe6")
