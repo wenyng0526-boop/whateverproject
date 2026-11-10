@@ -501,64 +501,79 @@ func spawn_random_enemies(difficulty: int) -> void:
 		card_instance.set_card_data(enemy_data)
 
 
-func roll_enemy_cost(combat_number: int) -> int:
-	var roll := randf()
+func roll_enemy_cost(difficulty: int) -> int:
+	var roll: float = randf()
 
-	# Combat 1-2: only Cost 1 enemies
-	if combat_number <= 2:
+	# Difficulty 1-2: 100% one star
+	if difficulty <= 2:
 		return 1
 
-	# Combat 3-4
-	elif combat_number <= 4:
-		if roll < 0.2:
+	# Difficulty 3-4: 80% one star, 20% two stars
+	elif difficulty <= 4:
+		if roll < 0.20:
 			return 2
-
 		return 1
 
-	# Combat 5-6
-	elif combat_number <= 6:
+	# Difficulty 5-6: 50% one star, 45% two stars, 5% three stars
+	elif difficulty <= 6:
+		if roll < 0.05:
+			return 3
+		elif roll < 0.50:
+			return 2
+		return 1
+
+	# Difficulty 7-8: 25% one star, 60% two stars, 15% three stars
+	elif difficulty <= 8:
 		if roll < 0.15:
 			return 3
-		return 2
+		elif roll < 0.75:
+			return 2
+		return 1
 
-
-	# Combat 7-8
-	elif combat_number <= 8:
-		if roll < 0.07:
-			return 3
-		return 2
-
-
-	# Combat 9-10
-	elif combat_number <= 10:
-		if roll < 0.1:
+	# Difficulty 9-10: 10% one star, 55% two stars, 30% three stars, 2% four stars
+	elif difficulty <= 10:
+		if roll < 0.02:
 			return 4
-		elif roll < 0.95:
+		elif roll < 0.35:
 			return 3
-		return 2
-		
+		elif roll < 0.90:
+			return 2
+		return 1
+
+	# Difficulty 11+: 40% two stars, 45% three stars, 15% four stars
 	else:
-		if roll < 0.2:
+		if roll < 0.15:
 			return 4
-		return 3
-
-
-
-func roll_enemy_count(combat_number: int) -> int:
-	if combat_number <= 2:
+		elif roll < 0.60:
+			return 3
 		return 2
 
-	elif combat_number <= 4:
+
+
+func roll_enemy_count(difficulty: int) -> int:
+	# Difficulty 1-2: Always 2 enemies
+	if difficulty <= 2:
+		return 2
+
+	# Difficulty 3-4: 2-3 enemies
+	elif difficulty <= 4:
 		return randi_range(2, 3)
 
-	elif combat_number <= 6:
+	# Difficulty 5-6: 2-3 enemies
+	elif difficulty <= 6:
 		return randi_range(2, 3)
 
-	elif combat_number <= 8:
+	# Difficulty 7-8: 3-4 enemies
+	elif difficulty <= 8:
 		return randi_range(3, 4)
 
+	# Difficulty 9-10: 3-5 enemies
+	elif difficulty <= 10:
+		return randi_range(3, 5)
+
+	# Difficulty 11+: 4-6 enemies
 	else:
-		return randi_range(4, 5)
+		return randi_range(4, 6)
 
 
 #rat effect

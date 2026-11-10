@@ -217,11 +217,11 @@ pivot_offset = Vector2(90, 125)
 mouse_filter = 2
 
 [node name="CardDescription" type="Control" parent="CardVisual"]
-visible = false
-layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -8.0
+offset_top = 31.0
+offset_right = 32.0
+offset_bottom = 71.0
 
 [node name="PanelContainer" type="PanelContainer" parent="CardVisual/CardDescription"]
 layout_mode = 0

@@ -292,17 +292,7 @@ func _on_mouse_entered() -> void:
 	if not is_inside_tree() or not is_hovered:
 		return
 
-	var viewport_width: float = get_viewport_rect().size.x
-	var card_rect: Rect2 = card_visual.get_global_rect()
-	var gap: float = 20.0
-
-	# Reset description position
-	card_description.position.x = card_visual.size.x + gap
-
-	# Display description on the left if there is not enough space
-	if card_rect.end.x + gap + card_description.size.x > viewport_width:
-		card_description.position.x = -card_description.size.x - gap
-
+	# Show description at the position set in Godot Editor
 	card_description.show()
 
 func _on_mouse_exited() -> void:
