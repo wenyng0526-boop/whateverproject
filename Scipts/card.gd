@@ -263,58 +263,68 @@ func _get_hover_offset() -> float:
 func _on_mouse_entered() -> void:
 	if current_location == CardLocation.EVENT:
 		return
-		
-	if current_location == CardLocation.BOARD and not board_drag_enabled:
-		return
-	
+
 	if board_dragging:
 		return
 
 	is_hovered = true
 	card_draw.play()
-	# Put the whole hovered card above the other cards
+
+	# Put the hovered card above other cards
 	z_index = 100
 
-	if hover_tween:
-		hover_tween.kill()
+	# Only animate cards that can hover/lift
+	if current_location != CardLocation.BOARD or board_drag_enabled:
+		if hover_tween:
+			hover_tween.kill()
 
-	hover_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
-	hover_tween.tween_property(card_visual, "position:y", _get_hover_offset(), hover_duration)
+		hover_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+		hover_tween.tween_property(
+			card_visual,
+			"position:y",
+			_get_hover_offset(),
+			hover_duration
+		)
 
-	#show card description
-	var timer = get_tree().create_timer(0.5)
+	# Wait 0.5 seconds before showing description
+	await get_tree().create_timer(0.5).timeout
+
+	if not is_inside_tree() or not is_hovered:
+		return
+
 	var viewport_width: float = get_viewport_rect().size.x
 	var card_rect: Rect2 = card_visual.get_global_rect()
-	var gap: float = 300.0
+	var gap: float = 20.0
 
-	await timer.timeout
-	await get_tree().process_frame
+	# Reset description position
+	card_description.position.x = card_visual.size.x + gap
 
-	if is_hovered == true:
-		if card_rect.end.x + gap + card_description.size.x > viewport_width:
-			card_description.position.x = -card_description.size.x - gap - 280.0
-			card_description.show()
-		else:
-			card_description.show()
+	# Display description on the left if there is not enough space
+	if card_rect.end.x + gap + card_description.size.x > viewport_width:
+		card_description.position.x = -card_description.size.x - gap
+
+	card_description.show()
 
 func _on_mouse_exited() -> void:
-	if current_location == CardLocation.BOARD and not board_drag_enabled:
-		return
-		
 	if board_dragging:
 		return
 
 	is_hovered = false
-
-	# Return the card to its normal layer
-
 	card_description.hide()
 
-	if hover_tween:
-		hover_tween.kill()
-		
-	hover_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
-	hover_tween.tween_property(card_visual, "position:y", rest_y, hover_duration)
+	# Only reset movement for cards that use hover animation
+	if current_location != CardLocation.BOARD or board_drag_enabled:
+		if hover_tween:
+			hover_tween.kill()
+
+		hover_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+		hover_tween.tween_property(
+			card_visual,
+			"position:y",
+			rest_y,
+			hover_duration
+		)
+
 	z_index = normal_z_index
 
 #knight effect

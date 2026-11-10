@@ -35,6 +35,7 @@ var enemy_index: int = 0
 var defeated_enemy_cost: int = 0
 var defeated_enemy_count: int = 0
 
+
 var battle_started: bool = false
 #attack sound
 @onready var attack_sound: AudioStreamPlayer = $AttackSound
@@ -50,18 +51,10 @@ func _ready() -> void:
 	spawn_player_cards()
 	spawn_hand_cards()
 	fan_sound.play()
-	if GameState.combat_mode == GameState.CombatMode.NORMAL:
-		var combat_number: int = GameState.win_count + 1
-		spawn_random_enemies(combat_number)
-	else:
-		battle_started = true
-		pause_menu.set_can_pause(false)
-		await get_tree().process_frame
-		setup_combat()
-		for card in player_cards:
-			card.board_drag_enabled = false
 
-		await start_combat()
+	# All battles now use normal enemy spawning
+	var difficulty: int = GameState.completed_nodes.size() + 1
+	spawn_random_enemies(difficulty)
 
 func spawn_hand_cards() -> void:
 	# Clear the current hand UI
@@ -162,10 +155,6 @@ func setup_combat() -> void:
 	print("Enemy cards: ", enemy_cards.size())
 
 func spawn_player_cards() -> void:
-	# Keep the hand-placed tutorial cards
-	if GameState.combat_mode == GameState.CombatMode.TUTORIAL:
-		return
-
 	# Clear the current board UI
 	for child in player_container.get_children():
 		player_container.remove_child(child)
@@ -483,23 +472,29 @@ func return_surviving_cards_to_hand() -> void:
 	GameState.deployed_cards.clear()
 
 
-func spawn_random_enemies(combat_number: int) -> void:
+func spawn_random_enemies(difficulty: int) -> void:
 	for child in enemy_container.get_children():
 		enemy_container.remove_child(child)
 		child.queue_free()
 
-	var enemy_count: int = roll_enemy_count(combat_number)
+	var enemy_count: int = roll_enemy_count(difficulty)
 
 	for i in range(enemy_count):
-		var enemy_cost: int = roll_enemy_cost(combat_number)
+		var enemy_cost: int = roll_enemy_cost(difficulty)
 		var enemy_data: card_resource
 
-		if enemy_cost == 1:
-			enemy_data = one_star_enemies.pick_random()
-		elif enemy_cost == 2:
-			enemy_data = two_star_enemies.pick_random()
-		else:
-			enemy_data = three_star_enemies.pick_random()
+		match enemy_cost:
+			1:
+				enemy_data = one_star_enemies.pick_random()
+			2:
+				enemy_data = two_star_enemies.pick_random()
+			3:
+				enemy_data = three_star_enemies.pick_random()
+			4:
+				enemy_data = four_star_enemies.pick_random()
+
+		if enemy_data == null:
+			continue
 
 		var card_instance: CardUI = card_ui.instantiate()
 		enemy_container.add_child(card_instance)
@@ -515,33 +510,37 @@ func roll_enemy_cost(combat_number: int) -> int:
 
 	# Combat 3-4
 	elif combat_number <= 4:
-		if roll < 0.20:
+		if roll < 0.2:
 			return 2
 
 		return 1
 
 	# Combat 5-6
 	elif combat_number <= 6:
-		if roll < 0.3:
+		if roll < 0.15:
 			return 3
 		return 2
 
 
 	# Combat 7-8
 	elif combat_number <= 8:
-		if roll < 0.1:
-			return 4
-		elif roll < 0.50:
+		if roll < 0.07:
 			return 3
 		return 2
 
-	# Combat 9+
-	else:
-		if roll < 0.4:
+
+	# Combat 9-10
+	elif combat_number <= 10:
+		if roll < 0.1:
 			return 4
 		elif roll < 0.95:
 			return 3
 		return 2
+		
+	else:
+		if roll < 0.2:
+			return 4
+		return 3
 
 
 
@@ -553,13 +552,13 @@ func roll_enemy_count(combat_number: int) -> int:
 		return randi_range(2, 3)
 
 	elif combat_number <= 6:
-		return randi_range(3, 4)
+		return randi_range(2, 3)
 
 	elif combat_number <= 8:
-		return randi_range(4, 5)
+		return randi_range(3, 4)
 
 	else:
-		return randi_range(5, 6)
+		return randi_range(4, 5)
 
 
 #rat effect

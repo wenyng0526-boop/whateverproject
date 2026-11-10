@@ -20,12 +20,6 @@ var win_count: int = 0
 #for success screen3
 var returned_from_failure_or_load: bool = false
 
-#combat_scene(tutorial and normal)
-enum CombatMode {
-	TUTORIAL,
-	NORMAL
-}
-var combat_mode: CombatMode = CombatMode.NORMAL
 var current_wave: int = 1
 
 #map progression nodes
