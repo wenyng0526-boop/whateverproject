@@ -1,9 +1,65 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4ojdviu2r56a"]
+[gd_scene load_steps=31 format=3 uid="uid://b4ojdviu2r56a"]
 
 [ext_resource type="Script" path="res://Scipts/pause_menu.gd" id="1_jdu52"]
+[ext_resource type="Texture2D" uid="uid://qdos0ojdrox5" path="res://Assets/background/pause menu background.png" id="2_cagvw"]
 [ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="2_gt21u"]
 [ext_resource type="AudioStream" uid="uid://bhdhggrwrgwsu" path="res://Assets/SFX/select_1.wav" id="3_c0u35"]
 [ext_resource type="AudioStream" uid="uid://bs6ltd7igbk48" path="res://Assets/SFX/menu_blip.wav" id="4_hxd04"]
+[ext_resource type="Texture2D" uid="uid://bhrgeimrjk3r7" path="res://Assets/button/resume button2.png" id="4_smmka"]
+[ext_resource type="Texture2D" uid="uid://dx8b7typfn8ce" path="res://Assets/button/resume button1.png" id="5_l2iwd"]
+[ext_resource type="Texture2D" uid="uid://csdo8ofcdmvwk" path="res://Assets/button/Setting button2.png" id="6_eua2f"]
+[ext_resource type="Texture2D" uid="uid://dqer3j0ib6y1r" path="res://Assets/button/Setting button1.png" id="7_cgf54"]
+[ext_resource type="Texture2D" uid="uid://cy7licxoir6se" path="res://Assets/button/end run button2.png" id="8_mnfvm"]
+[ext_resource type="Texture2D" uid="uid://cfjohpu80o4is" path="res://Assets/button/end run button1.png" id="9_htxow"]
+[ext_resource type="Texture2D" uid="uid://bg2ctrg13bwel" path="res://Assets/button/return to main menu button2.png" id="10_1x6fn"]
+[ext_resource type="Texture2D" uid="uid://bbehknyjl0o26" path="res://Assets/button/return to main menu button1.png" id="11_7a2jd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b6xat"]
+texture = ExtResource("2_cagvw")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bchee"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4623i"]
+texture = ExtResource("4_smmka")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2e8vs"]
+texture = ExtResource("4_smmka")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dcgk6"]
+texture = ExtResource("5_l2iwd")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_80jux"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b0rug"]
+texture = ExtResource("6_eua2f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g5tuw"]
+texture = ExtResource("6_eua2f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c8oa4"]
+texture = ExtResource("7_cgf54")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v70uu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ycx4b"]
+texture = ExtResource("8_mnfvm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cc6jq"]
+texture = ExtResource("8_mnfvm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o5iwc"]
+texture = ExtResource("9_htxow")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_60s71"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d045h"]
+texture = ExtResource("10_1x6fn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gx4ae"]
+texture = ExtResource("10_1x6fn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uvugi"]
+texture = ExtResource("11_7a2jd")
 
 [node name="PauseMenu" type="CanvasLayer"]
 layer = 30
@@ -37,12 +93,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -234.0
-offset_top = -214.5
-offset_right = 234.0
-offset_bottom = 214.5
+offset_left = -945.0
+offset_top = -521.0
+offset_right = 975.0
+offset_bottom = 559.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_b6xat")
 
 [node name="Button_control" type="Control" parent="Control/PanelContainer"]
 layout_mode = 2
@@ -51,49 +108,51 @@ size_flags_vertical = 4
 
 [node name="ResumeButton" type="Button" parent="Control/PanelContainer/Button_control"]
 layout_mode = 2
-offset_left = -141.0
-offset_top = -69.0
-offset_right = 147.0
-offset_bottom = -24.0
+offset_left = -244.0
+offset_top = -206.5
+offset_right = 232.0
+offset_bottom = -14.5
 theme_override_fonts/font = ExtResource("2_gt21u")
-text = "RESUME"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bchee")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4623i")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2e8vs")
+theme_override_styles/normal = SubResource("StyleBoxTexture_dcgk6")
 
 [node name="SettingsButton" type="Button" parent="Control/PanelContainer/Button_control"]
 layout_mode = 0
-offset_left = -141.0
-offset_top = -6.0
-offset_right = 147.0
-offset_bottom = 39.0
+offset_left = -244.0
+offset_top = -77.5
+offset_right = 232.0
+offset_bottom = 114.5
 theme_override_fonts/font = ExtResource("2_gt21u")
-text = "SETTINGS"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_80jux")
+theme_override_styles/hover = SubResource("StyleBoxTexture_b0rug")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_g5tuw")
+theme_override_styles/normal = SubResource("StyleBoxTexture_c8oa4")
 
 [node name="EndRunButton" type="Button" parent="Control/PanelContainer/Button_control"]
 layout_mode = 0
-offset_left = -143.0
-offset_top = 54.0
-offset_right = 145.0
-offset_bottom = 99.0
+offset_left = -236.0
+offset_top = 43.5
+offset_right = 240.0
+offset_bottom = 235.5
 theme_override_fonts/font = ExtResource("2_gt21u")
-text = "END RUN"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v70uu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ycx4b")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cc6jq")
+theme_override_styles/normal = SubResource("StyleBoxTexture_o5iwc")
 
 [node name="MainMenuButton" type="Button" parent="Control/PanelContainer/Button_control"]
 layout_mode = 0
-offset_left = -143.0
-offset_top = 112.5
-offset_right = 145.0
-offset_bottom = 157.5
+offset_left = -508.0
+offset_top = 189.5
+offset_right = 516.0
+offset_bottom = 373.5
 theme_override_fonts/font = ExtResource("2_gt21u")
-text = "RETURN TO MAIN MENU"
-
-[node name="Pause" type="Label" parent="Control"]
-layout_mode = 2
-offset_left = 882.0
-offset_top = 388.0
-offset_right = 1042.0
-offset_bottom = 421.0
-theme_override_fonts/font = ExtResource("2_gt21u")
-theme_override_font_sizes/font_size = 32
-text = "PAUSE"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_60s71")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d045h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gx4ae")
+theme_override_styles/normal = SubResource("StyleBoxTexture_uvugi")
 
 [node name="PauseSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_c0u35")

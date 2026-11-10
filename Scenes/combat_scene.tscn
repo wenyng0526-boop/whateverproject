@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://c7ondrblaspck"]
+[gd_scene load_steps=51 format=3 uid="uid://c7ondrblaspck"]
 
 [ext_resource type="Script" path="res://Scipts/combat_manager.gd" id="1_1ge3h"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="1_hiokq"]
@@ -37,10 +37,13 @@
 [ext_resource type="Texture2D" uid="uid://bsp5p3c01d0j3" path="res://Assets/button/pause button.png" id="34_bsyvg"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="35_60emv"]
 [ext_resource type="PackedScene" uid="uid://b4ojdviu2r56a" path="res://Scenes/pause_menu.tscn" id="35_fwkip"]
+[ext_resource type="Texture2D" uid="uid://dfqfxwlc6k6hj" path="res://Assets/button/start battle button2.png" id="37_b1k74"]
 [ext_resource type="AudioStream" uid="uid://dp0ycn8023h26" path="res://Assets/SFX/punch.wav" id="38_clcdo"]
+[ext_resource type="Texture2D" uid="uid://dfuomw0aohqj6" path="res://Assets/button/start battle button1.png" id="38_xnsox"]
 [ext_resource type="AudioStream" uid="uid://s6phk4uwbvv0" path="res://Assets/SFX/card_draw_1.wav" id="39_43xny"]
 [ext_resource type="AudioStream" uid="uid://chvnkp6ou5fe7" path="res://Assets/SFX/card_fan.wav" id="40_rskvv"]
 [ext_resource type="AudioStream" uid="uid://bhdhggrwrgwsu" path="res://Assets/SFX/select_1.wav" id="41_knan4"]
+[ext_resource type="Texture2D" uid="uid://bmr6amqr4nmnk" path="res://Assets/background/Combat background.png" id="44_tg153"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_onlmt"]
 texture = ExtResource("34_bsyvg")
@@ -50,15 +53,25 @@ texture = ExtResource("34_bsyvg")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7bm6h"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5yj08"]
+texture = ExtResource("37_b1k74")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cpjuq"]
+texture = ExtResource("37_b1k74")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pkyhh"]
+texture = ExtResource("38_xnsox")
+
 [node name="Combat_Scene" type="Node2D" node_paths=PackedStringArray("player_container", "enemy_container")]
 position = Vector2(2, 0)
 script = ExtResource("1_1ge3h")
 player_container = NodePath("PlayerCenter/PlayerContainer")
 enemy_container = NodePath("EnemyCenter/EnemyContainer")
 card_ui = ExtResource("1_hiokq")
-one_star_enemies = Array[ExtResource("3_a1xpf")]([ExtResource("4_weuwe"), ExtResource("5_8jr4h"), ExtResource("6_6f5eg"), ExtResource("7_iren4"), ExtResource("8_oflgc"), ExtResource("9_urhmx"), ExtResource("10_gfq7w"), ExtResource("11_xl322")])
-two_star_enemies = Array[ExtResource("3_a1xpf")]([ExtResource("6_d0t0k"), ExtResource("8_ie5uw"), ExtResource("9_lglh0"), ExtResource("10_3ps3t"), ExtResource("3_ngc22"), ExtResource("17_6pdpg"), ExtResource("18_mat62"), ExtResource("5_vwtws"), ExtResource("20_u4e87"), ExtResource("6_g8pjw"), ExtResource("22_rcr5v"), ExtResource("23_3fhwb"), ExtResource("4_8ts7m")])
-three_star_enemies = Array[ExtResource("3_a1xpf")]([ExtResource("6_s2gyj"), ExtResource("13_4mlkq"), ExtResource("14_jxep6"), ExtResource("28_rktqr"), ExtResource("29_bi28p"), ExtResource("30_tlxuk"), ExtResource("8_4fngt"), ExtResource("32_l8xxo"), ExtResource("5_61ds5")])
+one_star_enemies = Array[ExtResource("3_a1xpf")]([ExtResource("9_urhmx"), ExtResource("8_oflgc")])
+two_star_enemies = Array[ExtResource("3_a1xpf")]([ExtResource("4_weuwe"), ExtResource("5_8jr4h"), ExtResource("6_6f5eg"), ExtResource("7_iren4"), ExtResource("18_mat62"), ExtResource("6_g8pjw"), ExtResource("10_gfq7w"), ExtResource("11_xl322")])
+three_star_enemies = Array[ExtResource("3_a1xpf")]([ExtResource("8_ie5uw"), ExtResource("6_d0t0k"), ExtResource("9_lglh0"), ExtResource("3_ngc22"), ExtResource("10_3ps3t"), ExtResource("17_6pdpg"), ExtResource("29_bi28p"), ExtResource("5_vwtws"), ExtResource("20_u4e87"), ExtResource("23_3fhwb"), ExtResource("22_rcr5v"), ExtResource("4_8ts7m")])
+four_star_enemies = Array[ExtResource("3_a1xpf")]([ExtResource("6_s2gyj"), ExtResource("13_4mlkq"), ExtResource("14_jxep6"), ExtResource("28_rktqr"), ExtResource("30_tlxuk"), ExtResource("8_4fngt"), ExtResource("32_l8xxo"), ExtResource("5_61ds5")])
 
 [node name="PauseButton" type="Button" parent="."]
 offset_left = 1743.0
@@ -152,13 +165,14 @@ script = ExtResource("35_60emv")
 
 [node name="StartBattleButton" type="Button" parent="."]
 z_index = 101
-offset_left = 1570.0
-offset_top = 412.0
-offset_right = 1687.0
-offset_bottom = 443.0
-scale = Vector2(3, 3)
+offset_left = 1500.0
+offset_top = 427.0
+offset_right = 1820.0
+offset_bottom = 555.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7bm6h")
-text = "START BATTLE"
+theme_override_styles/hover = SubResource("StyleBoxTexture_5yj08")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cpjuq")
+theme_override_styles/normal = SubResource("StyleBoxTexture_pkyhh")
 
 [node name="DragLayer" type="Control" parent="."]
 layout_mode = 3
@@ -184,6 +198,11 @@ stream = ExtResource("40_rskvv")
 
 [node name="StartSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("41_knan4")
+
+[node name="CombatBackground" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(958, 539)
+texture = ExtResource("44_tg153")
 
 [connection signal="pressed" from="PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]
 [connection signal="pressed" from="StartBattleButton" to="." method="_on_start_battle_button_pressed"]

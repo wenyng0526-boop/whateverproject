@@ -1,12 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3awfj516bl5"]
+[gd_scene load_steps=16 format=3 uid="uid://b3awfj516bl5"]
 
 [ext_resource type="Script" path="res://Scipts/reward.gd" id="1_jg3hf"]
+[ext_resource type="Texture2D" uid="uid://cyo8q1a186hw7" path="res://Assets/button/collect coin2.png" id="2_aim14"]
+[ext_resource type="Texture2D" uid="uid://bg2ctrg13bwel" path="res://Assets/button/return to main menu button2.png" id="2_hfl6u"]
 [ext_resource type="AudioStream" uid="uid://bed5sd3x3rfs7" path="res://Assets/SFX/coin_2.wav" id="2_o5aug"]
 [ext_resource type="AudioStream" uid="uid://bs6ltd7igbk48" path="res://Assets/SFX/menu_blip.wav" id="3_4vaut"]
+[ext_resource type="Texture2D" uid="uid://bbehknyjl0o26" path="res://Assets/button/return to main menu button1.png" id="3_36mnb"]
+[ext_resource type="Texture2D" uid="uid://cwupsd1hh1y8u" path="res://Assets/button/collect coin1.png" id="3_tt04m"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_syqgp"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kd8t2"]
+texture = ExtResource("2_aim14")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fml4y"]
+texture = ExtResource("2_aim14")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ehyx"]
+texture = ExtResource("3_tt04m")
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3fk7j"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x5wam"]
+texture = ExtResource("2_hfl6u")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fcwax"]
+texture = ExtResource("2_hfl6u")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ler7o"]
+texture = ExtResource("3_36mnb")
 
 [node name="Reward_scene" type="Control" node_paths=PackedStringArray("success_continue_button", "failure_main_menu_button")]
 layout_mode = 3
@@ -23,12 +45,14 @@ failure_main_menu_button = NodePath("Failure_main_menu_button")
 
 [node name="Next_level_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 717.0
-offset_top = 253.0
-offset_right = 817.0
-offset_bottom = 278.0
-scale = Vector2(5, 5)
+offset_left = 758.0
+offset_top = 179.0
+offset_right = 1014.0
+offset_bottom = 307.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_syqgp")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kd8t2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fml4y")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1ehyx")
 
 [node name="Success_screen" type="Label" parent="."]
 visible = false
@@ -119,14 +143,22 @@ theme_override_font_sizes/font_size = 50
 text = "You have lost everything"
 
 [node name="Failure_main_menu_button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 824.0
-offset_top = 918.0
-offset_right = 920.0
-offset_bottom = 949.0
-scale = Vector2(3, 3)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -512.0
+offset_top = -310.0
+offset_right = 512.0
+offset_bottom = -126.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_3fk7j")
-text = "Main Menu"
+theme_override_styles/hover = SubResource("StyleBoxTexture_x5wam")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fcwax")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ler7o")
 
 [node name="CoinSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_o5aug")

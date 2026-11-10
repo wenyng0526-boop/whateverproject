@@ -20,6 +20,7 @@ const print_damage = preload("res://Scenes/print_damage.tscn")
 @export var one_star_enemies: Array[card_resource]
 @export var two_star_enemies: Array[card_resource]
 @export var three_star_enemies: Array[card_resource]
+@export var four_star_enemies: Array[card_resource]
 #pause menu
 @onready var pause_menu: CanvasLayer = $PauseMenu
 #Leave a space when dragging
@@ -521,30 +522,27 @@ func roll_enemy_cost(combat_number: int) -> int:
 
 	# Combat 5-6
 	elif combat_number <= 6:
-		if roll < 0.05:
+		if roll < 0.3:
 			return 3
-		elif roll < 0.40:
-			return 2
+		return 2
 
-		return 1
 
 	# Combat 7-8
 	elif combat_number <= 8:
-		if roll < 0.15:
+		if roll < 0.1:
+			return 4
+		elif roll < 0.50:
 			return 3
-		elif roll < 0.60:
-			return 2
-
-		return 1
+		return 2
 
 	# Combat 9+
 	else:
-		if roll < 0.30:
+		if roll < 0.4:
+			return 4
+		elif roll < 0.95:
 			return 3
-		elif roll < 0.75:
-			return 2
+		return 2
 
-		return 1
 
 
 func roll_enemy_count(combat_number: int) -> int:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cgy51m7gwm07c"]
+[gd_scene load_steps=31 format=3 uid="uid://cgy51m7gwm07c"]
 
 [ext_resource type="Script" path="res://Scipts/main_menu.gd" id="1_i13gk"]
 [ext_resource type="Texture2D" uid="uid://bealmngfsvxiy" path="res://Assets/background/Background_reference.png" id="1_ur8yn"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ds3wmqjbx3mox" path="res://Assets/button/Load Button.png" id="4_ayicw"]
 [ext_resource type="Texture2D" uid="uid://42kpifxexb8j" path="res://Assets/button/Quit Button.png" id="5_7abrb"]
 [ext_resource type="AudioStream" uid="uid://bs6ltd7igbk48" path="res://Assets/SFX/menu_blip.wav" id="6_vv2bg"]
+[ext_resource type="AudioStream" uid="uid://cxdq4tnlp6vec" path="res://Assets/music/Main menu song.wav" id="7_6h866"]
 
 [sub_resource type="Gradient" id="Gradient_2xgg7"]
 offsets = PackedFloat32Array(0, 0.149351, 0.318182, 0.493506, 1)
@@ -240,15 +241,22 @@ animation = &"exit"
 stream = ExtResource("6_vv2bg")
 volume_db = -8.432
 
+[node name="Background2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_6h866")
+volume_db = 24.0
+autoplay = true
+stream_paused = true
+bus = &"background"
+
 [connection signal="mouse_entered" from="CenterContainer/VBoxContainer/StartButtonArea/Start_Button" to="CenterContainer/VBoxContainer/StartButtonArea" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CenterContainer/VBoxContainer/StartButtonArea/Start_Button" to="CenterContainer/VBoxContainer/StartButtonArea" method="_on_mouse_exited"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/StartButtonArea/Start_Button" to="CenterContainer/VBoxContainer/StartButtonArea" method="_on_start_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/StartButtonArea/Start_Button" to="CenterContainer/VBoxContainer/StartButtonArea" method="_on_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/StartButtonArea/Start_Button" to="CenterContainer/VBoxContainer/StartButtonArea" method="_on_start_button_pressed"]
 [connection signal="mouse_entered" from="CenterContainer/VBoxContainer/LoadButtonArea/Load_Button" to="CenterContainer/VBoxContainer/LoadButtonArea" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CenterContainer/VBoxContainer/LoadButtonArea/Load_Button" to="CenterContainer/VBoxContainer/LoadButtonArea" method="_on_mouse_exited"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/LoadButtonArea/Load_Button" to="CenterContainer/VBoxContainer/LoadButtonArea" method="_on_load_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/LoadButtonArea/Load_Button" to="CenterContainer/VBoxContainer/LoadButtonArea" method="_on_pressed"]
 [connection signal="mouse_entered" from="CenterContainer/VBoxContainer/ExitButtonArea/Exit_Button" to="CenterContainer/VBoxContainer/ExitButtonArea" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CenterContainer/VBoxContainer/ExitButtonArea/Exit_Button" to="CenterContainer/VBoxContainer/ExitButtonArea" method="_on_mouse_exited"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/ExitButtonArea/Exit_Button" to="CenterContainer/VBoxContainer/ExitButtonArea" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ExitButtonArea/Exit_Button" to="CenterContainer/VBoxContainer/ExitButtonArea" method="_on_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ExitButtonArea/Exit_Button" to="CenterContainer/VBoxContainer/ExitButtonArea" method="_on_exit_button_pressed"]

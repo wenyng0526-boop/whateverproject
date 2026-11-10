@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bts1pm5edlc0y"]
+[gd_scene load_steps=14 format=3 uid="uid://bts1pm5edlc0y"]
 
 [ext_resource type="PackedScene" uid="uid://c5r3h7s0140do" path="res://Scenes/map_node.tscn" id="1_j0sno"]
 [ext_resource type="PackedScene" uid="uid://la5r22v0ss12" path="res://Scenes/Event Scenes/goblin_event.tscn" id="2_kyu6a"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b4ojdviu2r56a" path="res://Scenes/pause_menu.tscn" id="3_tg475"]
 [ext_resource type="PackedScene" uid="uid://l80ac12ejyjo" path="res://Scenes/Event Scenes/threaten_event.tscn" id="4_o64qr"]
 [ext_resource type="Texture2D" uid="uid://bsp5p3c01d0j3" path="res://Assets/button/pause button.png" id="9_hvjca"]
+[ext_resource type="AudioStream" uid="uid://c4ychy6mhu51r" path="res://Assets/music/map music.wav" id="11_cp1au"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_udydx"]
 texture = ExtResource("9_hvjca")
@@ -349,7 +350,8 @@ next_nodes = Array[int]([19])
 
 [node name="40 Shop" parent="." instance=ExtResource("1_j0sno")]
 position = Vector2(879, 35)
-text = "Shop"
+node_type = 1
+text = "Combat"
 node_index = 40
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -368,5 +370,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="PauseMenu" parent="." instance=ExtResource("3_tg475")]
 visible = false
+
+[node name="Background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_cp1au")
+volume_db = 6.0
+autoplay = true
+bus = &"background"
 
 [connection signal="pressed" from="Camera2D/PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]
