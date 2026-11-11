@@ -40,6 +40,7 @@ grow_vertical = 2
 script = ExtResource("1_7vr6r")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
 z_index = -5
 layout_mode = 0
 offset_left = 940.0
