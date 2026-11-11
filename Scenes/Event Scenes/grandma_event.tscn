@@ -1,14 +1,18 @@
-[gd_scene load_steps=25 format=3 uid="uid://cb4hiqaej2e5l"]
+[gd_scene load_steps=36 format=3 uid="uid://cb4hiqaej2e5l"]
 
 [ext_resource type="Script" path="res://Scipts/grandma_event.gd" id="1_u6k1w"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_6vhb5"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="3_qq6bn"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="4_f3y75"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="4_f3y75"]
 [ext_resource type="Script" path="res://Scipts/currency_ui.gd" id="5_55a3t"]
 [ext_resource type="Script" path="res://Scipts/talking.gd" id="5_cofpm"]
+[ext_resource type="Texture2D" uid="uid://blegk31uaf0s2" path="res://Assets/button/upgrade button2.png" id="6_rxg8e"]
 [ext_resource type="Texture2D" uid="uid://ccr8b1yh55ghp" path="res://Assets/button/proceed button2.png" id="6_rxyko"]
 [ext_resource type="Texture2D" uid="uid://f2ysp086gisp" path="res://Assets/button/proceed button1.png" id="7_0xf80"]
+[ext_resource type="Texture2D" uid="uid://boh7vw757ikbl" path="res://Assets/button/upgrade button1.png" id="7_nbpar"]
+[ext_resource type="Texture2D" uid="uid://lgj7ycks54w4" path="res://Assets/button/refresh button2.png" id="8_ncmqv"]
 [ext_resource type="Texture2D" uid="uid://bv6ab3s8neyhh" path="res://Assets/other art/Coin counter.png" id="8_rj3k0"]
+[ext_resource type="Texture2D" uid="uid://c345wpc35vwpl" path="res://Assets/button/refresh button1.png" id="9_hug7j"]
 [ext_resource type="AudioStream" uid="uid://chvnkp6ou5fe7" path="res://Assets/SFX/card_fan.wav" id="10_mft3d"]
 [ext_resource type="AudioStream" uid="uid://s6phk4uwbvv0" path="res://Assets/SFX/card_draw_1.wav" id="11_pkpbr"]
 [ext_resource type="AudioStream" uid="uid://bed5sd3x3rfs7" path="res://Assets/SFX/coin_2.wav" id="12_6u3f7"]
@@ -20,7 +24,28 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_03wij"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gkr2p"]
+texture = ExtResource("6_rxg8e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yrdfg"]
+texture = ExtResource("6_rxg8e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mdcla"]
+texture = ExtResource("7_nbpar")
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wkutw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_klpka"]
+texture = ExtResource("6_rxg8e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p7byi"]
+texture = ExtResource("8_ncmqv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8f13v"]
+texture = ExtResource("8_ncmqv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3t6co"]
+texture = ExtResource("9_hug7j")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u6tse"]
 
@@ -104,8 +129,13 @@ offset_left = 1005.0
 offset_top = 776.0
 offset_right = 1205.0
 offset_bottom = 846.0
+theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("4_f3y75")
+theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxEmpty_03wij")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gkr2p")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yrdfg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mdcla")
 text = "GIVE"
 
 [node name="RejectButton" type="Button" parent="."]
@@ -115,8 +145,14 @@ offset_left = 1445.0
 offset_top = 776.0
 offset_right = 1645.0
 offset_bottom = 846.0
+theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("4_f3y75")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxEmpty_wkutw")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_klpka")
+theme_override_styles/hover = SubResource("StyleBoxTexture_p7byi")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8f13v")
+theme_override_styles/normal = SubResource("StyleBoxTexture_3t6co")
 text = "REFUSE"
 
 [node name="ProceedButton" type="Button" parent="."]

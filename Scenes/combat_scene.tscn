@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://c7ondrblaspck"]
+[gd_scene load_steps=53 format=3 uid="uid://c7ondrblaspck"]
 
 [ext_resource type="Script" path="res://Scipts/combat_manager.gd" id="1_1ge3h"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="1_hiokq"]
@@ -45,6 +45,11 @@
 [ext_resource type="AudioStream" uid="uid://bhdhggrwrgwsu" path="res://Assets/SFX/select_1.wav" id="41_knan4"]
 [ext_resource type="Texture2D" uid="uid://bmr6amqr4nmnk" path="res://Assets/background/Combat background.png" id="44_tg153"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_etf28"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t4x5d"]
+texture = ExtResource("34_bsyvg")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_onlmt"]
 texture = ExtResource("34_bsyvg")
 
@@ -78,6 +83,8 @@ offset_left = 1743.0
 offset_top = 34.0
 offset_right = 1871.0
 offset_bottom = 162.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_etf28")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_t4x5d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_onlmt")
 theme_override_styles/normal = SubResource("StyleBoxTexture_ytpxs")
 

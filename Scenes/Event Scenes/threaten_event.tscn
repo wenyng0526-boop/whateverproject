@@ -1,12 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://l80ac12ejyjo"]
+[gd_scene load_steps=30 format=3 uid="uid://l80ac12ejyjo"]
 
 [ext_resource type="Script" path="res://Scipts/threaten_event.gd" id="1_7vr6r"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="2_uewhg"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="2_uewhg"]
 [ext_resource type="Script" path="res://Scipts/talking.gd" id="3_3fs13"]
 [ext_resource type="Script" path="res://Scipts/currency_ui.gd" id="3_rvmhp"]
 [ext_resource type="Texture2D" uid="uid://ccr8b1yh55ghp" path="res://Assets/button/proceed button2.png" id="4_d4n7r"]
+[ext_resource type="Texture2D" uid="uid://blegk31uaf0s2" path="res://Assets/button/upgrade button2.png" id="4_vpmpq"]
 [ext_resource type="Texture2D" uid="uid://f2ysp086gisp" path="res://Assets/button/proceed button1.png" id="5_g42we"]
+[ext_resource type="Texture2D" uid="uid://boh7vw757ikbl" path="res://Assets/button/upgrade button1.png" id="5_ivyus"]
 [ext_resource type="Texture2D" uid="uid://bv6ab3s8neyhh" path="res://Assets/other art/Coin counter.png" id="6_1vvlq"]
+[ext_resource type="Texture2D" uid="uid://lgj7ycks54w4" path="res://Assets/button/refresh button2.png" id="6_mp2l0"]
+[ext_resource type="Texture2D" uid="uid://c345wpc35vwpl" path="res://Assets/button/refresh button1.png" id="7_qq6c7"]
 [ext_resource type="AudioStream" uid="uid://cmsbjx7l5wpc2" path="res://Assets/SFX/undesired_effect.wav" id="8_g2n5g"]
 [ext_resource type="AudioStream" uid="uid://ctxixt4p48vbo" path="res://Assets/SFX/8_bit_negative_quick.wav" id="9_mav0c"]
 [ext_resource type="AudioStream" uid="uid://bs6ltd7igbk48" path="res://Assets/SFX/menu_blip.wav" id="10_1y6jf"]
@@ -14,7 +18,28 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ek17p"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wasdk"]
+texture = ExtResource("4_vpmpq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w7crm"]
+texture = ExtResource("4_vpmpq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_guynj"]
+texture = ExtResource("4_vpmpq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xv6vv"]
+texture = ExtResource("5_ivyus")
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rgl65"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_grmmw"]
+texture = ExtResource("6_mp2l0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ymcjy"]
+texture = ExtResource("6_mp2l0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0waeb"]
+texture = ExtResource("7_qq6c7")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jbjg8"]
 
@@ -81,8 +106,14 @@ offset_left = 1002.0
 offset_top = 776.0
 offset_right = 1202.0
 offset_bottom = 846.0
+theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("2_uewhg")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ek17p")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_wasdk")
+theme_override_styles/hover = SubResource("StyleBoxTexture_w7crm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_guynj")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xv6vv")
 text = "GIVE"
 
 [node name="RejectButton" type="Button" parent="."]
@@ -92,8 +123,13 @@ offset_left = 1442.0
 offset_top = 776.0
 offset_right = 1642.0
 offset_bottom = 846.0
+theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("2_uewhg")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rgl65")
+theme_override_styles/hover = SubResource("StyleBoxTexture_grmmw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ymcjy")
+theme_override_styles/normal = SubResource("StyleBoxTexture_0waeb")
 text = "REFUSE"
 
 [node name="ProceedButton" type="Button" parent="."]

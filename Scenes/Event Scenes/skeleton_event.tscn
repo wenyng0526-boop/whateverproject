@@ -1,15 +1,19 @@
-[gd_scene load_steps=23 format=3 uid="uid://bf71pykopuy04"]
+[gd_scene load_steps=34 format=3 uid="uid://bf71pykopuy04"]
 
 [ext_resource type="Script" path="res://Scipts/skeleton_event.gd" id="1_peoaf"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_ewhaa"]
 [ext_resource type="Resource" uid="uid://bvf130wywxg2u" path="res://Minion Resource/Skeleton/extra_limbs.tres" id="3_ylfo0"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="4_gbuvy"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="5_ufgxm"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="5_ufgxm"]
 [ext_resource type="Script" path="res://Scipts/talking.gd" id="6_b1h48"]
 [ext_resource type="Script" path="res://Scipts/currency_ui.gd" id="6_dv4pi"]
+[ext_resource type="Texture2D" uid="uid://blegk31uaf0s2" path="res://Assets/button/upgrade button2.png" id="7_dkma6"]
 [ext_resource type="Texture2D" uid="uid://ccr8b1yh55ghp" path="res://Assets/button/proceed button2.png" id="7_s42qk"]
+[ext_resource type="Texture2D" uid="uid://boh7vw757ikbl" path="res://Assets/button/upgrade button1.png" id="8_6fjkp"]
 [ext_resource type="Texture2D" uid="uid://f2ysp086gisp" path="res://Assets/button/proceed button1.png" id="8_v1kp6"]
+[ext_resource type="Texture2D" uid="uid://lgj7ycks54w4" path="res://Assets/button/refresh button2.png" id="9_7cxx3"]
 [ext_resource type="Texture2D" uid="uid://bv6ab3s8neyhh" path="res://Assets/other art/Coin counter.png" id="9_3051v"]
+[ext_resource type="Texture2D" uid="uid://c345wpc35vwpl" path="res://Assets/button/refresh button1.png" id="10_cohbx"]
 [ext_resource type="AudioStream" uid="uid://chvnkp6ou5fe7" path="res://Assets/SFX/card_fan.wav" id="11_jdt2o"]
 [ext_resource type="AudioStream" uid="uid://s6phk4uwbvv0" path="res://Assets/SFX/card_draw_1.wav" id="12_1bxul"]
 [ext_resource type="AudioStream" uid="uid://ctxixt4p48vbo" path="res://Assets/SFX/8_bit_negative_quick.wav" id="13_83v8k"]
@@ -18,7 +22,28 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lsysb"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_58ola"]
+texture = ExtResource("7_dkma6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cttn8"]
+texture = ExtResource("7_dkma6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6prof"]
+texture = ExtResource("8_6fjkp")
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gowrq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5lvoh"]
+texture = ExtResource("7_dkma6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d2mkd"]
+texture = ExtResource("9_7cxx3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6sdks"]
+texture = ExtResource("9_7cxx3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dv3es"]
+texture = ExtResource("10_cohbx")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l374e"]
 
@@ -106,8 +131,13 @@ offset_left = 1002.0
 offset_top = 776.0
 offset_right = 1202.0
 offset_bottom = 846.0
+theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("5_ufgxm")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxEmpty_lsysb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_58ola")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cttn8")
+theme_override_styles/normal = SubResource("StyleBoxTexture_6prof")
 text = "GIVE"
 
 [node name="RejectButton" type="Button" parent="."]
@@ -117,8 +147,14 @@ offset_left = 1442.0
 offset_top = 776.0
 offset_right = 1642.0
 offset_bottom = 846.0
+theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("5_ufgxm")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gowrq")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_5lvoh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d2mkd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6sdks")
+theme_override_styles/normal = SubResource("StyleBoxTexture_dv3es")
 text = "REFUSE"
 
 [node name="ProceedButton" type="Button" parent="."]
