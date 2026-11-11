@@ -243,7 +243,6 @@ volume_db = -8.432
 
 [node name="Background2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_6h866")
-volume_db = 24.0
 autoplay = true
 bus = &"background"
 

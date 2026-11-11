@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cb4hiqaej2e5l"]
+[gd_scene load_steps=25 format=3 uid="uid://cb4hiqaej2e5l"]
 
 [ext_resource type="Script" path="res://Scipts/grandma_event.gd" id="1_u6k1w"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_6vhb5"]
@@ -14,6 +14,9 @@
 [ext_resource type="AudioStream" uid="uid://bed5sd3x3rfs7" path="res://Assets/SFX/coin_2.wav" id="12_6u3f7"]
 [ext_resource type="AudioStream" uid="uid://ctxixt4p48vbo" path="res://Assets/SFX/8_bit_negative_quick.wav" id="13_pgkgk"]
 [ext_resource type="AudioStream" uid="uid://bs6ltd7igbk48" path="res://Assets/SFX/menu_blip.wav" id="14_dd8lu"]
+[ext_resource type="Texture2D" uid="uid://baqw140qbdv1s" path="res://Assets/background/Grandma background.png" id="15_fql18"]
+[ext_resource type="Texture2D" uid="uid://b4tpveenw2mma" path="res://Assets/NPC/Grandma sad.png" id="16_v6ckh"]
+[ext_resource type="Texture2D" uid="uid://ogxa7t7c5sjb" path="res://Assets/NPC/Grandma happy.png" id="17_2014y"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_03wij"]
 
@@ -51,6 +54,7 @@ layout_mode = 2
 script = ExtResource("3_qq6bn")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
 z_index = -5
 custom_minimum_size = Vector2(800, 800)
 layout_mode = 0
@@ -165,6 +169,20 @@ volume_db = -5.622
 [node name="BlipSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_dd8lu")
 volume_db = -8.735
+
+[node name="GrandmaBackground" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(960, 540)
+texture = ExtResource("15_fql18")
+
+[node name="GrandmaSad" type="Sprite2D" parent="."]
+position = Vector2(964, 542)
+texture = ExtResource("16_v6ckh")
+
+[node name="GrandmaHappy" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(964, 542)
+texture = ExtResource("17_2014y")
 
 [connection signal="pressed" from="SubmitButton" to="." method="_on_submit_pressed"]
 [connection signal="pressed" from="RejectButton" to="." method="_on_reject_pressed"]

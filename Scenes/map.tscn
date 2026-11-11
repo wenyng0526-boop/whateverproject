@@ -348,7 +348,7 @@ text = "Chest"
 node_index = 39
 next_nodes = Array[int]([19])
 
-[node name="40 Shop" parent="." instance=ExtResource("1_j0sno")]
+[node name="40 Combat" parent="." instance=ExtResource("1_j0sno")]
 position = Vector2(879, 35)
 node_type = 1
 text = "Combat"
@@ -373,7 +373,6 @@ visible = false
 
 [node name="Background" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_cp1au")
-volume_db = 6.0
 autoplay = true
 bus = &"background"
 

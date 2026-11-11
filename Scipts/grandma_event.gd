@@ -10,6 +10,9 @@ extends Control
 @onready var proceed_button: Button = $ProceedButton
 @onready var currency_label: Label = $CurrencyUI/Control/Label
 
+@onready var grandma_sad: Sprite2D = $GrandmaSad
+@onready var grandma_happy: Sprite2D = $GrandmaHappy
+
 @onready var card_fan: AudioStreamPlayer = $CardFan
 @onready var card_draw: AudioStreamPlayer = $CardDraw
 @onready var coin_sound: AudioStreamPlayer = $CoinSound
@@ -27,6 +30,8 @@ func _ready() -> void:
 	spawn_hand_cards()
 	submit_button.disabled = true
 	proceed_button.hide()
+	grandma_sad.show()
+	grandma_happy.hide()
 	narrator_label.text = "You encounter a frail old woman, she walks up to you and begs for help."
 	dialogue_label.text = "\"Oh dearie, it would seem osteoporosis is getting the best of me. " + \
 	"Is there a way you can help refine my bones of old? \""
@@ -118,6 +123,8 @@ func _on_submit_pressed():
 		GameState.hand_cards.remove_at(index)
 	
 	coin_sound.play()
+	grandma_happy.show()
+	grandma_sad.hide()
 	GameState.currency += 7
 	#currency label flash green
 	var original_color: Color = currency_label.modulate

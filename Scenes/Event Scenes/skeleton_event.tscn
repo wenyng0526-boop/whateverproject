@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bf71pykopuy04"]
+[gd_scene load_steps=23 format=3 uid="uid://bf71pykopuy04"]
 
 [ext_resource type="Script" path="res://Scipts/skeleton_event.gd" id="1_peoaf"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_ewhaa"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://s6phk4uwbvv0" path="res://Assets/SFX/card_draw_1.wav" id="12_1bxul"]
 [ext_resource type="AudioStream" uid="uid://ctxixt4p48vbo" path="res://Assets/SFX/8_bit_negative_quick.wav" id="13_83v8k"]
 [ext_resource type="AudioStream" uid="uid://bs6ltd7igbk48" path="res://Assets/SFX/menu_blip.wav" id="14_5shwi"]
+[ext_resource type="Texture2D" uid="uid://baqw140qbdv1s" path="res://Assets/background/Grandma background.png" id="15_enpme"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lsysb"]
 
@@ -56,6 +57,7 @@ layout_mode = 2
 script = ExtResource("4_gbuvy")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
 z_index = -5
 layout_mode = 0
 offset_left = 940.0
@@ -165,3 +167,8 @@ volume_db = -4.685
 [node name="BlipSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_5shwi")
 volume_db = -9.185
+
+[node name="GrandmaBackground" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(960, 540)
+texture = ExtResource("15_enpme")

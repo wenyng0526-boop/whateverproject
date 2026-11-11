@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cfexesvuq7njd"]
+[gd_scene load_steps=22 format=3 uid="uid://cfexesvuq7njd"]
 
 [ext_resource type="Script" path="res://Scipts/knight_event.gd" id="1_cc51r"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_k67yc"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://bed5sd3x3rfs7" path="res://Assets/SFX/coin_2.wav" id="13_wahiv"]
 [ext_resource type="AudioStream" uid="uid://ctxixt4p48vbo" path="res://Assets/SFX/8_bit_negative_quick.wav" id="14_vejuw"]
 [ext_resource type="AudioStream" uid="uid://bs6ltd7igbk48" path="res://Assets/SFX/menu_blip.wav" id="15_oacc5"]
+[ext_resource type="Texture2D" uid="uid://baqw140qbdv1s" path="res://Assets/background/Grandma background.png" id="16_cd0ru"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a1hl0"]
 texture = ExtResource("7_qe5ip")
@@ -53,6 +54,7 @@ layout_mode = 2
 script = ExtResource("3_kq7uj")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
 z_index = -5
 layout_mode = 0
 offset_left = 940.0
@@ -171,3 +173,8 @@ volume_db = -4.685
 [node name="BlipSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_oacc5")
 volume_db = -8.3
+
+[node name="GrandmaBackground" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(960, 540)
+texture = ExtResource("16_cd0ru")

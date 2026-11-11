@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://l80ac12ejyjo"]
+[gd_scene load_steps=19 format=3 uid="uid://l80ac12ejyjo"]
 
 [ext_resource type="Script" path="res://Scipts/threaten_event.gd" id="1_7vr6r"]
 [ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="2_uewhg"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://cmsbjx7l5wpc2" path="res://Assets/SFX/undesired_effect.wav" id="8_g2n5g"]
 [ext_resource type="AudioStream" uid="uid://ctxixt4p48vbo" path="res://Assets/SFX/8_bit_negative_quick.wav" id="9_mav0c"]
 [ext_resource type="AudioStream" uid="uid://bs6ltd7igbk48" path="res://Assets/SFX/menu_blip.wav" id="10_1y6jf"]
+[ext_resource type="Texture2D" uid="uid://baqw140qbdv1s" path="res://Assets/background/Grandma background.png" id="11_ja4sc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ek17p"]
 
@@ -143,3 +144,8 @@ volume_db = -4.685
 [node name="BlipSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_1y6jf")
 volume_db = -8.432
+
+[node name="GrandmaBackground" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(960, 540)
+texture = ExtResource("11_ja4sc")
