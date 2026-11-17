@@ -30,6 +30,8 @@ var team: String = "" #Enemy or Player
 
 var is_hovered = false
 var hover_tween: Tween
+@onready var description_panel: PanelContainer = $CardVisual/CardDescription/PanelContainer
+var description_panel_default_x: float
 var rest_y: float = 0.0
 var normal_z_index: int = 0
 var board_mouse_pressed: bool = false
@@ -49,6 +51,7 @@ func _ready() -> void:
 	card_visual.z_as_relative = true
 	card_visual.z_index = 0
 
+	description_panel_default_x = description_panel.position.x
 	card_description.hide()
 	set_card_data(card_data)
 	mouse_entered.connect(_on_mouse_entered)
@@ -190,6 +193,15 @@ func play_fusion_animation() -> void:
 	animation_player.play("fusion")
 	await animation_player.animation_finished
 
+func play_dodge_ready_animation() -> void:
+	animation_player.play("dodge_ready")
+
+func play_dodge_animation() -> void:
+	animation_player.animation_finished
+	animation_player.play("dodge")
+	await animation_player.animation_finished
+
+
 func fusion_tween(other_card:CardUI):
 	card_visual.z_as_relative = false
 	other_card.card_visual.z_as_relative = false
@@ -292,8 +304,13 @@ func _on_mouse_entered() -> void:
 	if not is_inside_tree() or not is_hovered:
 		return
 
+	
 	# Show description at the position set in Godot Editor
-	card_description.show()
+	_show_description()
+
+
+	
+	
 
 func _on_mouse_exited() -> void:
 	if board_dragging:
@@ -316,6 +333,44 @@ func _on_mouse_exited() -> void:
 		)
 
 	z_index = normal_z_index
+
+func _show_description() -> void:
+	# Reset to the editor position (right side of the card) and recompute size
+	description_panel.position.x = description_panel_default_x
+	description_panel.reset_size()
+	card_description.modulate.a = 0.0 
+	card_description.show()
+
+	# Containers only finish resizing on the next frame
+	await get_tree().process_frame
+	if not is_inside_tree() or not is_hovered:
+		return
+
+	var viewport_size: Vector2 = get_viewport_rect().size
+	var margin := 10.0
+	var rect: Rect2 = description_panel.get_global_rect()
+
+	# Overflowing the right edge -> flip to the left side of the card
+	if rect.end.x > viewport_size.x - margin:
+		var card_left_local := -card_description.position.x
+		var card_right_local := card_visual.size.x - card_description.position.x
+		var gap := description_panel_default_x - card_right_local
+		description_panel.position.x = card_left_local - gap - description_panel.size.x
+		rect = description_panel.get_global_rect()
+
+	# Final safety clamp on both axes
+	var shift := Vector2.ZERO
+	if rect.position.x < margin:
+		shift.x = margin - rect.position.x
+	elif rect.end.x > viewport_size.x - margin:
+		shift.x = (viewport_size.x - margin) - rect.end.x
+	if rect.position.y < margin:
+		shift.y = margin - rect.position.y
+	elif rect.end.y > viewport_size.y - margin:
+		shift.y = (viewport_size.y - margin) - rect.end.y
+
+	description_panel.global_position += shift
+	card_description.modulate.a = 1.0
 
 #knight effect
 func knight_effect():
