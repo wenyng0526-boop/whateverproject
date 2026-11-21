@@ -26,6 +26,10 @@ var current_location: CardLocation = CardLocation.BOARD
 
 var current_health: int
 var current_attack: int
+
+var is_boss: bool = false
+signal health_changed
+
 var team: String = "" #Enemy or Player
 
 var is_hovered = false
@@ -47,15 +51,24 @@ var board_drag_start_position: Vector2
 
 const FUSION_Z := 3000
 
+
 func _ready() -> void:
 	card_visual.z_as_relative = true
 	card_visual.z_index = 0
 
+	# Reset the card visual position
+	card_visual.position = Vector2.ZERO
+	card_visual.rotation = 0.0
+	rest_y = 0.0
+
 	description_panel_default_x = description_panel.position.x
 	card_description.hide()
+
 	set_card_data(card_data)
+
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
+
 
 func set_card_data(new_data: Resource) -> void:
 	card_data = new_data
@@ -78,14 +91,16 @@ func set_card_data(new_data: Resource) -> void:
 	if description_label:
 		description_label.text = str(card_data.description)
 
+
 func take_damage(amount: int) -> void:
-	# Reduce this card's current health
 	current_health -= amount
-	# Prevent health from going below 0
 	current_health = max(current_health, 0)
-	# Update the health UI
+
 	if health_label:
 		health_label.text = str(current_health)
+
+	health_changed.emit()
+
 
 func is_dead() -> bool:
 	# Returns true if this card has no health left
@@ -182,12 +197,17 @@ func play_attack_animation() -> void:
 
 #card been attaked or dead, it play aniamation
 func play_hit_animation() -> void:
-	if team == "Player":
+	if is_boss:
+		animation_player.play("boss_hit")
+
+	elif team == "Player":
 		animation_player.play("hit_player")
+
 	else:
 		animation_player.play("hit_enemy")
 
 	await animation_player.animation_finished
+
 
 func play_fusion_animation() -> void:
 	animation_player.play("fusion")

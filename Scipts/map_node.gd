@@ -1,6 +1,6 @@
 extends Node2D
 
-enum NodeType { SHOP, COMBAT, EVENT, CHEST }
+enum NodeType { SHOP, COMBAT, EVENT, CHEST, BOSS}
 
 @export var node_type: NodeType
 @export var text: String
@@ -41,7 +41,9 @@ func _on_button_pressed() -> void:
 		NodeType.CHEST:
 			var chest_instance = chest_popup.instantiate()
 			get_tree().current_scene.add_child(chest_instance)
-
+			
+		NodeType.BOSS:
+			get_tree().change_scene_to_file("res://Scenes/boss_scene.tscn")
 
 func random_event() -> void:
 	var chosen_event: PackedScene = event_scenes.pick_random()

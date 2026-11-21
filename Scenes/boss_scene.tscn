@@ -1,0 +1,1057 @@
+[gd_scene load_steps=55 format=3 uid="uid://cm8wwhc0oombo"]
+
+[ext_resource type="Script" path="res://Scipts/boss_practice_manager.gd" id="1_1u37y"]
+[ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_w1grg"]
+[ext_resource type="Script" path="res://Scipts/card_data.gd" id="3_mmfs3"]
+[ext_resource type="Resource" uid="uid://c5v3wf8oo4mcd" path="res://Minion Resource/Goblin/elder_goblin.tres" id="3_vkaxb"]
+[ext_resource type="Resource" uid="uid://du5degasdr5q1" path="res://Minion Resource/Goblin/goblin_thief.tres" id="6_thqmq"]
+[ext_resource type="Resource" uid="uid://dwpu2h2bdmhji" path="res://Minion Resource/Goblin/shady_banker.tres" id="7_1482y"]
+[ext_resource type="Resource" uid="uid://23w3x68p88ih" path="res://Minion Resource/Knight/aspiring_squire.tres" id="8_r2jp3"]
+[ext_resource type="Resource" uid="uid://bn8rixgot0bjo" path="res://Minion Resource/Knight/horn_blower.tres" id="9_o1foo"]
+[ext_resource type="Resource" uid="uid://dfmn33hu2kreo" path="res://Minion Resource/Rat/stink_rat.tres" id="11_7qwh0"]
+[ext_resource type="Resource" uid="uid://ck25kwqigneuy" path="res://Minion Resource/Skeleton/skeleton_archer.tres" id="13_dle28"]
+[ext_resource type="Resource" uid="uid://cq0kmmrv0v2ct" path="res://Minion Resource/Goblin/greed_gobbler.tres" id="15_olrto"]
+[ext_resource type="Resource" uid="uid://c4lnlj38wuvu6" path="res://Minion Resource/Knight/foot_soldier.tres" id="17_14p88"]
+[ext_resource type="Resource" uid="uid://d206o5rpul7ka" path="res://Minion Resource/Rat/rat_tamer.tres" id="21_sb5kl"]
+[ext_resource type="Resource" uid="uid://bvf130wywxg2u" path="res://Minion Resource/Skeleton/extra_limbs.tres" id="25_xtuns"]
+[ext_resource type="Texture2D" uid="uid://7yxb2bx1oamo" path="res://Assets/boss/talk/talk(boss).png" id="27_xoni1"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="28_6owr3"]
+[ext_resource type="Texture2D" uid="uid://bsfocwfeyeutb" path="res://Assets/boss/haelth_bar/backgorund_boss_health.png" id="29_2r5wd"]
+[ext_resource type="Texture2D" uid="uid://beo525sgyi886" path="res://Assets/boss/haelth_bar/max_boss_health.png" id="30_1urn7"]
+[ext_resource type="Texture2D" uid="uid://tljdgd5dge6s" path="res://Assets/boss/warning_before_attack/warning(boss_attack).png" id="31_w6gjd"]
+[ext_resource type="Resource" uid="uid://cux54pf0jelew" path="res://Minion Resource/Rat/mother_of_rats.tres" id="31_xtkki"]
+[ext_resource type="Texture2D" uid="uid://5gno616i51d0" path="res://icon.svg" id="32_cnxiy"]
+[ext_resource type="Script" path="res://Scenes/boss_attack_events.gd" id="33_crsdu"]
+[ext_resource type="Resource" uid="uid://bcio2vbvxjej0" path="res://Minion Resource/Skeleton/spearbone.tres" id="33_cvuyt"]
+[ext_resource type="Texture2D" uid="uid://du5r8nrjxxej8" path="res://Assets/boss/attack/fat_rat_for_boss.png" id="33_gyfxs"]
+[ext_resource type="Texture2D" uid="uid://bsp5p3c01d0j3" path="res://Assets/button/pause button.png" id="34_j2ldo"]
+[ext_resource type="Script" path="res://Scenes/dodge_hint_layer.gd" id="34_noty0"]
+[ext_resource type="PackedScene" uid="uid://b3awfj516bl5" path="res://Scenes/Reward.tscn" id="35_d1h3d"]
+[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="35_upgms"]
+[ext_resource type="Texture2D" uid="uid://6lxrcvsx4ej" path="res://Assets/boss/attack/many_rat_for_boss.png" id="35_wer0t"]
+[ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="36_rh5ju"]
+[ext_resource type="Texture2D" uid="uid://dfqfxwlc6k6hj" path="res://Assets/button/start battle button2.png" id="37_bsxyw"]
+[ext_resource type="Texture2D" uid="uid://dfuomw0aohqj6" path="res://Assets/button/start battle button1.png" id="38_eycwp"]
+[ext_resource type="PackedScene" uid="uid://b4ojdviu2r56a" path="res://Scenes/pause_menu.tscn" id="39_usufl"]
+[ext_resource type="AudioStream" uid="uid://dp0ycn8023h26" path="res://Assets/SFX/punch.wav" id="40_3l8wa"]
+[ext_resource type="AudioStream" uid="uid://s6phk4uwbvv0" path="res://Assets/SFX/card_draw_1.wav" id="41_nsmuw"]
+[ext_resource type="AudioStream" uid="uid://chvnkp6ou5fe7" path="res://Assets/SFX/card_fan.wav" id="42_uchnx"]
+[ext_resource type="AudioStream" uid="uid://bhdhggrwrgwsu" path="res://Assets/SFX/select_1.wav" id="43_k0nmo"]
+[ext_resource type="Texture2D" uid="uid://bmr6amqr4nmnk" path="res://Assets/background/Combat background.png" id="44_gsx15"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_etf28"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t4x5d"]
+texture = ExtResource("34_j2ldo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_onlmt"]
+texture = ExtResource("34_j2ldo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ytpxs"]
+texture = ExtResource("34_j2ldo")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7bm6h"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5yj08"]
+texture = ExtResource("37_bsxyw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cpjuq"]
+texture = ExtResource("37_bsxyw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pkyhh"]
+texture = ExtResource("38_eycwp")
+
+[sub_resource type="Animation" id="Animation_fhifr"]
+resource_name = "Left_Arm_Attack"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossUILayer/Left_Arm_Attack:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.6, 0.9, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BossUILayer/Left_Arm_Attack:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.6, 0.9, 0.95, 1, 1.05, 1.1, 1.15, 1.3, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(960, 255), Vector2(960, 209), Vector2(960, 281), Vector2(960, 220), Vector2(960, 180), Vector2(960, 195), Vector2(960, 180), Vector2(960, 195), Vector2(960, 180), Vector2(960, 195), Vector2(960, 255), Vector2(960, 649)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BossUILayer/AttackEvents")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [5],
+"method": &"hit"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BossUILayer/WarningIcon:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(334, 460)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BossUILayer/WarningIcon2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1578, 460)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BossUILayer/WarningIcon2:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 6]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BossUILayer/WarningIcon:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 6]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BossUILayer/WarningIcon:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BossUILayer/WarningIcon2:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BossUILayer/AttackEvents")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"open_dodge"
+}]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("BossUILayer/Left_Arm_Attack:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_27bnu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossUILayer/BossHealthBar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BossUILayer/Fat_Rat_Attack:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BossUILayer/Right_Arm_Attack:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BossUILayer/Left_Arm_Attack:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BossUILayer/WarningIcon2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BossUILayer/WarningIcon:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BossUILayer/WarningIcon2:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BossUILayer/WarningIcon2:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(270, 708)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BossUILayer/Many_Rat_Attack:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_fqm3t"]
+resource_name = "health_appear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossUILayer/BossHealthBar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ytwh8"]
+resource_name = "Right_Arm_Attack"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossUILayer/Right_Arm_Attack:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.15, 1.2, 1.65),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.164061, -0.020944, 0.308923, -0.0680678, 0.272271, -0.122173, 0.122173, 0.0, -2.77333]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BossUILayer/Right_Arm_Attack:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.35, 1.65, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BossUILayer/Right_Arm_Attack:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5, 0.7, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1, 1.15, 1.2, 1.35, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(960, 282), Vector2(960, 191), Vector2(960, 255), Vector2(960, 344), Vector2(960, 255), Vector2(960, 220), Vector2(960, 255), Vector2(960, 228), Vector2(960, 255), Vector2(960, 220), Vector2(960, 255), Vector2(960, 228), Vector2(960, 255), Vector2(960, 228), Vector2(960, 255), Vector2(979, 281), Vector2(962, 228)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BossUILayer/Right_Arm_Attack:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.95),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BossUILayer/WarningIcon:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(334, 460)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BossUILayer/WarningIcon:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BossUILayer/WarningIcon2:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1578, 460)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BossUILayer/WarningIcon2:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BossUILayer/WarningIcon2:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.05, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 6]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BossUILayer/WarningIcon:frame")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 6]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("BossUILayer/AttackEvents")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [10],
+"method": &"hit"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_a2sar"]
+resource_name = "Fat_Rat_Attack"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossUILayer/Fat_Rat_Attack:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(974, -394), Vector2(974, -394), Vector2(974, 578)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BossUILayer/Fat_Rat_Attack:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.25, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(20, 20), Vector2(20, 20), Vector2(25, 15)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BossUILayer/AttackEvents")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [8],
+"method": &"hit"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BossUILayer/WarningIcon:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(334, 460)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BossUILayer/WarningIcon:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BossUILayer/WarningIcon2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1578, 460)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BossUILayer/WarningIcon2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BossUILayer/WarningIcon2:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 6]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BossUILayer/WarningIcon:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 6]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BossUILayer/Fat_Rat_Attack:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1.4, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("BossUILayer/AttackEvents")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"open_dodge"
+}]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("BossUILayer/Fat_Rat_Attack:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_uuas4"]
+resource_name = "Many_Rat_Attack(Right)"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossUILayer/Many_Rat_Attack:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.4, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2257, 692), Vector2(2113, 692), Vector2(1044, 692), Vector2(-122, 692)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BossUILayer/WarningIcon2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BossUILayer/WarningIcon2:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 6]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BossUILayer/WarningIcon2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1675, 708)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BossUILayer/Many_Rat_Attack:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BossUILayer/Many_Rat_Attack:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_bjjyo"]
+resource_name = "Many_Rat_Attack(Left)"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossUILayer/Many_Rat_Attack:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.4, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-221, 692), Vector2(-221, 692), Vector2(750, 692), Vector2(2114, 692)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BossUILayer/WarningIcon2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BossUILayer/WarningIcon2:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 6]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BossUILayer/WarningIcon2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(270, 708)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BossUILayer/AttackEvents")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [10],
+"method": &"hit"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BossUILayer/Many_Rat_Attack:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_guuq5"]
+_data = {
+"Fat_Rat_Attack": SubResource("Animation_a2sar"),
+"Left_Arm_Attack": SubResource("Animation_fhifr"),
+"Many_Rat_Attack(Left)": SubResource("Animation_bjjyo"),
+"Many_Rat_Attack(Right)": SubResource("Animation_uuas4"),
+"RESET": SubResource("Animation_27bnu"),
+"Right_Arm_Attack": SubResource("Animation_ytwh8"),
+"health_appear": SubResource("Animation_fqm3t")
+}
+
+[node name="Boss_Scene" type="Node2D" node_paths=PackedStringArray("player_container", "enemy_container")]
+position = Vector2(2, 0)
+script = ExtResource("1_1u37y")
+test_boss_data = ExtResource("31_xtkki")
+phase_two_boss_data = ExtResource("3_vkaxb")
+player_container = NodePath("PlayerCenter/PlayerContainer")
+enemy_container = NodePath("EnemyCenter/EnemyContainer")
+card_ui = ExtResource("2_w1grg")
+two_star_enemies = Array[ExtResource("3_mmfs3")]([ExtResource("6_thqmq"), ExtResource("7_1482y"), ExtResource("8_r2jp3"), ExtResource("9_o1foo"), ExtResource("13_dle28")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="PauseButton" type="Button" parent="CanvasLayer"]
+offset_left = 1745.0
+offset_top = 34.0
+offset_right = 1873.0
+offset_bottom = 162.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_etf28")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_t4x5d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_onlmt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ytpxs")
+
+[node name="EnemyCenter" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(1920, 300)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 124.0
+offset_right = 1920.0
+offset_bottom = 424.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="EnemyContainer" type="HBoxContainer" parent="EnemyCenter"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Enemy1" parent="EnemyCenter/EnemyContainer" instance=ExtResource("2_w1grg")]
+layout_mode = 2
+card_data = ExtResource("17_14p88")
+
+[node name="Enemy2" parent="EnemyCenter/EnemyContainer" instance=ExtResource("2_w1grg")]
+layout_mode = 2
+card_data = ExtResource("25_xtuns")
+
+[node name="Enemy3" parent="EnemyCenter/EnemyContainer" instance=ExtResource("2_w1grg")]
+layout_mode = 2
+card_data = ExtResource("21_sb5kl")
+
+[node name="Enemy4" parent="EnemyCenter/EnemyContainer" instance=ExtResource("2_w1grg")]
+layout_mode = 2
+card_data = ExtResource("15_olrto")
+
+[node name="PlayerCenter" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(1920, 300)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 553.0
+offset_right = 1920.0
+offset_bottom = 853.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PlayerContainer" type="HBoxContainer" parent="PlayerCenter"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Player1" parent="PlayerCenter/PlayerContainer" instance=ExtResource("2_w1grg")]
+layout_mode = 2
+card_data = ExtResource("33_cvuyt")
+
+[node name="Player2" parent="PlayerCenter/PlayerContainer" instance=ExtResource("2_w1grg")]
+layout_mode = 2
+
+[node name="Player3" parent="PlayerCenter/PlayerContainer" instance=ExtResource("2_w1grg")]
+layout_mode = 2
+card_data = ExtResource("31_xtkki")
+
+[node name="Player4" parent="PlayerCenter/PlayerContainer" instance=ExtResource("2_w1grg")]
+layout_mode = 2
+card_data = ExtResource("11_7qwh0")
+
+[node name="Effects" type="Node2D" parent="."]
+
+[node name="ResultLayer" type="CanvasLayer" parent="."]
+
+[node name="Reward_scene" parent="ResultLayer" instance=ExtResource("35_d1h3d")]
+
+[node name="HandCenter" type="CenterContainer" parent="."]
+offset_top = 903.0
+offset_right = 1920.0
+offset_bottom = 1303.0
+size_flags_vertical = 4
+
+[node name="HandContainer" type="HBoxContainer" parent="HandCenter"]
+z_index = 100
+layout_mode = 2
+script = ExtResource("36_rh5ju")
+
+[node name="StartBattleButton" type="Button" parent="."]
+z_index = 101
+offset_left = 1500.0
+offset_top = 427.0
+offset_right = 1820.0
+offset_bottom = 555.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7bm6h")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5yj08")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cpjuq")
+theme_override_styles/normal = SubResource("StyleBoxTexture_pkyhh")
+
+[node name="DragLayer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PauseMenu" parent="." instance=ExtResource("39_usufl")]
+visible = false
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("40_3l8wa")
+volume_db = -12.265
+
+[node name="CardDraw" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("41_nsmuw")
+
+[node name="CardFan" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("42_uchnx")
+
+[node name="StartSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("43_k0nmo")
+
+[node name="CombatBackground" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(958, 539)
+texture = ExtResource("44_gsx15")
+
+[node name="IntroLayer" type="CanvasLayer" parent="."]
+layer = 20
+
+[node name="IntroRoot" type="Control" parent="IntroLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fade" type="ColorRect" parent="IntroLayer/IntroRoot"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="DialoguePanel" type="NinePatchRect" parent="IntroLayer/IntroRoot"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 456.0
+offset_top = 804.0
+offset_right = 1536.0
+offset_bottom = 1004.0
+texture = ExtResource("27_xoni1")
+region_rect = Rect2(2.80032, 16.2261, 58.1466, 31.7163)
+
+[node name="DialogueText" type="Label" parent="IntroLayer/IntroRoot/DialoguePanel"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 29.0
+offset_right = 1044.0
+offset_bottom = 229.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("28_6owr3")
+theme_override_font_sizes/font_size = 24
+autowrap_mode = 2
+
+[node name="BossUILayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="BossHealthBar" type="TextureProgressBar" parent="BossUILayer"]
+offset_left = 201.0
+offset_top = 5.0
+offset_right = 2121.0
+offset_bottom = 69.0
+scale = Vector2(0.8, 1)
+max_value = 50.0
+value = 50.0
+texture_under = ExtResource("29_2r5wd")
+texture_progress = ExtResource("30_1urn7")
+
+[node name="BossAnimation" type="AnimationPlayer" parent="BossUILayer"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_guuq5")
+}
+
+[node name="WarningIcon" type="Sprite2D" parent="BossUILayer"]
+visible = false
+texture_filter = 1
+position = Vector2(334, 460)
+scale = Vector2(2, 2)
+texture = ExtResource("31_w6gjd")
+hframes = 8
+
+[node name="WarningIcon2" type="Sprite2D" parent="BossUILayer"]
+visible = false
+modulate = Color(1, 1, 1, 1)
+position = Vector2(270, 708)
+scale = Vector2(2, 2)
+texture = ExtResource("31_w6gjd")
+hframes = 8
+frame = 6
+
+[node name="Left_Arm_Attack" type="Sprite2D" parent="BossUILayer"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 255)
+texture = ExtResource("32_cnxiy")
+
+[node name="Right_Arm_Attack" type="Sprite2D" parent="BossUILayer"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 282)
+texture = ExtResource("32_cnxiy")
+
+[node name="Fat_Rat_Attack" type="Sprite2D" parent="BossUILayer"]
+visible = false
+texture_filter = 1
+position = Vector2(974, -394)
+scale = Vector2(20, 20)
+texture = ExtResource("33_gyfxs")
+
+[node name="Many_Rat_Attack" type="Sprite2D" parent="BossUILayer"]
+texture_filter = 1
+position = Vector2(2257, 692)
+texture = ExtResource("35_wer0t")
+
+[node name="AttackEvents" type="Node" parent="BossUILayer"]
+script = ExtResource("33_crsdu")
+
+[node name="DodgeHintLayer" type="CanvasLayer" parent="."]
+layer = 20
+script = ExtResource("34_noty0")
+
+[node name="HintLabel" type="Label" parent="DodgeHintLayer"]
+process_mode = 3
+offset_left = 470.0
+offset_top = 475.0
+offset_right = 1430.0
+offset_bottom = 506.0
+theme_override_fonts/font = ExtResource("35_upgms")
+theme_override_font_sizes/font_size = 30
+text = "PRESS SHIFT OR RIGHT CLICK TO DODGE!"
+
+[connection signal="pressed" from="CanvasLayer/PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]
+[connection signal="pressed" from="StartBattleButton" to="." method="_on_start_battle_button_pressed"]

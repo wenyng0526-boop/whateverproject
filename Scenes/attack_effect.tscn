@@ -596,7 +596,7 @@ hframes = 7
 [node name="GoblinAttack" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0)
-rotation = -0.0383972
+rotation = -3.06305
 texture = ExtResource("3_wk0lk")
 
 [node name="KnightAttack" type="Sprite2D" parent="."]
@@ -607,9 +607,8 @@ texture = ExtResource("4_5jjmw")
 
 [node name="SkeletonAttack" type="Sprite2D" parent="."]
 visible = false
-modulate = Color(1, 1, 1, 0)
-position = Vector2(0, 249)
+modulate = Color(1, 1, 1, 0.142857)
+rotation = 0.0523599
 scale = Vector2(2, 2)
 texture = ExtResource("5_2aejn")
 hframes = 2
-frame = 1

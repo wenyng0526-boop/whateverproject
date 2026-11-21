@@ -31,8 +31,11 @@ func _ready() -> void:
 
 func refresh_shop():
 	print("shop_level: ", GameState.shop_level)
+	
 	for child in card_container.get_children():
+		card_container.remove_child(child)
 		child.queue_free()
+
 	fan_sound.play()
 	var max_cost: int = GameState.SHOP_MAX_COST[GameState.shop_level - 1]
 	var pool: Array[card_resource] = shop_cards.shop_cards_one.filter(

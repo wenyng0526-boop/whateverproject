@@ -391,16 +391,18 @@ next_nodes = Array[int]([45, 46])
 position = Vector2(726, 146)
 text = "Shop"
 node_index = 45
+next_nodes = Array[int]([47])
 
 [node name="46 Shop" parent="." instance=ExtResource("1_j0sno")]
 position = Vector2(1029, 146)
 text = "Shop"
 node_index = 46
+next_nodes = Array[int]([47])
 
 [node name="47 Combat" parent="." instance=ExtResource("1_j0sno")]
 position = Vector2(869, 58)
-node_type = 1
-text = "Combat"
+node_type = 4
+text = "Boss"
 node_index = 47
 
 [node name="Camera2D" type="Camera2D" parent="."]
