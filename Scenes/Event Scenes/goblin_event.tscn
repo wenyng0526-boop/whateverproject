@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://la5r22v0ss12"]
+[gd_scene load_steps=34 format=3 uid="uid://la5r22v0ss12"]
 
 [ext_resource type="Script" path="res://Scipts/goblin_event.gd" id="1_lxfvh"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_q4sj4"]
@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://ctxixt4p48vbo" path="res://Assets/SFX/8_bit_negative_quick.wav" id="12_nr6a2"]
 [ext_resource type="AudioStream" uid="uid://bs6ltd7igbk48" path="res://Assets/SFX/menu_blip.wav" id="13_r2lpb"]
 [ext_resource type="Texture2D" uid="uid://baqw140qbdv1s" path="res://Assets/background/Grandma background.png" id="14_1um0h"]
+[ext_resource type="Texture2D" uid="uid://bmexgyf3vk7yv" path="res://Assets/NPC/Greed Gobler.png" id="19_vdw51"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4e2g"]
 
@@ -70,6 +71,7 @@ card_ui = ExtResource("2_q4sj4")
 greed_gobbler_card = ExtResource("3_g0f7j")
 
 [node name="HandCenter" type="CenterContainer" parent="."]
+z_index = 1
 layout_mode = 0
 offset_left = 43.0
 offset_top = 888.0
@@ -77,6 +79,7 @@ offset_right = 1963.0
 offset_bottom = 1288.0
 
 [node name="HandContainer" type="HBoxContainer" parent="HandCenter"]
+z_index = 1
 layout_mode = 2
 script = ExtResource("4_rrtug")
 
@@ -197,3 +200,8 @@ volume_db = -7.495
 z_index = -10
 position = Vector2(960, 540)
 texture = ExtResource("14_1um0h")
+
+[node name="GreedGobler" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(964, 542)
+texture = ExtResource("19_vdw51")

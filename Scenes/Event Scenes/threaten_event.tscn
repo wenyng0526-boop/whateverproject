@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://l80ac12ejyjo"]
+[gd_scene load_steps=31 format=3 uid="uid://l80ac12ejyjo"]
 
 [ext_resource type="Script" path="res://Scipts/threaten_event.gd" id="1_7vr6r"]
 [ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="2_uewhg"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://ctxixt4p48vbo" path="res://Assets/SFX/8_bit_negative_quick.wav" id="9_mav0c"]
 [ext_resource type="AudioStream" uid="uid://bs6ltd7igbk48" path="res://Assets/SFX/menu_blip.wav" id="10_1y6jf"]
 [ext_resource type="Texture2D" uid="uid://baqw140qbdv1s" path="res://Assets/background/Grandma background.png" id="11_ja4sc"]
+[ext_resource type="Texture2D" uid="uid://c2m2f45c1nsxn" path="res://Assets/NPC/Threatening man.png" id="16_ao7ew"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ek17p"]
 
@@ -186,3 +187,7 @@ volume_db = -8.432
 z_index = -100
 position = Vector2(960, 540)
 texture = ExtResource("11_ja4sc")
+
+[node name="ThreateningMan" type="Sprite2D" parent="."]
+position = Vector2(964, 542)
+texture = ExtResource("16_ao7ew")

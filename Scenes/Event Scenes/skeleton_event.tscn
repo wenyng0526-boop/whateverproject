@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bf71pykopuy04"]
+[gd_scene load_steps=36 format=3 uid="uid://bf71pykopuy04"]
 
 [ext_resource type="Script" path="res://Scipts/skeleton_event.gd" id="1_peoaf"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_ewhaa"]
@@ -19,6 +19,8 @@
 [ext_resource type="AudioStream" uid="uid://ctxixt4p48vbo" path="res://Assets/SFX/8_bit_negative_quick.wav" id="13_83v8k"]
 [ext_resource type="AudioStream" uid="uid://bs6ltd7igbk48" path="res://Assets/SFX/menu_blip.wav" id="14_5shwi"]
 [ext_resource type="Texture2D" uid="uid://baqw140qbdv1s" path="res://Assets/background/Grandma background.png" id="15_enpme"]
+[ext_resource type="Texture2D" uid="uid://b2ice7lxcx4ss" path="res://Assets/NPC/Normal skeleton.png" id="20_pppmt"]
+[ext_resource type="Texture2D" uid="uid://clq3s6l2pnl2p" path="res://Assets/NPC/Extra Limbs.png" id="21_pe15l"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lsysb"]
 
@@ -71,6 +73,7 @@ card_ui = ExtResource("2_ewhaa")
 extra_limbs_card = ExtResource("3_ylfo0")
 
 [node name="HandCenter" type="CenterContainer" parent="."]
+z_index = 1
 layout_mode = 0
 offset_left = 43.0
 offset_top = 888.0
@@ -78,6 +81,7 @@ offset_right = 1963.0
 offset_bottom = 1288.0
 
 [node name="HandContainer" type="HBoxContainer" parent="HandCenter"]
+z_index = 1
 layout_mode = 2
 script = ExtResource("4_gbuvy")
 
@@ -208,3 +212,12 @@ volume_db = -9.185
 z_index = -100
 position = Vector2(960, 540)
 texture = ExtResource("15_enpme")
+
+[node name="NormalSkeleton" type="Sprite2D" parent="."]
+position = Vector2(964, 542)
+texture = ExtResource("20_pppmt")
+
+[node name="ExtraLimbs" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(964, 542)
+texture = ExtResource("21_pe15l")

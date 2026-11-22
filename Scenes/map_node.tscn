@@ -1,18 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5r3h7s0140do"]
+[gd_scene load_steps=13 format=3 uid="uid://c5r3h7s0140do"]
 
 [ext_resource type="Script" path="res://Scipts/map_node.gd" id="1_cpk8c"]
+[ext_resource type="Texture2D" uid="uid://b683jck6dr0t1" path="res://Assets/button/shop icon1.png" id="2_77kdg"]
 [ext_resource type="AudioStream" uid="uid://bs6ltd7igbk48" path="res://Assets/SFX/menu_blip.wav" id="2_ad2sn"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w1jgr"]
+[ext_resource type="Texture2D" uid="uid://b6fsn2dfqxwan" path="res://Assets/button/Combat Icon1.png" id="3_5t1nx"]
+[ext_resource type="Texture2D" uid="uid://b2jwxwtgudhee" path="res://Assets/button/Event Icon1.png" id="4_6eig7"]
+[ext_resource type="Texture2D" uid="uid://b3cou8v641qwc" path="res://Assets/button/Chest Icon1.png" id="5_a1pt6"]
+[ext_resource type="Texture2D" uid="uid://bjldtxe8gtie7" path="res://Assets/button/Boss Icon1.png" id="6_exgm6"]
+[ext_resource type="Texture2D" uid="uid://uwk3a2sghu8c" path="res://Assets/button/shop icon2.png" id="7_8oeb7"]
+[ext_resource type="Texture2D" uid="uid://pjcnkliadk8x" path="res://Assets/button/Combat Icon2.png" id="8_npnxt"]
+[ext_resource type="Texture2D" uid="uid://wcx68he3or6b" path="res://Assets/button/Event Icon2.png" id="9_i13cs"]
+[ext_resource type="Texture2D" uid="uid://sv8ysgqe8gqv" path="res://Assets/button/Chest Icon2.png" id="10_n3wv5"]
+[ext_resource type="Texture2D" uid="uid://clorii122fm2k" path="res://Assets/button/Boss Icon2.png" id="11_bu7c5"]
 
 [node name="MapNode" type="Node2D"]
 script = ExtResource("1_cpk8c")
+normal_textures = Array[Texture2D]([ExtResource("2_77kdg"), ExtResource("3_5t1nx"), ExtResource("4_6eig7"), ExtResource("5_a1pt6"), ExtResource("6_exgm6")])
+hover_textures = Array[Texture2D]([ExtResource("7_8oeb7"), ExtResource("8_npnxt"), ExtResource("9_i13cs"), ExtResource("10_n3wv5"), ExtResource("11_bu7c5")])
+pressed_textures = Array[Texture2D]([ExtResource("7_8oeb7"), ExtResource("8_npnxt"), ExtResource("9_i13cs"), ExtResource("10_n3wv5"), ExtResource("11_bu7c5")])
+disabled_textures = Array[Texture2D]([ExtResource("7_8oeb7"), ExtResource("8_npnxt"), ExtResource("9_i13cs"), ExtResource("10_n3wv5"), ExtResource("11_bu7c5")])
 
-[node name="Button" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_w1jgr")
-text = "Thing"
+[node name="Button" type="TextureButton" parent="."]
+offset_right = 256.0
+offset_bottom = 192.0
+texture_normal = ExtResource("3_5t1nx")
 
 [node name="BlipSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_ad2sn")

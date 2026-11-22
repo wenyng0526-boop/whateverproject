@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cfexesvuq7njd"]
+[gd_scene load_steps=38 format=3 uid="uid://cfexesvuq7njd"]
 
 [ext_resource type="Script" path="res://Scipts/knight_event.gd" id="1_cc51r"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_k67yc"]
@@ -20,6 +20,9 @@
 [ext_resource type="AudioStream" uid="uid://ctxixt4p48vbo" path="res://Assets/SFX/8_bit_negative_quick.wav" id="14_vejuw"]
 [ext_resource type="AudioStream" uid="uid://bs6ltd7igbk48" path="res://Assets/SFX/menu_blip.wav" id="15_oacc5"]
 [ext_resource type="Texture2D" uid="uid://baqw140qbdv1s" path="res://Assets/background/Grandma background.png" id="16_cd0ru"]
+[ext_resource type="Texture2D" uid="uid://d067hrm6dd61o" path="res://Assets/NPC/Hungry Squire.png" id="21_svc43"]
+[ext_resource type="Texture2D" uid="uid://clucp7ird1dvr" path="res://Assets/NPC/Happy Squire.png" id="22_xv76e"]
+[ext_resource type="Texture2D" uid="uid://bgblo1ab63kbe" path="res://Assets/NPC/Dead Squire.png" id="23_nf6ne"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0rj23"]
 
@@ -72,6 +75,7 @@ card_ui = ExtResource("2_k67yc")
 aspiring_squire_card = ExtResource("3_goegt")
 
 [node name="HandCenter" type="CenterContainer" parent="."]
+z_index = 1
 layout_mode = 0
 offset_left = 43.0
 offset_top = 888.0
@@ -79,6 +83,7 @@ offset_right = 1963.0
 offset_bottom = 1288.0
 
 [node name="HandContainer" type="HBoxContainer" parent="HandCenter"]
+z_index = 1
 layout_mode = 2
 script = ExtResource("3_kq7uj")
 
@@ -220,3 +225,17 @@ volume_db = -8.3
 z_index = -100
 position = Vector2(960, 540)
 texture = ExtResource("16_cd0ru")
+
+[node name="HungrySquire" type="Sprite2D" parent="."]
+position = Vector2(964, 542)
+texture = ExtResource("21_svc43")
+
+[node name="HappySquire" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(964, 542)
+texture = ExtResource("22_xv76e")
+
+[node name="DeadSquire" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(964, 542)
+texture = ExtResource("23_nf6ne")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://hxb0kjyafgci"]
+[gd_scene load_steps=16 format=3 uid="uid://hxb0kjyafgci"]
 
 [ext_resource type="Script" path="res://Scipts/trap_event.gd" id="1_yl31l"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="2_dt4tc"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://cmsbjx7l5wpc2" path="res://Assets/SFX/undesired_effect.wav" id="8_ej1ug"]
 [ext_resource type="AudioStream" uid="uid://bs6ltd7igbk48" path="res://Assets/SFX/menu_blip.wav" id="9_lslq5"]
 [ext_resource type="Texture2D" uid="uid://baqw140qbdv1s" path="res://Assets/background/Grandma background.png" id="10_rkpjt"]
+[ext_resource type="Texture2D" uid="uid://dnnrdjef4yswa" path="res://Assets/NPC/leg trapped.png" id="11_viy8v"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4f6pa"]
 
@@ -90,3 +91,7 @@ volume_db = -9.369
 z_index = -100
 position = Vector2(960, 540)
 texture = ExtResource("10_rkpjt")
+
+[node name="LegTrapped" type="Sprite2D" parent="."]
+position = Vector2(964, 542)
+texture = ExtResource("11_viy8v")

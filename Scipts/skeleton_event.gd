@@ -9,6 +9,10 @@ extends Control
 @onready var submit_button: Button = $SubmitButton
 @onready var reject_button: Button = $RejectButton
 @onready var proceed_button: Button = $ProceedButton
+
+@onready var normal_skeleton: Sprite2D = $NormalSkeleton
+@onready var extra_limbs_skeleton: Sprite2D = $ExtraLimbs
+
 @onready var card_fan: AudioStreamPlayer = $CardFan
 @onready var card_draw: AudioStreamPlayer = $CardDraw
 @onready var refuse_sound: AudioStreamPlayer = $RefuseSound
@@ -26,6 +30,8 @@ func _ready() -> void:
 	spawn_hand_cards()
 	submit_button.disabled = true
 	proceed_button.hide()
+	extra_limbs_skeleton.hide()
+	normal_skeleton.show()
 	narrator_label.text = "You encounter a seemingly normal skeleton. The skeleton is perplexed and asks you for a favour."
 	dialogue_label.text = "\"Hello there. I feel a bit lacking do you know what I mean? I feel like I could just be so much more. " + \
 	"Perhaps you have some skeletons I could experiment with to reach my full potential? I'll take any lump of bone you've got.\""
@@ -127,6 +133,8 @@ func _on_submit_pressed():
 	submit_button.hide()
 	reject_button.hide()
 	proceed_button.show()
+	extra_limbs_skeleton.show()
+	normal_skeleton.hide()
 	narrator_label.text = "The skeleton took some bones you gave it and attaches them to itself. " + \
 	"It offers you his thanks and joins you on your conquest. "
 	dialogue_label.text = "\"Oh my! Having extra limbs sure is nice! I feel much stronger now. And if you need my help, I'll gladly fight by your side!\""

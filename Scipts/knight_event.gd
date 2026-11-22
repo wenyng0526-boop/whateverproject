@@ -10,11 +10,16 @@ extends Control
 @onready var reject_button: Button = $RejectButton
 @onready var proceed_button: Button = $ProceedButton
 @onready var currency_label: Label = $CurrencyUI/Control/Label
+
 @onready var card_fan: AudioStreamPlayer = $CardFan
 @onready var card_draw: AudioStreamPlayer = $CardDraw
 @onready var coin_sound: AudioStreamPlayer = $CoinSound
 @onready var refuse_sound: AudioStreamPlayer = $RefuseSound
 @onready var blip_sound: AudioStreamPlayer = $BlipSound
+
+@onready var hungry_squire: Sprite2D = $HungrySquire
+@onready var happy_squire: Sprite2D = $HappySquire
+@onready var dead_squire: Sprite2D = $DeadSquire
 
 var selected_card: CardUI = null
 var original_hand_index: int = -1
@@ -27,6 +32,9 @@ func _ready() -> void:
 	spawn_hand_cards()
 	submit_button.disabled = true
 	proceed_button.hide()
+	dead_squire.hide()
+	happy_squire.hide()
+	hungry_squire.show()
 	narrator_label.text = "You encounter a famished squire on the brink of death, he begs you for food.(however nasty!)"
 	dialogue_label.text = "\"A human! A sane one at that. Please can I have something to eat? " + \
 	"I really don't mind the quality, please give me a chance to live!\""
@@ -120,6 +128,8 @@ func _on_submit_pressed():
 		GameState.hand_cards.append(aspiring_squire_card.duplicate(true))
 	
 	coin_sound.play()
+	hungry_squire.hide()
+	happy_squire.show()
 	GameState.currency += 4
 	#currency label flash green
 	var original_color: Color = currency_label.modulate
@@ -167,6 +177,8 @@ func _on_reject_pressed():
 	reject_button.hide()
 	proceed_button.show()
 	
+	hungry_squire.hide()
+	dead_squire.show()
 	narrator_label.text = "The aspiring squire slowly dies."
 	dialogue_label.text = "\"Ughh, so... hungry." +\
 	"I can feel my life slowly...fading...\""

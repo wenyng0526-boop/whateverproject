@@ -68,6 +68,7 @@ script = ExtResource("1_u6k1w")
 card_ui = ExtResource("2_6vhb5")
 
 [node name="HandCenter" type="CenterContainer" parent="."]
+z_index = 1
 layout_mode = 0
 offset_left = 43.0
 offset_top = 888.0
@@ -75,6 +76,7 @@ offset_right = 1963.0
 offset_bottom = 1288.0
 
 [node name="HandContainer" type="HBoxContainer" parent="HandCenter"]
+z_index = 1
 layout_mode = 2
 script = ExtResource("3_qq6bn")
 
