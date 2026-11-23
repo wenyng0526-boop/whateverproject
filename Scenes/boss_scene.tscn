@@ -15,7 +15,7 @@
 [ext_resource type="Resource" uid="uid://d206o5rpul7ka" path="res://Minion Resource/Rat/rat_tamer.tres" id="21_sb5kl"]
 [ext_resource type="Resource" uid="uid://bvf130wywxg2u" path="res://Minion Resource/Skeleton/extra_limbs.tres" id="25_xtuns"]
 [ext_resource type="Texture2D" uid="uid://7yxb2bx1oamo" path="res://Assets/boss/talk/talk(boss).png" id="27_xoni1"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="28_6owr3"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="28_6owr3"]
 [ext_resource type="Texture2D" uid="uid://bsfocwfeyeutb" path="res://Assets/boss/haelth_bar/backgorund_boss_health.png" id="29_2r5wd"]
 [ext_resource type="Texture2D" uid="uid://beo525sgyi886" path="res://Assets/boss/haelth_bar/max_boss_health.png" id="30_1urn7"]
 [ext_resource type="Texture2D" uid="uid://tljdgd5dge6s" path="res://Assets/boss/warning_before_attack/warning(boss_attack).png" id="31_w6gjd"]
@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://bsp5p3c01d0j3" path="res://Assets/button/pause button.png" id="34_j2ldo"]
 [ext_resource type="Script" path="res://Scenes/dodge_hint_layer.gd" id="34_noty0"]
 [ext_resource type="PackedScene" uid="uid://b3awfj516bl5" path="res://Scenes/Reward.tscn" id="35_d1h3d"]
-[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="35_upgms"]
+[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="35_upgms"]
 [ext_resource type="Texture2D" uid="uid://6lxrcvsx4ej" path="res://Assets/boss/attack/many_rat_for_boss.png" id="35_wer0t"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="36_rh5ju"]
 [ext_resource type="Texture2D" uid="uid://dfqfxwlc6k6hj" path="res://Assets/button/start battle button2.png" id="37_bsxyw"]
@@ -213,6 +213,18 @@ tracks/11/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("AttackSound:playing")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_fhifr"]
 resource_name = "Left_Arm_Attack"
@@ -354,6 +366,18 @@ tracks/10/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("AttackSound:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_bjjyo"]
 resource_name = "Many_Rat_Attack(Left)"
@@ -433,6 +457,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AttackSound:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.3, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, true]
+}
 
 [sub_resource type="Animation" id="Animation_uuas4"]
 resource_name = "Many_Rat_Attack(Right)"
@@ -509,6 +545,32 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AttackSound:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.3, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, true]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BossUILayer/AttackEvents")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [10],
+"method": &"hit"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_27bnu"]
@@ -620,6 +682,18 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("AttackSound:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_ytwh8"]
@@ -759,6 +833,18 @@ tracks/10/keys = {
 "args": [10],
 "method": &"hit"
 }]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("AttackSound:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_fqm3t"]
@@ -1013,13 +1099,14 @@ frame = 6
 [node name="Left_Arm_Attack" type="Sprite2D" parent="BossUILayer"]
 visible = false
 modulate = Color(1, 1, 1, 0)
-position = Vector2(960, 255)
+position = Vector2(960, 649)
 texture = ExtResource("32_cnxiy")
 
 [node name="Right_Arm_Attack" type="Sprite2D" parent="BossUILayer"]
 visible = false
 modulate = Color(1, 1, 1, 0)
-position = Vector2(960, 282)
+position = Vector2(962, 228)
+rotation = -2.77333
 texture = ExtResource("32_cnxiy")
 
 [node name="Fat_Rat_Attack" type="Sprite2D" parent="BossUILayer"]

@@ -1,11 +1,15 @@
-[gd_scene load_steps=25 format=3 uid="uid://v8ivyevagaw0"]
+[gd_scene load_steps=29 format=3 uid="uid://v8ivyevagaw0"]
 
 [ext_resource type="Script" path="res://Scipts/card.gd" id="1_ywfkn"]
 [ext_resource type="Resource" uid="uid://du5degasdr5q1" path="res://Minion Resource/Goblin/goblin_thief.tres" id="2_puuy4"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="3_qojfg"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="3_qojfg"]
 [ext_resource type="Texture2D" uid="uid://yyckgl138lyv" path="res://Assets/card placeholders/Cost 1 card.png" id="4_5yg2h"]
-[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="5_cnq3a"]
+[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="5_cnq3a"]
 [ext_resource type="AudioStream" uid="uid://s6phk4uwbvv0" path="res://Assets/SFX/card_draw_1.wav" id="6_s52h1"]
+[ext_resource type="AudioStream" uid="uid://d0j3xj6ko47eo" path="res://Assets/SFX/fall_quick.wav" id="7_uanti"]
+[ext_resource type="AudioStream" uid="uid://b7c068wq7qw7r" path="res://Assets/SFX/fire_lighting.wav" id="8_wd6n7"]
+[ext_resource type="AudioStream" uid="uid://dk0053s5e4wwt" path="res://Assets/SFX/jump_short.wav" id="9_3ouxi"]
+[ext_resource type="AudioStream" uid="uid://tfe6jnlruw2d" path="res://Assets/SFX/sword_slice.wav" id="10_rl8tf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_enw12"]
 bg_color = Color(0.0952803, 0.00534092, 0.202849, 1)
@@ -56,6 +60,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BurnSound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_2sjx4"]
@@ -195,6 +211,54 @@ tracks/3/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DodgeSound:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BurnSound:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Jump:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Summon:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_2qsxy"]
 resource_name = "attack_enemy"
@@ -284,6 +348,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0, 0.0, 1.06116, -0.886627, 0.481711, -0.349066, 0.174533, -0.0872665, 0.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DodgeSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_p8a5b"]
 resource_name = "boss_hit"
@@ -342,6 +418,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -100), Vector2(0, 0), Vector2(0, 70), Vector2(0, -900)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Jump:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_xja54"]
 resource_name = "dodge"
@@ -370,6 +458,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DodgeSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_1fof3"]
@@ -516,6 +616,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.0862745), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Summon:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4eghi"]
@@ -706,3 +818,16 @@ libraries = {
 [node name="CardDraw" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_s52h1")
 volume_db = -11.243
+
+[node name="DodgeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_uanti")
+
+[node name="BurnSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_wd6n7")
+volume_db = -10.024
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_3ouxi")
+
+[node name="Summon" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_rl8tf")

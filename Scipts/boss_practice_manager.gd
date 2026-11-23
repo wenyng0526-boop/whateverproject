@@ -15,16 +15,16 @@ extends CombatManager
 @onready var dodge_hint: CanvasLayer = $DodgeHintLayer
 
 var opening_lines: Array[String] = [
-	"Faster than I expected, human.",
-	"But you shall go no farther. You will remain here forever, and your power will help me break the seal and bring destruction upon this foolish world."
+	"For years, I've been guarding this labyrinth, none have bested me thus far. So, you're looking to escape?",
+	"I, Winston the labyrinth warden shall stop you in your tracks!"
 ]
 
 var phase_two_lines: Array[String] = [
-	"You are a worthy opponent, but...",
-	"In the end, you will only become a part of my power."
+	"Impressive, but I'm not done yet!",
+	"GYAHHHHHHHHHHHHHHHHHH!!!!!!!!!!!!"
 ]
 
-var death_line: String = "Damn it! I was so close... So close to breaking free! NO!!"
+var death_line: String = "I... I concede. Your will to escape... far exceeds mine..."
 
 var boss_card: CardUI
 var boss_phase: int = 1

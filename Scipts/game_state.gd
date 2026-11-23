@@ -29,7 +29,7 @@ var completed_nodes: Array[int] = []
 var current_next_nodes: Array[int] = []
 
 # Remember the map camera position
-var map_camera_y: float = 3200.0
+var map_camera_y: float = 3000.0
 
 func complete_node():
 	if current_node not in completed_nodes:
@@ -180,12 +180,12 @@ func reset_run():
 	completed_nodes.clear()
 	current_next_nodes.clear()
 
-	currency = 5
+	currency = 100
 	win_count = 0
 	current_wave = 1
 	shop_level = 1
 
-	map_camera_y = 3200.0
+	map_camera_y = 3000.0
 
 	delete_save_game()
 	

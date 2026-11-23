@@ -21,8 +21,8 @@ pressed_textures = Array[Texture2D]([ExtResource("7_8oeb7"), ExtResource("8_npnx
 disabled_textures = Array[Texture2D]([ExtResource("7_8oeb7"), ExtResource("8_npnxt"), ExtResource("9_i13cs"), ExtResource("10_n3wv5"), ExtResource("11_bu7c5")])
 
 [node name="Button" type="TextureButton" parent="."]
-offset_right = 256.0
-offset_bottom = 192.0
+offset_right = 128.0
+offset_bottom = 96.0
 texture_normal = ExtResource("3_5t1nx")
 
 [node name="BlipSound" type="AudioStreamPlayer" parent="."]
