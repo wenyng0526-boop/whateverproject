@@ -2,7 +2,7 @@ extends CombatManager
 
 @export var test_boss_data: card_resource
 @export var phase_two_boss_data: card_resource
-@export var boss_max_health: int = 150
+@export var boss_max_health: int = 100
 @export var boss_reward_coins: int = 5
 
 @onready var intro_root: Control = $IntroLayer/IntroRoot
