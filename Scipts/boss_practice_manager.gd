@@ -396,8 +396,6 @@ func enter_phase_two() -> void:
 	dialogue_panel.hide()
 
 	var dark_tween: Tween = create_tween()
-	dark_tween.tween_property(fade, "modulate:a", 0.4, 0.6)
-	await dark_tween.finished
 
 	anim.play("Phase_2_Transform")
 	await anim.animation_finished
@@ -427,37 +425,52 @@ func enter_phase_two() -> void:
 			card.board_drag_enabled = drag_states[card]
 
 
+
 func play_boss_death() -> void:
-	if boss_death_started or not is_instance_valid(boss_card):
+	if boss_death_started:
+		return
+
+	if not is_instance_valid(boss_card):
 		return
 
 	var anim: AnimationPlayer = boss_card.animation_player
+	# Show Boss above all Player cards
+	boss_card.z_index = 100
+	
 	if not anim.has_animation("Boss_Dead_Glow"):
 		push_error("Boss_Dead_Glow is missing!")
 		return
+
 	if not anim.has_animation("Boss_Dead_Disapper"):
 		push_error("Boss_Dead_Disapper is missing!")
 		return
 
 	boss_death_started = true
+
+	# Lock player actions
 	intro_active = true
 	dodge_window_open = false
 	$StartBattleButton.disabled = true
 
+	# Show dialogue
 	intro_root.show()
 	dialogue_panel.show()
 	fade.modulate.a = 0.0
 
+	# Loop glow animation while dialogue is active
 	anim.play("Boss_Dead_Glow")
+
+	# Wait until the player confirms the dialogue
 	await type_dialogue(death_line)
 
-	if anim.is_playing() and anim.current_animation == "Boss_Dead_Glow":
-		await anim.animation_finished
-
+	# Hide dialogue and switch to disappearing animation
 	dialogue_panel.hide()
+
 	anim.play("Boss_Dead_Disapper")
 	await anim.animation_finished
+
 	intro_root.hide()
+
 
 
 # Boss battles award a fixed 5 coins, independently of generic enemy-cost bonuses.

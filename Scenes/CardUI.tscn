@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scipts/card.gd" id="1_ywfkn"]
 [ext_resource type="Resource" uid="uid://du5degasdr5q1" path="res://Minion Resource/Goblin/goblin_thief.tres" id="2_puuy4"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="3_qojfg"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="3_qojfg"]
 [ext_resource type="Texture2D" uid="uid://yyckgl138lyv" path="res://Assets/card placeholders/Cost 1 card.png" id="4_5yg2h"]
-[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="5_cnq3a"]
+[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="5_cnq3a"]
 [ext_resource type="AudioStream" uid="uid://s6phk4uwbvv0" path="res://Assets/SFX/card_draw_1.wav" id="6_s52h1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_enw12"]
@@ -61,6 +61,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_2sjx4"]
 resource_name = "Boss_Dead_Glow"
 length = 2.0
+loop_mode = 1
 step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -84,7 +85,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.9, 1.2, 1.5, 1.75, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -79), Vector2(1, 41), Vector2(0, 176), Vector2(0, 0), Vector2(0, 0), Vector2(25, -56)]
+"values": [Vector2(0, 0), Vector2(0, -79), Vector2(1, 41), Vector2(0, 176), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -96,7 +97,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.5, 0.6, 0.7, 0.8, 0.9, 1.2, 1.5, 1.625, 1.75, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0, 0.193732, -0.385718, 0.387463, -0.193732, 0.193732, -0.193732, 0.385718, -0.193732, -0.113446, 0.0]
+"values": [0.193732, 0.0, 0.193732, -0.385718, 0.387463, -0.193732, 0.193732, -0.193732, 0.385718, -0.193732, -0.113446, 0.193732]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
