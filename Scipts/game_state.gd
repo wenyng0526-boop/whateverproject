@@ -180,7 +180,7 @@ func reset_run():
 	completed_nodes.clear()
 	current_next_nodes.clear()
 
-	currency = 5
+	currency = 100
 	win_count = 0
 	current_wave = 1
 	shop_level = 1

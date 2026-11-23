@@ -29,6 +29,7 @@ var phase_two_lines: Array[String] = [
 var death_line: String = "I... I concede. Your will to escape... far exceeds mine..."
 
 var boss_card: CardUI
+var boss_idle: AnimatedSprite2D
 var boss_phase: int = 1
 var boss_is_up: bool = false
 var phase_two_pending: bool = false
@@ -57,6 +58,21 @@ func _ready() -> void:
 	boss_card = card_ui.instantiate()
 	enemy_container.add_child(boss_card)
 	boss_card.set_card_data(test_boss_data)
+	# Get Boss Idle node
+	boss_idle = boss_card.card_visual.get_node("BossIdle")
+
+	# Hide the original card appearance
+	hide_original_boss_visuals()
+
+	# Show the cyan Winston
+	boss_idle.show()
+	boss_idle.play("Phase1_idle")
+	boss_card.card_visual.self_modulate.a = 0.0
+	
+	# Get Boss Idle animation
+	boss_idle = boss_card.card_visual.get_node("BossIdle") as AnimatedSprite2D
+	boss_idle.hide()
+
 	boss_card.is_boss = true
 	boss_card.current_health = boss_max_health
 	boss_card.health_label.text = str(boss_max_health)
@@ -80,6 +96,7 @@ func _ready() -> void:
 	dodge_hint.connect("confirmed", _try_dodge)
 
 	await play_boss_intro()
+
 
 
 func fade_screen(to_black: bool, duration: float) -> void:
@@ -164,10 +181,17 @@ func _on_board_card_clicked(card: CardUI) -> void:
 
 func play_boss_drop() -> void:
 	var anim: AnimationPlayer = boss_card.animation_player
+
+	# Start Boss entrance animation
 	anim.play("boss_drop")
 	anim.advance(0)
+
+	# Make Boss and Winston visible
 	boss_card.card_visual.show()
+	boss_idle.show()
+
 	await anim.animation_finished
+
 
 
 func play_boss_health_appear() -> void:
@@ -207,11 +231,17 @@ func attack(attacker: CardUI, target: CardUI) -> void:
 			"Fat_Rat_Attack"
 		]
 
+		
+		# Add new attacks in Phase 2
 		if boss_phase == 2:
 			if attack_anim.has_animation("Many_Rat_Attack(Right)"):
-				available_attacks.append("Many_Rat_Attack(Right)")
+		# Increase Many Rat attack probability
+				for i in range(3):
+					available_attacks.append("Many_Rat_Attack(Right)")
+
 			if attack_anim.has_animation("Right_Arm_Attack"):
 				available_attacks.append("Right_Arm_Attack")
+	
 
 		var selected_attack: String = available_attacks.pick_random()
 
@@ -405,6 +435,11 @@ func enter_phase_two() -> void:
 
 	var saved_hp: int = boss_card.current_health
 	boss_card.set_card_data(phase_two_boss_data)
+	# Hide the original card appearance again
+	hide_original_boss_visuals()
+	boss_idle.show()
+	boss_idle.play("Phase2_idle")
+
 	boss_card.current_health = saved_hp
 	boss_card.health_label.text = str(saved_hp)
 	boss_card.is_boss = true
@@ -462,6 +497,13 @@ func play_boss_death() -> void:
 
 	# Loop glow animation while dialogue is active
 	anim.play("Boss_Dead_Glow")
+	
+	# Stop Idle before death animation
+	boss_idle.stop()
+
+	# Start Boss death glow
+	anim.play("Boss_Dead_Glow")
+
 
 	# Wait until the player confirms the dialogue
 	await type_dialogue(death_line)
@@ -522,3 +564,19 @@ func start_combat() -> void:
 		return_surviving_cards_to_hand()
 		GameState.returned_from_failure_or_load = true
 		reward_screen.show_failure()
+
+
+func hide_original_boss_visuals() -> void:
+	var visual_names: Array[String] = [
+		"Picture",
+		"Name_Label",
+		"Attack_Label",
+		"Health_Label",
+		"Cost_Label"
+	]
+
+	for node_name in visual_names:
+		var visual_node: CanvasItem = boss_card.card_visual.get_node_or_null(node_name)
+
+		if visual_node != null:
+			visual_node.hide()

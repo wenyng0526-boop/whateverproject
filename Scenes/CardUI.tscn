@@ -1,15 +1,39 @@
-[gd_scene load_steps=29 format=3 uid="uid://v8ivyevagaw0"]
+[gd_scene load_steps=78 format=3 uid="uid://v8ivyevagaw0"]
 
 [ext_resource type="Script" path="res://Scipts/card.gd" id="1_ywfkn"]
 [ext_resource type="Resource" uid="uid://du5degasdr5q1" path="res://Minion Resource/Goblin/goblin_thief.tres" id="2_puuy4"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="3_qojfg"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="3_qojfg"]
 [ext_resource type="Texture2D" uid="uid://yyckgl138lyv" path="res://Assets/card placeholders/Cost 1 card.png" id="4_5yg2h"]
-[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="5_cnq3a"]
+[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="5_cnq3a"]
+[ext_resource type="Texture2D" uid="uid://oavudqx4fbs2" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston1.png" id="6_l8rxs"]
 [ext_resource type="AudioStream" uid="uid://s6phk4uwbvv0" path="res://Assets/SFX/card_draw_1.wav" id="6_s52h1"]
+[ext_resource type="Texture2D" uid="uid://s1e8ekqugn5n" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston2.png" id="7_a3dpk"]
 [ext_resource type="AudioStream" uid="uid://d0j3xj6ko47eo" path="res://Assets/SFX/fall_quick.wav" id="7_uanti"]
+[ext_resource type="Texture2D" uid="uid://3qydl767btws" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston3.png" id="8_bwsaj"]
 [ext_resource type="AudioStream" uid="uid://b7c068wq7qw7r" path="res://Assets/SFX/fire_lighting.wav" id="8_wd6n7"]
 [ext_resource type="AudioStream" uid="uid://dk0053s5e4wwt" path="res://Assets/SFX/jump_short.wav" id="9_3ouxi"]
+[ext_resource type="Texture2D" uid="uid://d0rnihvv2yg8e" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston4.png" id="9_7do5s"]
+[ext_resource type="Texture2D" uid="uid://cyy3g4w7vp4ow" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston5.png" id="10_85o7d"]
 [ext_resource type="AudioStream" uid="uid://tfe6jnlruw2d" path="res://Assets/SFX/sword_slice.wav" id="10_rl8tf"]
+[ext_resource type="Texture2D" uid="uid://cjevs74otpydf" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston6.png" id="11_w6lgs"]
+[ext_resource type="Texture2D" uid="uid://cpscr025y6fvu" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston7.png" id="12_akdla"]
+[ext_resource type="Texture2D" uid="uid://cc115b3ww2w0" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston8.png" id="13_i1ej0"]
+[ext_resource type="Texture2D" uid="uid://clhb7sua0jr4e" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston9.png" id="14_hopne"]
+[ext_resource type="Texture2D" uid="uid://dk33mkkfhjbo7" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston10.png" id="15_n56eb"]
+[ext_resource type="Texture2D" uid="uid://l8d2ujyhf4xj" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston11.png" id="16_0otmg"]
+[ext_resource type="Texture2D" uid="uid://dwx7vb0yyi5pq" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston12.png" id="17_f17fk"]
+[ext_resource type="Texture2D" uid="uid://c5hqyc7i5wq15" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston Red1.png" id="18_fm0wl"]
+[ext_resource type="Texture2D" uid="uid://mhwk2gts0a35" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston Red2.png" id="19_tgnfg"]
+[ext_resource type="Texture2D" uid="uid://dx0q7jqduxu6i" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston Red3.png" id="20_h00pl"]
+[ext_resource type="Texture2D" uid="uid://cdu3srx7ym75g" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston Red4.png" id="21_nh7pl"]
+[ext_resource type="Texture2D" uid="uid://b4uf3fnasjc48" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston Red5.png" id="22_tj6qg"]
+[ext_resource type="Texture2D" uid="uid://cnypveb403yik" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston Red6.png" id="23_63pyt"]
+[ext_resource type="Texture2D" uid="uid://8xx7r1cxsjcy" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston Red7.png" id="24_tcl43"]
+[ext_resource type="Texture2D" uid="uid://ci4hb5jk2ns05" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston Red8.png" id="25_7tqpf"]
+[ext_resource type="Texture2D" uid="uid://bbrwall4tnswf" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston Red9.png" id="26_nvml5"]
+[ext_resource type="Texture2D" uid="uid://chgs0xoyr1orl" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston Red10.png" id="27_2stlo"]
+[ext_resource type="Texture2D" uid="uid://cjqf742esaew3" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston Red11.png" id="28_8j134"]
+[ext_resource type="Texture2D" uid="uid://dlf74q1cyks0c" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston Red12.png" id="29_x7np6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_enw12"]
 bg_color = Color(0.0952803, 0.00534092, 0.202849, 1)
@@ -22,8 +46,190 @@ expand_margin_top = 15.0
 expand_margin_right = 15.0
 expand_margin_bottom = 15.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_doxro"]
+atlas = ExtResource("6_l8rxs")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfe08"]
+atlas = ExtResource("7_a3dpk")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1gme"]
+atlas = ExtResource("8_bwsaj")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwwfv"]
+atlas = ExtResource("9_7do5s")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdip6"]
+atlas = ExtResource("10_85o7d")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2ln1"]
+atlas = ExtResource("11_w6lgs")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp4pe"]
+atlas = ExtResource("12_akdla")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4wbi"]
+atlas = ExtResource("13_i1ej0")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6auu"]
+atlas = ExtResource("14_hopne")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08fag"]
+atlas = ExtResource("15_n56eb")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdm3k"]
+atlas = ExtResource("16_0otmg")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8egdq"]
+atlas = ExtResource("17_f17fk")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jelpo"]
+atlas = ExtResource("18_fm0wl")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ck6cp"]
+atlas = ExtResource("19_tgnfg")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5700m"]
+atlas = ExtResource("20_h00pl")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc1n4"]
+atlas = ExtResource("21_nh7pl")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gi7q"]
+atlas = ExtResource("22_tj6qg")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ay85y"]
+atlas = ExtResource("23_63pyt")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tbpt"]
+atlas = ExtResource("24_tcl43")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wq46c"]
+atlas = ExtResource("25_7tqpf")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff44b"]
+atlas = ExtResource("26_nvml5")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_735he"]
+atlas = ExtResource("27_2stlo")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgk1l"]
+atlas = ExtResource("28_8j134")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnqig"]
+atlas = ExtResource("29_x7np6")
+region = Rect2(0, 0, 360, 516)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yiajp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_doxro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfe08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1gme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwwfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdip6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2ln1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mp4pe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4wbi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6auu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08fag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdm3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8egdq")
+}],
+"loop": true,
+"name": &"Phase1_idle",
+"speed": 13.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jelpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ck6cp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5700m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sc1n4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gi7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ay85y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tbpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wq46c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff44b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_735he")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgk1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnqig")
+}],
+"loop": true,
+"name": &"Phase2_idle",
+"speed": 13.0
+}]
+
 [sub_resource type="Animation" id="Animation_llr3s"]
 resource_name = "Boss_Dead_Disapper"
+length = 2.0
 step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -56,7 +262,7 @@ tracks/2/path = NodePath("CardVisual:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -73,10 +279,22 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CardVisual/HitFlash:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(310, 370)]
+}
 
 [sub_resource type="Animation" id="Animation_2sjx4"]
 resource_name = "Boss_Dead_Glow"
-length = 2.0
+length = 2.5
 loop_mode = 1
 step = 0.025
 tracks/0/type = "value"
@@ -86,10 +304,10 @@ tracks/0/path = NodePath("CardVisual/HitFlash:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -98,10 +316,10 @@ tracks/1/path = NodePath("CardVisual:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.9, 1.2, 1.5, 1.75, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.7, 0.8, 0.9, 1.2, 1.5, 1.625, 1.75, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -79), Vector2(1, 41), Vector2(0, 176), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, -79), Vector2(0.5, -126), Vector2(0.666667, -111), Vector2(0.833333, -76), Vector2(1, -58), Vector2(0, -123), Vector2(2.83122e-07, -108), Vector2(0, -79), Vector2(0, -80), Vector2(0, -77)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -110,10 +328,10 @@ tracks/2/path = NodePath("CardVisual:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5, 0.6, 0.7, 0.8, 0.9, 1.2, 1.5, 1.625, 1.75, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.6, 0.7, 0.8, 0.9, 1.2, 1.5, 1.625, 1.75, 1.9, 2.2, 2.3, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.193732, 0.0, 0.193732, -0.385718, 0.387463, -0.193732, 0.193732, -0.193732, 0.385718, -0.193732, -0.113446, 0.193732]
+"values": [0.193732, 0.0, -0.385718, 0.581195, -0.579449, 0.193732, -0.193732, 0.581195, -0.193732, 0.385718, -0.193732, 0.385718, -0.289725, 0.258309, -0.16057]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -126,6 +344,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(),
 "update": 0,
 "values": []
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CardVisual/HitFlash:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(310, 370)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CardVisual/HitFlash:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-61.3905, -38.9205)]
 }
 
 [sub_resource type="Animation" id="Animation_yrgvy"]
@@ -144,6 +386,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CardVisual/HitFlash:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(310, 370)]
+}
 
 [sub_resource type="Animation" id="Animation_xdw86"]
 resource_name = "Phase_2_Transform"
@@ -159,6 +413,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CardVisual/HitFlash:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(310, 370)]
 }
 
 [sub_resource type="Animation" id="Animation_edo4p"]
@@ -258,6 +524,30 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CardVisual/HitFlash:size")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(254, 379)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CardVisual/HitFlash:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-61.3905, -38.9205)]
 }
 
 [sub_resource type="Animation" id="Animation_2qsxy"]
@@ -400,6 +690,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.764706), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CardVisual/HitFlash:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(309, 367)]
 }
 
 [sub_resource type="Animation" id="Animation_ap1kd"]
@@ -547,6 +849,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -70), Vector2(0, -80), Vector2(0, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CardVisual/HitFlash:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(255, 380)]
+}
 
 [sub_resource type="Animation" id="Animation_o41o0"]
 resource_name = "hit_player"
@@ -588,6 +902,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 90), Vector2(0, 80), Vector2(0, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CardVisual/HitFlash:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(254, 379)]
+}
 
 [sub_resource type="Animation" id="Animation_m31yr"]
 resource_name = "summon_appear"
@@ -628,6 +954,30 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CardVisual/HitFlash:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(250, 384)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CardVisual/HitFlash:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-34, -66)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4eghi"]
@@ -797,18 +1147,22 @@ texture = ExtResource("4_5yg2h")
 
 [node name="HitFlash" type="ColorRect" parent="CardVisual"]
 custom_minimum_size = Vector2(180, 250)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -33.0
-offset_top = -63.0
-offset_right = 35.0
-offset_bottom = 66.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_left = -61.3905
+offset_top = -38.9205
+offset_right = 192.61
+offset_bottom = 340.08
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
+
+[node name="BossIdle" type="AnimatedSprite2D" parent="CardVisual"]
+visible = false
+z_index = -5
+position = Vector2(90, 120)
+sprite_frames = SubResource("SpriteFrames_yiajp")
+animation = &"Phase2_idle"
+frame = 5
+frame_progress = 0.158024
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
