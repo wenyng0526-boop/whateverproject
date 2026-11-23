@@ -14,6 +14,8 @@ extends CombatManager
 @onready var attack_events: Node = $BossUILayer/AttackEvents
 @onready var dodge_hint: CanvasLayer = $DodgeHintLayer
 
+@onready var select_sound: AudioStreamPlayer = $SelectSound
+
 var opening_lines: Array[String] = [
 	"For years, I've been guarding this labyrinth, none have bested me thus far. So, you're looking to escape?",
 	"I, Winston the labyrinth warden shall stop you in your tracks!"
@@ -116,6 +118,7 @@ func _input(event: InputEvent) -> void:
 					skip_typing = true
 				else:
 					next_line = true
+					select_sound.play()
 				get_viewport().set_input_as_handled()
 		return
 

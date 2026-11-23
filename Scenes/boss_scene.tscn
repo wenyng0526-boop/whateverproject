@@ -1013,6 +1013,9 @@ stream = ExtResource("42_uchnx")
 [node name="StartSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("43_k0nmo")
 
+[node name="SelectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("43_k0nmo")
+
 [node name="CombatBackground" type="Sprite2D" parent="."]
 z_index = -100
 position = Vector2(958, 539)
