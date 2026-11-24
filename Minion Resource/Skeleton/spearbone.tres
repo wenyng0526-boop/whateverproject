@@ -7,8 +7,8 @@
 script = ExtResource("2_cljia")
 name = "Spearbone"
 cost = 4
-attack = 13
-health = 4
+attack = 15
+health = 6
 image = ExtResource("1_soatd")
 minon_type = 2
 fusion_tier = 1

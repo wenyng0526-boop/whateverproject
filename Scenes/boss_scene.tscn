@@ -1,9 +1,9 @@
 [gd_scene load_steps=56 format=3 uid="uid://cm8wwhc0oombo"]
 
 [ext_resource type="Script" path="res://Scipts/boss_practice_manager.gd" id="1_1u37y"]
+[ext_resource type="Resource" uid="uid://civ0v7wlsbeer" path="res://Other resource/boss_resource.tres" id="2_0anpy"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_w1grg"]
 [ext_resource type="Script" path="res://Scipts/card_data.gd" id="3_mmfs3"]
-[ext_resource type="Resource" uid="uid://c5v3wf8oo4mcd" path="res://Minion Resource/Goblin/elder_goblin.tres" id="3_vkaxb"]
 [ext_resource type="Resource" uid="uid://du5degasdr5q1" path="res://Minion Resource/Goblin/goblin_thief.tres" id="6_thqmq"]
 [ext_resource type="Resource" uid="uid://dwpu2h2bdmhji" path="res://Minion Resource/Goblin/shady_banker.tres" id="7_1482y"]
 [ext_resource type="Resource" uid="uid://23w3x68p88ih" path="res://Minion Resource/Knight/aspiring_squire.tres" id="8_r2jp3"]
@@ -15,7 +15,7 @@
 [ext_resource type="Resource" uid="uid://d206o5rpul7ka" path="res://Minion Resource/Rat/rat_tamer.tres" id="21_sb5kl"]
 [ext_resource type="Resource" uid="uid://bvf130wywxg2u" path="res://Minion Resource/Skeleton/extra_limbs.tres" id="25_xtuns"]
 [ext_resource type="Texture2D" uid="uid://7yxb2bx1oamo" path="res://Assets/boss/talk/talk(boss).png" id="27_xoni1"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="28_6owr3"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="28_6owr3"]
 [ext_resource type="Texture2D" uid="uid://bsfocwfeyeutb" path="res://Assets/boss/haelth_bar/backgorund_boss_health.png" id="29_2r5wd"]
 [ext_resource type="Texture2D" uid="uid://beo525sgyi886" path="res://Assets/boss/haelth_bar/max_boss_health.png" id="30_1urn7"]
 [ext_resource type="Texture2D" uid="uid://tljdgd5dge6s" path="res://Assets/boss/warning_before_attack/warning(boss_attack).png" id="31_w6gjd"]
@@ -28,7 +28,7 @@
 [ext_resource type="Script" path="res://Scenes/dodge_hint_layer.gd" id="34_noty0"]
 [ext_resource type="Texture2D" uid="uid://bktae6t0hgbqk" path="res://Assets/boss/attack/winston_red_arm.png" id="34_wsxqq"]
 [ext_resource type="PackedScene" uid="uid://b3awfj516bl5" path="res://Scenes/Reward.tscn" id="35_d1h3d"]
-[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="35_upgms"]
+[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="35_upgms"]
 [ext_resource type="Texture2D" uid="uid://6lxrcvsx4ej" path="res://Assets/boss/attack/many_rat_for_boss.png" id="35_wer0t"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="36_rh5ju"]
 [ext_resource type="Texture2D" uid="uid://dfqfxwlc6k6hj" path="res://Assets/button/start battle button2.png" id="37_bsxyw"]
@@ -955,8 +955,9 @@ _data = {
 [node name="Boss_Scene" type="Node2D" node_paths=PackedStringArray("player_container", "enemy_container")]
 position = Vector2(2, 0)
 script = ExtResource("1_1u37y")
-test_boss_data = ExtResource("31_xtkki")
-phase_two_boss_data = ExtResource("3_vkaxb")
+test_boss_data = ExtResource("2_0anpy")
+phase_two_boss_data = ExtResource("2_0anpy")
+boss_max_health = 500
 player_container = NodePath("PlayerCenter/PlayerContainer")
 enemy_container = NodePath("EnemyCenter/EnemyContainer")
 card_ui = ExtResource("2_w1grg")

@@ -1,17 +1,35 @@
-[gd_scene load_steps=14 format=3 uid="uid://mcs1of45sn1f"]
+[gd_scene load_steps=21 format=3 uid="uid://mcs1of45sn1f"]
 
+[ext_resource type="Script" path="res://Scipts/you_win.gd" id="1_i1lei"]
 [ext_resource type="Texture2D" uid="uid://qdos0ojdrox5" path="res://Assets/background/pause menu background.png" id="1_xis62"]
-[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="2_36c6v"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="3_nk136"]
+[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="2_36c6v"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="3_nk136"]
 [ext_resource type="Texture2D" uid="uid://bgblo1ab63kbe" path="res://Assets/NPC/Dead Squire.png" id="4_vqb6c"]
 [ext_resource type="Texture2D" uid="uid://ogxa7t7c5sjb" path="res://Assets/NPC/Grandma happy.png" id="5_86rt0"]
 [ext_resource type="Texture2D" uid="uid://buhlf1p8073ah" path="res://Assets/cards/Little Rat card.png" id="7_p4fs7"]
 [ext_resource type="Texture2D" uid="uid://we3nmsil2hcf" path="res://Assets/cards/Inspired Goblin.png" id="8_pdvvs"]
 [ext_resource type="Texture2D" uid="uid://b3vuxoiboc55d" path="res://Assets/cards/Lump of Bones.png" id="9_1hmf5"]
 [ext_resource type="Texture2D" uid="uid://du5r8nrjxxej8" path="res://Assets/boss/attack/fat_rat_for_boss.png" id="9_m6wfk"]
+[ext_resource type="Texture2D" uid="uid://bg2ctrg13bwel" path="res://Assets/button/return to main menu button2.png" id="11_p3hs2"]
+[ext_resource type="Texture2D" uid="uid://bbehknyjl0o26" path="res://Assets/button/return to main menu button1.png" id="12_nbncm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d681g"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_k0t6x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScreenFade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_3a3qw"]
 resource_name = "win_fade_out"
@@ -29,28 +47,25 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_k0t6x"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ScreenFade:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eewia"]
 _data = {
 "RESET": SubResource("Animation_k0t6x"),
 "win_fade_out": SubResource("Animation_3a3qw")
 }
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_brc3w"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0duoj"]
+texture = ExtResource("11_p3hs2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_10r5y"]
+texture = ExtResource("11_p3hs2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_64hof"]
+texture = ExtResource("12_nbncm")
+
 [node name="YouWin" type="Node2D"]
+script = ExtResource("1_i1lei")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 offset_right = 40.0
@@ -98,7 +113,7 @@ scale = Vector2(0.553578, 0.541792)
 texture = ExtResource("5_86rt0")
 
 [node name="LittleRatCard" type="Sprite2D" parent="."]
-position = Vector2(934, 883)
+position = Vector2(935, 852)
 texture = ExtResource("7_p4fs7")
 
 [node name="InspiredGoblin" type="Sprite2D" parent="."]
@@ -135,3 +150,15 @@ libraries = {
 "": SubResource("AnimationLibrary_eewia")
 }
 autoplay = "win_fade_out"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 483.0
+offset_top = 864.0
+offset_right = 1507.0
+offset_bottom = 1048.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_brc3w")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0duoj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_10r5y")
+theme_override_styles/normal = SubResource("StyleBoxTexture_64hof")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
