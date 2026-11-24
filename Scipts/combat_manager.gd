@@ -515,8 +515,21 @@ func spawn_random_enemies(difficulty: int) -> void:
 
 	var enemy_count: int = roll_enemy_count(difficulty)
 
+	# Roll every enemy's star first, so a minimum star can be guaranteed
+	var costs: Array[int] = []
 	for i in range(enemy_count):
-		var enemy_cost: int = roll_enemy_cost(difficulty)
+		costs.append(roll_enemy_cost(difficulty))
+
+	if not costs.is_empty():
+		# Difficulty 6-8: guarantee at least one 3 star enemy
+		if difficulty >= 6 and difficulty <= 8 and not costs.has(3):
+			costs[randi() % costs.size()] = 3
+
+		# After difficulty 13: guarantee at least one 4 star enemy
+		if difficulty >= 14 and difficulty <= 15 and not costs.has(4):
+			costs[randi() % costs.size()] = 4
+
+	for enemy_cost in costs:
 		var enemy_data: card_resource
 
 		match enemy_cost:
@@ -545,38 +558,33 @@ func roll_enemy_cost(difficulty: int) -> int:
 		return 1
 
 	# Difficulty 3-4: 80% one star, 20% two stars
-	elif difficulty <= 4:
+	elif difficulty <= 5:
 		if roll < 0.20:
 			return 2
 		return 1
 
-	# Difficulty 5-6: 50% one star, 45% two stars, 5% three stars
-	elif difficulty <= 6:
-		if roll < 0.05:
-			return 3
-		elif roll < 0.50:
-			return 2
-		return 1
-
-	# Difficulty 7-8: 25% one star, 60% two stars, 15% three stars
+	# Difficulty 6-8: one star and two stars only
+	# (the guaranteed three star is added in spawn_random_enemies)
 	elif difficulty <= 8:
-		if roll < 0.15:
-			return 3
-		elif roll < 0.75:
+		if roll < 0.60:
 			return 2
 		return 1
 
-	# Difficulty 9-10: 10% one star, 55% two stars, 30% three stars, 2% four stars
-	elif difficulty <= 10:
-		if roll < 0.02:
-			return 4
-		elif roll < 0.35:
+	# Difficulty 9-13: two stars and three stars only
+	elif difficulty <= 13:
+		if roll < 0.30:
 			return 3
-		elif roll < 0.90:
-			return 2
-		return 1
+		return 2
 
-	# Difficulty 11+: 40% two stars, 45% three stars, 15% four stars
+# Difficulty 15: two stars and three stars only
+# (the guaranteed four star is added in spawn_random_enemies)
+	elif difficulty <= 15:
+		if roll < 0.30:
+			return 3
+		return 2
+
+	# Difficulty 15+: two, three and four stars, no one star
+	# (the guaranteed four star is added in spawn_random_enemies)
 	else:
 		if roll < 0.15:
 			return 4
