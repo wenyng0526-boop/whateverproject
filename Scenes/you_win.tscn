@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://mcs1of45sn1f"]
+[gd_scene load_steps=14 format=3 uid="uid://mcs1of45sn1f"]
 
 [ext_resource type="Texture2D" uid="uid://qdos0ojdrox5" path="res://Assets/background/pause menu background.png" id="1_xis62"]
-[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="2_36c6v"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="3_nk136"]
+[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="2_36c6v"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="3_nk136"]
 [ext_resource type="Texture2D" uid="uid://bgblo1ab63kbe" path="res://Assets/NPC/Dead Squire.png" id="4_vqb6c"]
 [ext_resource type="Texture2D" uid="uid://ogxa7t7c5sjb" path="res://Assets/NPC/Grandma happy.png" id="5_86rt0"]
 [ext_resource type="Texture2D" uid="uid://buhlf1p8073ah" path="res://Assets/cards/Little Rat card.png" id="7_p4fs7"]
@@ -12,6 +12,43 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d681g"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_3a3qw"]
+resource_name = "win_fade_out"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScreenFade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_k0t6x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScreenFade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eewia"]
+_data = {
+"RESET": SubResource("Animation_k0t6x"),
+"win_fade_out": SubResource("Animation_3a3qw")
+}
 
 [node name="YouWin" type="Node2D"]
 
@@ -77,3 +114,24 @@ texture_filter = 1
 position = Vector2(200, 935)
 scale = Vector2(8, 8)
 texture = ExtResource("9_m6wfk")
+
+[node name="TransitionLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="ScreenFade" type="ColorRect" parent="TransitionLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 80.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+color = Color(0, 0, 0, 0)
+
+[node name="WinAnimation" type="AnimationPlayer" parent="TransitionLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_eewia")
+}
+autoplay = "win_fade_out"

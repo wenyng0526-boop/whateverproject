@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://cm8wwhc0oombo"]
+[gd_scene load_steps=56 format=3 uid="uid://cm8wwhc0oombo"]
 
 [ext_resource type="Script" path="res://Scipts/boss_practice_manager.gd" id="1_1u37y"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_w1grg"]
@@ -15,19 +15,20 @@
 [ext_resource type="Resource" uid="uid://d206o5rpul7ka" path="res://Minion Resource/Rat/rat_tamer.tres" id="21_sb5kl"]
 [ext_resource type="Resource" uid="uid://bvf130wywxg2u" path="res://Minion Resource/Skeleton/extra_limbs.tres" id="25_xtuns"]
 [ext_resource type="Texture2D" uid="uid://7yxb2bx1oamo" path="res://Assets/boss/talk/talk(boss).png" id="27_xoni1"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="28_6owr3"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="28_6owr3"]
 [ext_resource type="Texture2D" uid="uid://bsfocwfeyeutb" path="res://Assets/boss/haelth_bar/backgorund_boss_health.png" id="29_2r5wd"]
 [ext_resource type="Texture2D" uid="uid://beo525sgyi886" path="res://Assets/boss/haelth_bar/max_boss_health.png" id="30_1urn7"]
 [ext_resource type="Texture2D" uid="uid://tljdgd5dge6s" path="res://Assets/boss/warning_before_attack/warning(boss_attack).png" id="31_w6gjd"]
 [ext_resource type="Resource" uid="uid://cux54pf0jelew" path="res://Minion Resource/Rat/mother_of_rats.tres" id="31_xtkki"]
-[ext_resource type="Texture2D" uid="uid://5gno616i51d0" path="res://icon.svg" id="32_cnxiy"]
 [ext_resource type="Script" path="res://Scenes/boss_attack_events.gd" id="33_crsdu"]
 [ext_resource type="Resource" uid="uid://bcio2vbvxjej0" path="res://Minion Resource/Skeleton/spearbone.tres" id="33_cvuyt"]
 [ext_resource type="Texture2D" uid="uid://du5r8nrjxxej8" path="res://Assets/boss/attack/fat_rat_for_boss.png" id="33_gyfxs"]
+[ext_resource type="Texture2D" uid="uid://ybixjemuk3t" path="res://Assets/boss/attack/winston_arm.png" id="33_lxbwt"]
 [ext_resource type="Texture2D" uid="uid://bsp5p3c01d0j3" path="res://Assets/button/pause button.png" id="34_j2ldo"]
 [ext_resource type="Script" path="res://Scenes/dodge_hint_layer.gd" id="34_noty0"]
+[ext_resource type="Texture2D" uid="uid://bktae6t0hgbqk" path="res://Assets/boss/attack/winston_red_arm.png" id="34_wsxqq"]
 [ext_resource type="PackedScene" uid="uid://b3awfj516bl5" path="res://Scenes/Reward.tscn" id="35_d1h3d"]
-[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="35_upgms"]
+[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="35_upgms"]
 [ext_resource type="Texture2D" uid="uid://6lxrcvsx4ej" path="res://Assets/boss/attack/many_rat_for_boss.png" id="35_wer0t"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="36_rh5ju"]
 [ext_resource type="Texture2D" uid="uid://dfqfxwlc6k6hj" path="res://Assets/button/start battle button2.png" id="37_bsxyw"]
@@ -229,7 +230,7 @@ tracks/12/keys = {
 [sub_resource type="Animation" id="Animation_fhifr"]
 resource_name = "Left_Arm_Attack"
 length = 2.0
-step = 0.05
+step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -237,7 +238,7 @@ tracks/0/path = NodePath("BossUILayer/Left_Arm_Attack:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.35, 0.6, 0.9, 1.4, 2),
+"times": PackedFloat32Array(0, 0.35, 0.6, 0.75, 1.4, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -249,10 +250,10 @@ tracks/1/path = NodePath("BossUILayer/Left_Arm_Attack:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.4, 0.6, 0.9, 0.95, 1, 1.05, 1.1, 1.15, 1.3, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.6, 0.95, 1.1, 1.275, 1.3, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(960, 255), Vector2(960, 209), Vector2(960, 281), Vector2(960, 220), Vector2(960, 180), Vector2(960, 195), Vector2(960, 180), Vector2(960, 195), Vector2(960, 180), Vector2(960, 195), Vector2(960, 255), Vector2(960, 649)]
+"values": [Vector2(960, 255), Vector2(960, 209), Vector2(960, 281), Vector2(960, 220), Vector2(960, 180), Vector2(960, -1), Vector2(960, -1), Vector2(960, 255), Vector2(960, 649)]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -469,6 +470,20 @@ tracks/6/keys = {
 "update": 1,
 "values": [true, true, true]
 }
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BossUILayer/AttackEvents")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"open_dodge"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_uuas4"]
 resource_name = "Many_Rat_Attack(Right)"
@@ -570,6 +585,20 @@ tracks/7/keys = {
 "values": [{
 "args": [10],
 "method": &"hit"
+}]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BossUILayer/AttackEvents")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"open_dodge"
 }]
 }
 
@@ -695,6 +724,42 @@ tracks/9/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("BossUILayer/Left_Arm_Attack:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 215)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("BossUILayer/Right_Arm_Attack:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("BossUILayer/Right_Arm_Attack:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(946, 255)]
+}
 
 [sub_resource type="Animation" id="Animation_ytwh8"]
 resource_name = "Right_Arm_Attack"
@@ -707,10 +772,10 @@ tracks/0/path = NodePath("BossUILayer/Right_Arm_Attack:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.15, 1.2, 1.65),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.7, 0.95, 1.29687, 1.35, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.164061, -0.020944, 0.308923, -0.0680678, 0.272271, -0.122173, 0.122173, 0.0, -2.77333]
+"values": [0.0, 0.326377, 0.294961, 0.263545, 0.364774, 0.0383972, -0.736529, -2.15374, -2.77333]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -727,124 +792,138 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BossUILayer/Right_Arm_Attack:position")
+tracks/2/path = NodePath("BossUILayer/Right_Arm_Attack:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5, 0.7, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1, 1.15, 1.2, 1.35, 1.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(960, 282), Vector2(960, 191), Vector2(960, 255), Vector2(960, 344), Vector2(960, 255), Vector2(960, 220), Vector2(960, 255), Vector2(960, 228), Vector2(960, 255), Vector2(960, 220), Vector2(960, 255), Vector2(960, 228), Vector2(960, 255), Vector2(960, 228), Vector2(960, 255), Vector2(979, 281), Vector2(962, 228)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("BossUILayer/Right_Arm_Attack:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0, 1.95),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("BossUILayer/WarningIcon:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BossUILayer/WarningIcon:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(334, 460)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("BossUILayer/WarningIcon:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BossUILayer/WarningIcon:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [true, false, true, false, true, false, true, false, true, false]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("BossUILayer/WarningIcon2:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BossUILayer/WarningIcon2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1578, 460)]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("BossUILayer/WarningIcon2:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BossUILayer/WarningIcon2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [true, false, true, false, true, false, true, false, true, false]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("BossUILayer/WarningIcon2:frame")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.05, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 6]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("BossUILayer/WarningIcon:frame")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BossUILayer/WarningIcon2:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 6]
 }
-tracks/10/type = "method"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("BossUILayer/AttackEvents")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(1.3),
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BossUILayer/WarningIcon:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 6]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BossUILayer/AttackEvents")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [10],
 "method": &"hit"
 }]
 }
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("AttackSound:playing")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(1.3),
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("AttackSound:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1.4),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("BossUILayer/Right_Arm_Attack:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.5, 0.7, 0.85, 1, 1.3, 1.35, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(731, 255), Vector2(946, 188), Vector2(946, 344), Vector2(946, 255), Vector2(946, 304), Vector2(868, 228), Vector2(641, 180), Vector2(414, 220), Vector2(444, 489), Vector2(1094, 594), Vector2(1430, 489)]
+}
+tracks/12/type = "method"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("BossUILayer/AttackEvents")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(1.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"open_dodge"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_fqm3t"]
@@ -1103,15 +1182,14 @@ frame = 6
 [node name="Left_Arm_Attack" type="Sprite2D" parent="BossUILayer"]
 visible = false
 modulate = Color(1, 1, 1, 0)
-position = Vector2(960, 649)
-texture = ExtResource("32_cnxiy")
+position = Vector2(960, 215)
+texture = ExtResource("33_lxbwt")
 
 [node name="Right_Arm_Attack" type="Sprite2D" parent="BossUILayer"]
 visible = false
 modulate = Color(1, 1, 1, 0)
-position = Vector2(962, 228)
-rotation = -2.77333
-texture = ExtResource("32_cnxiy")
+position = Vector2(946, 255)
+texture = ExtResource("34_wsxqq")
 
 [node name="Fat_Rat_Attack" type="Sprite2D" parent="BossUILayer"]
 visible = false
@@ -1122,8 +1200,9 @@ texture = ExtResource("33_gyfxs")
 
 [node name="Many_Rat_Attack" type="Sprite2D" parent="BossUILayer"]
 texture_filter = 1
-position = Vector2(2257, 692)
+position = Vector2(2114, 692)
 texture = ExtResource("35_wer0t")
+flip_h = true
 
 [node name="AttackEvents" type="Node" parent="BossUILayer"]
 script = ExtResource("33_crsdu")

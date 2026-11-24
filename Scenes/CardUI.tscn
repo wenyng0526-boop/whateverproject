@@ -1,10 +1,10 @@
-[gd_scene load_steps=78 format=3 uid="uid://v8ivyevagaw0"]
+[gd_scene load_steps=111 format=3 uid="uid://v8ivyevagaw0"]
 
 [ext_resource type="Script" path="res://Scipts/card.gd" id="1_ywfkn"]
 [ext_resource type="Resource" uid="uid://du5degasdr5q1" path="res://Minion Resource/Goblin/goblin_thief.tres" id="2_puuy4"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="3_qojfg"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="3_qojfg"]
 [ext_resource type="Texture2D" uid="uid://yyckgl138lyv" path="res://Assets/card placeholders/Cost 1 card.png" id="4_5yg2h"]
-[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="5_cnq3a"]
+[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="5_cnq3a"]
 [ext_resource type="Texture2D" uid="uid://oavudqx4fbs2" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston1.png" id="6_l8rxs"]
 [ext_resource type="AudioStream" uid="uid://s6phk4uwbvv0" path="res://Assets/SFX/card_draw_1.wav" id="6_s52h1"]
 [ext_resource type="Texture2D" uid="uid://s1e8ekqugn5n" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston2.png" id="7_a3dpk"]
@@ -34,6 +34,22 @@
 [ext_resource type="Texture2D" uid="uid://chgs0xoyr1orl" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston Red10.png" id="27_2stlo"]
 [ext_resource type="Texture2D" uid="uid://cjqf742esaew3" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston Red11.png" id="28_8j134"]
 [ext_resource type="Texture2D" uid="uid://dlf74q1cyks0c" path="res://Assets/boss/boss idle/drive-download-20261123T163313Z-1-001/Winston Red12.png" id="29_x7np6"]
+[ext_resource type="Texture2D" uid="uid://b67jtrt5nkve4" path="res://Assets/death_anim/death animation1.png" id="30_fyhgn"]
+[ext_resource type="Texture2D" uid="uid://bawbi7qk2uvd8" path="res://Assets/death_anim/death animation2.png" id="31_rgbjy"]
+[ext_resource type="Texture2D" uid="uid://ctjmiwejqpa0x" path="res://Assets/death_anim/death animation3.png" id="32_eaye3"]
+[ext_resource type="Texture2D" uid="uid://cg2jkvbbewi66" path="res://Assets/death_anim/death animation4.png" id="33_texp4"]
+[ext_resource type="Texture2D" uid="uid://8ngacnnhlwaj" path="res://Assets/death_anim/death animation5.png" id="34_1dvax"]
+[ext_resource type="Texture2D" uid="uid://bycglvj1r01u2" path="res://Assets/death_anim/death animation6.png" id="35_such7"]
+[ext_resource type="Texture2D" uid="uid://gov7pllb6p70" path="res://Assets/death_anim/death animation7.png" id="36_ayc7l"]
+[ext_resource type="Texture2D" uid="uid://lri4cw7fkpm3" path="res://Assets/death_anim/death animation8.png" id="37_b7gy3"]
+[ext_resource type="Texture2D" uid="uid://bocb2avair41b" path="res://Assets/death_anim/death animation9.png" id="38_goyab"]
+[ext_resource type="Texture2D" uid="uid://c2u8lwqn2yxje" path="res://Assets/death_anim/death animation10.png" id="39_birut"]
+[ext_resource type="Texture2D" uid="uid://b7w36abh12jqa" path="res://Assets/death_anim/death animation11.png" id="40_mfabg"]
+[ext_resource type="Texture2D" uid="uid://bcn8ypg5nuwit" path="res://Assets/death_anim/death animation12.png" id="41_4wckd"]
+[ext_resource type="Texture2D" uid="uid://cve5jdao7278u" path="res://Assets/death_anim/death animation13.png" id="42_16bgw"]
+[ext_resource type="Texture2D" uid="uid://ccfie16dwyr0e" path="res://Assets/death_anim/death animation14.png" id="43_6h3dg"]
+[ext_resource type="Texture2D" uid="uid://cmsgaakrd63i5" path="res://Assets/death_anim/death animation15.png" id="44_kcp57"]
+[ext_resource type="Texture2D" uid="uid://qg5ae3oihoy5" path="res://Assets/death_anim/death animation16.png" id="45_jqa6s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_enw12"]
 bg_color = Color(0.0952803, 0.00534092, 0.202849, 1)
@@ -227,6 +243,126 @@ animations = [{
 "speed": 13.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jwb3"]
+atlas = ExtResource("30_fyhgn")
+region = Rect2(0, 0, 256, 536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8sbg"]
+atlas = ExtResource("31_rgbjy")
+region = Rect2(0, 0, 256, 536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkbix"]
+atlas = ExtResource("32_eaye3")
+region = Rect2(0, 0, 256, 536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngujw"]
+atlas = ExtResource("33_texp4")
+region = Rect2(0, 0, 256, 536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etu3o"]
+atlas = ExtResource("34_1dvax")
+region = Rect2(0, 0, 256, 536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmhgm"]
+atlas = ExtResource("35_such7")
+region = Rect2(0, 0, 256, 536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kk40"]
+atlas = ExtResource("36_ayc7l")
+region = Rect2(0, 0, 256, 536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y07hh"]
+atlas = ExtResource("37_b7gy3")
+region = Rect2(0, 0, 256, 536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kgvj"]
+atlas = ExtResource("38_goyab")
+region = Rect2(0, 0, 256, 536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ifjl"]
+atlas = ExtResource("39_birut")
+region = Rect2(0, 0, 256, 536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7ifm"]
+atlas = ExtResource("40_mfabg")
+region = Rect2(0, 0, 256, 536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyoex"]
+atlas = ExtResource("41_4wckd")
+region = Rect2(0, 0, 256, 536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cvoy"]
+atlas = ExtResource("42_16bgw")
+region = Rect2(0, 0, 256, 536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85vgv"]
+atlas = ExtResource("43_6h3dg")
+region = Rect2(0, 0, 256, 536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16li8"]
+atlas = ExtResource("44_kcp57")
+region = Rect2(0, 0, 256, 536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dubwq"]
+atlas = ExtResource("45_jqa6s")
+region = Rect2(0, 0, 256, 536)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qsw3u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jwb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8sbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkbix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngujw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etu3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmhgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kk40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y07hh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kgvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ifjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7ifm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyoex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cvoy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85vgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16li8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dubwq")
+}],
+"loop": false,
+"name": &"death",
+"speed": 12.0
+}]
+
 [sub_resource type="Animation" id="Animation_llr3s"]
 resource_name = "Boss_Dead_Disapper"
 length = 2.0
@@ -250,7 +386,7 @@ tracks/1/path = NodePath("CardVisual:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.275, 0.4, 0.525, 0.575, 0.625, 0.675),
+"times": PackedFloat32Array(0, 0.15, 0.275, 0.5, 0.7, 0.9, 1.3, 1.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.387463, -0.579449, 0.387463, -0.385718, 0.193732, -0.0872665, -0.0523599, 0.0]
@@ -291,6 +427,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(310, 370)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CardVisual/HitFlash:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-65.0603, -35.2944)]
+}
 
 [sub_resource type="Animation" id="Animation_2sjx4"]
 resource_name = "Boss_Dead_Glow"
@@ -304,7 +452,7 @@ tracks/0/path = NodePath("CardVisual/HitFlash:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -398,6 +546,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(310, 370)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CardVisual/HitFlash:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-65, -38)]
+}
 
 [sub_resource type="Animation" id="Animation_xdw86"]
 resource_name = "Phase_2_Transform"
@@ -425,6 +585,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(310, 370)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CardVisual/HitFlash:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-65, -38)]
 }
 
 [sub_resource type="Animation" id="Animation_edo4p"]
@@ -547,7 +719,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-61.3905, -38.9205)]
+"values": [Vector2(-37, -65)]
 }
 
 [sub_resource type="Animation" id="Animation_2qsxy"]
@@ -1148,10 +1320,10 @@ texture = ExtResource("4_5yg2h")
 [node name="HitFlash" type="ColorRect" parent="CardVisual"]
 custom_minimum_size = Vector2(180, 250)
 layout_mode = 0
-offset_left = -61.3905
-offset_top = -38.9205
-offset_right = 192.61
-offset_bottom = 340.08
+offset_left = -37.0
+offset_top = -65.0
+offset_right = 217.0
+offset_bottom = 314.0
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
@@ -1163,6 +1335,12 @@ sprite_frames = SubResource("SpriteFrames_yiajp")
 animation = &"Phase2_idle"
 frame = 5
 frame_progress = 0.158024
+
+[node name="DeathAnimation" type="AnimatedSprite2D" parent="CardVisual"]
+visible = false
+position = Vector2(89, 48)
+sprite_frames = SubResource("SpriteFrames_qsw3u")
+animation = &"death"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -448,11 +448,17 @@ func attack(attacker: CardUI, target: CardUI) -> void:
 	damage_instance.show_damage(damage)
 	
 	
-	target.take_damage(damage)
 	
-	#put the death anim here if have
+	target.take_damage(damage)
+
+	# Play death animation if the card is defeated
 	if target.is_dead():
-		await get_tree().create_timer(1.0).timeout
+		if target.is_boss:
+			# Boss has its own death dialogue and animation
+			await get_tree().create_timer(1.0).timeout
+		else:
+			await target.play_death_animation()
+
 	
 	if attacker.card_data.minon_type == card_resource.type.Rat:
 		await trigger_rat_effect(attacker)
@@ -668,6 +674,10 @@ func deal_effect_damage(
 	
 	damage_instance.show_damage(amount)
 	target.take_damage(amount)
+	
+	if target.is_dead() and not target.is_boss:
+		await target.play_death_animation()
+
 	
 #goblin bonus money
 func goblin_bonus():

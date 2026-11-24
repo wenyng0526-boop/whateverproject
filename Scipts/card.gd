@@ -20,6 +20,10 @@ signal board_drag_moved(card: CardUI, drag_position: Vector2)
 @onready var card_draw: AudioStreamPlayer = $CardDraw
 @export var animation_player: AnimationPlayer
 
+@onready var death_animation: AnimatedSprite2D = $CardVisual/DeathAnimation
+
+var death_animation_started: bool = false
+
 
 enum CardLocation { SHOP, BOARD, HAND, EVENT }
 var current_location: CardLocation = CardLocation.BOARD
@@ -409,3 +413,35 @@ func knight_effect():
 			" Attack and +", card_data.knight_health_inc,
 			" Health before attacking!"
 		)
+
+
+func play_death_animation() -> void:
+	# Prevent playing death animation twice
+	if death_animation_started:
+		return
+
+	death_animation_started = true
+
+	# Check whether death animation exists
+	if death_animation.sprite_frames == null:
+		return
+
+	if not death_animation.sprite_frames.has_animation("death"):
+		return
+		
+		
+	# Hide the original card visuals
+	for child in card_visual.get_children():
+		if child is CanvasItem and child != death_animation:
+			child.hide()
+
+	# Hide any background drawn by CardVisual itself
+	card_visual.self_modulate.a = 0.0
+
+
+	# Start death animation
+	death_animation.show()
+	death_animation.play("death")
+
+	# Wait until all 16 frames finish
+	await death_animation.animation_finished

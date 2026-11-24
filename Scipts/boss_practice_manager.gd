@@ -129,19 +129,24 @@ func type_dialogue(line: String) -> void:
 
 func _input(event: InputEvent) -> void:
 	if intro_active:
-		if event is InputEventMouseButton:
-			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-				if is_typing:
-					skip_typing = true
-				else:
-					next_line = true
-					select_sound.play()
-				get_viewport().set_input_as_handled()
+		# Only play click sound when dialogue is visible
+		if dialogue_panel.visible:
+			if event is InputEventMouseButton:
+				if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+					if is_typing:
+						skip_typing = true
+					else:
+						next_line = true
+						select_sound.play()
+
+					get_viewport().set_input_as_handled()
 		return
 
 	if dodge_window_open and event.is_action_pressed("dodge"):
 		_try_dodge()
 		get_viewport().set_input_as_handled()
+
+
 
 
 func play_boss_intro() -> void:
@@ -555,15 +560,22 @@ func start_combat() -> void:
 		enemy_index += 1
 		await get_tree().create_timer(0.5).timeout
 
+	
 	if enemy_cards.is_empty():
+		# Boss victory
 		GameState.win_count += 1
 		GameState.currency += boss_reward_coins
 		return_surviving_cards_to_hand()
-		reward_screen.show_success(boss_reward_coins)
+
+		# Fade to You Win scene
+		await show_boss_victory()
+
 	elif player_cards.is_empty():
+		# Player defeat: use the original RewardScreen
 		return_surviving_cards_to_hand()
 		GameState.returned_from_failure_or_load = true
 		reward_screen.show_failure()
+
 
 
 func hide_original_boss_visuals() -> void:
@@ -580,3 +592,22 @@ func hide_original_boss_visuals() -> void:
 
 		if visual_node != null:
 			visual_node.hide()
+
+
+func show_boss_victory() -> void:
+	# Lock player actions
+	intro_active = true
+	dodge_window_open = false
+	$StartBattleButton.disabled = true
+
+	# Show the existing Fade layer
+	intro_root.show()
+	dialogue_panel.hide()
+	fade.show()
+	fade.modulate.a = 0.0
+
+	# Slowly fade to black
+	await fade_screen(true, 2.5)
+
+	# Change scene when the screen is fully black
+	get_tree().change_scene_to_file("res://Scenes/you_win.tscn")
