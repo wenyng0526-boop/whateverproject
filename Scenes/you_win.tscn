@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://mcs1of45sn1f"]
+
+[ext_resource type="Texture2D" uid="uid://qdos0ojdrox5" path="res://Assets/background/pause menu background.png" id="1_xis62"]
+[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="2_36c6v"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="3_nk136"]
+[ext_resource type="Texture2D" uid="uid://bgblo1ab63kbe" path="res://Assets/NPC/Dead Squire.png" id="4_vqb6c"]
+[ext_resource type="Texture2D" uid="uid://ogxa7t7c5sjb" path="res://Assets/NPC/Grandma happy.png" id="5_86rt0"]
+[ext_resource type="Texture2D" uid="uid://buhlf1p8073ah" path="res://Assets/cards/Little Rat card.png" id="7_p4fs7"]
+[ext_resource type="Texture2D" uid="uid://we3nmsil2hcf" path="res://Assets/cards/Inspired Goblin.png" id="8_pdvvs"]
+[ext_resource type="Texture2D" uid="uid://b3vuxoiboc55d" path="res://Assets/cards/Lump of Bones.png" id="9_1hmf5"]
+[ext_resource type="Texture2D" uid="uid://du5r8nrjxxej8" path="res://Assets/boss/attack/fat_rat_for_boss.png" id="9_m6wfk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d681g"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="YouWin" type="Node2D"]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(48.8499, 27.4828)
+theme_override_styles/panel = SubResource("StyleBoxFlat_d681g")
+
+[node name="PauseMenuBackground" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(961, 536)
+texture = ExtResource("1_xis62")
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+offset_left = 227.0
+offset_top = 93.0
+offset_right = 2122.0
+offset_bottom = 360.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_36c6v")
+theme_override_font_sizes/font_size = 211
+text = "YOU WIN!"
+
+[node name="Label2" type="Label" parent="."]
+z_index = 2
+custom_minimum_size = Vector2(1200, 0)
+offset_left = 360.0
+offset_top = 368.0
+offset_right = 400.0
+offset_bottom = 1457.0
+theme_override_fonts/font = ExtResource("3_nk136")
+theme_override_font_sizes/font_size = 36
+text = "Thank you for playing! We hope you enjoyed the overall concept of the game as much as we do. This is a university assignment done in 14 weeks, so please understand if you encounter any issues :P. Please let us know what do you think about the game by leaving a comment on itch. There are still many features we thought of adding but we believe this is enough for the game to feel complete. Again, thank you for playing, hope you had fun!                                
+                                     - Team Whatever"
+autowrap_mode = 2
+
+[node name="DeadSquire" type="Sprite2D" parent="."]
+position = Vector2(497, -380)
+rotation = -0.387998
+texture = ExtResource("4_vqb6c")
+
+[node name="GrandmaHappy" type="Sprite2D" parent="."]
+position = Vector2(2055, 781)
+scale = Vector2(0.553578, 0.541792)
+texture = ExtResource("5_86rt0")
+
+[node name="LittleRatCard" type="Sprite2D" parent="."]
+position = Vector2(934, 883)
+texture = ExtResource("7_p4fs7")
+
+[node name="InspiredGoblin" type="Sprite2D" parent="."]
+position = Vector2(161, 463)
+texture = ExtResource("8_pdvvs")
+
+[node name="LumpOfBones" type="Sprite2D" parent="."]
+position = Vector2(1814, 54)
+texture = ExtResource("9_1hmf5")
+
+[node name="FatRatForBoss" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(200, 935)
+scale = Vector2(8, 8)
+texture = ExtResource("9_m6wfk")

@@ -133,10 +133,10 @@ offset_bottom = 760.0
 [node name="SubmitButton" type="Button" parent="."]
 z_index = -4
 layout_mode = 0
-offset_left = 1002.0
+offset_left = 947.0
 offset_top = 776.0
-offset_right = 1202.0
-offset_bottom = 846.0
+offset_right = 1203.0
+offset_bottom = 904.0
 theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("4_a021p")
 theme_override_font_sizes/font_size = 20
@@ -152,8 +152,8 @@ z_index = -4
 layout_mode = 0
 offset_left = 1442.0
 offset_top = 776.0
-offset_right = 1642.0
-offset_bottom = 846.0
+offset_right = 1698.0
+offset_bottom = 904.0
 theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("4_a021p")
 theme_override_font_sizes/font_size = 20
@@ -227,15 +227,18 @@ position = Vector2(960, 540)
 texture = ExtResource("16_cd0ru")
 
 [node name="HungrySquire" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(964, 542)
 texture = ExtResource("21_svc43")
 
 [node name="HappySquire" type="Sprite2D" parent="."]
 visible = false
+z_index = -1
 position = Vector2(964, 542)
 texture = ExtResource("22_xv76e")
 
 [node name="DeadSquire" type="Sprite2D" parent="."]
 visible = false
+z_index = -1
 position = Vector2(964, 542)
 texture = ExtResource("23_nf6ne")

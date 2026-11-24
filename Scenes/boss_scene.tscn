@@ -15,7 +15,7 @@
 [ext_resource type="Resource" uid="uid://d206o5rpul7ka" path="res://Minion Resource/Rat/rat_tamer.tres" id="21_sb5kl"]
 [ext_resource type="Resource" uid="uid://bvf130wywxg2u" path="res://Minion Resource/Skeleton/extra_limbs.tres" id="25_xtuns"]
 [ext_resource type="Texture2D" uid="uid://7yxb2bx1oamo" path="res://Assets/boss/talk/talk(boss).png" id="27_xoni1"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="28_6owr3"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="28_6owr3"]
 [ext_resource type="Texture2D" uid="uid://bsfocwfeyeutb" path="res://Assets/boss/haelth_bar/backgorund_boss_health.png" id="29_2r5wd"]
 [ext_resource type="Texture2D" uid="uid://beo525sgyi886" path="res://Assets/boss/haelth_bar/max_boss_health.png" id="30_1urn7"]
 [ext_resource type="Texture2D" uid="uid://tljdgd5dge6s" path="res://Assets/boss/warning_before_attack/warning(boss_attack).png" id="31_w6gjd"]
@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://bsp5p3c01d0j3" path="res://Assets/button/pause button.png" id="34_j2ldo"]
 [ext_resource type="Script" path="res://Scenes/dodge_hint_layer.gd" id="34_noty0"]
 [ext_resource type="PackedScene" uid="uid://b3awfj516bl5" path="res://Scenes/Reward.tscn" id="35_d1h3d"]
-[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="35_upgms"]
+[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="35_upgms"]
 [ext_resource type="Texture2D" uid="uid://6lxrcvsx4ej" path="res://Assets/boss/attack/many_rat_for_boss.png" id="35_wer0t"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="36_rh5ju"]
 [ext_resource type="Texture2D" uid="uid://dfqfxwlc6k6hj" path="res://Assets/button/start battle button2.png" id="37_bsxyw"]
@@ -965,6 +965,7 @@ card_data = ExtResource("11_7qwh0")
 [node name="ResultLayer" type="CanvasLayer" parent="."]
 
 [node name="Reward_scene" parent="ResultLayer" instance=ExtResource("35_d1h3d")]
+next_scene = "res://Scenes/you_win.tscn"
 
 [node name="HandCenter" type="CenterContainer" parent="."]
 offset_top = 903.0

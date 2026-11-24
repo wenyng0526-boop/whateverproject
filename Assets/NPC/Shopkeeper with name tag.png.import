@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw1kl1eyx4cqn"
-path="res://.godot/imported/Map-export.png-701af46d8585faa514c00f068c3d1fb6.ctex"
+uid="uid://8653ggqadpdq"
+path="res://.godot/imported/Shopkeeper with name tag.png-95c9a191af54a251f3a5900513e38802.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/background/Map-export.png"
-dest_files=["res://.godot/imported/Map-export.png-701af46d8585faa514c00f068c3d1fb6.ctex"]
+source_file="res://Assets/NPC/Shopkeeper with name tag.png"
+dest_files=["res://.godot/imported/Shopkeeper with name tag.png-95c9a191af54a251f3a5900513e38802.ctex"]
 
 [params]
 

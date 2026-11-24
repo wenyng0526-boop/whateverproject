@@ -7,7 +7,6 @@ extends Node2D
 @export var hand_container : HBoxContainer
 @export var confirm_panel : Control
 @export var confirm_label : Label
-@export var warning_label: Label
 @export var upgrade_button: Button
 
 var refresh_cost = 1
@@ -21,6 +20,30 @@ var is_fusing:bool = false
 @onready var blip_sound: AudioStreamPlayer = $BlipSound
 @onready var fuse_sound: AudioStreamPlayer = $FuseSound
 @onready var upgrade_sound: AudioStreamPlayer = $UpgradeSound
+@onready var select_sound: AudioStreamPlayer = $SelectSound
+
+@onready var tutorial_root: Control = $TutorialLayer/Control
+@onready var dialogue_panel: NinePatchRect = $TutorialLayer/Control/DialoguePanel
+@onready var dialogue_label: Label = $TutorialLayer/Control/DialoguePanel/Label
+
+var tutorial_active: bool = true
+var is_typing: bool = false
+var skip_typing: bool = false
+var next_line: bool = false
+var tutorial_skipped: bool = false
+
+@onready var skip_button: Button = $TutorialLayer/Control/SkipButton
+
+var tutorial_lines: Array[String] = [
+	"Hello there, I'm Ethan, the sole shopkeeper of this shop. This is where you buy minions to protect yourself from the enemies of this labyrinth.",
+	"Minions each have their own attack and health stat, with the stars representing their cost. Each minion also have their own abilities, you may hover them to view their abilities.",
+	"Clicking and buying a card places it in your hand. You may only hold a maximum of 10 cards at once.",
+	"If you don't like what you see in the shop, you may refresh the shop, do note that it will always cost you 1 coin.",
+	"If you have enough money, you may upgrade the shop, expanding my wares with stronger minions that will cost more.",
+	"If you do buy any duplicate minions with the same stats, the two cards will FUSE! Doubling their stats, making them far stronger than before.",
+	"Not enough money? You can also sell your cards to me from your hand, but I will only give you 1 coin in return. (It's business kid.)",
+	"That's all, once you're done shopping you may leave by pressing the proceed button. Best of luck partner."
+]
 
 func _ready() -> void:
 	refresh_shop()
@@ -28,6 +51,10 @@ func _ready() -> void:
 	refresh_hand()
 	update_upgrade_label()
 	await check_for_duplicate_animated()
+	if not GameState.shop_tutorial_completed:
+		await start_tutorial()
+	else:
+		tutorial_root.hide()
 
 func refresh_shop():
 	print("shop_level: ", GameState.shop_level)
@@ -196,12 +223,85 @@ func _on_done_button_pressed() -> void:
 	GameState.save_game("res://Scenes/map.tscn")
 	get_tree().change_scene_to_file("res://Scenes/map.tscn")
 
+func start_tutorial():
+	tutorial_active = true
+	tutorial_skipped = false
+	tutorial_root.show()
+	dialogue_panel.show()
+	for line in tutorial_lines:
+		if tutorial_skipped:
+			break
+		await type_dialogue(line)
+		if tutorial_skipped:
+			break
+	
+	dialogue_panel.hide()
+	tutorial_root.hide()
+	tutorial_active = false
+	
+	GameState.shop_tutorial_completed = true
+	
+func type_dialogue(line: String):
+	is_typing = true
+	skip_typing = false
+	next_line = false
+
+	dialogue_label.text = line
+	dialogue_label.visible_characters = 0
+
+	for i in range(line.length()):
+		if skip_typing:
+			break
+		dialogue_label.visible_characters = i + 1
+		await get_tree().create_timer(0.04).timeout
+
+	dialogue_label.visible_characters = -1
+	is_typing = false
+
+	while not next_line and not tutorial_skipped:
+		await get_tree().process_frame
+		
+func _input(event: InputEvent) -> void:
+	if not tutorial_active:
+		return
+
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		# Let clicks on the Skip button pass through to the button itself
+		if skip_button and skip_button.get_global_rect().has_point(event.position):
+			return
+
+		if is_typing:
+			skip_typing = true
+		else:
+			next_line = true
+			select_sound.play()
+		get_viewport().set_input_as_handled()
+
+func _on_skip_button_pressed() -> void:
+	print("SKIP PRESSED")
+	tutorial_active = false
+	skip_typing = true
+	next_line = true
+	tutorial_skipped = true
+	
+	GameState.shop_tutorial_completed = true
+	
+	dialogue_panel.hide()
+	tutorial_root.hide()
+
 func show_warning() -> void:
-	warning_label.show()
+	
+	tutorial_root.show()
+	dialogue_panel.show()
+	dialogue_label.show()
 
-	await get_tree().create_timer(3.0).timeout
+	dialogue_label.text = "Please buy at least one card before you leave."
+	dialogue_label.visible_characters = -1
 
-	warning_label.hide()
+	await get_tree().create_timer(2.5).timeout
+
+	tutorial_root.hide()
+	dialogue_label.hide()
 
 #sell shet
 func _on_hand_card_clicked(card: CardUI) -> void:

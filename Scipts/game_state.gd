@@ -31,6 +31,9 @@ var current_next_nodes: Array[int] = []
 # Remember the map camera position
 var map_camera_y: float = 3000.0
 
+var shop_tutorial_completed: bool = false
+var combat_tutorial_completed:bool = false
+
 func complete_node():
 	if current_node not in completed_nodes:
 		completed_nodes.append(current_node)

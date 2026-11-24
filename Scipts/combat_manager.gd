@@ -47,6 +47,32 @@ const MAX_PITCH_STEPS: int = 7 #0-7
 const PITCH_AMOUNT: float = 1.5
 var attack_count: int = 0
 
+@onready var select_sound: AudioStreamPlayer = $SelectSound
+
+@onready var tutorial_root: Control = $TutorialLayer/Control
+@onready var dialogue_panel: NinePatchRect = $TutorialLayer/Control/NinePatchRect
+@onready var dialogue_label: Label = $TutorialLayer/Control/NinePatchRect/Label
+
+var tutorial_active: bool = true
+var is_typing: bool = false
+var skip_typing: bool = false
+var next_line: bool = false
+var tutorial_skipped: bool = false
+
+@onready var skip_button: Button = $TutorialLayer/Control/SkipButton
+
+var tutorial_lines: Array[String] = [
+	"Since, it may be your first time let me show you how the combat system works.",
+	"You may deploy up to 6 six cards to battle for you. Once deployed, you may drag the minion's positions to your liking.",
+	"You can return a deployed card to your hand by clicking on it.",
+	"Press the start battle button, to proceed with combat. Then, the cards will fight each other automatically.",
+	"Starting from your left-most card, minions will take turn attacking the left-most minion until one side of the board is empty.",
+	"If your minions die, they will die permanently. Be careful on which cards you choose to sacrifice.",
+	"So, decide carefully on what positions the minions should be in as well as which minions to deployed. Be warned, if you lose, your time ends here.",
+	"After the battle, you'll receive currency based on  how many cards you have remaining and how difficult the enemies were.",
+	"Hope to see you on the other side partner."
+]
+
 func _ready() -> void:
 	spawn_player_cards()
 	spawn_hand_cards()
@@ -55,6 +81,10 @@ func _ready() -> void:
 	# All battles now use normal enemy spawning
 	var difficulty: int = GameState.completed_nodes.size() + 1
 	spawn_random_enemies(difficulty)
+	if not GameState.combat_tutorial_completed:
+		await start_tutorial()
+	else:
+		tutorial_root.hide()
 
 func spawn_hand_cards() -> void:
 	# Clear the current hand UI
@@ -655,3 +685,68 @@ func goblin_bonus():
 			bonus_currency += data.goblin_money
 			
 	return bonus_currency
+
+func start_tutorial():
+	tutorial_active = true
+	tutorial_skipped = false
+	tutorial_root.show()
+	dialogue_panel.show()
+	for line in tutorial_lines:
+		if tutorial_skipped:
+			break
+		await type_dialogue(line)
+		if tutorial_skipped:
+			break
+	
+	dialogue_panel.hide()
+	tutorial_root.hide()
+	tutorial_active = false
+	
+	GameState.combat_tutorial_completed = true
+	
+func type_dialogue(line: String):
+	is_typing = true
+	skip_typing = false
+	next_line = false
+
+	dialogue_label.text = line
+	dialogue_label.visible_characters = 0
+
+	for i in range(line.length()):
+		if skip_typing:
+			break
+		dialogue_label.visible_characters = i + 1
+		await get_tree().create_timer(0.04).timeout
+
+	dialogue_label.visible_characters = -1
+	is_typing = false
+
+	while not next_line and not tutorial_skipped:
+		await get_tree().process_frame
+		
+func _input(event: InputEvent) -> void:
+	if not tutorial_active:
+		return
+
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		# Let clicks on the Skip button pass through to the button itself
+		if skip_button and skip_button.get_global_rect().has_point(event.position):
+			return
+
+		if is_typing:
+			skip_typing = true
+		else:
+			next_line = true
+			select_sound.play()
+		get_viewport().set_input_as_handled()
+
+func _on_skip_button_pressed() -> void:
+	tutorial_active = false
+	skip_typing = true
+	next_line = true
+	tutorial_skipped = true
+	
+	GameState.shop_tutorial_completed = true
+	
+	dialogue_panel.hide()
+	tutorial_root.hide()

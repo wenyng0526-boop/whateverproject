@@ -300,7 +300,6 @@ func _on_mouse_entered() -> void:
 		return
 
 	is_hovered = true
-	card_draw.play()
 
 	# Put the hovered card above other cards
 	z_index = 100

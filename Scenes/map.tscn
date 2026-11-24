@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://l80ac12ejyjo" path="res://Scenes/Event Scenes/threaten_event.tscn" id="4_o64qr"]
 [ext_resource type="Texture2D" uid="uid://bsp5p3c01d0j3" path="res://Assets/button/pause button.png" id="9_hvjca"]
 [ext_resource type="AudioStream" uid="uid://c4ychy6mhu51r" path="res://Assets/music/map music.wav" id="11_cp1au"]
-[ext_resource type="Texture2D" uid="uid://bw1kl1eyx4cqn" path="res://Assets/background/Map-export.png" id="12_so2ms"]
+[ext_resource type="Texture2D" uid="uid://bdxabgt3gd0s1" path="res://Assets/background/Map.png" id="12_k0o61"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r1uja"]
 
@@ -379,6 +379,6 @@ bus = &"background"
 [node name="Map" type="Sprite2D" parent="."]
 z_index = -5
 position = Vector2(959, 1781)
-texture = ExtResource("12_so2ms")
+texture = ExtResource("12_k0o61")
 
 [connection signal="pressed" from="Camera2D/PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]

@@ -1,29 +1,32 @@
-[gd_scene load_steps=44 format=3 uid="uid://b1q3xx44wgn6p"]
+[gd_scene load_steps=52 format=3 uid="uid://b1q3xx44wgn6p"]
 
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="1_oql1m"]
 [ext_resource type="Script" path="res://Scipts/shop_manager.gd" id="1_s0dvk"]
 [ext_resource type="Resource" uid="uid://b05y0n3q37vtn" path="res://Other resource/shop_card.tres" id="3_inuco"]
-[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="4_a2dmr"]
+[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="4_a2dmr"]
 [ext_resource type="Texture2D" uid="uid://dvgujegtyyxff" path="res://Assets/background/shop background.jpg" id="4_lelfe"]
 [ext_resource type="Texture2D" uid="uid://lgj7ycks54w4" path="res://Assets/button/refresh button2.png" id="5_araia"]
 [ext_resource type="Script" path="res://Scipts/hand_fan.gd" id="5_bfisf"]
 [ext_resource type="Script" path="res://Scipts/currency_ui.gd" id="5_nrsk7"]
 [ext_resource type="Texture2D" uid="uid://bsp5p3c01d0j3" path="res://Assets/button/pause button.png" id="5_uhaj7"]
 [ext_resource type="Texture2D" uid="uid://c345wpc35vwpl" path="res://Assets/button/refresh button1.png" id="6_k8uyn"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="6_vi0a5"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="6_vi0a5"]
 [ext_resource type="Texture2D" uid="uid://blegk31uaf0s2" path="res://Assets/button/upgrade button2.png" id="7_07xk2"]
 [ext_resource type="PackedScene" uid="uid://b4ojdviu2r56a" path="res://Scenes/pause_menu.tscn" id="7_dlbmg"]
 [ext_resource type="Texture2D" uid="uid://boh7vw757ikbl" path="res://Assets/button/upgrade button1.png" id="8_2bq6i"]
 [ext_resource type="Texture2D" uid="uid://g3ofsawew2w8" path="res://Assets/button/proceed button 2.png" id="8_baiiy"]
 [ext_resource type="Texture2D" uid="uid://r0gpwrc7a564" path="res://Assets/button/proceed button 1.png" id="9_77dwr"]
 [ext_resource type="Texture2D" uid="uid://bv6ab3s8neyhh" path="res://Assets/other art/Coin counter.png" id="13_7rkxk"]
+[ext_resource type="Texture2D" uid="uid://8653ggqadpdq" path="res://Assets/NPC/Shopkeeper with name tag.png" id="17_su8l6"]
 [ext_resource type="AudioStream" uid="uid://chvnkp6ou5fe7" path="res://Assets/SFX/card_fan.wav" id="18_g2kwx"]
+[ext_resource type="Texture2D" uid="uid://7yxb2bx1oamo" path="res://Assets/boss/talk/talk(boss).png" id="18_ox3t4"]
 [ext_resource type="AudioStream" uid="uid://s6phk4uwbvv0" path="res://Assets/SFX/card_draw_1.wav" id="19_sw7vf"]
 [ext_resource type="AudioStream" uid="uid://bed5sd3x3rfs7" path="res://Assets/SFX/coin_2.wav" id="20_dqpe6"]
 [ext_resource type="AudioStream" uid="uid://bs6ltd7igbk48" path="res://Assets/SFX/menu_blip.wav" id="21_rsbqn"]
 [ext_resource type="AudioStream" uid="uid://he75ys3idgg0" path="res://Assets/SFX/grow_big.wav" id="22_cdar6"]
 [ext_resource type="AudioStream" uid="uid://b1ou8gfhow7p3" path="res://Assets/SFX/8_bit_chime_positive.wav" id="23_hjqr8"]
 [ext_resource type="AudioStream" uid="uid://dqsgie2q2yoi0" path="res://Assets/music/87bpm shop music.wav" id="24_iche1"]
+[ext_resource type="AudioStream" uid="uid://bhdhggrwrgwsu" path="res://Assets/SFX/select_1.wav" id="26_edvnr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qvl1x"]
 
@@ -75,7 +78,21 @@ texture = ExtResource("13_7rkxk")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dyv6c"]
 
-[node name="Shop Scene" type="Node2D" node_paths=PackedStringArray("card_container", "player_container", "hand_container", "confirm_panel", "confirm_label", "warning_label", "upgrade_button")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2egfa"]
+bg_color = Color(0, 0, 0, 0.560784)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s18iq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d7yms"]
+texture = ExtResource("8_baiiy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cv0mb"]
+texture = ExtResource("8_baiiy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hb2en"]
+texture = ExtResource("9_77dwr")
+
+[node name="Shop Scene" type="Node2D" node_paths=PackedStringArray("card_container", "player_container", "hand_container", "confirm_panel", "confirm_label", "upgrade_button")]
 script = ExtResource("1_s0dvk")
 card_ui = ExtResource("1_oql1m")
 shop_cards = ExtResource("3_inuco")
@@ -84,7 +101,6 @@ player_container = NodePath("PlayerCenter/Player Card Container")
 hand_container = NodePath("HandCenter/HandContainer")
 confirm_panel = NodePath("ConfirmUI")
 confirm_label = NodePath("ConfirmUI/Panel/Control/MessageLabel")
-warning_label = NodePath("WarningLabel")
 upgrade_button = NodePath("Upgrade Button")
 
 [node name="ShopBackground" type="Sprite2D" parent="."]
@@ -297,14 +313,67 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_dyv6c")
 action_mode = 0
 text = "NO"
 
-[node name="WarningLabel" type="Label" parent="."]
-visible = false
-offset_left = 775.0
-offset_top = 600.0
-offset_right = 896.0
-offset_bottom = 623.0
-scale = Vector2(3, 3)
-text = "Oi, buy card lah"
+[node name="TutorialLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Control" type="Control" parent="TutorialLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="TutorialLayer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(48.1562, 26.9807)
+theme_override_styles/panel = SubResource("StyleBoxFlat_2egfa")
+
+[node name="ShopkeeperWithNameTag" type="Sprite2D" parent="TutorialLayer/Control"]
+z_index = 2
+position = Vector2(454, 855)
+texture = ExtResource("17_su8l6")
+
+[node name="DialoguePanel" type="NinePatchRect" parent="TutorialLayer/Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 480.0
+offset_top = 806.0
+offset_right = 1560.0
+offset_bottom = 1006.0
+texture = ExtResource("18_ox3t4")
+region_rect = Rect2(3.64968, 17.5256, 56.6881, 29.0864)
+
+[node name="Label" type="Label" parent="TutorialLayer/Control/DialoguePanel"]
+custom_minimum_size = Vector2(925, 0)
+layout_mode = 0
+offset_left = 133.0
+offset_top = 24.0
+offset_right = 1058.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_vi0a5")
+theme_override_font_sizes/font_size = 24
+text = "Hi! I'm Ethan. How's your mother? I sure hope she's doing well."
+autowrap_mode = 2
+
+[node name="SkipButton" type="Button" parent="TutorialLayer/Control"]
+layout_mode = 0
+offset_left = 1564.0
+offset_top = 73.0
+offset_right = 1820.0
+offset_bottom = 201.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_a2dmr")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s18iq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d7yms")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cv0mb")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hb2en")
+text = "SKIP"
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_dlbmg")]
 visible = false
@@ -331,6 +400,9 @@ volume_db = -5.622
 stream = ExtResource("23_hjqr8")
 volume_db = -4.685
 
+[node name="SelectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_edvnr")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_iche1")
 autoplay = true
@@ -342,3 +414,4 @@ bus = &"background"
 [connection signal="pressed" from="PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]
 [connection signal="pressed" from="ConfirmUI/Panel/Control/HBoxContainer/YesButton" to="." method="_on_yes_button_pressed"]
 [connection signal="pressed" from="ConfirmUI/Panel/Control/HBoxContainer/NoButton" to="." method="_on_no_button_pressed"]
+[connection signal="pressed" from="TutorialLayer/Control/SkipButton" to="." method="_on_skip_button_pressed"]

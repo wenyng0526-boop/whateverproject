@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bf71pykopuy04"]
+[gd_scene load_steps=37 format=3 uid="uid://bf71pykopuy04"]
 
 [ext_resource type="Script" path="res://Scipts/skeleton_event.gd" id="1_peoaf"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="2_ewhaa"]
@@ -23,6 +23,9 @@
 [ext_resource type="Texture2D" uid="uid://clq3s6l2pnl2p" path="res://Assets/NPC/Extra Limbs.png" id="21_pe15l"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lsysb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3pqbj"]
+texture = ExtResource("7_dkma6")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_58ola"]
 texture = ExtResource("7_dkma6")
@@ -133,12 +136,13 @@ z_index = -4
 layout_mode = 0
 offset_left = 1002.0
 offset_top = 776.0
-offset_right = 1202.0
-offset_bottom = 846.0
+offset_right = 1258.0
+offset_bottom = 904.0
 theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("5_ufgxm")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxEmpty_lsysb")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_3pqbj")
 theme_override_styles/hover = SubResource("StyleBoxTexture_58ola")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_cttn8")
 theme_override_styles/normal = SubResource("StyleBoxTexture_6prof")
@@ -149,8 +153,8 @@ z_index = -4
 layout_mode = 0
 offset_left = 1442.0
 offset_top = 776.0
-offset_right = 1642.0
-offset_bottom = 846.0
+offset_right = 1698.0
+offset_bottom = 904.0
 theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("5_ufgxm")
 theme_override_font_sizes/font_size = 20
@@ -214,10 +218,12 @@ position = Vector2(960, 540)
 texture = ExtResource("15_enpme")
 
 [node name="NormalSkeleton" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(964, 542)
 texture = ExtResource("20_pppmt")
 
 [node name="ExtraLimbs" type="Sprite2D" parent="."]
 visible = false
+z_index = -1
 position = Vector2(964, 542)
 texture = ExtResource("21_pe15l")
