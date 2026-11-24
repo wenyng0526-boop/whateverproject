@@ -21,6 +21,7 @@ signal board_drag_moved(card: CardUI, drag_position: Vector2)
 @export var animation_player: AnimationPlayer
 
 @onready var death_animation: AnimatedSprite2D = $CardVisual/DeathAnimation
+@onready var burn_sound: AudioStreamPlayer = $BurnSound
 
 var death_animation_started: bool = false
 
@@ -441,6 +442,7 @@ func play_death_animation() -> void:
 
 	# Start death animation
 	death_animation.show()
+	burn_sound.play()
 	death_animation.play("death")
 
 	# Wait until all 16 frames finish

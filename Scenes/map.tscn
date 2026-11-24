@@ -230,7 +230,7 @@ next_nodes = Array[int]([27])
 [node name="27 Shop" parent="." instance=ExtResource("1_j0sno")]
 position = Vector2(1125, 2283)
 node_index = 27
-next_nodes = Array[int]([28])
+next_nodes = Array[int]([28, 33])
 
 [node name="28 Combat" parent="." instance=ExtResource("1_j0sno")]
 position = Vector2(956, 2080)
@@ -270,17 +270,17 @@ next_nodes = Array[int]([34])
 [node name="34 Shop" parent="." instance=ExtResource("1_j0sno")]
 position = Vector2(1474, 1938)
 node_index = 34
-next_nodes = Array[int]([36])
+next_nodes = Array[int]([36, 35])
 
 [node name="35 Chest" parent="." instance=ExtResource("1_j0sno")]
 position = Vector2(1294, 1790)
 node_type = 3
 node_index = 35
-next_nodes = Array[int]([37, 24])
+next_nodes = Array[int]([23])
 
 [node name="36 Event" parent="." instance=ExtResource("1_j0sno")]
 position = Vector2(1627, 1797)
-node_type = 2
+node_type = 1
 node_index = 36
 event_scenes = Array[PackedScene]([ExtResource("2_rg8xy"), ExtResource("4_o64qr"), ExtResource("2_qs3uh"), ExtResource("2_tx34s")])
 next_nodes = Array[int]([37])
