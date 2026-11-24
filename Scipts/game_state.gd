@@ -84,6 +84,9 @@ func save_game(resume_scene: String) -> void:
 		"current_node": current_node,
 		"available_nodes": available_nodes,
 		"completed_nodes": completed_nodes,
+		"shop_level": shop_level,
+		"shop_tutorial_completed": shop_tutorial_completed,
+		"combat_tutorial_completed": combat_tutorial_completed
 	}
 
 	# Save every hand card as its own Resource
@@ -118,6 +121,10 @@ func load_game() -> String:
 	currency = int(save_data["currency"])
 	win_count = int(save_data["win_count"])
 	current_wave = int(save_data["current_wave"])
+	shop_level = int(save_data.get("shop_level", 1))
+
+	shop_tutorial_completed = bool(save_data.get("shop_tutorial_completed", false))
+	combat_tutorial_completed = bool(save_data.get("combat_tutorial_completed", false))
 	#Load map progression
 	current_node = int(save_data.get("current_node", 0))
 	available_nodes.clear()
@@ -187,6 +194,9 @@ func reset_run():
 	win_count = 0
 	current_wave = 1
 	shop_level = 1
+	
+	shop_tutorial_completed = false
+	combat_tutorial_completed = false
 
 	map_camera_y = 3000.0
 

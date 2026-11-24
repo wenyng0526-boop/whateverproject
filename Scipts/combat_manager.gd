@@ -42,21 +42,20 @@ var battle_started: bool = false
 @onready var fan_sound: AudioStreamPlayer = $CardFan
 @onready var card_draw: AudioStreamPlayer = $CardDraw
 @onready var start_sound: AudioStreamPlayer = $StartSound
+@onready var select: AudioStreamPlayer = $SelectSound
 
 const MAX_PITCH_STEPS: int = 7 #0-7
 const PITCH_AMOUNT: float = 1.5
 var attack_count: int = 0
 
-@onready var select_sound: AudioStreamPlayer = $SelectSound
-
 @onready var tutorial_root: Control = $TutorialLayer/Control
-@onready var dialogue_panel: NinePatchRect = $TutorialLayer/Control/NinePatchRect
+@onready var dialogue: NinePatchRect = $TutorialLayer/Control/NinePatchRect
 @onready var dialogue_label: Label = $TutorialLayer/Control/NinePatchRect/Label
 
-var tutorial_active: bool = true
-var is_typing: bool = false
-var skip_typing: bool = false
-var next_line: bool = false
+var tutorial_active: bool = false
+var is_type: bool = false
+var skip_type: bool = false
+var following_line: bool = false
 var tutorial_skipped: bool = false
 
 @onready var skip_button: Button = $TutorialLayer/Control/SkipButton
@@ -69,11 +68,12 @@ var tutorial_lines: Array[String] = [
 	"Starting from your left-most card, minions will take turn attacking the left-most minion until one side of the board is empty.",
 	"If your minions die, they will die permanently. Be careful on which cards you choose to sacrifice.",
 	"So, decide carefully on what positions the minions should be in as well as which minions to deployed. Be warned, if you lose, your time ends here.",
-	"After the battle, you'll receive currency based on  how many cards you have remaining and how difficult the enemies were.",
+	"After the battle, you'll receive currency based on how many cards you have remaining and how difficult the enemies were. Your remaining cards will return to your hand.",
 	"Hope to see you on the other side partner."
 ]
 
 func _ready() -> void:
+	tutorial_root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	spawn_player_cards()
 	spawn_hand_cards()
 	fan_sound.play()
@@ -689,8 +689,9 @@ func goblin_bonus():
 func start_tutorial():
 	tutorial_active = true
 	tutorial_skipped = false
+	tutorial_root.mouse_filter = Control.MOUSE_FILTER_STOP
 	tutorial_root.show()
-	dialogue_panel.show()
+	dialogue.show()
 	for line in tutorial_lines:
 		if tutorial_skipped:
 			break
@@ -698,30 +699,31 @@ func start_tutorial():
 		if tutorial_skipped:
 			break
 	
-	dialogue_panel.hide()
+	dialogue.hide()
 	tutorial_root.hide()
 	tutorial_active = false
 	
 	GameState.combat_tutorial_completed = true
+	GameState.save_game("res://Scenes/combat_scene.tscn")
 	
 func type_dialogue(line: String):
-	is_typing = true
-	skip_typing = false
-	next_line = false
+	is_type = true
+	skip_type = false
+	following_line = false
 
 	dialogue_label.text = line
 	dialogue_label.visible_characters = 0
 
 	for i in range(line.length()):
-		if skip_typing:
+		if skip_type:
 			break
 		dialogue_label.visible_characters = i + 1
 		await get_tree().create_timer(0.04).timeout
 
 	dialogue_label.visible_characters = -1
-	is_typing = false
+	is_type = false
 
-	while not next_line and not tutorial_skipped:
+	while not following_line and not tutorial_skipped:
 		await get_tree().process_frame
 		
 func _input(event: InputEvent) -> void:
@@ -733,20 +735,21 @@ func _input(event: InputEvent) -> void:
 		if skip_button and skip_button.get_global_rect().has_point(event.position):
 			return
 
-		if is_typing:
-			skip_typing = true
+		if is_type:
+			skip_type = true
 		else:
-			next_line = true
-			select_sound.play()
+			following_line = true
+			select.play()
 		get_viewport().set_input_as_handled()
 
 func _on_skip_button_pressed() -> void:
 	tutorial_active = false
-	skip_typing = true
-	next_line = true
+	skip_type = true
+	following_line = true
 	tutorial_skipped = true
 	
 	GameState.shop_tutorial_completed = true
+	GameState.save_game("res://Scenes/combat_scene.tscn")
 	
-	dialogue_panel.hide()
+	dialogue.hide()
 	tutorial_root.hide()

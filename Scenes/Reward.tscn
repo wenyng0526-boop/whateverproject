@@ -127,9 +127,9 @@ text = "  Absolutely Wiped!"
 
 [node name="Success_screen(reward)" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1130.0
+offset_left = 1126.0
 offset_top = 282.0
-offset_right = 1230.0
+offset_right = 1226.0
 offset_bottom = 365.0
 theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("4_4jrsn")

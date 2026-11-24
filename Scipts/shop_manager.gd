@@ -26,7 +26,7 @@ var is_fusing:bool = false
 @onready var dialogue_panel: NinePatchRect = $TutorialLayer/Control/DialoguePanel
 @onready var dialogue_label: Label = $TutorialLayer/Control/DialoguePanel/Label
 
-var tutorial_active: bool = true
+var tutorial_active: bool = false
 var is_typing: bool = false
 var skip_typing: bool = false
 var next_line: bool = false
@@ -46,6 +46,7 @@ var tutorial_lines: Array[String] = [
 ]
 
 func _ready() -> void:
+	tutorial_root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	refresh_shop()
 	spawn_player_cards()
 	refresh_hand()
@@ -226,6 +227,7 @@ func _on_done_button_pressed() -> void:
 func start_tutorial():
 	tutorial_active = true
 	tutorial_skipped = false
+	tutorial_root.mouse_filter = Control.MOUSE_FILTER_STOP
 	tutorial_root.show()
 	dialogue_panel.show()
 	for line in tutorial_lines:
