@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://c7ondrblaspck"]
+[gd_scene load_steps=66 format=3 uid="uid://c7ondrblaspck"]
 
 [ext_resource type="Script" path="res://Scipts/combat_manager.gd" id="1_1ge3h"]
 [ext_resource type="PackedScene" uid="uid://v8ivyevagaw0" path="res://Scenes/CardUI.tscn" id="1_hiokq"]
@@ -43,6 +43,7 @@
 [ext_resource type="AudioStream" uid="uid://s6phk4uwbvv0" path="res://Assets/SFX/card_draw_1.wav" id="39_43xny"]
 [ext_resource type="AudioStream" uid="uid://chvnkp6ou5fe7" path="res://Assets/SFX/card_fan.wav" id="40_rskvv"]
 [ext_resource type="AudioStream" uid="uid://bhdhggrwrgwsu" path="res://Assets/SFX/select_1.wav" id="41_knan4"]
+[ext_resource type="AudioStream" uid="uid://c0n8pb771myx5" path="res://Assets/music/enemy(fight_).wav" id="44_non5x"]
 [ext_resource type="Texture2D" uid="uid://bmr6amqr4nmnk" path="res://Assets/background/Combat background.png" id="44_tg153"]
 [ext_resource type="Texture2D" uid="uid://8653ggqadpdq" path="res://Assets/NPC/Shopkeeper with name tag.png" id="45_h1bri"]
 [ext_resource type="Texture2D" uid="uid://7yxb2bx1oamo" path="res://Assets/boss/talk/talk(boss).png" id="46_5btbq"]
@@ -232,6 +233,11 @@ stream = ExtResource("41_knan4")
 
 [node name="SelectSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("41_knan4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("44_non5x")
+volume_db = -9.866
+autoplay = true
 
 [node name="CombatBackground" type="Sprite2D" parent="."]
 z_index = -100

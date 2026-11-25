@@ -10,6 +10,11 @@ extends Control
 
 @onready var menu_blip: AudioStreamPlayer = $"../../../MenuBlip"
 
+@onready var background: AnimatedSprite2D = $"../../../Background"
+
+func _ready() -> void:
+	background.play()
+
 var is_clicked: bool = false
 
 

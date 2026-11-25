@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://cm8wwhc0oombo"]
+[gd_scene load_steps=57 format=3 uid="uid://cm8wwhc0oombo"]
 
 [ext_resource type="Script" path="res://Scipts/boss_practice_manager.gd" id="1_1u37y"]
 [ext_resource type="Resource" uid="uid://civ0v7wlsbeer" path="res://Other resource/boss_resource.tres" id="2_0anpy"]
@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://c4lnlj38wuvu6" path="res://Minion Resource/Knight/foot_soldier.tres" id="17_14p88"]
 [ext_resource type="Resource" uid="uid://d206o5rpul7ka" path="res://Minion Resource/Rat/rat_tamer.tres" id="21_sb5kl"]
 [ext_resource type="Resource" uid="uid://bvf130wywxg2u" path="res://Minion Resource/Skeleton/extra_limbs.tres" id="25_xtuns"]
+[ext_resource type="AudioStream" uid="uid://5n60dloqqam8" path="res://Assets/music/Boss_Fight(maybe).wav" id="27_enctp"]
 [ext_resource type="Texture2D" uid="uid://7yxb2bx1oamo" path="res://Assets/boss/talk/talk(boss).png" id="27_xoni1"]
 [ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="28_6owr3"]
 [ext_resource type="Texture2D" uid="uid://bsfocwfeyeutb" path="res://Assets/boss/haelth_bar/backgorund_boss_health.png" id="29_2r5wd"]
@@ -1097,6 +1098,11 @@ stream = ExtResource("43_k0nmo")
 [node name="SelectSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("43_k0nmo")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_enctp")
+volume_db = -6.755
+autoplay = true
+
 [node name="CombatBackground" type="Sprite2D" parent="."]
 z_index = -100
 position = Vector2(958, 539)
@@ -1201,7 +1207,7 @@ texture = ExtResource("33_gyfxs")
 
 [node name="Many_Rat_Attack" type="Sprite2D" parent="BossUILayer"]
 texture_filter = 1
-position = Vector2(2114, 692)
+position = Vector2(-221, 692)
 texture = ExtResource("35_wer0t")
 flip_h = true
 
