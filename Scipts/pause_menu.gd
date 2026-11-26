@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@export var settings_panel: Control
+
 var can_pause: bool = true
 @onready var pause_sound: AudioStreamPlayer = $PauseSound
 @onready var blip_sound: AudioStreamPlayer = $BlipSound
@@ -40,10 +40,6 @@ func _on_resume_button_pressed() -> void:
 	resume()
 	pass
 
-#we dont have a settings bruh
-func _on_settings_button_pressed() -> void:
-	pause_sound.play()
-	pass
 
 func _on_end_run_button_pressed() -> void:
 	blip_sound.play()
