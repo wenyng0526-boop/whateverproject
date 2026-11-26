@@ -21,6 +21,9 @@ extends Control
 @export var success_continue_button: Button
 @export var failure_main_menu_button: Button
 
+
+var collect_pressed: bool = false
+
 func _ready() -> void:
 	hide()
 
@@ -74,6 +77,10 @@ func hide_all_screens() -> void:
 
 
 func _on_continue_button_pressed() -> void:
+	if collect_pressed:
+		return
+
+	collect_pressed = true
 	coin_sound.play()
 	await coin_sound.finished
 	if next_scene != "":

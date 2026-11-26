@@ -85,7 +85,8 @@ func _ready() -> void:
 	boss_health_bar.value = boss_max_health
 	boss_health_bar.show()
 	boss_health_bar.modulate.a = 0.0
-
+	
+	$StartBattleButton.hide()
 	$StartBattleButton.disabled = true
 	for child in player_container.get_children():
 		if child is CardUI:
@@ -166,6 +167,7 @@ func play_boss_intro() -> void:
 	await play_boss_health_appear()
 
 	intro_active = false
+	$StartBattleButton.show()
 	$StartBattleButton.disabled = false
 	for child in player_container.get_children():
 		if child is CardUI:

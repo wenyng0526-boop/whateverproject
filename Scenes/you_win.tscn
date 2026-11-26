@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scipts/you_win.gd" id="1_i1lei"]
 [ext_resource type="Texture2D" uid="uid://qdos0ojdrox5" path="res://Assets/background/pause menu background.png" id="1_xis62"]
-[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="2_36c6v"]
-[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/fonts/PixelOperator8.ttf" id="3_nk136"]
+[ext_resource type="FontFile" uid="uid://e2g4j1nu4f4l" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="2_36c6v"]
+[ext_resource type="FontFile" uid="uid://d4jftloaibius" path="res://Assets/Fonts/PixelOperator8.ttf" id="3_nk136"]
 [ext_resource type="Texture2D" uid="uid://bgblo1ab63kbe" path="res://Assets/NPC/Dead Squire.png" id="4_vqb6c"]
 [ext_resource type="Texture2D" uid="uid://ogxa7t7c5sjb" path="res://Assets/NPC/Grandma happy.png" id="5_86rt0"]
 [ext_resource type="Texture2D" uid="uid://buhlf1p8073ah" path="res://Assets/cards/Little Rat card.png" id="7_p4fs7"]
